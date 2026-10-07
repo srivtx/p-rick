@@ -90,17 +90,20 @@
 
     <article class="paper-card">
       <div class="pc-top"><span class="paper-id">P-023</span><h3>Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora</h3></div>
-      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span></div>
+      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span><span class="tag">rev 1.1</span></div>
       <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-023/f2-recall.png" alt="Recall decay: stale vs anchored vs re-embedded" style="width:100%;display:block;border-radius:5px;"></div>
       <p>
         Every vector index goes stale between encoder upgrades, and nobody has the law:
-        D(g) = 1&minus;&lambda;<sup>g</sup> with &lambda; the product of an isometry
-        channel (dimension-mercied into harmlessness and removable exactly by a
-        Procrustes landmark panel at &radic;(d/L) cost) and a distortion channel
-        (dimension-free, un-alignable, the entire real cost of churn). Validated to
-        three decimals across channels; anchored stale vectors hold nearly double the
-        recall at a rounding error of re-embedding cost. The re-embed calendar, replaced
-        by two probes and one matrix solve.
+        D(g) = 1&minus;&lambda;<sup>g</sup> with &lambda; the product of an isometry channel
+        (dimension-mercied into harmlessness and removable exactly by a Procrustes landmark
+        panel) and a distortion channel (dimension-free, un-alignable, the entire real cost
+        of churn). Validated to three decimals; anchored stale vectors hold nearly double the
+        recall at a rounding error of re-embedding cost. Revision 1.1: the draft's
+        &ldquo;L&thinsp;&asymp;&thinsp;8d&rdquo; landmark constant is withdrawn and replaced by a
+        derived estimation theorem &mdash; the panel budget is a four-factor law (accumulated
+        distortion, panel coverage, estimator class, tolerance) whose knee-migration
+        experiments (F6/F7) track within 11%; an undersized panel is shown to be worse than
+        no panel at all. The re-embed calendar, replaced by two probes and one matrix solve.
       </p>
       <div class="pc-links"><a href="pdfs/p-023.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-023-generation-loss.md">source</a><a class="muted-link" href="blog/p023.html">essay</a><a class="muted-link" href="figures/p-023/results.json">data</a></div>
     </article>

@@ -395,21 +395,21 @@ def main():
     ax.yaxis.grid(True, alpha=0.12, color=G400)
     save(fig, 'f1-degree-distributions.png')
 
-    # F2
-    fig, ax = plt.subplots(figsize=(6.6, 4.2), constrained_layout=True)
+    # F2 (rev 1.1: threshold labels live in the legend, not as rotated
+    # in-plot text that collides with the theory lines and curves)
+    fig, ax = plt.subplots(figsize=(6.8, 4.4), constrained_layout=True)
     for i, N in enumerate(F2_SIZES):
-        ax.plot(F2_T, f2_prob[N], color=CB[i], lw=2.0, marker='o', ms=3.5,
-                label=f'N={N:,}  ($\\langle d\\rangle$={f2_mean[N]:.1f})')
         Tc = 1.0 / f2_mean[N]
+        ax.plot(F2_T, f2_prob[N], color=CB[i], lw=2.0, marker='o', ms=3.5,
+                label=f'$N$={N:,}, $\\langle d\\rangle$={f2_mean[N]:.1f}, '
+                      f'$T_c$={Tc:.3f}')
         ax.axvline(Tc, color=CB[i], ls=':', lw=1.1, alpha=0.8)
-        ax.text(Tc + 0.007, 0.04 + 0.16 * i, f'$T_c$={Tc:.3f}',
-                fontsize=8.2, color=CB[i], rotation=90, va='bottom')
     ax.set_xlabel('per-edge transmissibility $T$')
     ax.set_ylabel('outbreak probability')
     ax.set_ylim(-0.03, 1.03)
     ax.set_xlim(0, 0.52)
     ax.set_title('The threshold law: heavier-tailed registries burn easier')
-    ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
+    ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', fontsize=8.8)
     clean_axis(ax)
     save(fig, 'f2-phase-transition.png')
 

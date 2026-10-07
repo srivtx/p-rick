@@ -288,3 +288,18 @@ mass-usefulness, validated honestly (including where it bends).
 | validated laws | 3 (R₀ᵛ, τ*, D(g)=1−λ^g) |
 | simulation figures | 16 (all seeded, reproducible) |
 | product substrates | 1 (PocketVeto) |
+
+### Session 013 — 2026-10-08: research-integrity round (P-023 rev 1.1 + cross-paper figure corrections)
+
+**Trigger.** External critique of P-023 draft 1.0: the "L ≈ 8d" landmark knee was presented as a universal production constant while the required landmarks should depend on distortion magnitude, noise structure, conditioning, anisotropy, transformation class, and desired alignment error; a synthetic knee cannot establish an engineering law. User directive: challenge or verify the critique, fix all errors, go deeper, and repair figures overlapping text.
+
+**What was done.**
+- Verified every claim in the critique against the paper's own data and found two additional errors the critique did not mention: §6.4's stale baseline printed 0.019 where results.json holds 0.511 (the "twenty-five-fold recovery" was wrong), and the L=2048/4096 "identical" readings differ by 0.0004 — below the recall estimator's noise.
+- Derived the replacement: the Landmark Estimation Law (Theorem 3) — an exact first-order closed form for the Procrustes estimator's error via a Sylvester-equation tangent-space argument; five corollaries (isotropic constant ν√((d−1)/2L); chain position ν_eff=√g·ν; matched-panel forgiveness via the harmonic kernel; coverage-mismatch as the real risk; estimator-class budget 2d/(d−1)). With it, the factorized budget law L* = (ν_eff/ε)²·(d−1)/2 × M/M_iso × class-factor — the critique's factor list formalized, plus two factors the critique missed (chain position g; the recall mapping's dependence on accumulated distortion).
+- Built `code/p-023b-landmark-budget.py` (paired-chain design, float32, chunked top-k, cached greedy selection) and ran the validation: E1 theorem check (isotropic 1.03–1.04, anisotropic 0.91/0.75, affine 1.045, class factor 2.16 vs 2.06); F6a (ν,G) collapse onto ν_eff, exponent 0.77; F6b starved-panel penalty 4.8× mismatch → 4× knee, matched anisotropy free; F6c class factor 2.0 measured, orthogonal-on-linear floor −31%, residual diagnosis 3.3×; F6d tolerance exponent 0.5; F7 six of seven knees within 11% of the law's ratio prediction. Withdrew the 8d constant; corrected §6.4 (undersized panels actively harmful: 0.09 vs 0.51 stale).
+- Figure corrections across the series: p-023 F2 (twin-axis legend collision → legend below), p-023 F4 (annotation over the curve → clear space + harm-zone shading), p-021 F2 (rotated T_c labels overlapping theory lines → legend labels), p-022 F3 (low-contrast cell text → luminance-adaptive). All re-rendered; originals' harnesses patched so re-runs stay clean; p-021's F2 curves reproduced exactly by rng replay and added to results.json.
+- Rebuilt the PDFs on a new math+figure LaTeX pipeline (md2tex5.py: inline-math protection, display math, figure environments); Tectonic zero errors; covers reused from the live PDFs; pdf_qa PASS/WARN-cosmetic; pages visually verified.
+- Paper figure paths made GitHub-renderable (../figures/); papers.html P-023 card, essay, README row, feed/sitemap regenerated.
+
+**Outcome.** P-023 v1.1: the critique is proved right in form (no universal constant) and answered in substance (a law with the critique's own factor list, derived and validated). counts unchanged (23 papers, 23 essays, 23 PDFs); quality bar raised: constants must now be laws or be labeled as configuration-specific.
+

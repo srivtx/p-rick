@@ -397,11 +397,15 @@ im = ax.imshow(gain, cmap=cmap, norm=norm, aspect='auto', origin='lower',
 for ai in range(len(F3_ALPHAS)):
     for fi in range(len(F3_FS)):
         v = gain[ai, fi]
+        # rev 1.1: luminance-adaptive cell text (fixed low-contrast cells)
+        rgba = np.array(cmap(norm(v)))
+        lum = 0.299 * rgba[0] + 0.587 * rgba[1] + 0.114 * rgba[2]
+        col = 'white' if lum < 0.55 else '#111827'
         txt = f'{v*100:.0f}%'
         ax.text(F3_FS[fi], F3_ALPHAS[ai], txt, ha='center', va='center',
-                fontsize=8,
-                color='white' if abs(v) > 0.5 * max(abs(gain.max()),
-                                                   abs(gain.min())) else G700)
+                fontsize=8.2, color=col,
+                fontweight='bold' if abs(v) == max(abs(gain.max()),
+                                                   abs(gain.min())) else 'normal')
 ax.set_xlabel('transient fraction $f$')
 ax.set_ylabel('Zipf exponent $\\alpha$')
 ax.set_title('Gain of the admission law over LRU')

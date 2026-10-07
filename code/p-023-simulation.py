@@ -311,11 +311,15 @@ ax2.plot(gs, r_anchor['D'][1:], color=G400, lw=1.4, ls='--', alpha=0.85)
 ax2.set_ylabel('drift $D(g)$', color=G700, fontsize=10)
 ax2.tick_params(axis='y', colors=G700)
 ax2.spines['top'].set_visible(False)
+ax2.set_ylim(0, 1.0)
 ax.set_xlabel('generation $g$')
 ax.set_ylabel('recall@10')
 ax.set_ylim(0, 1.05)
 ax.set_title('Anchoring without re-embedding: recall held, cost ~0')
-ax.legend(bbox_to_anchor=(1.08, 1), loc='upper left')
+# rev 1.1: legend below the axes (the outside-right placement collided
+# with the twin axis label)
+ax.legend(bbox_to_anchor=(0.5, -0.18), loc='upper center', ncol=2,
+          fontsize=8.6)
 clean_axis(ax)
 save(fig, 'f2-recall.png')
 
@@ -354,9 +358,15 @@ ax.plot(F4_LS, 1.0 - c_fit * np.sqrt(256.0 / np.array(F4_LS, dtype=float)),
         color=G700, ls='--', lw=1.5,
         label='$1 - c\\sqrt{d/L}$ (alignment-error law)')
 ax.axhline(rr_st['recall_stale'][-1], color=CB[3], ls=':', lw=1.6)
-ax.text(5.0, rr_st['recall_stale'][-1] - 0.13,
+# rev 1.1: annotation above the line at the left edge (the old placement
+# at x=5, y=stale-0.13 sat on the rising curve), harm zone shaded
+ax.axvspan(40, 256, color=CB[3], alpha=0.07)
+ax.text(70, 0.965,
+        'harm zone ($L<d$):\nnoise-fit rotation is worse\nthan no alignment',
+        fontsize=7.6, color=CB[3], va='top')
+ax.text(70, rr_st['recall_stale'][-1] + 0.026,
         f'stale, no anchoring: {rr_st["recall_stale"][-1]:.2f}',
-        fontsize=8.5, color=CB[3])
+        fontsize=8.5, color=CB[3], ha='left', va='bottom')
 ax.set_xscale('log')
 ax.set_xlabel('landmark count $L$')
 ax.set_ylabel('recall@10')
