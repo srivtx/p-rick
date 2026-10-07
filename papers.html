@@ -4,7 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers — p-rick</title>
-<meta name="description" content="All p-rick working papers: degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<meta name="description" content="All eleven p-rick working papers in three series: device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="p-rick papers — eleven working papers on missing software">
+<meta property="og:description" content="Eleven working papers in three series. Each verifies its gap against the existing landscape before proposing anything.">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/papers.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +28,7 @@
     <nav>
       <a href="papers.html">Papers</a>
       <a href="blog.html">Blog</a>
+      <a href="method.html">Method</a>
       <a href="index.html#about">About</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
     </nav>
@@ -32,10 +42,84 @@
 <main class="page-main">
   <h1 class="page-title">Papers</h1>
   <p class="page-sub">
-    Seven working papers in two series. Each verifies its gap against the existing landscape
-    before proposing anything, states the gap as a falsifiable claim, and confronts the strongest
-    objections to its own thesis. PDFs are hosted on this site; markdown sources live in the repository.
+    Eleven working papers in three series. Each verifies its gap against the existing landscape
+    before proposing anything, states the gap as a falsifiable claim, grades the evidence
+    honestly (STRONG / PARTIAL / WEAK), and confronts the strongest objections to its own
+    thesis. PDFs are hosted on this site; markdown sources live in the repository. The
+    <a href="method.html">method page</a> documents the bar and the exclusions; the
+    <a href="#cite">citing block</a> is at the bottom.
   </p>
+
+  <div class="arc-label">series III &middot; continuity &mdash; what systems lose over time &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-008</span><h3>The Afterlife of Devices: An Architecture for Vendor-Death Resilience</h3></div>
+      <div class="paper-tags"><span class="tag">IoT</span><span class="tag">lifecycle</span><span class="tag">escrow</span></div>
+      <p>
+        Connected devices have physical lifetimes of a decade and corporate lifetimes of a few
+        years, and the crossing is undesigned: Insteon darkened hubs overnight in 2023, Revolv
+        was bricked on a published schedule in 2016. We specify succession-ready devices — a
+        lifecycle state machine with an explicit succession transition, a device succession
+        manifest, escrowed continuity released by verifiable dead-hand triggers (bankruptcy
+        filings, certificate expiry, renewal silence), a threshold key-succession ceremony,
+        a degradation ladder, and a hardware-guaranteed fossil mode. Every component exists
+        in an adjacent industry; the composition does not exist anywhere.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-008.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a><a class="muted-link" href="blog/p008.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-009</span><h3>Circadian Orchestration: Team Scheduling on Human Biological Time</h3></div>
+      <div class="paper-tags"><span class="tag">HCI × OR</span><span class="tag">chronobiology</span><span class="tag">privacy</span></div>
+      <p>
+        Collaborative calendars model availability — free or busy — and nothing else, while
+        human performance varies by circadian phase with a population spread of four to six
+        hours. We specify circadian orchestration: a private phase state (questionnaire-grade
+        estimation, optional wearable calibration), circadian cost functions from the
+        two-process model of sleep regulation, fairness-constrained meeting placement with
+        minimax burden bounds, and the golden overlap — all under a privacy-first architecture
+        where only binned cost surfaces leave the client and no individual's phase is ever
+        transmitted. The evidence grades PARTIAL at components, STRONG at composition.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-009.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">source</a><a class="muted-link" href="blog/p009.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-010</span><h3>The Bus Factor Protocol: Succession Governance for Open-Source Package Registries</h3></div>
+      <div class="paper-tags"><span class="tag">supply chain</span><span class="tag">governance</span><span class="tag">registries</span></div>
+      <p>
+        Registries govern code identity — names, signing, provenance — but not maintainership
+        continuity, so the supply chain's load-bearing packages decay into abandonment by
+        default, and every catastrophic governance failure of the last decade began in the
+        succession gap: left-pad, event-stream, colors, and the 2024 xz-utils backdoor, which
+        was a succession attack executed through a tired maintainer's private handover. We
+        specify the bus factor protocol: an abandonment state machine, succession policy as
+        code, a dormancy escalation ladder ending in a narrow security-hold, an anti-xz
+        trust-elevation ladder (co-signed, delay-locked early releases), dead-hand transfers,
+        community takeover with tenure-in-graph vouching, and a public continuity ledger.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-010.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">source</a><a class="muted-link" href="blog/p010.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-011</span><h3>Model Extinction: Behavioral Conservation for the Age of Disposable AI</h3></div>
+      <div class="paper-tags"><span class="tag">AI infra</span><span class="tag">conservation</span><span class="tag">reproducibility</span></div>
+      <p>
+        We preserve web pages, source code, films, and seeds — but not the behavior of deployed
+        AI models, the fastest-dying artifact class in software history. Same-name drift,
+        fine-tune orphaning, unreproducible science, and silent product breakage are one
+        uncounted extinction event. We specify behavioral conservation: the behavioral
+        fingerprint (stratified, anchor-linked eval suites with confidence regions,
+        including consumer-contributed regression strata), equivalence testing for
+        replacements (TOST-based deprecation audits), an IUCN-style extinction registry,
+        inference-time provenance tokens, archival access tiers, and enforceable deprecation
+        contracts. Conserve the observable, not the substrate.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-011.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">source</a><a class="muted-link" href="blog/p011.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series II &middot; systems &middot; 2026</div>
   <div class="paper-grid">
@@ -146,6 +230,148 @@
     </article>
 
   </div>
+
+  <div id="cite" class="cite-section">
+    <div class="section-head"><h2>Cite</h2><div class="rule"></div></div>
+    <p class="page-sub" style="margin-bottom: 24px;">
+      BibTeX for all eleven working papers. Each entry cites the PDF (the typeset, canonical
+      form); the markdown source lives at the same path in the repository.
+    </p>
+    <details class="cite-details">
+      <summary>Show BibTeX (11 entries)</summary>
+      <div class="bibtex-block"><pre>@techreport{prick2026p008,
+  title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-008},
+  series      = {Series III: Continuity},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-008.pdf}
+}
+
+@techreport{prick2026p009,
+  title       = {Circadian Orchestration: Team Scheduling on Human Biological Time},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-009},
+  series      = {Series III: Continuity},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-009.pdf}
+}
+
+@techreport{prick2026p010,
+  title       = {The Bus Factor Protocol: Succession Governance for Open-Source Package Registries},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-010},
+  series      = {Series III: Continuity},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-010.pdf}
+}
+
+@techreport{prick2026p011,
+  title       = {Model Extinction: Behavioral Conservation for the Age of Disposable AI},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-011},
+  series      = {Series III: Continuity},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-011.pdf}
+}
+
+@techreport{prick2026p004,
+  title       = {Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-004},
+  series      = {Series II: Systems},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-004.pdf}
+}
+
+@techreport{prick2026p005,
+  title       = {Provenance-Native Storage: The File System as a Causal Ledger},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-005},
+  series      = {Series II: Systems},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-005.pdf}
+}
+
+@techreport{prick2026p006,
+  title       = {The Attention Scheduler: Interruption Economics as an Operating System Problem},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-006},
+  series      = {Series II: Systems},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-006.pdf}
+}
+
+@techreport{prick2026p007,
+  title       = {The Intermittent Compute Fabric: One Machine Across Many Devices},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-007},
+  series      = {Series II: Systems},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-007.pdf}
+}
+
+@techreport{prick2026p001,
+  title       = {The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-001},
+  series      = {Series I: User-Owned Data},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-001.pdf}
+}
+
+@techreport{prick2026p002,
+  title       = {Consumer Entitlements as Dead Capital},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-002},
+  series      = {Series I: User-Owned Data},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-002.pdf}
+}
+
+@techreport{prick2026p003,
+  title       = {The n=1 Cost-of-Living Index},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-003},
+  series      = {Series I: User-Owned Data},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-003.pdf}
+}</pre></div>
+    </details>
+  </div>
 </main>
 
 <footer class="site-footer">
@@ -158,6 +384,8 @@
       <a href="index.html">Home</a>
       <a href="papers.html">Papers</a>
       <a href="blog.html">Blog</a>
+      <a href="method.html">Method</a>
+      <a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
     </div>
   </div>

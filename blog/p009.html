@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Calendar Was Designed for a Species That Doesn't Exist — p-rick</title>
+<meta name="description" content="Every scheduling system in production — every one — encodes exactly one fact about you: whether a slot is occupied. You are a grid of free and busy. Everything else, the software a…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Your Calendar Was Designed for a Species That Doesn't Exist">
+<meta property="og:description" content="Every scheduling system in production — every one — encodes exactly one fact about you: whether a slot is occupied. You are a grid of free and busy. Everything else, the software a…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p009.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Calendar Was Designed for a Species That Doesn't Exist">
+<meta name="twitter:description" content="Every scheduling system in production — every one — encodes exactly one fact about you: whether a slot is occupied. You are a grid of free and busy. Everything else, the software a…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-009</div>
+    <h1 class="post-title">Your Calendar Was Designed for a Species That Doesn't Exist</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Every scheduling system in production — every one — encodes exactly one fact about you: whether a slot is occupied. You are a grid of free and busy. Everything else, the software assumes, is your problem.</p>
+    <p>Here is what sixty years of chronobiology says about that assumption: it's wrong in a specific, measurable, exploitable way. Your cognitive performance varies systematically across the day. That variation follows your <em>circadian phase</em> — your internal clock's offset from the social clock — and phase differs between people by four to six hours at the population extremes. A 9 a.m. strategy meeting is near-peak for your morning person and near-trough for your night owl. Same room, same coffee, same agenda, two different brains.</p>
+    <p>Your calendar treats them as the same animal. Your calendar was designed for the <em>average human</em>, who does not exist.</p>
+    <h2>The fight you're having is not the fight you think you're having</h2>
+    <p>Every engineering team I've ever worked with has fought the standup-time war. It presents itself as a culture dispute — discipline versus flexibility, night owls versus morning people, someone's "we've always done 8:30."</p>
+    <p>It isn't. It's a chronotype dispute misclassified as a character dispute, and the cost lands on the tail. The evening types absorb the early-slot burden forever, quietly, and the cost is real: chronic mismatch between social and biological time — the literature calls it <em>social jetlag</em> — is one of the most consistently replicated associations in the field. You are not arguing. You are externalizing biology onto the people with the late phase.</p>
+    <p>And nobody — no calendar, no meeting tool, none of it — can even <em>represent</em> the problem. That's the gap.</p>
+    <h2>The science is done. The math is done. The software doesn't exist.</h2>
+    <p>This is what sold me on the gap. Look at the pieces:</p>
+    <p>Chronotype is measurable in five minutes — validated questionnaires, the Munich ChronoType lineage, scored against core body temperature in the lab. Wearables now measure sleep timing at population scale; half your team already wears a phase-estimation device. The two-process model of alertness — Borbély, 1982, continuously refined since — gives you a functional form for performance across the day. And the operations research community spent <em>decades</em> building circadian-aware scheduling for hospitals and factories. The optimization is solved, in a harder setting than this one.</p>
+    <p>Meanwhile your scheduling stack — Calendly, FindTime, working hours, focus analytics — models time as <em>quantity</em> and pretends it has no <em>quality</em>.</p>
+    <p>Components: proven. Composition: absent. That's the shape of every real gap.</p>
+    <h2>The reason it stayed empty is the reason it's buildable</h2>
+    <p>The obvious implementation is a surveillance nightmare — your employer knows your sleep — and everyone correctly recoiled, so the category died before anyone designed it. The failure was imagination, not feasibility.</p>
+    <p>The design that works refuses the data model, not the problem. Your phase never leaves your device. What leaves is a <em>binned cost surface</em> — green slots and red slots over the team's shared horizon, no reasons attached, three coarseness levels, nothing to subpoena because nothing individual exists to subpoena. The optimizer only ever sees suitability bins. The org dashboard sees aggregate golden hours under k-anonymity. The privacy isn't a compliance layer bolted on after the lawyers screamed. It's the data model.</p>
+    <p>That's the generalizable lesson and I'll repeat it because it's worth repeating: <strong>choose the disclosed abstraction so privacy falls out of the data model, not out of cryptography bolted on later.</strong></p>
+    <h2>The unfair part nobody optimizes for</h2>
+    <p>Left to itself, a naive optimizer does something ugly: it schedules for the morning majority, because morning people are cheap to satisfy at 9 a.m. by construction. The evening tail eats the difference. Unconstrained optimization <em>redistributes</em> pain; it doesn't remove it.</p>
+    <p>So the specification has a fairness constraint — minimax burden over a rolling window — and it's the difference between a tool and a weapon. The output isn't "everyone's average alertness improved." It's "nobody is structurally assigned the graveyard." Scheduling is distributional. Every calendar is a distributional policy. Yours is currently unexamined.</p>
+    <h2>Start with one meeting</h2>
+    <p>You don't need a mandate. Take your worst recurring meeting — you know the one — and compute its golden overlap by hand if you have to. Ask five people when they're actually sharp, anonymously if you like. You'll find two hours of shared daylight nobody was using, and a drift plan gets you there in a month.</p>
+    <p>The 8:00 standup war doesn't end with a compromise. It ends with a slot.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-009.pdf">Circadian Orchestration (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

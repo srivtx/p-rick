@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>p-rick research program — essays</title>
+    <link>https://srivtx.github.io/p-rick</link>
+    <description>Essays accompanying the p-rick working papers on missing software: the argument in plain language, written the way technical leaders write.</description>
+    <language>en</language>
+    <lastBuildDate>07 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://srivtx.github.io/p-rick/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>We Preserve Films and Seeds. Not Minds.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p011.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p011.html</guid>
+      <description>There&#x27;s a vault in Svalbard that keeps seeds against the collapse of agriculture. There&#x27;s an archive in San Francisco that keeps the web against the collapse of memory. There&#x27;s an …</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>xz Wasn&#x27;t a Hack. It Was a Retirement.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p010.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p010.html</guid>
+      <description>In March 2024, the world learned that a compression library at the base of nearly every Linux distribution had been backdoored. The postmortems called it a supply-chain compromise.…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Calendar Was Designed for a Species That Doesn&#x27;t Exist</title>
+      <link>https://srivtx.github.io/p-rick/blog/p009.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p009.html</guid>
+      <description>Every scheduling system in production — every one — encodes exactly one fact about you: whether a slot is occupied. You are a grid of free and busy. Everything else, the software a…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Company Died. Your Lights Didn&#x27;t Get the Memo.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p008.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p008.html</guid>
+      <description>In April 2023, a company called Insteon shut down. No announcement, no transition plan. Somewhere north of a decade of installed hardware — hubs, dimmers, locks, sensors sitting in…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>You Don&#x27;t Own Five Computers. You Own One Bad Computer.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p007.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p007.html</guid>
+      <description>Count the machines you own: phone, laptop, desktop, tablet, watch, maybe a console and a NAS. Add up the cores, the memory, the GPUs, the sensors. That aggregate is more compute th…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Most Important Scheduler in Computing Hasn&#x27;t Been Written</title>
+      <link>https://srivtx.github.io/p-rick/blog/p006.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p006.html</guid>
+      <description>Fifty years of systems research gave us something beautiful: a body of theory that lets one machine serve thousands of competing requesters — fairly, with latency guarantees, starv…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Every File You Own Forgot Who It Is</title>
+      <link>https://srivtx.github.io/p-rick/blog/p005.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p005.html</guid>
+      <description>Take any file on your machine. The important one — the contract, the report, the dataset, the PDF your lawyer sent. Now ask it a simple question: emwhere did you come from?/em
+
+The fi…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Software Has a Second Behavior Nobody Wrote Down</title>
+      <link>https://srivtx.github.io/p-rick/blog/p004.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p004.html</guid>
+      <description>There are two versions of every app you ship. The one in the spec, and the one that exists when the machine gets tired.
+
+The first version has an entire industry around it. Product…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Inflation Is Not the CPI. It&#x27;s Time You Could Measure Yours.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p003.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p003.html</guid>
+      <description>Economics has known for a decade that your inflation isn&#x27;t the headline number. Kaplan and Schulhofer-Wohl built household-specific price indices and found dispersion that is large…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Largest Pool of Unclaimed Money in the Economy Is Yours</title>
+      <link>https://srivtx.github.io/p-rick/blog/p002.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p002.html</guid>
+      <description>Some numbers first, because they&#x27;re the whole argument:
+
+- €3–6 billion a year in EU flight-delay compensation goes unclaimed. 87% of eligible passengers never file.
+- US class-act…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Phone Sees Everything and Remembers Nothing</title>
+      <link>https://srivtx.github.io/p-rick/blog/p001.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p001.html</guid>
+      <description>Every day, your phone receives dozens of the most valuable data points of your life — and throws them away before you&#x27;ve finished reading them.
+
+The bank&#x27;s notification that ₹1,199…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

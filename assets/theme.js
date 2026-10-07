@@ -18,6 +18,14 @@
         document.documentElement.setAttribute('data-theme', ev.newValue);
       }
     });
+    // keyboard shortcut: t toggles the theme (unless typing)
+    document.addEventListener('keydown', function (ev) {
+      var tag = (ev.target && ev.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || ev.metaKey || ev.ctrlKey || ev.altKey) return;
+      if (ev.key === 't' || ev.key === 'T') {
+        btn.click();
+      }
+    });
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);

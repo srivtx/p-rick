@@ -9,13 +9,22 @@ honest confrontation with the reasons each gap survived. Every paper ships with 
 plain-language essay. Research first; products later, in separate directories, only after the
 research is done.
 
-**Site (dark mode + light mode): <https://srivtx.github.io/p-rick/>**
+**Site (dark mode + light mode): <https://srivtx.github.io/p-rick/>** · [RSS feed](https://srivtx.github.io/p-rick/feed.xml) · [The method](https://srivtx.github.io/p-rick/method.html)
 
 ---
 
 ## The papers
 
-### Series II — systems (current)
+### Series III — continuity: what systems lose over time (current)
+
+| ID | Paper | The missing thing |
+|----|-------|-------------------|
+| **P-008** | [The Afterlife of Devices](papers/p-008-afterlife-of-devices.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-008.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p008.html) | Vendor-death resilience for connected hardware: succession manifests, escrowed firmware with dead-hand release, threshold key ceremonies, a degradation ladder, and a hardware-guaranteed fossil mode. |
+| **P-009** | [Circadian Orchestration](papers/p-009-circadian-orchestration.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-009.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p009.html) | Team scheduling on human biological time: private phase estimation, circadian cost functions, fairness-constrained placement, and the golden overlap — privacy by construction. |
+| **P-010** | [The Bus Factor Protocol](papers/p-010-bus-factor-protocol.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-010.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p010.html) | Succession governance for package registries: legible maintainer state, policy as code, dormancy escalation, the anti-xz trust-elevation ladder, and a public continuity ledger. |
+| **P-011** | [Model Extinction](papers/p-011-model-extinction.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-011.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p011.html) | Behavioral conservation for disposable AI: behavioral fingerprints, equivalence testing for replacements, an extinction registry, inference-time provenance, deprecation contracts. |
+
+### Series II — systems
 
 | ID | Paper | The missing thing |
 |----|-------|-------------------|
@@ -40,29 +49,44 @@ that might kill the thesis. Papers are working drafts; the ledger of revisions i
 
 ## The method
 
-1. **Gap research before writing.** Every direction survives a landscape survey before a
+The full statement lives on the site: [the method page](https://srivtx.github.io/p-rick/method.html). Summary:
+
+1. **The bar — four tests, all mandatory.** Real recurring problem; large audience; empty
+   category (verified, falsifiable, incumbents named); specifiable (formal model, protocol,
+   architecture — something a builder could implement and an evaluator could test).
+2. **The exclusions — hard rules.** No toy projects. No deterministic wrappers, test suites,
+   or verification gadgets whose only user is their own construction. Nothing AI-obsolete.
+   No CRUD, no chatbot shells, no me-too products. The program specifies missing *systems*.
+3. **Gap research before writing.** Every direction survives a landscape survey before a
    paper is started; directions that die in survey die quietly (the survey notes survive in
    the work log).
-2. **Falsifiable gaps, not vibes.** "No system does X" is written so one search can refute it.
-3. **Honest grading.** STRONG / PARTIAL / WEAK verdicts on the evidence, stated in the paper.
-4. **Specification over prototype theater.** Formal models, architectures, and evaluation
+4. **Falsifiable gaps, not vibes.** "No system does X" is written so one search can refute it;
+   "component PARTIAL, composition STRONG" is an honest verdict the program uses.
+5. **Honest grading.** STRONG / PARTIAL / WEAK verdicts on the evidence, stated in the paper.
+6. **Specification over prototype theater.** Formal models, architectures, and evaluation
    designs — the artifacts a builder actually needs — before any code.
-5. **Essays with every paper.** Each paper has a companion essay in plain language, written
+7. **Red-team pass.** Adversarial review of novelty claims, headline figures, formal
+   properties, and cross-paper consistency; findings are fixed, not footnoted.
+8. **Essays with every paper.** Each paper has a companion essay in plain language, written
    the way technical leaders write, because research that nobody reads is a diary.
-6. **Automatic work tracking.** [`agents.md`](agents.md) is the session ledger — nobody has to
-   remember or ask how long anything took.
+9. **Citation honesty.** References recorded from domain knowledge are marked *verification
+   queued* and pass through a live-source verification ledger before final release.
+10. **Automatic work tracking.** [`agents.md`](agents.md) is the session ledger — nobody has to
+    remember or ask how long anything took.
 
 ## Repository layout
 
 ```
 p-rick/
 ├── index.html            # the research site (GitHub Pages, dark + light mode)
-├── papers.html, blog.html, blog/*.html
-├── assets/               # style.css (dual theme) + theme.js
+├── papers.html, blog.html, method.html, 404.html
+├── blog/*.html           # essay pages (generated)
+├── feed.xml, sitemap.xml, robots.txt, og-image.png
+├── assets/               # style.css (dual theme) + theme.js + favicon.svg
 ├── papers/               # paper sources (markdown)
 ├── pdfs/                 # typeset papers (PDF)
 ├── blogs/                # essay sources (markdown)
-├── tools/build_site.py   # regenerates blog pages from blogs/*.md
+├── tools/build_site.py   # regenerates blog pages + feed.xml + sitemap.xml
 └── agents.md             # the automatic work ledger
 ```
 
@@ -71,12 +95,17 @@ The site deploys from the repo root on push to `main` (GitHub Pages, static, `.n
 ### Build / regenerate
 
 ```bash
-# regenerate blog pages after editing blogs/*.md
+# regenerate blog pages, RSS feed, and sitemap after editing blogs/*.md
 python3 tools/build_site.py
 ```
 
 PDFs are typeset from `papers/*.md` via LaTeX (Tectonic) with composed covers; sources of the
 conversion pipeline are kept by the research program workspace and documented in `agents.md`.
+
+### Citing
+
+BibTeX for all eleven papers is on the site's [papers page](https://srivtx.github.io/p-rick/papers.html#cite).
+Each entry cites the PDF (the typeset, canonical form).
 
 ## agents.md — automatic work tracking
 
@@ -89,9 +118,13 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
 
 - Series I complete (3 papers) — originated in `srivtx/pocketveto`, moved to this repository
   when the program outgrew its host.
-- Series II complete (4 papers) — researched, written, and published from this repository:
-  systems gaps (degradation, provenance, attention, fabric), unrelated to Series I's
-  personal-data topic territory.
+- Series II complete (4 papers) — systems gaps (degradation, provenance, attention, fabric),
+  unrelated to Series I's personal-data topic territory.
+- Series III complete (4 papers) — continuity: what systems lose over time. Vendor death
+  (devices), biological time (circadian orchestration), maintainer mortality (bus factor
+  protocol), behavioral extinction (model conservation). Zero overlap with Series I/II
+  territory; all four directions pass the bar with no incumbents in-gap.
+- **Eleven papers, eleven essays, eleven PDFs, three series, zero incumbents.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 

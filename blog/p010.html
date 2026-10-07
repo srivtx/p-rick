@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xz Wasn't a Hack. It Was a Retirement. — p-rick</title>
+<meta name="description" content="In March 2024, the world learned that a compression library at the base of nearly every Linux distribution had been backdoored. The postmortems called it a supply-chain compromise.…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="xz Wasn't a Hack. It Was a Retirement.">
+<meta property="og:description" content="In March 2024, the world learned that a compression library at the base of nearly every Linux distribution had been backdoored. The postmortems called it a supply-chain compromise.…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p010.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="xz Wasn't a Hack. It Was a Retirement.">
+<meta name="twitter:description" content="In March 2024, the world learned that a compression library at the base of nearly every Linux distribution had been backdoored. The postmortems called it a supply-chain compromise.…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-010</div>
+    <h1 class="post-title">xz Wasn't a Hack. It Was a Retirement.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>In March 2024, the world learned that a compression library at the base of nearly every Linux distribution had been backdoored. The postmortems called it a supply-chain compromise. OpenSSF called for hardening. Registries rolled out more provenance attestations, more signing, more artifact integrity.</p>
+    <p>All of that is good, and all of it missed the point, because the layer that actually failed was not the artifacts. It was the people.</p>
+    <p>Reconstructed from the maintainer's own archived messages: one exhausted maintainer, carrying a foundational library alone for years, watched a helpful stranger arrive and quietly, competently, take the weight off. Patches arrived. Response times improved. Eventually the stranger had commit rights, then release rights, then the keys. Then he shipped a backdoor through the ordinary release process, with the ordinary signatures, passing the ordinary reviews.</p>
+    <p>The security industry called it an attack, because that's the vocabulary it has. Read it as a <em>governance event</em> instead: a burned-out maintainer executed a succession process — "the tired guy hands the keys to whoever helped" — and the succession process is exactly what the attacker exploited. The code was never compromised. The <em>maintainership</em> was.</p>
+    <p>xz wasn't a hack. It was a retirement, weaponized.</p>
+    <h2>Registries govern names. Nobody governs the humans.</h2>
+    <p>Every registry on earth — npm, PyPI, crates.io, Maven — has mature machinery for code identity: namespaces, signing, 2FA, provenance, reproducible builds. Zero machinery for <em>maintainership continuity</em>. A package with one exhausted maintainer who last touched it in 2019 is, from the registry's point of view, identical to a package with six active maintainers and a documented succession plan.</p>
+    <p>That's not a metaphor. It's a data model. Maintainer state is simply not a field.</p>
+    <p>So the most important state in the software supply chain — who holds the keys, are they still alive in the project, what happens when they stop — transitions through private messages between strangers. We have an entire security industry hardening the layer the incidents did not break, while the layer every postmortem walked through runs on folklore. Ask "what do we do when the maintainer disappears" on any forum, any year, and you'll get the same thread, answered from scratch, every time.</p>
+    <h2>The incident record is one event in five coats</h2>
+    <p>left-pad, 2016: one person's morning mood deleted a dependency of hundreds of thousands of builds — because the graph sat on one human. event-stream, 2018: an uninterested author transferred his package to a helpful stranger with zero oversight; the stranger attacked Bitcoin wallets downstream. That's the xz attack, six years earlier, in months instead of years. colors and node-ipc, 2022: live maintainers weaponized their own packages — a different lesson, honestly scoped in the paper: rogue owners are a different problem from departed ones.</p>
+    <p>Five coats, one shape: the registry had no model of the maintainership, so the maintainership went to whoever ended up holding the keys, and the blast radius was set in a private chat.</p>
+    <h2>The protocol, in three moves</h2>
+    <p><strong>Make maintainer state legible.</strong> A state machine — ACTIVE, DECAYING, DORMANT, ORPHANED — with per-package thresholds, surfaced in the registry UI and API. Not a judgment; a timestamp. Today, staleness is invisible. It shouldn't be.</p>
+    <p><strong>Succession policy as code.</strong> A signed manifest per package: who has publish authority, what happens on dormancy, who inherits, with what review window. Bus factor stops being an anecdote and becomes an attribute your CI can query: <em>fail the build if a production dependency is DORMANT without a declared successor.</em></p>
+    <p><strong>The anti-xz ladder.</strong> Any <em>newly elevated</em> maintainer — by transfer or takeover — releases under co-signature and a public delay-locked review window for their first 90 days. The event-stream hijack fails here outright: transfer, then immediately malicious publish — now structurally impossible. The xz attack gets slower and visible: the transfer event itself is published, and the attacker must sustain 90 days of co-signed, publicly-reviewed releases while the community watches the succession it is currently blind to.</p>
+    <p>Notice the precision of the one intervention with teeth: new <em>publishes</em> freeze in the review window. Installs never pause. A governance layer that breaks the ecosystem to save it would be worse than the disease.</p>
+    <h2>"Just fork it" misunderstands the asset</h2>
+    <p>The asset is the <em>name</em>. Consumers resolve <code>event-stream</code>, not a content hash. A fork without the name re-fights the discovery battle the registry exists to settle — which is why succession governance must live at the registry layer, and why "just fork it" has never once rescued an ecosystem's dependency graph in a decade of trying.</p>
+    <p>The kernel knows this, by the way. Linux's maintainership hierarchy — layered, documented, with succession as routine — is open source's own existence proof that continuity governance is native to the culture when scale demands it. The protocol productizes what Linus's tree practices informally.</p>
+    <p>The machinery exists. The incidents wrote the requirements. The missing piece was writing the layer down. So it's written down.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-010.pdf">The Bus Factor Protocol (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Company Died. Your Lights Didn't Get the Memo. — p-rick</title>
+<meta name="description" content="In April 2023, a company called Insteon shut down. No announcement, no transition plan. Somewhere north of a decade of installed hardware — hubs, dimmers, locks, sensors sitting in…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Company Died. Your Lights Didn't Get the Memo.">
+<meta property="og:description" content="In April 2023, a company called Insteon shut down. No announcement, no transition plan. Somewhere north of a decade of installed hardware — hubs, dimmers, locks, sensors sitting in…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p008.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Company Died. Your Lights Didn't Get the Memo.">
+<meta name="twitter:description" content="In April 2023, a company called Insteon shut down. No announcement, no transition plan. Somewhere north of a decade of installed hardware — hubs, dimmers, locks, sensors sitting in…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-008</div>
+    <h1 class="post-title">The Company Died. Your Lights Didn't Get the Memo.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>In April 2023, a company called Insteon shut down. No announcement, no transition plan. Somewhere north of a decade of installed hardware — hubs, dimmers, locks, sensors sitting in people's walls and ceilings — went dark in an afternoon, because all of it depended on a server somewhere that nobody was paying for anymore.</p>
+    <p>The physical hardware was fine. The light switches worked. The locks moved. The failure was not electrical, mechanical, or even software in the usual sense. It was <em>organizational</em>: a $40 piece of electronics with a fifteen-year lifespan was coupled, invisibly and permanently, to a corporate lifespan of a few years, and nobody had written down what happens when the arithmetic goes bad.</p>
+    <p>Everyone called it an outrage. Nobody called it what it actually is: a specification failure.</p>
+    <h2>We solved this exact problem in 1985</h2>
+    <p>Here's the part that convinced me this is a real gap and not just bad vendor behavior. The solution's components all exist, and some of them are <em>boring</em>.</p>
+    <p>Enterprise software has had source-code escrow since the 1980s. You buy a million-dollar system from a startup, and the contract says: the code goes into a vault at a third party, and if the vendor goes bankrupt or stops supporting you, the vault opens. Routine. Unglamorous. Litigated into predictability over four decades. We have a whole escrow <em>industry</em>.</p>
+    <p>The French now mandate a repairability score printed on certain electronics, like a nutrition label. The EU is legislating how long vendors must supply updates. The right-to-repair movement is winning, state by state. Home Assistant volunteers reverse-engineer dead devices for fun and write local firmware replacements — the Insteon resurrection was literally community work. Cryptographers can split a signing key between five independent parties so any three can act.</p>
+    <p>Every single component of "your house survives the company that built it" exists in production somewhere. Escrow. Dead-hand triggers. Threshold keys. Longevity labels. Hardware interlocks. Degradation ladders — we specified those in P-004 of this program.</p>
+    <p>What doesn't exist is the composition. And the composition is the product.</p>
+    <h2>Why the gap survived every scandal</h2>
+    <p>The uncomfortable economics: you can't see longevity at purchase time, so the market can't price it. There's a clean economics literature on this — <em>shrouded attributes</em>. Anything a buyer can't observe, competition over-supplies. Cloud coupling saves the vendor a few dollars per unit and costs you the entire device two years later. Every "outrage cycle" happens after the sale, so it changes nothing.</p>
+    <p>The second reason is timing, and it's crueler. Community takeover needs the firmware, the specs, and the signing keys — things only the <em>alive</em> vendor can give you, delivered precisely when a dying vendor has the least interest and capacity to give them. The only window to arm the rescue is while everyone's happy. Which means the mechanism has to be built into the sale, not negotiated at the funeral.</p>
+    <p>That's the whole design insight in one line: <strong>escrow at sale, not goodwill at death.</strong></p>
+    <h2>What the paper actually specifies</h2>
+    <p>The device succession manifest — a signed, public declaration of what works locally, what needs the vendor's cloud, and what happens when the vendor goes quiet. The dead-hand release: renewal proofs published to a public log, and <em>silence</em> — bankruptcy filings, expired certificates, a lapsed domain — is the release trigger. No goodwill required, because nobody alive is required.</p>
+    <p>The hardest part is keys, and the folklore says it's impossible — "you can't just give away firmware signing keys." You can. You burn a <em>commitment to a future quorum</em> into the device at manufacture, and when the vendor dies, a threshold of pre-committed stewards generates the succession root. Standard threshold cryptography. The only novelty is institutional: a boot chain that finally admits the vendor is mortal.</p>
+    <p>And at the bottom of the ladder, physics: a fossil mode, manufactured into the hardware, guaranteeing the lock still locks and the thermostat still heats with all software dead. The floor of the contract is a deadbolt, not a policy.</p>
+    <h2>Who moves first</h2>
+    <p>Not consumers — consumers can't see the attribute yet. Hotels can. Property managers can. Municipalities can. They buy devices in fleets of thousands, hold them for a decade, and already read lifecycle terms in contracts; that's where enterprise escrow came from. One procurement checkbox — "must ship a succession manifest" — and the market starts sorting. The label follows the fleet. It always does.</p>
+    <p>If you run infrastructure for buildings, this is the paper to hand your vendor. Not because it's philosophy — because it's a purchase order waiting to happen.</p>
+    <p>The devices were always ready to outlive their makers. Now the protocol is too.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-008.pdf">The Afterlife of Devices (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

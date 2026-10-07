@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>p-rick — an independent research program on missing software</title>
-<meta name="description" content="p-rick finds and specifies software that does not exist yet: degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, the entitlement engine, and the n=1 cost-of-living index. Papers, PDFs, and essays.">
+<meta name="description" content="p-rick finds and specifies software that does not exist yet: device succession after vendor death, circadian-aware team scheduling, open-source succession governance, model extinction and behavioral conservation — plus degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, the entitlement engine, and the n=1 cost-of-living index. Papers, PDFs, and essays.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="p-rick — an independent research program on missing software">
+<meta property="og:description" content="Eleven working papers in three series: software the world is missing, specified before anyone builds it. Papers, PDFs, essays — dark and light.">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="p-rick — software the world is missing, specified">
+<meta name="twitter:description" content="Eleven working papers, three series, zero incumbents in-gap. Research first; products later.">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +31,7 @@
     <nav>
       <a href="papers.html">Papers</a>
       <a href="blog.html">Blog</a>
+      <a href="method.html">Method</a>
       <a href="#about">About</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
     </nav>
@@ -41,9 +54,9 @@
     <strong>Research first; products later.</strong>
   </p>
   <div class="hero-facts">
-    <div class="fact"><div class="n">7</div><div class="l">working papers</div></div>
-    <div class="fact"><div class="n">2</div><div class="l">research series</div></div>
-    <div class="fact"><div class="n">7</div><div class="l">essays</div></div>
+    <div class="fact"><div class="n">11</div><div class="l">working papers</div></div>
+    <div class="fact"><div class="n">3</div><div class="l">research series</div></div>
+    <div class="fact"><div class="n">11</div><div class="l">essays</div></div>
     <div class="fact"><div class="n">0</div><div class="l">incumbents in-gap</div></div>
   </div>
 </section>
@@ -51,12 +64,74 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>Papers</h2><div class="rule"></div></div>
   <p class="section-intro">
-    Two arcs. Series I specifies user-owned data infrastructure — the personal event bus,
-    consumer entitlements as dead capital, and the n=1 cost-of-living index. Series II turns
-    to systems gaps: behavior under scarcity, storage that remembers, the scheduling of
-    human attention, and one machine across many devices. Each paper verifies its gap
-    against the existing landscape before proposing anything.
+    Three arcs. Series III researches continuity — what systems lose over time: vendor death
+    (the afterlife of devices), human biological time (circadian orchestration), maintainer
+    mortality (the bus factor protocol), and behavioral extinction (model conservation).
+    Series II turns to systems gaps: behavior under scarcity, storage that remembers, the
+    scheduling of human attention, and one machine across many devices. Series I specified
+    user-owned data infrastructure — the personal event bus, consumer entitlements as dead
+    capital, and the n=1 cost-of-living index. Each paper verifies its gap against the
+    existing landscape before proposing anything; the method is on <a href="method.html">its
+    own page</a>.
   </p>
+
+  <div class="arc-label">series III &middot; continuity &mdash; what systems lose over time &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-008</span><h3>The Afterlife of Devices: An Architecture for Vendor-Death Resilience</h3></div>
+      <p>
+        Insteon died in 2023 and took a decade of installed hardware with it. Revolv was
+        bricked on a published schedule. Devices outlive their vendors by an order of
+        magnitude, and nothing anywhere specifies what happens at the crossing. Succession
+        manifests, escrowed firmware with dead-hand release, threshold key ceremonies, a
+        degradation ladder, and a hardware-guaranteed fossil mode — the death of the maker,
+        designed for.
+      </p>
+      <div class="paper-tags"><span class="tag">IoT</span><span class="tag">lifecycle</span><span class="tag">escrow</span></div>
+      <div class="pc-links"><a href="pdfs/p-008.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a><a class="muted-link" href="blog/p008.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-009</span><h3>Circadian Orchestration: Team Scheduling on Human Biological Time</h3></div>
+      <p>
+        Every calendar models availability; none models the four-to-six-hour spread of human
+        chronotype. A phase state estimated privately, circadian cost functions from the
+        two-process model, fairness-constrained meeting placement, and the golden overlap —
+        with privacy by construction: your biology never leaves your device, only binned
+        cost surfaces do.
+      </p>
+      <div class="paper-tags"><span class="tag">HCI × OR</span><span class="tag">chronobiology</span><span class="tag">privacy</span></div>
+      <div class="pc-links"><a href="pdfs/p-009.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">source</a><a class="muted-link" href="blog/p009.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-010</span><h3>The Bus Factor Protocol: Succession Governance for Open-Source Package Registries</h3></div>
+      <p>
+        xz wasn't a hack; it was a retirement — the tired maintainer handed the keys to a
+        stranger, and the registry had no model of any of it. Legible maintainer state,
+        succession policy as code, dormancy escalation, an anti-xz trust-elevation ladder,
+        and a public continuity ledger: governance for the one property every supply chain
+        depends on and no registry governs.
+      </p>
+      <div class="paper-tags"><span class="tag">supply chain</span><span class="tag">governance</span><span class="tag">registries</span></div>
+      <div class="pc-links"><a href="pdfs/p-010.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">source</a><a class="muted-link" href="blog/p010.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-011</span><h3>Model Extinction: Behavioral Conservation for the Age of Disposable AI</h3></div>
+      <p>
+        We preserve films, seeds, and source code — not minds. Models are the fastest-dying
+        artifact class in software history, and nothing records what they were. Behavioral
+        fingerprints with confidence regions, equivalence testing for replacements, an
+        IUCN-style extinction registry, inference-time provenance, and deprecation contracts:
+        the conservation instruments for behavior, specified.
+      </p>
+      <div class="paper-tags"><span class="tag">AI infra</span><span class="tag">conservation</span><span class="tag">reproducibility</span></div>
+      <div class="pc-links"><a href="pdfs/p-011.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">source</a><a class="muted-link" href="blog/p011.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series II &middot; systems &middot; 2026</div>
   <div class="paper-grid">
@@ -160,6 +235,26 @@
   <div class="blog-list">
     <div class="blog-row">
       <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p011.html">We Preserve Films and Seeds. Not Minds.</a></h3><p>The fastest-dying artifact class on earth has no conservation institution — and the instruments can be built today.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p010.html">xz Wasn't a Hack. It Was a Retirement.</a></h3><p>The tired maintainer handed the keys to a stranger. The registry had no model of any of it.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p009.html">Your Calendar Was Designed for a Species That Doesn't Exist</a></h3><p>Every calendar models availability. None models the four-to-six-hour spread of human chronotype.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p008.html">The Company Died. Your Lights Didn't Get the Memo.</a></h3><p>Insteon 2023, escrow since 1985, and the specification failure nobody has written down — until now.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
       <div class="br-body"><h3><a href="blog/p007.html">You Don't Own Five Computers. You Own One Bad Computer.</a></h3><p>The islands are real, the sea between them is drained, and the bridges are unbuilt.</p></div>
       <div class="br-arrow">&rarr;</div>
     </div>
@@ -207,7 +302,9 @@
       (strong / partial / weak), and confronts the strongest objections to its own thesis.
     </p>
     <p>
-      The program runs research-first: papers before products, always. Work is tracked in
+      The program runs research-first: papers before products, always. The bar, the exclusions
+      (no toy projects, no deterministic wrappers), the grading, and the red-team discipline
+      are specified on <a href="method.html">the method page</a>. Work is tracked in
       <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a> — an automatic
       session ledger recording what was done, when, and by which agent, so nobody has to
       remember or ask how long anything took.
@@ -215,8 +312,10 @@
     <p>
       Series I (user-owned data and the economics of inattention) began inside
       <a href="https://github.com/srivtx/pocketveto">srivtx/pocketveto</a> and moved here when the
-      program outgrew its host. Series II (systems gaps) was researched, written, and published
-      from this repository. Everything is open: sources, PDFs, and the site.
+      program outgrew its host. Series II (systems gaps) and Series III (continuity — what
+      systems lose over time: capability, maintainers, behavior, and human time) were
+      researched, written, and published from this repository. Everything is open: sources,
+      PDFs, essays, and the <a href="feed.xml">RSS feed</a>.
     </p>
   </div>
 </section>
@@ -234,6 +333,8 @@
       <a href="index.html">Home</a>
       <a href="papers.html">Papers</a>
       <a href="blog.html">Blog</a>
+      <a href="method.html">Method</a>
+      <a href="feed.xml">RSS</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
       <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>
     </div>

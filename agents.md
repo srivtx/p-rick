@@ -123,3 +123,44 @@
 | essays published | 7 |
 | research searches retained | ~160 (R1–R4) + series-II verification batch |
 | product substrates | 1 (PocketVeto) |
+
+---
+
+# PART 3 — series III: continuity (what systems lose over time)
+
+> 2026-10-07: program director's direction — one more research round + fine-tune,
+> "no toy projects" re-affirmed. Series III researches **continuity**: the things
+> systems lose over time — vendor death (the afterlife of devices), human biological
+> time (circadian orchestration), maintainer mortality (the bus factor protocol),
+> and behavioral extinction (model extinction / AI behavioral conservation).
+> All four directions are unrelated to Series I (personal data/finance) and
+> Series II topic territory. Exclusion criteria re-enforced: no toy tools, no
+> test wrappers, no deterministic-crypto-verification gadgets — only real,
+> never-done software research with large audiences.
+
+## Ledger (series III)
+
+### SESSION 009 · 2026-10-07 · series-III gap selection + papers
+- **agent:** main orchestrator (Super Z / GLM)
+- **started:** 06:50 UTC · **ended:** 07:35 UTC · **duration:** 45m
+- **scope:** select four series-III directions; write P-008..P-011 + 4 CEO-voice essays
+- **outputs:** direction selection locked (device succession / circadian orchestration / bus factor protocol / model extinction — domains: IoT lifecycle, human biology, supply-chain governance, AI infrastructure; zero overlap with P-001..P-007); `papers/p-008..p-011.md` (~14.5k words total; honest grading: P-009 PARTIAL-at-components / STRONG-at-composition); `blogs/` ×4 new essays; series-III verification queries queued for the background runner
+- **status:** done · **next:** PDF pipeline + site upgrade
+
+### SESSION 010 · 2026-10-07 · PDFs + site fine-tune + ship
+- **agent:** main orchestrator
+- **started:** 07:25 UTC · **ended:** 08:10 UTC · **duration:** 45m
+- **scope:** typeset series-III PDFs; site fine-tuning (RSS, sitemap, OG, BibTeX, method page, favicon, 404, a11y, print); README update; push + verify Pages
+- **outputs:** `pdfs/p-008..p-011.pdf` (12/10/10/11 pp, Tectonic + Template-03 covers ×4, cover_validate ALL PASS, pdf_qa WARN-only cosmetics consistent with series II); `tools/build_site.py` extended (feed.xml 11 items, sitemap.xml 29 urls, OG/Twitter meta on all blog pages); new site pages: `method.html` (the bar + the exclusions, codified), `404.html`; `assets/favicon.svg`, `og-image.png` (1200×630), `robots.txt`; `assets/theme.js` + keyboard shortcut (t); `assets/style.css` + method/bibtex/a11y/print styles; `papers.html` + BibTeX cite block (11 entries); `index.html`/`papers.html`/`blog.html` + series-III sections, stats 11/3/11, Method + RSS nav; README v3 (three series, method summary, citing, status)
+- **status:** done · **next:** citation verification pass (batch1 runner still grinding on 429s; series-III queries queued); product directories after research freeze
+
+### Updated totals (series III)
+
+| metric | value |
+|---|---|
+| sessions logged | 10 |
+| total tracked effort | ~10h 35m |
+| papers published | 11 (P-001 … P-011) |
+| essays published | 11 |
+| research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III: queued) |
+| product substrates | 1 (PocketVeto) |
