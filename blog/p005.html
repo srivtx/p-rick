@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every File You Own Forgot Who It Is — p-rick</title>
+<meta name="description" content="Take any file on your machine. The important one — the contract, the report, the dataset, the PDF your lawyer sent. Now ask it a simple question: emwhere did you come from?/em
+
+The fi…">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-005</div>
+    <h1 class="post-title">Every File You Own Forgot Who It Is</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Take any file on your machine. The important one — the contract, the report, the dataset, the PDF your lawyer sent. Now ask it a simple question: <em>where did you come from?</em></p>
+    <p>The file knows its size. It knows its modification time. Everything causal — which site or app delivered it, which process wrote it, from which inputs, through which transformations, on which of your devices — is gone. It was knowable at the moment of creation, by the kernel that mediated every byte, and it was thrown away.</p>
+    <p>We built a civilization-scale archive and gave it total amnesia about its own provenance.</p>
+    <h2>This was solved in 2006. Then nothing shipped.</h2>
+    <p>Here's the part that should make every systems person sit up. In 2006, the FAST community published PASS — the Provenance-Aware Storage System. Kernel-level capture of file lineage, with single-digit overhead. A whole research line followed: LineageFS, Hi-Fi, CamFlow. Whole-system provenance became a <em>solved capture problem</em> twenty years ago.</p>
+    <p>Zero of it shipped to users. Not a reduced version. None.</p>
+    <p>The barriers were real in 2006: provenance required kernel patches; disks were small; binaries were opaque; there was no query interface a human would touch. The paper's core argument is that every one of those barriers has quietly expired — kernel event interfaces are now blessed (eBPF on Linux, EndpointSecurity on macOS, ETW on Windows: the EDR industry runs on them), storage is cheap, content-addressing dedupes the ledger, and on-device models can annotate what binaries don't declare.</p>
+    <p>The gap between "provenance is capturable" and "users have provenance" is now the most valuable unfilled space in client systems. And the AI era just made it mandatory.</p>
+    <h2>The four amnesias</h2>
+    <p>The paper names four working failures. See how many you felt this week.</p>
+    <p><strong>Origin amnesia.</strong> Windows keeps one bit — "came from the internet" (Mark of the Web, a feature from the year 2000). No endpoint, no chain, nothing for files arriving by sync, messaging, or archives. The phishing question — "did this document come from that domain?" — is unanswerable at the layer where users need it, in the exact decade it became the question.</p>
+    <p><strong>Process amnesia.</strong> A folder of documents got corrupted. Which app did it? Today: forensics. With a causal ledger: a query.</p>
+    <p><strong>Reproduction amnesia.</strong> The transformation <code>report.xlsx = f(a.csv, b.csv)</code> leaves no trace of f, a, or b. Version control preserves <em>states</em>, never the causal edges between them. Your work is reproducible only if you impose monastic discipline, which is to say, it isn't.</p>
+    <p><strong>Impact amnesia.</strong> Nothing can tell you what breaks if you delete a directory. So you hoard. Storage bloat is partly a <em>causality</em> failure wearing a psychology costume.</p>
+    <h2>Why now is different: C2PA taught the market to want this</h2>
+    <p>Content Credentials — the C2PA coalition — did something genuinely historic: it taught camera makers, AI vendors, and platforms that <em>provenance is a selling point</em>. Signed history attached to media at creation.</p>
+    <p>But look at what it covers. Pixels at the moment of creation. Now look at what your life is made of: the report assembled from three sources by an AI, the dataset curated by an agent, the file that passed through two machines. Derived artifacts, assembled artifacts, <em>transformed</em> artifacts — the majority of value, with no provenance story at all, because a creation certificate cannot say "this PDF came from those spreadsheets, on this laptop, via this process."</p>
+    <p>That's not a C2PA competitor. That's the next layer down: the causal chain, recorded by the OS, queryable by the user, shareable on demand. C2PA proved the appetite. The file system should collect.</p>
+    <h2>The design, in one breath</h2>
+    <p>An append-only, content-addressed event ledger living next to your files: every persistent write recorded with its actor and inputs; every ingress with its channel and endpoint; applications can <em>declare</em> transforms through a small API (kernel guarantees facts, apps volunteer meanings); a query algebra on top answering the five questions people already ask in degraded forms — <em>where did this come from, what breaks if I delete this, reproduce this, what did this app touch, what came from that site</em> — and surfaces where users already live: the file inspector, the share sheet, the delete confirmation, the search bar.</p>
+    <p>The surveillance objection is the live one, and the design answers it architecturally: the ledger is local, encrypted, and — this matters — <em>redactable with integrity preserved</em>. Provenance systems copied from blockchains get forgetting wrong; a personal ledger must be more forgettable than the files it describes, or it's a liability. The paper spends its threat model there.</p>
+    <p>The pitch to any platform team reading this: the capture substrate your security team already runs, pointed at the user instead of the vendor. The EDR inversion. First platform to ship it creates the honest-AI trust layer everyone is currently writing manifestos about.</p>
+    <p>Your files have been trying to tell you where they came from for twenty years. The kernel was listening the whole time. Someone should write it down.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-005.pdf">Provenance-Native Storage (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

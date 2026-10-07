@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Most Important Scheduler in Computing Hasn't Been Written — p-rick</title>
+<meta name="description" content="Fifty years of systems research gave us something beautiful: a body of theory that lets one machine serve thousands of competing requesters — fairly, with latency guarantees, starv…">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-006</div>
+    <h1 class="post-title">The Most Important Scheduler in Computing Hasn't Been Written</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Fifty years of systems research gave us something beautiful: a body of theory that lets one machine serve thousands of competing requesters — fairly, with latency guarantees, starving none of them, with an audit trail you can check.</p>
+    <p>Then we took that theory and pointed it at everything except the thing computers are <em>for</em>.</p>
+    <p>CPU: scheduled. Memory: scheduled. Network packets: scheduled, with fairness proofs and bounded lateness. Human attention — the actual endpoint of every notification queue on earth — is handled by a toggle called Do Not Disturb and whatever volume settings you last touched in 2023.</p>
+    <h2>The engagement economy is an unscheduled queue</h2>
+    <p>The architecture today: an app vendor's growth team submits an interruption directly to your working memory, whenever their A/B test says so. The platform applies a static filter. The interruption lands mid-task at a measured cost of roughly twenty-three minutes of resumption work — Mark's classic result, replicated for two decades — dozens of times a day, with no accounting anywhere.</p>
+    <p>No per-app record of interruptions delivered and cost inflicted. No admission control — the only one that exists is user rage, app by app, after the damage. No deadlines, so a filter that eats one urgent message destroys user trust forever and teaches them never to automate again. No guarantees at all.</p>
+    <p>Notice what this is. It's a machine serving thousands of competing requesters <em>unfairly, unaccountably, and without bounds</em> — the exact problem scheduling theory solved in 1973. We just never connected the queue to the theory.</p>
+    <h2>The research exists. It was never given an OS.</h2>
+    <p>This is what should bother the systems community most. Every piece is published and proven.</p>
+    <p>Interruption science measured the cost curve and found the dominant variable: <em>when</em>. Delivery at task breakpoints — Iqbal and Bailey's OASIS line, Adamczyk &amp; Bailey's studies — cuts interruption cost dramatically with zero change in content. Horvitz's Microsoft work built Bayesian best-time-to-interrupt models in 2003. Attelia detected breakpoints from phone sensors <em>in the wild</em> with double-digit reductions in perceived load.</p>
+    <p>The prediction machinery works. The cost model works. What was never built is the thing it plugs into: an OS service with a queue, a cost model, budgets, and guarantees. The field treated this as an interface problem for twenty years. It's a scheduler problem. Schedulers are specified by their guarantees, so here are the ones the paper states:</p>
+    <p><strong>Urgent bounded latency.</strong> The urgent class — person-to-person, safety, 2FA — delivers within a deadline bound, always, by construction. This single property is why users can trust automation: it cannot silently eat the message that mattered.</p>
+    <p><strong>Starvation freedom.</strong> Every admitted notification delivers within a worst-case window, so suppression is never silent. The failure mode that made users hate filters becomes structurally impossible.</p>
+    <p><strong>Honesty pricing.</strong> Apps claim priority; apps get <em>charged</em> for their claims at realized cost. An app that cries urgent for content updates pays escalating rates until its urgent channel is rate-limited. This is the mechanism the engagement economy has never had: the marginal low-value notification becomes expensive in a currency the platform enforces.</p>
+    <p>And an <strong>attention ledger</strong> — every decision, every deferral, every reason — exportable. That's the audit surface regulators will eventually demand, and the daily "attention statement" users have never been offered: 46 interruptions, 71 minutes of focus protected, here's the per-app bill.</p>
+    <h2>The uncomfortable observation</h2>
+    <p>Apple shipped "Reduce Interruptions." Android shipped notification cooldowns. The platforms are building exactly this system — closed, unaccountable, unexplainable, without a published scheduling semantics anywhere.</p>
+    <p>That's the real stakes. Either the field specifies attention scheduling now — deadlines, starvation-freedom, pricing, ledgers, the grammar of trust — or it gets specified by three product managers in private, as one more engagement lever, and closed implementations harden into permanence. The window is a couple of years.</p>
+    <p>And the AI era is about to make the queue worse in a way nobody has priced: agents. Your five assistants each "ping when they need input." Five new unthrottled queues, attached to your working memory, emitting at machine rate. The host-side admission layer for agentic computing is the attention scheduler, and it doesn't exist yet.</p>
+    <p>The queue is open. Someone should schedule it.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-006.pdf">The Attention Scheduler (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

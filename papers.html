@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Papers — p-rick</title>
+<meta name="description" content="All p-rick working papers: degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav>
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Blog</a>
+      <a href="index.html#about">About</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main class="page-main">
+  <h1 class="page-title">Papers</h1>
+  <p class="page-sub">
+    Seven working papers in two series. Each verifies its gap against the existing landscape
+    before proposing anything, states the gap as a falsifiable claim, and confronts the strongest
+    objections to its own thesis. PDFs are hosted on this site; markdown sources live in the repository.
+  </p>
+
+  <div class="arc-label">series II &middot; systems &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-004</span><h3>Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</h3></div>
+      <div class="paper-tags"><span class="tag">systems</span><span class="tag">formal model</span><span class="tag">QoS</span></div>
+      <p>
+        Every piece of software has two behaviors: the one it exhibits when resources are
+        abundant, and the one under pressure. The first is engineered — specified, tested,
+        monitored, budgeted. The second is emergent: accidental, untested, invisible. We propose
+        degradation contracts: a declarative formalism (fidelity ladders per feature, safe
+        shedding orders, hysteresis and recovery semantics, floor invariants) and a pressure
+        broker that measures pressure, mediates directives, and audits compliance into a
+        queryable ledger. The payoffs compound in the AI era, where quality is already a runtime
+        variable negotiated invisibly; contracts make that negotiation inspectable and fair.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-004.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a><a class="muted-link" href="blog/p004.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-005</span><h3>Provenance-Native Storage: The File System as a Causal Ledger</h3></div>
+      <div class="paper-tags"><span class="tag">systems</span><span class="tag">storage</span><span class="tag">trust</span></div>
+      <p>
+        Every file is an amnesiac: it knows its size and mtime, and has forgotten who created
+        it, from what inputs, over which network origin. PASS proved automatic file provenance
+        feasible in 2006; nothing shipped. The barriers have expired: eBPF/EndpointSecurity/ETW
+        capture substrates, content-addressed compaction, local analytical engines, and C2PA's
+        market education. This paper specifies the causal event ledger, the application
+        transform contract, the query algebra, and the retention semantics that treat
+        forgetting as a feature — the trust infrastructure the AI era just made mandatory.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-005.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">source</a><a class="muted-link" href="blog/p005.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-006</span><h3>The Attention Scheduler: Interruption Economics as an Operating System Problem</h3></div>
+      <div class="paper-tags"><span class="tag">OS</span><span class="tag">HCI × systems</span><span class="tag">agents</span></div>
+      <p>
+        OSes schedule processors, memory, and network with fifty years of theory; attention is
+        scheduled by a DND toggle and an adversarial engagement economy at a measured cost of
+        ~23 minutes of resumption per interruption, unrecorded. We specify the attention
+        scheduler: interruption-cost models, admission control with deferral queues,
+        breakpoint-timed dispatch, per-app budgets with honesty pricing, urgent-class bounded
+        latency, starvation freedom, and an attention ledger. Closed platform features are
+        approaching this system without the theory; the paper supplies the semantics first.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-006.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">source</a><a class="muted-link" href="blog/p006.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-007</span><h3>The Intermittent Compute Fabric: One Machine Across Many Devices</h3></div>
+      <div class="paper-tags"><span class="tag">distributed</span><span class="tag">local-first</span><span class="tag">AI infra</span></div>
+      <p>
+        The median user owns five to eight devices that behave as islands joined only by cloud
+        meters. The offloading research line died in 2012 for reasons that have quietly expired:
+        mesh VPNs solved reachability, WASM and containers solved portability, device identity
+        is solved, and distributed local AI is the first workload in a generation that needs
+        cross-device placement. We specify the fabric: a scheduler that treats sleep and
+        partition as inputs, a capability-delegation protocol, partition-tolerant task
+        semantics, and an ambient CRDT state layer — one machine across many devices, owned.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-007.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a><a class="muted-link" href="blog/p007.html">essay</a></div>
+    </article>
+
+  </div>
+
+  <div class="arc-label">series I &middot; user-owned data &amp; the economics of inattention &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-001</span><h3>The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</h3></div>
+      <div class="paper-tags"><span class="tag">middleware</span><span class="tag">privacy</span><span class="tag">events</span></div>
+      <p>
+        Phones receive the most valuable structured data of a person's life — payment events,
+        receipts, gate changes, renewals — and throw it away before it can be kept. The personal
+        event bus is user-owned middleware that captures ambient events, stores them under user
+        control, and projects permissioned views to consuming applications: the missing
+        skeleton of personal data infrastructure, specified formally.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-001.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a><a class="muted-link" href="blog/p001.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-002</span><h3>Consumer Entitlements as Dead Capital</h3></div>
+      <div class="paper-tags"><span class="tag">economics</span><span class="tag">rights</span><span class="tag">agents</span></div>
+      <p>
+        Billions per year in statutory and contractual rights — compensation regimes, refund
+        windows, class settlements — go unclaimed because rights are invisible, perishable, and
+        unpriced. The personal entitlement engine treats a right as a machine-readable object
+        with detection, valuation, and execution semantics, converting dead capital to live
+        capital for the holder.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-002.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">source</a><a class="muted-link" href="blog/p002.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-003</span><h3>The n=1 Cost-of-Living Index</h3></div>
+      <div class="paper-tags"><span class="tag">methodology</span><span class="tag">economics</span><span class="tag">statistics</span></div>
+      <p>
+        Official inflation is an average over a nation that matches no individual. This paper
+        specifies the methodology for a statistically defensible personal price index —
+        matched-model chaining, quality adjustment for shrinkflation, Bayesian shrinkage to
+        official indices, uncertainty bands — and the local-first multi-source software that
+        would compute it from a person's own receipts.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-003.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">source</a><a class="muted-link" href="blog/p003.html">essay</a></div>
+    </article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/theme.js"></script>
+</body>
+</html>

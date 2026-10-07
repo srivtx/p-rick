@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Software Has a Second Behavior Nobody Wrote Down — p-rick</title>
+<meta name="description" content="There are two versions of every app you ship. The one in the spec, and the one that exists when the machine gets tired.
+
+The first version has an entire industry around it. Product…">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-004</div>
+    <h1 class="post-title">Your Software Has a Second Behavior Nobody Wrote Down</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>There are two versions of every app you ship. The one in the spec, and the one that exists when the machine gets tired.</p>
+    <p>The first version has an entire industry around it. Product specs. Design reviews. Test suites with thousands of cases. Dashboards watching its latency and error rate like cardiologists. That version is the best-engineered artifact of our civilization, and I don't say that lightly.</p>
+    <p>The second version appears when memory runs low, the battery fades, the CPU throttles, or the network collapses on a train. It is written by nobody. Reviewed by nobody. Tested by nobody. It is the accidental composite of a thousand scattered if-statements, an OOM killer's heuristics, and whatever your developers didn't get to. Your users meet this version constantly — the median device on this planet lives under permanent pressure — and no artifact anywhere on earth says what it was <em>supposed</em> to do.</p>
+    <p>We didn't specify behavior under scarcity because scarcity used to be an incident. It isn't anymore.</p>
+    <h2>The industry already proved this is solvable — twice</h2>
+    <p>Here's what convinced me this isn't philosophy. Two corners of software already treat degradation as a first-class engineering object, and they're the two corners users are happiest with.</p>
+    <p>Video streaming. An adaptive stream is a <em>declarative degradation contract</em>: a staircase of quality levels, chosen by measured conditions, with hysteresis so it doesn't flap. Nobody at a streaming company would ship "quality degrades however it degrades." They encode the ladder. The ladder is the product.</p>
+    <p>Web infrastructure. Every serious service specifies load shedding: which requests get dropped, which get simplified, in what order, when the load exceeds capacity. The brownout research line, Envoy's overload manager, admission control — degradation is <em>policy</em>, not accident.</p>
+    <p>So the practice exists. What's missing is the general form: a language any app can use to declare how it degrades, for any resource, and a runtime that enforces it and — this is the part nobody has — <em>audits</em> it.</p>
+    <h2>The three questions your app can't answer today</h2>
+    <p>Ask any team these, and watch the silence.</p>
+    <p><strong>What does your app shed first when memory is scarce?</strong> If the answer isn't written down, it isn't a decision — it's a fate. The ordering matters: suspend spell-check before autosave, animations before sync, polish before the core loop. That ordering is a product decision with safety consequences, and today it lives in nobody's head, nowhere.</p>
+    <p><strong>How does your app recover?</strong> Systems that degrade must heal, with hysteresis, or they oscillate. The "flapping" pathology — a feature bouncing between tiers — can be worse than staying degraded. No API in any OS has recovery semantics.</p>
+    <p><strong>Why was it slow yesterday at 2pm?</strong> Not the latency graph — the <em>decisions</em>. What was shed, by whom, under what pressure. Observability platforms watch symptoms; nothing records the degradation decisions themselves. We named the accumulated unrecorded liability <strong>degradation debt</strong>, and every app on earth is carrying an unknown balance.</p>
+    <h2>The uncomfortable part: AI makes this worse, faster</h2>
+    <p>AI systems are natively degradation-shaped. Every assistant you've shipped has runtime quality knobs: context truncation, model substitution, speculative decoding, retrieval depth, quantization. Your quality is already a <em>variable</em> — turned invisibly, under memory and battery and latency pressure, by heuristics nobody reviews.</p>
+    <p>Today, nobody can see which quality they received. Tomorrow, with agents grabbing machine resources, those knobs get turned more often and less visibly. The honest version of this future is a <em>contract</em>: under this pressure, this assistant answers with this model and this context, never below, and the UI says so. That's not a nice-to-have. That's the governance layer the entire AI stack is missing, and it's the same layer your animations needed in 2015.</p>
+    <h2>What we're proposing</h2>
+    <p>The paper specifies the whole thing — formal model, runtime, DSL — but the core is one sentence: <strong>degradation becomes a contract, declared like permissions, enforced like quality-of-service, audited like a ledger.</strong></p>
+    <p>Three parts. A manifest that says, per feature, the fidelity ladder and the shedding order. A pressure broker in the OS that reads pressure (Linux PSI proved this measurement layer in 2018) and dispatches directives to apps that declared ladders. And a ledger that records every tier transition — the audit surface that lets a user ask "what was sacrificed and why" and lets a buyer ask "which app degrades honestly."</p>
+    <p>The objections are in the paper, confronted honestly: apps will lie (transparency, then demotion — the market does the punishing); nobody writes manifests (media, games, and local AI already have ladders — the beachheads are built); cross-layer contracts are hard (ledgers compose). The strongest objection is "this is folklore and folklore is fine," and the answer is that folklore was fine when resources doubled every two years. That world ended. The median device is permanently pressed, and behavior under pressure is now most of the user experience your users actually have.</p>
+    <p>Ship the first version. Then ship the one you'd be proud of when the machine is tired.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-004.pdf">Degradation Contracts (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>p-rick — an independent research program on missing software</title>
+<meta name="description" content="p-rick finds and specifies software that does not exist yet: degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, the entitlement engine, and the n=1 cost-of-living index. Papers, PDFs, and essays.">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav>
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Blog</a>
+      <a href="#about">About</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="kicker">an independent research program</div>
+  <h1>Software the world is <em>missing</em>, specified before anyone builds it.</h1>
+  <p class="lede">
+    p-rick hunts for genuine gaps in the software landscape — categories with no incumbents,
+    problems with large audiences, theories nobody has written down — and does the research
+    to specify them: gap verification against everything that exists, formal models,
+    architectures, evaluation designs, and honest confrontation with the reasons each gap
+    has survived. Every paper ships with a PDF and a plain-language essay.
+    <strong>Research first; products later.</strong>
+  </p>
+  <div class="hero-facts">
+    <div class="fact"><div class="n">7</div><div class="l">working papers</div></div>
+    <div class="fact"><div class="n">2</div><div class="l">research series</div></div>
+    <div class="fact"><div class="n">7</div><div class="l">essays</div></div>
+    <div class="fact"><div class="n">0</div><div class="l">incumbents in-gap</div></div>
+  </div>
+</section>
+
+<section class="section" id="papers">
+  <div class="section-head"><h2>Papers</h2><div class="rule"></div></div>
+  <p class="section-intro">
+    Two arcs. Series I specifies user-owned data infrastructure — the personal event bus,
+    consumer entitlements as dead capital, and the n=1 cost-of-living index. Series II turns
+    to systems gaps: behavior under scarcity, storage that remembers, the scheduling of
+    human attention, and one machine across many devices. Each paper verifies its gap
+    against the existing landscape before proposing anything.
+  </p>
+
+  <div class="arc-label">series II &middot; systems &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-004</span><h3>Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</h3></div>
+      <p>
+        Behavior under abundance is specified, tested, and monitored; behavior under resource
+        pressure is accidental and unaudited. A formal model — fidelity ladders, shedding
+        orders, recovery hysteresis, floor invariants — plus a pressure-broker runtime and a
+        degradation ledger. The missing discipline for the era when quality is a runtime variable.
+      </p>
+      <div class="paper-tags"><span class="tag">systems</span><span class="tag">formal model</span><span class="tag">QoS</span></div>
+      <div class="pc-links"><a href="pdfs/p-004.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a><a class="muted-link" href="blog/p004.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-005</span><h3>Provenance-Native Storage: The File System as a Causal Ledger</h3></div>
+      <p>
+        PASS proved automatic file provenance in 2006; nothing shipped. The barriers have
+        expired — eBPF/ES/ETW capture, content-addressed ledgers, on-device models, C2PA's
+        market education. A causal event ledger per volume, an application transform contract,
+        and the query algebra for the questions users already ask: where did this come from,
+        what breaks if I delete it, reproduce this.
+      </p>
+      <div class="paper-tags"><span class="tag">systems</span><span class="tag">storage</span><span class="tag">trust</span></div>
+      <div class="pc-links"><a href="pdfs/p-005.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">source</a><a class="muted-link" href="blog/p005.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-006</span><h3>The Attention Scheduler: Interruption Economics as an Operating System Problem</h3></div>
+      <p>
+        OSes schedule CPUs with fifty years of fairness theory; human attention gets a DND
+        toggle and an adversarial notification economy. The specification of a real scheduler
+        for humans: interruption-cost models, admission control, breakpoint dispatch,
+        per-app attention budgets with honesty pricing, urgent-class latency bounds, and an
+        attention ledger — before closed platforms specify it badly.
+      </p>
+      <div class="paper-tags"><span class="tag">OS</span><span class="tag">HCI × systems</span><span class="tag">agents</span></div>
+      <div class="pc-links"><a href="pdfs/p-006.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">source</a><a class="muted-link" href="blog/p006.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-007</span><h3>The Intermittent Compute Fabric: One Machine Across Many Devices</h3></div>
+      <p>
+        The median user owns five-plus devices that behave as islands joined by cloud meters.
+        The offloading research line died in 2012 for reasons the substrate has erased:
+        mesh reachability, WASM portability, device identity, and the first workload that
+        wants it — distributed local AI. The scheduler, capability-delegation protocol, and
+        partition-tolerant task semantics that make a device set programmable as one machine.
+      </p>
+      <div class="paper-tags"><span class="tag">distributed</span><span class="tag">local-first</span><span class="tag">AI infra</span></div>
+      <div class="pc-links"><a href="pdfs/p-007.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a><a class="muted-link" href="blog/p007.html">essay</a></div>
+    </article>
+
+  </div>
+
+  <div class="arc-label">series I &middot; user-owned data &amp; the economics of inattention &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-001</span><h3>The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</h3></div>
+      <p>
+        Phones receive the most valuable structured data of a person's life and throw it away.
+        A user-owned middleware that captures ambient events, keeps them under user control,
+        and projects them to consuming apps — the missing skeleton of personal data infrastructure.
+      </p>
+      <div class="paper-tags"><span class="tag">middleware</span><span class="tag">privacy</span><span class="tag">events</span></div>
+      <div class="pc-links"><a href="pdfs/p-001.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a><a class="muted-link" href="blog/p001.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-002</span><h3>Consumer Entitlements as Dead Capital</h3></div>
+      <p>
+        Billions per year in statutory and contractual rights go unclaimed because rights are
+        invisible, perishable, and unpriced. The personal entitlement engine — a right as a
+    machine-readable object with detection, valuation, and execution — converts dead capital to live.
+      </p>
+      <div class="paper-tags"><span class="tag">economics</span><span class="tag">rights</span><span class="tag">agents</span></div>
+      <div class="pc-links"><a href="pdfs/p-002.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">source</a><a class="muted-link" href="blog/p002.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-003</span><h3>The n=1 Cost-of-Living Index</h3></div>
+      <p>
+        Official inflation is an average over a nation that matches no individual. The
+        methodology for a statistically defensible personal price index — matched-model
+        chaining, shrinkage to official indices, uncertainty bands — plus the local-first
+        multi-source software that would compute it.
+      </p>
+      <div class="paper-tags"><span class="tag">methodology</span><span class="tag">economics</span><span class="tag">statistics</span></div>
+      <div class="pc-links"><a href="pdfs/p-003.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">source</a><a class="muted-link" href="blog/p003.html">essay</a></div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="blogs">
+  <div class="section-head"><h2>Essays</h2><div class="rule"></div></div>
+  <p class="section-intro">Each paper has a companion essay — the argument in plain language, written the way technical leaders write.</p>
+  <div class="blog-list">
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p007.html">You Don't Own Five Computers. You Own One Bad Computer.</a></h3><p>The islands are real, the sea between them is drained, and the bridges are unbuilt.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p006.html">The Most Important Scheduler in Computing Hasn't Been Written</a></h3><p>Everything computers exist for gets scheduled except the thing they exist for.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p005.html">Every File You Own Forgot Who It Is</a></h3><p>Provenance was solved in 2006. Then nothing shipped. The AI era just made it mandatory.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p004.html">Your Software Has a Second Behavior Nobody Wrote Down</a></h3><p>There are two versions of every app: the one in the spec, and the one when the machine is tired.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p001.html">Your Phone Sees Everything and Remembers Nothing</a></h3><p>The missing skeleton of personal data infrastructure, and the organ that found it.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p002.html">The Largest Unclaimed Money on Earth Is Yours</a></h3><p>Rights are invisible, perishable, and unpriced. That is a software problem.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p003.html">Your Inflation Is Not the CPI</a></h3><p>Official inflation is an average over a nation that matches no individual — including you.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head"><h2>About</h2><div class="rule"></div></div>
+  <div class="about-body">
+    <p>
+      <strong>p-rick is an independent research program, not a product.</strong> Its subject is
+      missing software: categories where a real problem meets a large audience and no incumbent
+      — verified against the landscape before anything is proposed, not asserted after.
+      Every paper states its gap as a falsifiable claim, grades the evidence honestly
+      (strong / partial / weak), and confronts the strongest objections to its own thesis.
+    </p>
+    <p>
+      The program runs research-first: papers before products, always. Work is tracked in
+      <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a> — an automatic
+      session ledger recording what was done, when, and by which agent, so nobody has to
+      remember or ask how long anything took.
+    </p>
+    <p>
+      Series I (user-owned data and the economics of inattention) began inside
+      <a href="https://github.com/srivtx/pocketveto">srivtx/pocketveto</a> and moved here when the
+      program outgrew its host. Series II (systems gaps) was researched, written, and published
+      from this repository. Everything is open: sources, PDFs, and the site.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">
+        an independent research program on missing software &middot;
+        papers, PDFs, essays &middot; dark and light, like a good reading room
+      </div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Blog</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+      <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/theme.js"></script>
+</body>
+</html>
