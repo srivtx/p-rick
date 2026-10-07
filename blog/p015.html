@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Spreadsheet Lied to You. It Was Designed To. — p-rick</title>
+<meta name="description" content="In 2013, a graduate student asked for the spreadsheet behind a famous economics paper — the one whose threshold claim had anchored austerity budgets on two continents. Thomas Hernd…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Spreadsheet Lied to You. It Was Designed To.">
+<meta property="og:description" content="In 2013, a graduate student asked for the spreadsheet behind a famous economics paper — the one whose threshold claim had anchored austerity budgets on two continents. Thomas Hernd…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p015.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Spreadsheet Lied to You. It Was Designed To.">
+<meta name="twitter:description" content="In 2013, a graduate student asked for the spreadsheet behind a famous economics paper — the one whose threshold claim had anchored austerity budgets on two continents. Thomas Hernd…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-015</div>
+    <h1 class="post-title">The Spreadsheet Lied to You. It Was Designed To.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>In 2013, a graduate student asked for the spreadsheet behind a famous economics paper — the one whose threshold claim had anchored austerity budgets on two continents. Thomas Herndon found that the authors' Excel formula averaged the wrong rows. Five countries' data never entered the calculation. The correction swung the headline result.</p>
+    <p>The industry took one lesson: audit your spreadsheets. It's a fair lesson. Panko's research program spent decades auditing them: file-level error rates near 90%, cell error rates around 1–3%, stable since the nineties.</p>
+    <p>But the deeper lesson is the one nobody took: <strong>the artifact's physics made the error invisible.</strong> A cell holding a bare number says nothing about where it came from, what was included, how wrong it might be, or what happens downstream when it is wrong. The spreadsheet didn't fail because humans are careless. It failed because a point-estimate artifact is epistemically opaque <em>by construction</em> — it displays the fiction of exactness in every cell, and the fiction is exactly what everyone downstream believed.</p>
+    <h2>The laboratory solved this a century ago</h2>
+    <p>No physicist reports "3.2." They report 3.2 ± 0.4, with the measurement protocol and the confidence stated, because metrology's GUM standard — the Guide to the Expression of Uncertainty in Measurement — has required it for a century. Every engineering discipline that touches matter runs on it.</p>
+    <p>The rooms where civilization's <em>actual</em> numbers do civilization's actual work — the budget, the project plan, the hospital summary, the policy memo, the news article — never imported the standard. Not because the math is hard. Because the artifact had no place to put the error bars, and the display culture had every incentive not to.</p>
+    <p>Because that's the real mechanism: a number displayed as "3.2" is <em>believed differently</em> than one displayed as "roughly three." The digits perform authority. The presentation science — Gigerenzer's natural frequencies, the calibration-training literature, the fact that the public reads probability-of-precipitation just fine — proved that civilians can read uncertainty <em>better</em> than false precision when the presentation is engineered. The office suite chose the form that manufactures confidence, and it was never a decision anyone remembers making.</p>
+    <h2>Where does the uncertainty actually go?</h2>
+    <p>Here's what makes it an accounting problem: the uncertainty never disappears. Organizations <em>know</em> their estimates are fuzzy. So they pad — privately, in estimators' heads, personal multipliers passed down as folklore. The plan is a negotiation performed in point-estimate theater, and the padding lives in humans where no system can see it.</p>
+    <p>Every adjacent tool confirms the gap by its boundaries. Monte Carlo add-ons bolted distributions onto the grid for a trained priesthood in dedicated risk workbooks — while the organization's operative documents stayed point-native. Scenario tools like Causal made distribution-native <em>models</em> — islands you visit, while the numbers that actually circulate (deck, memo, contract) travel as bare points. Probabilistic programming gave the experts Stan and PyMC and gave civilians nothing. Interval arithmetic has been textbook-complete since 1966 and product-absent since 1966.</p>
+    <p>Uncertainty that doesn't survive copy-paste is uncertainty that dies at the organization's first boundary. Which is to say: immediately.</p>
+    <h2>The quant</h2>
+    <p>The fix is a type. The document's atomic numeric type becomes the <strong>quant</strong>: {point, distribution, provenance, confidence, units, created-at}. A bare number becomes a quant whose distribution degenerated to a delta — the system flags it as <em>epistemically naked</em>, the way a linter flags an unhandled case.</p>
+    <p>Propagation is a tiered engine — interval arithmetic for the linear cases, Monte Carlo for the general, GUM's law as the first tier — and it's invisible. Civilians never see math. They see results whose honesty is <em>computed</em> rather than asserted by footnote.</p>
+    <p>The display contract is where the presentation science cashes out: "roughly 3.2k (90%: 2.1–4.6k)" with the full distribution one hover away. Charts render bands by default, not points. Calibrated language binds "very likely" to actual numbers, the way the IPCC does it.</p>
+    <p>The transport rule is the one that changes everything: quants survive copy-paste, export, and APIs. The deck pasted from the plan inherits the plan's intervals. The uncertainty rides the number across every boundary — the same trick units-of-measure types already pulled off in real compilers. If meters can ride a value, distributions can.</p>
+    <h2>The sharpest instrument: the ledger</h2>
+    <p>The part no artifact has ever had: <strong>retro-scoring its own numbers.</strong> When outcomes arrive — the actual duration, the actual spend — the document system scores its own past claims. Brier-style, with bias decomposed: <em>this team's 90% intervals have covered 62% of outcomes over eight quarters. Intervals too narrow. Durations 12% optimistic at the 90-day horizon.</em></p>
+    <p>Reference-class forecasting stops being a consultancy and becomes a query. Calibration training's literature says the feedback loop measurably improves estimators. Nobody has ever built the loop into the artifact — because point-native documents can't remember their own claims, the organization's estimation bias is invisible <em>by construction</em>, every quarter, forever. The gap is self-concealing. That's why it survived.</p>
+    <h2>The claim, precisely</h2>
+    <p>Not that everything becomes fuzzy. Counts are counts; prices at the register are exact; the quant degrades to a delta with zero display overhead. The claim is narrower and harder: <strong>the estimates stop impersonating the exact numbers.</strong></p>
+    <p>The number was never certain. The laboratory admitted it in the last century. The office, the hospital, and the ministry still run on the fiction — and the fix is a type, a display contract, and a ledger. All specified. Nowhere built. Yet.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-015.pdf">The Uncertain Document (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

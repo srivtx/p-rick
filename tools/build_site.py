@@ -33,6 +33,16 @@ BLOGS = [
      'The Bus Factor Protocol', 'p-010'),
     ('2026-10-07-we-preserve-films-and-seeds.md', 'blog/p011.html', 'P-011',
      'Model Extinction', 'p-011'),
+    ('2026-10-07-every-simplification-is-a-relocation.md', 'blog/p012.html', 'P-012',
+     'The Complexity Ledger', 'p-012'),
+    ('2026-10-07-software-assumes-one-person.md', 'blog/p013.html', 'P-013',
+     'Delegated Operation', 'p-013'),
+    ('2026-10-07-your-senses-have-no-failover.md', 'blog/p014.html', 'P-014',
+     'Modality Failover', 'p-014'),
+    ('2026-10-07-the-spreadsheet-lied.md', 'blog/p015.html', 'P-015',
+     'The Uncertain Document', 'p-015'),
+    ('2026-10-07-defaults-are-legislation.md', 'blog/p016.html', 'P-016',
+     'The Defaults Ledger', 'p-016'),
 ]
 
 NO_FLASH = (
@@ -273,8 +283,8 @@ def main():
     # sitemap: all pages + PDFs
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
              'og-image.png', 'feed.xml']
-    pages += ['blog/p%03d.html' % n for n in range(1, 12)]
-    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 12)]
+    pages += ['blog/p%03d.html' % n for n in range(1, 17)]
+    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 17)]
     build_sitemap(pages)
 
 

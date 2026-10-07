@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Software Assumes You're One Person. Half of Humanity Isn't. — p-rick</title>
+<meta name="description" content="Fifty-three million Americans are unpaid family caregivers. That's the AARP's number, and it counts the people running a parent's phone plan from another city, the adult children d…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Software Assumes You're One Person. Half of Humanity Isn't.">
+<meta property="og:description" content="Fifty-three million Americans are unpaid family caregivers. That's the AARP's number, and it counts the people running a parent's phone plan from another city, the adult children d…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p013.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Software Assumes You're One Person. Half of Humanity Isn't.">
+<meta name="twitter:description" content="Fifty-three million Americans are unpaid family caregivers. That's the AARP's number, and it counts the people running a parent's phone plan from another city, the adult children d…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-013</div>
+    <h1 class="post-title">Software Assumes You're One Person. Half of Humanity Isn't.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Fifty-three million Americans are unpaid family caregivers. That's the AARP's number, and it counts the people running a parent's phone plan from another city, the adult children doing their mother's banking over a video call, the spouses managing medications through portals designed for exactly one human: the patient.</p>
+    <p>Watch how that banking actually happens. The parent shares their screen. The child operates the parent's bank through the parent's mouse for forty minutes, reading statements aloud, catching timeout screens. Every layer of authentication the bank ever built — device fingerprinting, fraud detection, "unusual login" heuristics — is right there, watching this happen, wrong about all of it.</p>
+    <p>The industry's fraud model classifies this scene as account takeover. Millions of times a week, the attack the model is trained on is a daughter helping her father.</p>
+    <h2>The assumption underneath everything</h2>
+    <p>The single-principal assumption: one account, one human, present and able. Unix inherited it from the terminal. OAuth generalized it. Every consumer product on earth ships inside it. And it's not four assumptions, it's one with four faces: identity equals actor. Presence equals capability. Consent is continuous. Account equals person equals life.</p>
+    <p>Each face is false in caregiving, in childhood, in illness, in every human arrangement where the person <em>operating</em> the software isn't the person the software is <em>for</em>. The last third of life runs entirely on this failure. So does childhood. So does half of every household.</p>
+    <p>And here's the thing that should stop every security team cold: the workaround the world actually built is the <em>worst possible architecture</em> — shared passwords on notepads, credentials in family vaults, months-long sessions on foreign devices. If an attacker designed the ideal compromise of a banking relationship, it would look exactly like eldercare in 2026. The users built it because we never gave them the protocol. The notepad password is our architecture, executed by civilians.</p>
+    <h2>The pieces all exist</h2>
+    <p>Email has had delegated access for two decades — a real operator pattern, sitting right there, never spread to the rest of the product.</p>
+    <p>Parental controls built the machinery: approval workflows, consent between devices, per-category grants. Wrong authority direction for eldercare, wrong privacy model — a nine-year-old's surveillance-grade visibility is an assault on a seventy-nine-year-old's dignity — but the gears are real.</p>
+    <p>Enterprise solved the whole pattern decades ago: RBAC, break-glass, audit trails, just-in-time access. Priced for organizations, never ported to households. OAuth solved delegation for <em>applications</em> and spent a decade letting its "delegated authorization" vocabulary confuse everyone about <em>humans</em>.</p>
+    <p>Six mature fragments. Zero compositions. That's the gap, and it survived for the most honest reason in this whole essay: <strong>the security orthodoxy classified the use case as the threat.</strong> "Someone else is in the account" is the canonical attack. Nobody's data model had a second legitimate principal, so it became a support exception — the agent who quietly helps grandma's caregiver and asks no questions. Exceptions don't become protocols by accretion.</p>
+    <h2>The protocol, in one breath</h2>
+    <p>An <strong>operator</strong> principal with their own authentication, linked to the primary through a <em>grant</em>, not a credential. Operation as <strong>capability bundles</strong> — acts, in the product's own vocabulary: view statements, schedule payment under X, refill the prescription. Never the password itself.</p>
+    <p>A <strong>graduated ladder</strong>: observe → advise → co-act → act within bounds → break-glass. Escalation needs consent when capacity exists; <em>de-escalation needs nobody's</em> — the asymmetry that keeps dignity intact.</p>
+    <p>Every grant time-boxed, device-bound, purpose-scoped. Every act in an audit log the <em>primary owns</em> — readable, exportable, shareable with an attorney. And — this is the part no current architecture even imagines — <strong>drift detection aimed at the operator</strong>, because the operator's session is now the crown jewels, and because the elder-abuse literature tells us the threat often arrives holding a legitimate grant. Bounds cap the blast radius. The audit log creates the evidence that today's notepad-based abuse never leaves. Drift detection catches the slow creep.</p>
+    <p>Then the ends, because grants end: revocation at one gesture, handover ceremonies between siblings, and a death transition that settles the grant like an estate instead of a suspension email.</p>
+    <h2>Why now</h2>
+    <p>The demographic clock runs one direction. The consent column on every transaction — consensual, disclosed, or externality — is the same instrument the environmental movement needed when rivers caught fire: not a prohibition on relocation, just a record of who paid.</p>
+    <p>The technology question is settled. The identity question is the last one anyone changes, which is why it's the one worth specifying now, in public, before someone ships it badly and calls it family sharing.</p>
+    <p>One account, one human was never a description of humans. It was a description of terminals. The terminals are gone. The assumption is still here, and 53 million people are operating its failure every week with a notepad and a video call.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-013.pdf">Delegated Operation (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

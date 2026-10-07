@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers — p-rick</title>
-<meta name="description" content="All eleven p-rick working papers in three series: device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<meta name="description" content="All sixteen p-rick working papers in four series: the complexity ledger, delegated operation, modality failover, the uncertain document, the defaults ledger, device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
-<meta property="og:title" content="p-rick papers — eleven working papers on missing software">
-<meta property="og:description" content="Eleven working papers in three series. Each verifies its gap against the existing landscape before proposing anything.">
+<meta property="og:title" content="p-rick papers — sixteen working papers on missing software">
+<meta property="og:description" content="Sixteen working papers in four series. Each verifies its gap against the existing landscape before proposing anything.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/papers.html">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -42,13 +42,105 @@
 <main class="page-main">
   <h1 class="page-title">Papers</h1>
   <p class="page-sub">
-    Eleven working papers in three series. Each verifies its gap against the existing landscape
+    Sixteen working papers in four series. Each verifies its gap against the existing landscape
     before proposing anything, states the gap as a falsifiable claim, grades the evidence
     honestly (STRONG / PARTIAL / WEAK), and confronts the strongest objections to its own
     thesis. PDFs are hosted on this site; markdown sources live in the repository. The
     <a href="method.html">method page</a> documents the bar and the exclusions; the
     <a href="#cite">citing block</a> is at the bottom.
   </p>
+
+  <div class="arc-label">series IV &middot; assumptions &mdash; the quiet premises software runs on &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-012</span><h3>The Complexity Ledger: Design as Relocation, Not Reduction</h3></div>
+      <div class="paper-tags"><span class="tag">theory</span><span class="tag">design</span><span class="tag">measurement</span></div>
+      <p>
+        Every discipline that moves matter has an accounting discipline; the one that
+        moves complexity has folklore. Tesler's law of conservation of complexity —
+        fifty years quoted, never once operationalized — becomes a falsifiable theory
+        over five sinks with field-measurable proxies (code, interaction, operation,
+        documentation, deferral), double-entry relocation records that refuse one-legged
+        claims of reduction, complexity budgets with reconciliation at release cadence,
+        and a consent column separating trades from externalities. The waterbed
+        signatures in compiler flags, ticket-migration signatures after UI
+        "simplifications," and documentation-volume compensation after API redesigns
+        are the theory's testable predictions.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-012.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source</a><a class="muted-link" href="blog/p012.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-013</span><h3>Delegated Operation: Software for the Body with More Than One Owner</h3></div>
+      <div class="paper-tags"><span class="tag">HCI</span><span class="tag">security</span><span class="tag">aging</span></div>
+      <p>
+        The single-principal assumption — one account, one human, present and able —
+        fails the 53 million unpaid family caregivers who operate a parent's phone,
+        bank, pharmacy, and email through shared passwords and video-call screen
+        shares that security teams classify as abuse. We specify the operator
+        principal: capability bundles instead of credential handover, a graduated
+        autonomy ladder (observe → advise → co-act → act → break-glass), grants that
+        are purpose-scoped, time-boxed, and device-bound, audit trails the primary
+        owns, drift detection aimed at the operator, and succession semantics ending
+        in an estate mode rather than a suspension email.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-013.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-013-delegated-operation.md">source</a><a class="muted-link" href="blog/p013.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-014</span><h3>Modality Failover: Cross-Sensory Redundancy for Critical Software</h3></div>
+      <div class="paper-tags"><span class="tag">accessibility</span><span class="tag">alerts</span><span class="tag">systems</span></div>
+      <p>
+        Alerting's hidden single point of failure is the human sensory channel: the
+        deaf user's intact smoke alarm, the pocketed phone at 3 a.m., the clinical
+        alarm-fatigue catastrophe — channel death treated as the environment's
+        problem. We specify RAID for the senses: platform-granted criticality
+        classes (advisory / action / life-safety), a local private capability
+        profile of live channels, k-of-n delivery, acknowledgment-gated escalation
+        across modalities, devices, and finally people, channel-health probing, and
+        an antifatigue governor. CAP standardized the message; this is the missing
+        receiving layer.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-014.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-014-modality-failover.md">source</a><a class="muted-link" href="blog/p014.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-015</span><h3>The Uncertain Document: Propagating Uncertainty Through Everyday Software</h3></div>
+      <div class="paper-tags"><span class="tag">data</span><span class="tag">statistics</span><span class="tag">documents</span></div>
+      <p>
+        Metrology solved error propagation a century ago (GUM); the office, the
+        hospital, and the ministry still run on bare floats whose point-estimate
+        form made the austerity-spreadsheet error invisible. We specify the quant —
+        {point, distribution, provenance, confidence, units} — as the document's
+        native numeric type, with tiered propagation (interval arithmetic, Monte
+        Carlo, GUM's law), a calibrated display contract built on the
+        natural-frequencies evidence, an assumption registry that ages, uncertainty
+        that survives copy-paste and APIs, and the calibration ledger: the first
+        instrument that lets an organization learn its own estimation bias.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-015.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-015-uncertain-document.md">source</a><a class="muted-link" href="blog/p015.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-016</span><h3>The Defaults Ledger: Governing the Strongest Force in Software</h3></div>
+      <div class="paper-tags"><span class="tag">governance</span><span class="tag">platforms</span><span class="tag">behavioral econ</span></div>
+      <p>
+        Defaults produce the largest measured effect sizes in behavioral science —
+        organ-donation consent from 4% to 99% between neighboring countries, a
+        $20B/year market price for one search box's placement — and the act of
+        setting one is recorded nowhere. We specify the civic layer: machine-readable
+        defaults manifests with provenance and changed-from, update-time diff and
+        drift notification, a portable personal override registry, household and
+        third-party negotiation layers (importable default packs), default impact
+        assessments above exposure thresholds, and procurement-grade defaults bills
+        of materials. Defaults are legislation nobody voted on; this is the
+        parliamentary record.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-016.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-016-defaults-ledger.md">source</a><a class="muted-link" href="blog/p016.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series III &middot; continuity &mdash; what systems lose over time &middot; 2026</div>
   <div class="paper-grid">
@@ -234,12 +326,72 @@
   <div id="cite" class="cite-section">
     <div class="section-head"><h2>Cite</h2><div class="rule"></div></div>
     <p class="page-sub" style="margin-bottom: 24px;">
-      BibTeX for all eleven working papers. Each entry cites the PDF (the typeset, canonical
+      BibTeX for all sixteen working papers. Each entry cites the PDF (the typeset, canonical
       form); the markdown source lives at the same path in the repository.
     </p>
     <details class="cite-details">
-      <summary>Show BibTeX (11 entries)</summary>
-      <div class="bibtex-block"><pre>@techreport{prick2026p008,
+      <summary>Show BibTeX (16 entries)</summary>
+      <div class="bibtex-block"><pre>@techreport{prick2026p012,
+  title       = {The Complexity Ledger: Design as Relocation, Not Reduction},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-012},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-012.pdf}
+}
+
+@techreport{prick2026p013,
+  title       = {Delegated Operation: Software for the Body with More Than One Owner},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-013},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-013.pdf}
+}
+
+@techreport{prick2026p014,
+  title       = {Modality Failover: Cross-Sensory Redundancy for Critical Software},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-014},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-014.pdf}
+}
+
+@techreport{prick2026p015,
+  title       = {The Uncertain Document: Propagating Uncertainty Through Everyday Software},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-015},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-015.pdf}
+}
+
+@techreport{prick2026p016,
+  title       = {The Defaults Ledger: Governing the Strongest Force in Software},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-016},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-016.pdf}
+}
+
+@techreport{prick2026p008,
   title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},
   author      = {{p-rick research program}},
   institution = {p-rick},

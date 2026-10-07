@@ -164,3 +164,47 @@
 | essays published | 11 |
 | research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III: queued) |
 | product substrates | 1 (PocketVeto) |
+
+---
+
+# PART 4 — series IV: assumptions (the quiet premises software runs on)
+
+> 2026-10-07: program director's direction — one more research round
+> ("do one more round"), no-toy-projects constraint re-affirmed. Series IV
+> researches **assumptions**: the unstated premises every software system runs
+> on, and what breaks when each premise is false — complexity can be destroyed
+> rather than relocated (the complexity ledger), a body has one owner
+> (delegated operation), the user's senses are always online (modality
+> failover), every number is a point (the uncertain document), and defaults
+> are neutral (the defaults ledger). Five directions, zero overlap with
+> Series I–III territory, all passing the four-test bar with no incumbents
+> in-gap. Exclusion criteria re-enforced: no toy tools, no test wrappers, no
+> deterministic-crypto-verification gadgets — only real, never-done software
+> research with large audiences.
+
+## Ledger (series IV)
+
+### SESSION 011 · 2026-10-07 · series-IV gap selection + papers + essays
+- **agent:** main orchestrator (Super Z / GLM)
+- **started:** 08:00 UTC · **ended:** 08:55 UTC · **duration:** 55m
+- **scope:** select five series-IV directions; write P-012..P-016 + 5 CEO-voice essays
+- **outputs:** direction selection locked (complexity accounting / delegated operation / modality failover / uncertain documents / defaults governance — domains: design theory, identity architecture, accessibility infra, document data models, platform governance; zero overlap with P-001..P-011); `papers/p-012..p-016.md` (~19k words total; grading: all five STRONG with cross-references into P-002/P-004/P-005/P-006/P-008/P-009/P-010/P-011/P-013/P-015 family); `blogs/` ×5 new essays; series-IV verification queries queued for the background runner
+- **status:** done · **next:** PDF pipeline + site extension
+
+### SESSION 012 · 2026-10-07 · PDFs + site extension + ship
+- **agent:** main orchestrator
+- **started:** 08:55 UTC · **ended:** 09:40 UTC · **duration:** 45m
+- **scope:** typeset series-IV PDFs; extend site to four series; README/agents update; push + verify Pages
+- **outputs:** `pdfs/p-012..p-016.pdf` (11/10/11/11/11 pp, Tectonic/LaTeX + Template-03 covers ×5 via gen_covers4.py, cover_validate ALL PASS ×5, merge_covers4.py with full metadata, pdf_qa WARN-only English quote/em-dash line-start cosmetics — same non-blocking class as series II/III); `tools/build_site.py` extended (16 blog entries, feed.xml 16 items, sitemap.xml 39 urls); `papers.html` + series-IV arc, 5 paper cards, BibTeX 16 entries; `index.html` + series-IV section, stats 16/4/16/0, updated meta/OG; `blog.html` + 5 new rows; `method.html` grade table extended to 16 rows + four-series summary; README v4 (four series, Series IV table, status); this ledger entry
+- **status:** done · **next:** citation verification pass (series-IV queries queued); product directories after research freeze
+
+### Updated totals (series IV)
+
+| metric | value |
+|---|---|
+| sessions logged | 12 |
+| total tracked effort | ~12h 15m |
+| papers published | 16 (P-001 … P-016) |
+| essays published | 16 |
+| research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III/IV: queued) |
+| product substrates | 1 (PocketVeto) |

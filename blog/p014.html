@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Senses Have No Failover — p-rick</title>
+<meta name="description" content="There's a photo that circulates after apartment fires in the deaf community: a smoke alarm on the ceiling, intact, having done its job perfectly. It sounded. Nobody heard it.
+
+The …">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Your Senses Have No Failover">
+<meta property="og:description" content="There's a photo that circulates after apartment fires in the deaf community: a smoke alarm on the ceiling, intact, having done its job perfectly. It sounded. Nobody heard it.
+
+The …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p014.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Senses Have No Failover">
+<meta name="twitter:description" content="There's a photo that circulates after apartment fires in the deaf community: a smoke alarm on the ceiling, intact, having done its job perfectly. It sounded. Nobody heard it.
+
+The …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-014</div>
+    <h1 class="post-title">Your Senses Have No Failover</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>There's a photo that circulates after apartment fires in the deaf community: a smoke alarm on the ceiling, intact, having done its job perfectly. It sounded. Nobody heard it.</p>
+    <p>The hardware worked. The system failed silently — and the silence is the design.</p>
+    <p>The fire-safety numbers behind that photo are architectural, not anecdotal: adults over 65 die in home fires at more than double the general rate, and roughly 15% of adults report hearing difficulty. But those are the <em>permanent</em> channel failures. The situational ones hit everyone: the phone buzzing once across the bedroom at 3 a.m., the visual flash buried under a fullscreen game, the headphones on, the factory floor at 95 dB, the phone in a pocket on a motorcycle.</p>
+    <p>Engineers have a word for what every one of those scenarios is: <strong>channel death</strong>. And we have a whole discipline for what to do about it — everywhere except the human sensory layer.</p>
+    <h2>The one component guaranteed to fail, wired with no backup</h2>
+    <p>Storage has RAID. Networks have multipath. Power has backup feeds. Flight control has dissimilar redundancy — the aviation tradition of making critical paths fail in <em>different ways</em>, because two things that fail the same way fail together.</p>
+    <p>And the one component in the stack with a known, large, <em>growing</em> failure rate — human perception of a single channel — is wired as a single string: app to OS to one speaker, or one LED, or one vibration motor. Out. No health check, no failover, no acknowledgment, no escalation. The person asleep is not a user state in any notification system on earth; it's an assumed absence.</p>
+    <p>Three assumptions make this invisible. The channel is available. The channel's state is known. Delivery equals receipt. The third one is the killer: no civilian alert system asks whether the message was <em>perceived</em>. There's no acknowledgment, so there's no escalation on silence, so there's no audit of the silence.</p>
+    <p>The hospitals learned what that absence breeds — they call it alarm fatigue, hundreds of unactioned alarms per shift, desensitized staff, and the critical signal drowning in its own redundancy. ECRI ranked alarm hazards at the <em>top</em> of health-technology hazards, year after year. The Joint Commission wrote a national safety goal about it. That's what happens when you maximize alert count with no perception model and no escalation grammar.</p>
+    <h2>The fragments have existed for decades</h2>
+    <p>The deaf community built the answer as hardware: strobes, bed shakers, wearable receivers — cross-modal delivery, proven, per-room, purchase by purchase. The retrofit market solved the device and never the protocol.</p>
+    <p>Emergency broadcasting solved the message layer: OASIS's Common Alerting Protocol — one alert, many delivery paths — and the unique tone-plus-vibration pattern that emergency broadcasts carry. CAP standardized the message. The receiving end — which sense, which device, whether the human noticed — is outside the standard.</p>
+    <p>On-call systems solved the semantics: acknowledgment-gated escalation, walk the graph until someone confirms, timing budgets, audit. Twenty years of production-hardening — pointed at engineers' phones, never at humans' senses.</p>
+    <p>The on-call world made the bargain decades ago: for the alerts that matter, silence must mean something. Every hospital and every paged engineer accepted it. Our phones run the opposite bargain: for every alert, silence means nothing, because no alert is ever confirmed by anyone.</p>
+    <h2>RAID for the senses</h2>
+    <p>The specification composes the fragments into a platform protocol:</p>
+    <p><strong>Criticality classes</strong> — advisory, action, life-safety — <em>granted</em> by the platform to accredited senders, never self-declared. The exact governance emergency broadcasters already run, one layer down.</p>
+    <p><strong>A capability profile</strong>: local, private, per-person. Which channels are live <em>right now</em> — headphone state, noise floor, sleep schedule, driving. A routing table, never a diagnosis. Your biology stays on your device; only the routing leaves the table.</p>
+    <p><strong>k-of-n delivery</strong>: life-safety alerts land on two concurrently healthy channels simultaneously — sound plus haptic plus visual, not serially. The RAID-1 principle. Sensory substitution science proved the brain doesn't care which channel arrives; Bach-y-Rita's work licensed this biologically in the sixties.</p>
+    <p><strong>Acknowledgment-gated escalation</strong>: delivered ≠ perceived ≠ acted, and the protocol stops conflating them. No acknowledgment in the latency window, the alert walks: remaining modalities, then devices — wearable, bedside, car, TV — then the room, then <em>people</em>: housemates, neighbors on a consented mesh, emergency contacts, and finally the services pathway for life-safety. Terminate on receipt, record the audit event.</p>
+    <p><strong>A governor</strong>, because the safety layer must not become the engagement economy's next conquest: escalation budgets, sender demotion telemetry, silence-debt accounting. The clinical alarm-fatigue literature wrote the failure mode; the governor is the correctness requirement.</p>
+    <h2>The number that matters</h2>
+    <p>The evaluation's headline deliverable is a wall-clock number: a life-safety alert fires at 3 a.m. for a sleeping user, phone charging out of reach, wearable on wrist — how many minutes does the walk take, and at which step does the house learn its person didn't notice?</p>
+    <p>Every component exists in some adjacent world. The composition is one product decision in any platform team's scope. The first platform that ships it will have answered a question the fire statistics have been asking for a hundred years:</p>
+    <p>The alarm sounded. Did anyone receive it?</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-014.pdf">Modality Failover (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

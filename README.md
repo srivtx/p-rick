@@ -15,7 +15,17 @@ research is done.
 
 ## The papers
 
-### Series III — continuity: what systems lose over time (current)
+### Series IV — assumptions: the quiet premises software runs on (current)
+
+| ID | Paper | The missing thing |
+|----|-------|-------------------|
+| **P-012** | [The Complexity Ledger](papers/p-012-complexity-ledger.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-012.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p012.html) | Design as relocation, accounted: Tesler's conservation of complexity as a falsifiable theory, five measured sinks, double-entry relocation records, complexity budgets, and the consent principle that separates trades from externalities. |
+| **P-013** | [Delegated Operation](papers/p-013-delegated-operation.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-013.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p013.html) | Multi-principal software: the operator principal, capability bundles instead of credential handover, a graduated autonomy ladder, drift detection, and succession semantics for the 53 million caregivers running someone else's digital life. |
+| **P-014** | [Modality Failover](papers/p-014-modality-failover.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-014.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p014.html) | Cross-sensory redundancy for critical alerts: criticality classes, private capability profiles, k-of-n delivery, acknowledgment-gated escalation across modalities, devices, and people — RAID for the senses. |
+| **P-015** | [The Uncertain Document](papers/p-015-uncertain-document.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-015.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p015.html) | Uncertainty as a native property of everyday numbers: the quant type, tiered propagation, a calibrated display contract, an assumption registry, and the calibration ledger that lets an organization learn its own bias. |
+| **P-016** | [The Defaults Ledger](papers/p-016-defaults-ledger.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-016.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p016.html) | Governance for the strongest force in software: defaults manifests with provenance, drift notification, portable override registries, negotiation layers, and impact assessments for population-scale configuration. |
+
+### Series III — continuity: what systems lose over time
 
 | ID | Paper | The missing thing |
 |----|-------|-------------------|
@@ -104,7 +114,7 @@ conversion pipeline are kept by the research program workspace and documented in
 
 ### Citing
 
-BibTeX for all eleven papers is on the site's [papers page](https://srivtx.github.io/p-rick/papers.html#cite).
+BibTeX for all sixteen papers is on the site's [papers page](https://srivtx.github.io/p-rick/papers.html#cite).
 Each entry cites the PDF (the typeset, canonical form).
 
 ## agents.md — automatic work tracking
@@ -124,7 +134,12 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
   (devices), biological time (circadian orchestration), maintainer mortality (bus factor
   protocol), behavioral extinction (model conservation). Zero overlap with Series I/II
   territory; all four directions pass the bar with no incumbents in-gap.
-- **Eleven papers, eleven essays, eleven PDFs, three series, zero incumbents.**
+- Series IV complete (5 papers) — assumptions: the quiet premises software runs on. Complexity
+  conservation (the complexity ledger), single-principal identity (delegated operation),
+  sensory availability (modality failover), point-estimate numbers (the uncertain document),
+  default neutrality (the defaults ledger). Zero overlap with Series I–III territory; all
+  five directions pass the bar with no incumbents in-gap.
+- **Sixteen papers, sixteen essays, sixteen PDFs, four series, zero incumbents.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Every Simplification Is a Relocation — p-rick</title>
+<meta name="description" content="There's a law hanging on the wall of every design talk and nowhere else: Tesler's Law, the law of conservation of complexity. Larry Tesler wrote it down at Xerox PARC in the sevent…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Every Simplification Is a Relocation">
+<meta property="og:description" content="There's a law hanging on the wall of every design talk and nowhere else: Tesler's Law, the law of conservation of complexity. Larry Tesler wrote it down at Xerox PARC in the sevent…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p012.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Every Simplification Is a Relocation">
+<meta name="twitter:description" content="There's a law hanging on the wall of every design talk and nowhere else: Tesler's Law, the law of conservation of complexity. Larry Tesler wrote it down at Xerox PARC in the sevent…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-012</div>
+    <h1 class="post-title">Every Simplification Is a Relocation</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>There's a law hanging on the wall of every design talk and nowhere else: Tesler's Law, the law of conservation of complexity. Larry Tesler wrote it down at Xerox PARC in the seventies — every application has an inherent amount of irreducible complexity, and the only question is who deals with it. The user, or the designer.</p>
+    <p>Fifty years later, the law is universally quoted and never once operationalized. It has no unit, no ledger, no record. And that's not a gap in theory. It's a gap in accounting — and it's the most expensive missing spreadsheet in the industry.</p>
+    <h2>The transactions nobody records</h2>
+    <p>Watch what actually happens when a company "simplifies" something.</p>
+    <p>A platform hides configuration behind auto-detection. The complexity doesn't die. It moves — out of the integration engineer's config file and into every user's 3 a.m. production failure, which now happens inside a black box.</p>
+    <p>A product removes settings to reduce clutter. The complexity moves into forums, where users rebuild the removed decision tree as folklore, and into power users' scripts, which then become load-bearing because users will depend on any observable behavior — Hyrum's Law, the contract nobody signed.</p>
+    <p>A framework "removes boilerplate." The complexity moves into the upgrade path, and it bills you three years later in engineer-months.</p>
+    <p>Every one of these is a real economic event. Human time, error rate, and attention — the actual substance of complexity — moved from one party to another. And not one of them is recorded anywhere. No commit message says "relocated 3 complexity units to 2 million users." We instrument request latency to the microsecond and the one quantity we move around most has no instrument at all.</p>
+    <h2>Complexity has five places to hide</h2>
+    <p>When we built the accounting, the sinks fell out naturally — five of them, and they close the system:</p>
+    <ol>
+    <li><strong>Code</strong> — the complexity we can see and measure.</li>
+    <li><strong>Interaction</strong> — the user's share: steps, decisions, recovery work.</li>
+    <li><strong>Operation</strong> — the running side: runbooks, alerts, toil.</li>
+    <li><strong>Documentation</strong> — the corpus that absorbs what the interface sheds.</li>
+    <li><strong>Deferral</strong> — debt, workarounds, the time-shifted sink. The one that charges interest.</li>
+    </ol>
+    <p>The double-entry rule does the rest: any simplification claim must say which sink received the relocated cost. A change with only one leg — "we removed it" — isn't a transaction, it's a <em>claim</em>. The ledger flags it for reconciliation instead of believing it.</p>
+    <p>This is boring on purpose. It's a schema, not a philosophy. Thermodynamics didn't need to know what energy <em>was</em> to make engines accountable; we don't need to solve what complexity <em>is</em> to make design accountable. GDP isn't a natural kind either, and it steers nations.</p>
+    <h2>The uncomfortable prediction</h2>
+    <p>Here's the part that will annoy people, which is how you know it's a real theory: the strong form says relocations to lower-capacity receivers <em>inflate</em> total cost. One hour of difficulty for an expert is not one hour for a civilian. Moving complexity from your engineering team to your users doesn't just move it — it multiplies it.</p>
+    <p>Which means most "simplifications" in our industry are negative-sum trades that read as wins on the only dashboard anyone watches: the engineering dashboard.</p>
+    <p>The falsifier is cheap, and we designed for it: instrument the five sinks before and after major "simplification" releases. If total cost across all five sinks genuinely drops at product cadence — routinely, not as the rare heroic exception — Tesler was wrong and mass-simplification is real. That finding would be more surprising than the theory. We'd publish it with pleasure.</p>
+    <p>And when reduction <em>is</em> real? Garbage collection over manual memory was real. Packet switching was real. The smartphone — the strongest objection anyone will raise — was the largest <em>consensual, expert-ward</em> relocation in the history of computing, not a destruction. The theory doesn't say relocation is bad. It says it should be legible.</p>
+    <h2>The one question this instrument answers</h2>
+    <p>Every steering committee, every board review, every post-launch retrospective eventually asks the question the industry has never been able to answer with a number:</p>
+    <p><strong>"What did we simplify, and who is paying for it now?"</strong></p>
+    <p>Right now the honest answer is a shrug performed in adjectives. The ledger's answer is a receipt: from whom, to whom, how much, with whose consent.</p>
+    <p>Because that's the moral core of the whole thing, and Tesler said it himself: the question is never <em>whether</em> the complexity exists. The question is who deals with it. If the answer is "two million users who weren't told," you haven't simplified your product. You've just moved the invoice somewhere no one can find it.</p>
+    <p>The law was never that complexity is destiny. The law is that it's conserved, movable, and billable. The billables are overdue.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-012.pdf">The Complexity Ledger (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>
