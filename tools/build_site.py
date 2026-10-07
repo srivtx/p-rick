@@ -51,6 +51,12 @@ BLOGS = [
      'Dormancy Engineering', 'p-019'),
     ('2026-10-07-everything-shares-one-fuse.md', 'blog/p020.html', 'P-020',
      'Blast Radius Engineering', 'p-020'),
+    ('2026-10-07-your-dependencies-have-an-r0.md', 'blog/p021.html', 'P-021',
+     'The Reproduction Number of Code', 'p-021'),
+    ('2026-10-07-one-timers-are-eating-your-cache.md', 'blog/p022.html', 'P-022',
+     'The Admission Law', 'p-022'),
+    ('2026-10-07-embeddings-photocopy-themselves.md', 'blog/p023.html', 'P-023',
+     'Generation Loss', 'p-023'),
 ]
 
 NO_FLASH = (
@@ -291,8 +297,8 @@ def main():
     # sitemap: all pages + PDFs
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
              'og-image.png', 'feed.xml']
-    pages += ['blog/p%03d.html' % n for n in range(1, 21)]
-    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 21)]
+    pages += ['blog/p%03d.html' % n for n in range(1, 24)]
+    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 24)]
     build_sitemap(pages)
 
 

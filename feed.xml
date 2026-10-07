@@ -8,6 +8,27 @@
     <lastBuildDate>07 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srivtx.github.io/p-rick/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Your Embeddings Are Photocopies of Photocopies</title>
+      <link>https://srivtx.github.io/p-rick/blog/p023.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p023.html</guid>
+      <description>Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving en…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>One-Timers Are Eating Your Cache, and the Fix Is a Formula</title>
+      <link>https://srivtx.github.io/p-rick/blog/p022.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p022.html</guid>
+      <description>Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The col…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Dependencies Have an R₀. Nobody Computed It.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p021.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p021.html</guid>
+      <description>When a package gets compromised, our industry tells stories. Event-stream. ua-parser-js. The 2024 wave. We narrate the blast radius afterward, with the reverence of historians desc…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Everything Works. Everything Shares One Fuse.</title>
       <link>https://srivtx.github.io/p-rick/blog/p020.html</link>
       <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p020.html</guid>

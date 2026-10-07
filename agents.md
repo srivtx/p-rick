@@ -252,3 +252,39 @@
 | essays published | 20 |
 | research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III/IV/V: queued) |
 | product substrates | 1 (PocketVeto) |
+
+# PART 6 — series VI: laws (from specification to derivation)
+
+Scope change this round, per program directive: the research bar moves from
+"specify the missing system" to "derive the missing law" — quantitative
+theorems, seeded validation harnesses, and figures that regenerate from code.
+No toy projects, no deterministic wrappers: every paper must produce a law with
+mass-usefulness, validated honestly (including where it bends).
+
+## Ledger (series VI)
+
+### SESSION 015 · 2026-10-07 · series-VI law selection + simulations
+- **agent:** main orchestrator (Super Z / GLM)
+- **started:** 15:00 UTC · **ended:** 16:15 UTC · **duration:** ~75m
+- **scope:** select three quantitative directions; write and run real simulation code; generate all figures
+- **outputs:** direction lock (epidemic thresholds for dependency compromise / closed-form cache admission / embedding drift law — domains: supply-chain security, caching/CDN, AI infrastructure; zero overlap with P-001..P-020; all three quantitative with derivable laws). Simulation harnesses written and run (`scripts/sim1_epidemiology.py`, `sim2_cache.py`, `sim3_drift.py`): 16 figures + 3 results.json files, all seeded (20261007, PCG64). Debugging produced real findings: P-021's spectral radius is identically zero on DAGs (nilpotence — Proposition 1), the correct threshold is the branching mean R₀ᵛ = T⟨d⟩ with a measured extinction drag θ ≈ 0.4–0.6; the yank half-life is ~2 steps (paired-design response-time sweep); P-022's law direction corrected during review (τ* tracks stable evidence, NOT pollution — the anti-one-timer door is structural at τ≥2), argmax-vs-τ* validation within 1% at B=1000 across all nine configs; P-023's two-channel law validates to three decimals, Procrustes self-check asserts 1e-12, landmark law √(d/L), dimension mercy exact at d=256/1024. Chart style per charts skill (CB-safe palette, constrained_layout, no legend overlap).
+- **status:** done · **next:** papers + essays + PDFs + site
+
+### SESSION 016 · 2026-10-07 · papers + essays + PDF pipeline + site + ship
+- **agent:** main orchestrator
+- **started:** 16:15 UTC · **ended:** 17:05 UTC · **duration:** ~50m
+- **scope:** write the three laws papers; CEO-voice essays; extend the md→tex pipeline with math + figures; ship series VI
+- **outputs:** `papers/p-021..p-023.md` (~15k words total: abstract, model, propositions with proof sketches, experimental design, results with embedded figures, honest limitations, references with verification-queued marks, reproducibility appendix); 3 CEO-voice essays (`blogs/`); NEW quantitative PDF pipeline: `md2tex6.py` (display/inline math with unicode→LaTeX mapping, figure environments via \includegraphics — zero Tectonic errors on first pass), `gen_covers6.py` + Template-03 covers ×3 (cover_validate ALL PASS), `merge_covers6.py` → `pdfs/p-021..p-023.pdf` (16/15/14 pp, pdf_qa: p-021 full PASS, p-022/23 WARN-only line-start cosmetics consistent with series II–V); `code/` directory with the three harnesses + README (reproducibility artifact); site extended: papers.html series-VI section with figure-preview cards + data links, 3 BibTeX entries; index.html stats 23/6/23/0 + series-VI arc; blog.html +3 rows; method.html grade table 23 rows (LAW · validated) + six-series summary; build_site.py BLOGS 23, feed 23 items, sitemap 53 urls; README v6 (badges 23/6/23 + figures + reproducible badges, series-VI table with the three laws, repo layout with figures/ + code/).
+- **status:** done · **next:** trace studies for P-023's two-channel measurement on real encoder pairs; P-022 trace replay; P-021 registry telemetry collaboration; citation verification pass (still rate-limited)
+
+### Updated totals (series VI)
+
+| metric | value |
+|---|---|
+| sessions logged | 16 |
+| total tracked effort | ~16h |
+| papers published | 23 (P-001 … P-023) |
+| essays published | 23 |
+| validated laws | 3 (R₀ᵛ, τ*, D(g)=1−λ^g) |
+| simulation figures | 16 (all seeded, reproducible) |
+| product substrates | 1 (PocketVeto) |

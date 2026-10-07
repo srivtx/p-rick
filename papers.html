@@ -50,6 +50,63 @@
     <a href="#cite">citing block</a> is at the bottom.
   </p>
 
+
+  <div class="arc-label">series VI &middot; laws &mdash; from specification to derivation &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-021</span><h3>The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise</h3></div>
+      <div class="paper-tags"><span class="tag">security</span><span class="tag">networks</span><span class="tag">epidemiology</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-021/f2-phase-transition.png" alt="Outbreak probability vs transmissibility across registry sizes" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        The program&rsquo;s quantitative turn: compromised packages as epidemics on the
+        dependency DAG. The spectral threshold everyone computes on registries is exactly
+        zero (nilpotence &mdash; it certifies nothing), the correct threshold is the
+        branching law R&#8320;&#690; = T&middot;&lang;d&rang;, heavy-tailed registries sit in
+        the thresholdless regime where the safe transmissibility zone vanishes with
+        registry size, cascade-aware pinning buys herd immunity at one-eighth the random
+        budget, and the registry yank has a half-life of two cascade steps. Derived,
+        validated across 28 configurations, reproducible from one file.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-021.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-021-reproduction-number-of-code.md">source</a><a class="muted-link" href="blog/p021.html">essay</a><a class="muted-link" href="figures/p-021/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-022</span><h3>The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients</h3></div>
+      <div class="paper-tags"><span class="tag">caching</span><span class="tag">performance</span><span class="tag">closed-form</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-022/f2-pollution.png" alt="Hit ratio vs transient fraction with the capacity-tax law" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        The folklore of admission filters (TinyLFU doors, probation segments), written as
+        arithmetic: &tau;* = (1&minus;f)W / (H&middot;B<sup>&alpha;</sup>) &mdash; the
+        threshold tracks the stable-evidence volume, flat demand demands severe doors,
+        and the door legally disables itself when capacity covers the head. The capacity
+        tax prices the unfiltered cache at f/(1&minus;f) of its memory; the law&rsquo;s
+        argmax matches the closed form within 1% where the choice matters, and gains
+        over LRU reach 137% at the flat-and-dirty corner. Four measurements, one line
+        of arithmetic, the door.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-022.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-022-admission-law.md">source</a><a class="muted-link" href="blog/p022.html">essay</a><a class="muted-link" href="figures/p-022/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-023</span><h3>Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora</h3></div>
+      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-023/f2-recall.png" alt="Recall decay: stale vs anchored vs re-embedded" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Every vector index goes stale between encoder upgrades, and nobody has the law:
+        D(g) = 1&minus;&lambda;<sup>g</sup> with &lambda; the product of an isometry
+        channel (dimension-mercied into harmlessness and removable exactly by a
+        Procrustes landmark panel at &radic;(d/L) cost) and a distortion channel
+        (dimension-free, un-alignable, the entire real cost of churn). Validated to
+        three decimals across channels; anchored stale vectors hold nearly double the
+        recall at a rounding error of re-embedding cost. The re-embed calendar, replaced
+        by two probes and one matrix solve.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-023.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-023-generation-loss.md">source</a><a class="muted-link" href="blog/p023.html">essay</a><a class="muted-link" href="figures/p-023/results.json">data</a></div>
+    </article>
+
+  </div>
+
   <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
   <div class="paper-grid">
 
@@ -503,6 +560,43 @@
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-020.pdf}
 }
+
+@techreport{prick2026p021,
+  title       = {The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-021},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-021.pdf}
+}
+
+@techreport{prick2026p022,
+  title       = {The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-022},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-022.pdf}
+}
+
+@techreport{prick2026p023,
+  title       = {Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-023},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-023.pdf}
+}
+
 
 @techreport{prick2026p008,
   title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},

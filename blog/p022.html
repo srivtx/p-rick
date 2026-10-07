@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One-Timers Are Eating Your Cache, and the Fix Is a Formula — p-rick</title>
+<meta name="description" content="Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The col…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="One-Timers Are Eating Your Cache, and the Fix Is a Formula">
+<meta property="og:description" content="Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The col…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p022.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="One-Timers Are Eating Your Cache, and the Fix Is a Formula">
+<meta name="twitter:description" content="Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The col…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-022</div>
+    <h1 class="post-title">One-Timers Are Eating Your Cache, and the Fix Is a Formula</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The cold tail of a catalog nobody revisits. Every one of those misses — if your cache admits it — evicts an object that <em>was</em> going to be asked for again.</p>
+    <p>The industry's answer is admission control: TinyLFU doors, probation segments, probabilistic admission. Real mechanisms, deployed in production, tuned by... folklore. Sizing guides. Trial and error on a Tuesday. A threshold someone set by feel in 2019 that everyone's afraid to touch.</p>
+    <p>We asked the question nobody had written down: **given the workload, what is the <em>correct</em> threshold?** Not adaptive controllers that find it, not benchmarks that rank candidates — the closed form. It exists. The paper is <a href="pdfs/p-022-admission-law.pdf">The Admission Law</a>, and the formula is:</p>
+    <p>*<em>τ\</em> = (1−f)·W / (H·B^α)**</p>
+    <p>where f is your one-timer fraction, W your counting window, B your capacity, α your Zipf exponent, and H the Zipf normalizer. Four measurements you already have, one line of arithmetic, the door.</p>
+    <h2>What the formula says (and why it's not what folklore says)</h2>
+    <p>The surprise is in the f. Folk wisdom says "more pollution, tighter door." The law says the opposite: the threshold <em>falls</em> as transient load grows, because the anti-one-timer protection doesn't come from tightness — a one-timer's window count is 1, so any threshold ≥ 2 excludes them completely, always — tightness only excludes the <em>productive</em> body, whose window counts starve as f grows. The law separates two doors the folklore merged: the anti-one-timer door (τ ≥ 2, structural, free) and the head-selection door (τ\*, the formula).</p>
+    <p>The rest of the law's directions are operator poetry: flat popularity (small α) demands severe doors — admission control is most valuable exactly where caching is least naturally effective. Capacity slackens the door as B^α — steep-tail caches grow out of their doors fast. And when τ\* falls below 1, <strong>the correct door is no door</strong>: capacity covers the productive head, filtering's insurance premium exceeds its payout, the law tells you to turn itself off.</p>
+    <h2>The number that should stop the meeting</h2>
+    <p>We also derived the tax you pay for running without a door, and then validated it to within 3–7% across the entire transient sweep: <strong>LRU under f fraction of one-timers performs like a clean LRU at (1−f) of your capacity.</strong> At 30% bot traffic, your 2000-slot cache is a 1400-slot cache. At 50%, it's half a cache. The tax converts pollution into the currency caches actually pay with — slots — and you can read your oversizing factor right off your transient rate: f/(1−f). Running unfiltered at f = 0.5 means buying 100% more memory to stand still.</p>
+    <h2>Where it pays, and by how much</h2>
+    <p>The gain map across the (α, f) grid is monotone and merciless. Steep tail, clean traffic: 8% — don't bother. Flat tail, 50% one-timers: <strong>137%</strong> — the door more than doubles your hit ratio on the same stream, same memory. That corner is not exotic; it's edge caches, API gateways, open directories, anything bots love. If your workload lives there, this is the cheapest win in your infrastructure.</p>
+    <p>And the validation is the part I keep showing people: eighteen configurations, oracle parameters, threshold swept around the closed form — at B = 1000, the empirical optimum landed *<em>within 1% of τ\</em> in all nine configurations**. 10.4 vs 10.4. 13.4 vs 13.4. The argmax sits on the formula like it's obeying it. At larger capacities it drifts within a factor of two onto a plateau the law also predicts, where the miss costs under 2% of hit ratio — exact where the choice matters, loose where it doesn't. That's the property you want in a deployed formula and the one no proof can promise.</p>
+    <h2>The essay's one-sentence version</h2>
+    <p>The field spent a decade tuning admission filters that approximate a rank cutoff nobody had written down. We wrote it down; it's three symbols long; it needs four numbers you already have; and the code that generated every figure ships with the paper, seeds included.</p>
+    <p>Stop tuning Tuesday. Compute the door.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-022.pdf">The Admission Law (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

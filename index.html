@@ -8,12 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="p-rick — an independent research program on missing software">
-<meta property="og:description" content="Twenty working papers in five series: software the world is missing, specified before anyone builds it. Papers, PDFs, essays — dark and light.">
+<meta property="og:description" content="Twenty-three working papers in six series: software the world is missing, specified before anyone builds it — and the laws that govern it, derived and validated. Papers, PDFs, essays, figures — dark and light.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="p-rick — software the world is missing, specified">
-<meta name="twitter:description" content="Twenty working papers, five series, zero incumbents in-gap. Research first; products later.">
+<meta name="twitter:description" content="Twenty-three working papers, six series, zero incumbents in-gap. Research first; products later.">
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
@@ -54,9 +54,9 @@
     <strong>Research first; products later.</strong>
   </p>
   <div class="hero-facts">
-    <div class="fact"><div class="n">20</div><div class="l">working papers</div></div>
-    <div class="fact"><div class="n">5</div><div class="l">research series</div></div>
-    <div class="fact"><div class="n">20</div><div class="l">essays</div></div>
+    <div class="fact"><div class="n">23</div><div class="l">working papers</div></div>
+    <div class="fact"><div class="n">6</div><div class="l">research series</div></div>
+    <div class="fact"><div class="n">23</div><div class="l">essays</div></div>
     <div class="fact"><div class="n">0</div><div class="l">incumbents in-gap</div></div>
   </div>
 </section>
@@ -64,7 +64,11 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>Papers</h2><div class="rule"></div></div>
   <p class="section-intro">
-    Five arcs. Series V researches promises — the guarantees software implies and never
+    Six arcs. Series VI is the program&rsquo;s quantitative turn &mdash; laws rather than
+    specifications: the reproduction number of dependency-borne compromise (P-021), the
+    closed-form cache admission threshold (P-022), and the generation-loss drift law for
+    embedding corpora (P-023) &mdash; each a theorem, a validation harness, and figures
+    that regenerate from code in the repository. Series V researches promises — the guarantees software implies and never
     has to honor: that withdrawal propagates (the revocation protocol), that stored
     facts stay true (epistemic half-life), that dormant software will wake (dormancy
     engineering), and that independent things fail independently (blast radius
@@ -84,6 +88,54 @@
     <a href="method.html">its own page</a>.
   </p>
 
+
+<div class="arc-label">series VI &middot; laws &mdash; from specification to derivation &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-021</span><h3>The Reproduction Number of Code</h3></div>
+      <div class="paper-tags"><span class="tag">security</span><span class="tag">networks</span><span class="tag">epidemiology</span></div>
+      <p>
+        Compromised packages are epidemics on the dependency DAG &mdash; and the spectral
+        threshold the industry computes on registries is exactly zero (the matrix is
+        nilpotent), while the true threshold is the branching law R&#8320;&#690; =
+        T&middot;&lang;d&rang;. Below degree exponent 2 &mdash; where the real registries
+        live &mdash; the safe zone vanishes as the registry grows. Herd pinning budgets,
+        the two-step half-life of a registry yank, and the mathematics nobody ran,
+        derived and validated.
+      </p>
+      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-021.pdf">PDF</a><a class="muted-link" href="blog/p021.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-022</span><h3>The Admission Law</h3></div>
+      <div class="paper-tags"><span class="tag">caching</span><span class="tag">performance</span><span class="tag">closed-form</span></div>
+      <p>
+        Cache admission thresholds, tuned by folklore for a decade, written as a formula:
+        &tau;* = (1&minus;f)W / (H&middot;B<sup>&alpha;</sup>). The threshold tracks
+        stable evidence rather than pollution; one-timers tax the unfiltered cache at
+        f/(1&minus;f) of its capacity; the door legally disables itself when it stops
+        paying. Validated within 1% where the choice matters, gains to 137% at the
+        flat-and-dirty corner.
+      </p>
+      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-022.pdf">PDF</a><a class="muted-link" href="blog/p022.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-023</span><h3>Generation Loss</h3></div>
+      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span></div>
+      <p>
+        Vector corpora drift between encoder upgrades by a law: D(g) =
+        1&minus;&lambda;<sup>g</sup>, with &lambda; split into an isometry channel
+        (harmless in high dimension and removable exactly by a landmark Procrustes
+        refresh) and a distortion channel (the entire real cost, un-alignable).
+        The re-embedding calendar becomes arithmetic: two probes, one matrix solve,
+        and the decision derives itself.
+      </p>
+      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-023.pdf">PDF</a><a class="muted-link" href="blog/p023.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
   <div class="paper-grid">

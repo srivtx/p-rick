@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Embeddings Are Photocopies of Photocopies — p-rick</title>
+<meta name="description" content="Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving en…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Your Embeddings Are Photocopies of Photocopies">
+<meta property="og:description" content="Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving en…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p023.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Embeddings Are Photocopies of Photocopies">
+<meta name="twitter:description" content="Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving en…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-023</div>
+    <h1 class="post-title">Your Embeddings Are Photocopies of Photocopies</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving encoded by generation 19.</p>
+    <p>Nobody knows the exact cost of that gap. I mean this literally — not "nobody has noticed," but <em>nobody has the mathematics to price it</em>. The vector database vendors give you a calendar: "re-embed when you change models," scheduled by policy, priced by token count. When recall degrades, the debugging guide suggests checking your chunk size.</p>
+    <p>We wrote the missing mathematics. The paper is <a href="pdfs/p-023-generation-loss.pdf">Generation Loss</a>, and its core is one law with a twist that production intuition gets exactly backwards.</p>
+    <h2>The law</h2>
+    <p>Model every encoder upgrade as two channels. The <strong>isometry channel</strong> is the part of the change that acts as one global rotation of the whole space — the new encoder is the old encoder, turned. The <strong>distortion channel</strong> is everything else: the per-object reshaping, the genuine semantic re-decisions of a retrained model.</p>
+    <p>Drift accumulates geometrically — a photocopy of a photocopy — and the per-generation fidelity loss is:</p>
+    <p><strong>λ = (1 − 2(1−c)/d) × (1+ν²)^(−1/2)</strong></p>
+    <p>The first factor is the isometry channel. The second is distortion. They behave <em>oppositely</em>, and the opposition is the finding.</p>
+    <h2>The twist: rotations are (mostly) harmless</h2>
+    <p>Here's what production intuition — trained on 2-D and 3-D rotation imagery — gets wrong. A 60° global rotation per generation sounds catastrophic. At d = 256, thirty generations of it accumulate <strong>1.1% drift</strong>. At d = 1024, 2.9%. A 135° rotation — a quarter turn of your entire embedding space — costs 1.3% of cosine per generation.</p>
+    <p>Why? A random rotation in high dimension barely moves any <em>fixed</em> vector. The rotation acts in a random plane; any specific vector has mass in that plane with probability ~2/d. High-dimensional spaces are almost rotation-invariant for individual points. We call it <em>dimension mercy</em>, and it retires a fear you shouldn't have.</p>
+    <p>What you <em>should</em> fear is the distortion channel — dimension-free, geometric, and un-alignable by any transformation, because it isn't one. That's the entire real cost of encoder churn.</p>
+    <h2>The free lunch that isn't folklore</h2>
+    <p>Because the isometry channel is a global rotation, it's removable <em>exactly</em>: keep a panel of L persistent landmark objects, re-embed just those each generation, solve one Procrustes alignment, and multiply the refresh into your stale index. No re-embedding of the corpus. The error of the estimated alignment falls as √(d/L) — the budget formula says your landmark panel should outnumber your dimension by about 8×. At d = 768 that's ~6000 objects per generation. Against a corpus of millions, it's a rounding error.</p>
+    <p>In simulation: a stale index's recall@10 fell from 0.81 to 0.38 over sixteen rotation-dominated generations. The anchored index — the <em>same stale vectors</em>, one matrix refresh per generation — held 0.71. Nearly double the endgame recall for a rounding error of cost. And the two-channel heatmap is the cleanest figure in the paper: anchored recall is flat across the <em>entire</em> rotation axis (0.75 to 0.76 from 0° to 135°) and collapses along the distortion axis. Rotation: removed. Distortion: the floor.</p>
+    <h2>The decision rule that replaces the calendar</h2>
+    <p>The protocol costs one coffee: embed a few hundred probe objects with both encoders, fit the orthogonal map, measure the residual. You now have c and ν. Compute λ. You now have the entire drift curve of your corpus under churn like this pair's.</p>
+    <p>Then the calendar question becomes arithmetic. Isometry-dominated churn (which is what we predict — as a labeled, testable prediction — for adjacent checkpoints of the same training run): anchor forever, re-embed never. Distortion-heavy churn (a genuinely retrained model): the law tells you exactly when accumulated drift crosses your retrieval margin, so the re-embed date is derived, not decreed.</p>
+    <p>Every claim in this post is validated to three decimals in the paper — the drift law matched simulation at 0.077/0.077, 0.275/0.276, 0.558/0.560 across channels, and a rotation-only chain and a noise-only chain tuned to the same λ lie on the <em>same line</em>. One file regenerates every figure. The Procrustes self-check is literally an assertion in the code.</p>
+    <p>Fire the calendar. Hire the arithmetic.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-023.pdf">Generation Loss (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

@@ -5,9 +5,11 @@
 **Software the world is missing — specified before anyone builds it.**
 
 [![Site](https://img.shields.io/website?down_message=offline&label=research%20site&up_color=%233ddc97&up_message=online&url=https%3A%2F%2Fsrivtx.github.io%2Fp-rick%2Findex.html&style=flat-square)](https://srivtx.github.io/p-rick/)
-[![Papers](https://img.shields.io/badge/papers-20%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Series](https://img.shields.io/badge/series-5%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Essays](https://img.shields.io/badge/essays-20-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
+[![Papers](https://img.shields.io/badge/papers-23%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Series](https://img.shields.io/badge/series-6%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Essays](https://img.shields.io/badge/essays-23-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
+[![Figures](https://img.shields.io/badge/figures-16%20validated-CC3311?style=flat-square&labelColor=162032)](figures/)
+[![Reproducible](https://img.shields.io/badge/simulations-seeded%20%2B%20reproducible-009988?style=flat-square&labelColor=162032)](code/)
 [![Papers license: CC BY 4.0](https://img.shields.io/badge/paper%20license-CC%20BY%204.0-3ddc97?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
 [![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-3ddc97?style=flat-square)](LICENSE)
 [![RSS](https://img.shields.io/badge/RSS-feed-F26522?style=flat-square)](https://srivtx.github.io/p-rick/feed.xml)
@@ -29,7 +31,8 @@ PDF and a plain-language essay written the way technical leaders write.
 
 The program's operating rule is **research first; products later** — papers and
 specifications before code, in separate directories, only after the research freezes.
-Twenty working papers are published across five series, each stating its gap as a
+Twenty-three working papers are published across six series. Series I-V specify
+missing systems — each stating its gap as a
 falsifiable claim with named incumbents and honest evidence grading. The bar, the
 exclusions, and the red-team discipline are codified on
 [the method page](https://srivtx.github.io/p-rick/method.html).
@@ -41,7 +44,19 @@ exclusions, and the red-team discipline are codified on
 
 ## The papers
 
-### Series V — promises: the guarantees software implies and never has to honor (current)
+### Series VI — laws: from specification to derivation (current)
+
+The program's quantitative turn: not what should be built, but what is already
+true and merely uncomputed. Each paper derives a law, validates it in seeded
+simulation, and ships the harness. 16 figures, all regenerable from `code/`.
+
+| ID | Paper | The derived law |
+|----|-------|-----------------|
+| **P-021** | [The Reproduction Number of Code](papers/p-021-reproduction-number-of-code.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-021.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p021.html) · [figures](figures/p-021/) | Epidemic thresholds for dependency-borne compromise: the spectral threshold on a registry DAG is exactly zero (nilpotence), the true threshold is the branching law **R₀ᵛ = T·⟨d⟩**, the thresholdless regime sits below degree exponent 2 — where real registries live — cascade-aware pinning buys herd immunity at one-eighth the random budget, and the registry yank has a two-step half-life. Validated across 28 configurations with a measured extinction drag θ ≈ 0.4–0.6. |
+| **P-022** | [The Admission Law](papers/p-022-admission-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-022.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p022.html) · [figures](figures/p-022/) | The closed-form cache admission threshold under Zipf demand with transients: **τ\* = (1−f)W / (H·B^α)** — the threshold tracks stable evidence (not pollution, which any τ ≥ 2 excludes structurally), doors tighten with demand flatness, and the door legally disables itself when capacity covers the head. Dual: the capacity tax prices the unfiltered cache at f/(1−f) of its memory. Argmax matches the closed form within 1% where the choice matters; gains to 137%. |
+| **P-023** | [Generation Loss](papers/p-023-generation-loss.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-023.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p023.html) · [figures](figures/p-023/) | The drift law for continually re-embedded vector corpora: **D(g) = 1−λ^g** with λ the product of an isometry channel (dimension-mercied: 2(1−c)/d, and removable exactly by Procrustes anchoring at √(d/L) landmark cost) and a distortion channel (dimension-free, un-alignable — the entire real cost of encoder churn). Validated to three decimals; anchored stale vectors hold ~2× recall at a rounding error of re-embedding cost. |
+
+### Series V — promises: the guarantees software implies and never has to honor
 
 | ID | Paper | The missing thing |
 |----|-------|-------------------|
@@ -130,6 +145,8 @@ p-rick/
 ├── assets/               # style.css (dual theme) + theme.js + favicon.svg
 ├── papers/               # paper sources (markdown)
 ├── pdfs/                 # typeset papers (PDF)
+├── figures/              # series VI simulation figures + results.json (per paper)
+├── code/                 # series VI reproduction harnesses (one file per paper)
 ├── blogs/                # essay sources (markdown)
 ├── tools/build_site.py   # regenerates blog pages + feed.xml + sitemap.xml
 └── agents.md             # the automatic work ledger
@@ -178,7 +195,7 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
   (epistemic half-life), dormant software that wakes (dormancy engineering), independence
   under failure (blast radius engineering). Zero overlap with Series I–IV territory; all
   four directions pass the bar with no incumbents in-gap.
-- **Twenty papers, twenty essays, twenty PDFs, five series, zero incumbents.**
+- **Twenty-three papers, twenty-three essays, twenty-three PDFs, six series, zero incumbents in-gap — and three validated laws with 16 reproducible figures.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 
