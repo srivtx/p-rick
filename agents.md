@@ -208,3 +208,47 @@
 | essays published | 16 |
 | research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III/IV: queued) |
 | product substrates | 1 (PocketVeto) |
+
+---
+
+# PART 5 — series V: promises (the guarantees software implies and never has to honor)
+
+> 2026-10-07: program director's direction — one more research pass, more depth
+> of analysis on new topics; rewrite the PocketVeto README as product-only (no
+> p-rick content in the product repo); rewrite this repo's README with
+> professional badges (Bun-style). Series V researches **promises**: the
+> guarantees software implies and never has to honor — withdrawal that
+> propagates (the revocation protocol), facts that stay true (epistemic
+> half-life), dormant software that wakes (dormancy engineering), and
+> independent things that fail independently (blast radius engineering).
+> Four directions, zero overlap with Series I–IV territory, no toy projects.
+> Exclusion criteria re-enforced: no toy tools, no test wrappers, no
+> deterministic-crypto-verification gadgets — only real, never-done software
+> research with large audiences.
+
+## Ledger (series V)
+
+### SESSION 013 · 2026-10-07 · series-V gap selection + papers + essays
+- **agent:** main orchestrator (Super Z / GLM)
+- **started:** 13:20 UTC · **ended:** 14:05 UTC · **duration:** 45m
+- **scope:** select four series-V directions; write P-017..P-020 + 4 CEO-voice essays
+- **outputs:** direction selection locked (consent-revocation propagation / truth-decay query semantics / long-dormancy wake-time assurance / personal correlated-failure engineering — domains: privacy protocols, database semantics, reliability engineering, personal SRE; zero overlap with P-001..P-016; the strongest adjacent systems graded honestly, incl. DEPA/AA as the near-miss for P-017 and DR-restore practice for P-019); `papers/p-017..p-020.md` (~20.2k words total, the deepest round yet — avg ~5,050 words/paper; grading: all four STRONG at composition with cross-references into the P-001/P-005/P-006/P-010/P-011/P-013/P-014/P-015/P-016 family); `blogs/` ×4 new essays (withdraw anytime / shelf life / drawer-is-not-a-vault / one fuse); series-V verification queries queued for the background runner
+- **status:** done · **next:** PDF pipeline + site extension + READMEs
+
+### SESSION 014 · 2026-10-07 · PDFs + site extension + READMEs + ship
+- **agent:** main orchestrator
+- **started:** 14:05 UTC · **ended:** 14:55 UTC · **duration:** 50m
+- **scope:** typeset series-V PDFs; extend site to five series; both README rewrites; push + verify Pages
+- **outputs:** `pdfs/p-017..p-020.pdf` (13/11/12/13 pp, Tectonic/LaTeX + Template-03 covers ×4 via gen_covers5.py, poster_validate + cover_validate ALL PASS, merge_covers5.py with full metadata, pdf_qa WARN-only English quote/em-dash line-start cosmetics — same non-blocking class as series II–IV); `tools/build_site.py` extended (20 blog entries, feed.xml 20 items, sitemap.xml 47 urls); `papers.html` + series-V arc, 4 paper cards, BibTeX 20 entries, meta "twenty/five series"; `index.html` + series-V section, 4 essay rows, stats 20/5/20/0, updated meta/OG; `blog.html` + 4 new rows; `method.html` grade table extended to 20 rows + five-series summary; README v5 (Bun-style centered header with dynamic shields.io badges: site-uptime, papers/series/essays counts, CC BY 4.0 + MIT, RSS, stars, last-commit; five series tables; this ledger entry. Separate workstream: `srivtx/pocketveto` README rewritten product-only (v1.5.4 facts, no research-program content).
+- **status:** done · **next:** citation verification pass (series-V queries queued); product directories after research freeze
+
+### Updated totals (series V)
+
+| metric | value |
+|---|---|
+| sessions logged | 14 |
+| total tracked effort | ~13h 50m |
+| papers published | 20 (P-001 … P-020) |
+| essays published | 20 |
+| research searches retained | ~160 (R1–R4) + verification batches (series II: 99 queries; series III/IV/V: queued) |
+| product substrates | 1 (PocketVeto) |

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You Can Withdraw Anytime. The System Won't. — p-rick</title>
+<meta name="description" content="Every privacy screen you have ever used carries the same sentence: emyou can withdraw consent at any time./em It is the most repeated promise in software. It is also, as engineering, …">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="You Can Withdraw Anytime. The System Won't.">
+<meta property="og:description" content="Every privacy screen you have ever used carries the same sentence: emyou can withdraw consent at any time./em It is the most repeated promise in software. It is also, as engineering, …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p017.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="You Can Withdraw Anytime. The System Won't.">
+<meta name="twitter:description" content="Every privacy screen you have ever used carries the same sentence: emyou can withdraw consent at any time./em It is the most repeated promise in software. It is also, as engineering, …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-017</div>
+    <h1 class="post-title">You Can Withdraw Anytime. The System Won't.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>Every privacy screen you have ever used carries the same sentence: <em>you can withdraw consent at any time.</em> It is the most repeated promise in software. It is also, as engineering, almost entirely fiction.</p>
+    <p>Here is what actually happens when you press the button. The company you withdrew from — the first one, the one whose interface you were staring at — stops. Token dead. Emails stop. That part is real. Everything the consent ever <em>touched</em> downstream keeps going: the partner who ingested your data two years ago, the analytics house that enriched it, the model that absorbed it. Your withdrawal is a local event with global ambitions. It ends at the first hop, and the first hop is the only hop anyone ever shows you.</p>
+    <h2>The law wrote the promise. Nobody wrote the protocol.</h2>
+    <p>GDPR made it explicit in 2016: withdrawing must be as easy as giving. A decade later, that sentence is honored in exactly one sense — the button exists, the button works, the button is one tap. What the law never specified, and what no vendor ever built, is what happens <em>after</em> the tap. No wire format for the withdrawal. No list of what it covers. No delivery guarantee. No receipt. No way for you, a regulator, or anyone else to tell "deleted" from "ignored."</p>
+    <p>A law without a protocol is a promise without a postal service. The intent was mailed a decade ago. It is still being mailed.</p>
+    <h2>We already know how this movie ends — certificates showed us</h2>
+    <p>The web spent fifteen years trying to propagate <em>bad news</em> — revoking compromised certificates — and mostly failed, for boring economic reasons: revocation lists got big, revocation checks added latency, and browsers quietly chose availability over rigor. Then the industry found the answer, and the answer was not better propagation. It was Let's Encrypt: short-lived certificates. Don't spread the bad news. Make the good news expire on schedule, so trust is re-earned every ninety days instead of remembered forever.</p>
+    <p>That is the single most important design decision in our new paper, P-017. Consent should work the same way. Every grant of consent should carry a half-life. Processors who want to keep using your data must <em>come back and ask again</em> — the way your SSL certificate comes back and asks again. Revocation then stops being a message that has to survive a journey across an uncooperative economy. It becomes a schedule collapse: the next renewal simply never arrives.</p>
+    <h2>Make silence evidence</h2>
+    <p>The paper's other half is honesty about incentives. The party holding your data profits from the residue. No protocol survives contact with that incentive by asking nicely. So the specification makes non-compliance <em>visible</em>: signed receipts for every revocation, canary records planted at consent time that surface later as evidence if data leaked after withdrawal, and a liability ladder where silence past a deadline flips the burden of proof onto the holder.</p>
+    <p>You cannot prove a byte was deleted. Nothing can — copies are physics. But you can make ignoring the request expensive, observable, and presumptively noncompliant. Priced silence, not perfect enforcement.</p>
+    <h2>The near-miss that proves it works</h2>
+    <p>India's account-aggregator fabric runs purpose-bound, expiring, revocable consent artifacts across an entire financial-data economy, with regulators watching. The machinery works at national scale. What it has never been is <em>general</em> — one regulated domain, one closed architecture. The mechanics are proven. The missing thing is the fabric for everything else: your fitness app, the school form, the retailer.</p>
+    <p>That is the gap P-017 specifies: grant objects with lineage, withdrawal with coverage semantics, receipts, re-attestation cycles, canary audits. The world does not lack consent. It lacks the keeping. Read the paper for the whole protocol — and the next time a privacy screen tells you that you can withdraw anytime, notice that it never says what happens next. Now you know why.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-017.pdf">The Revocation Protocol (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers — p-rick</title>
-<meta name="description" content="All sixteen p-rick working papers in four series: the complexity ledger, delegated operation, modality failover, the uncertain document, the defaults ledger, device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<meta name="description" content="All twenty p-rick working papers in five series: the revocation protocol, epistemic half-life, dormancy engineering, blast radius engineering, the complexity ledger, delegated operation, modality failover, the uncertain document, the defaults ledger, device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
-<meta property="og:title" content="p-rick papers — sixteen working papers on missing software">
-<meta property="og:description" content="Sixteen working papers in four series. Each verifies its gap against the existing landscape before proposing anything.">
+<meta property="og:title" content="p-rick papers — twenty working papers on missing software">
+<meta property="og:description" content="Twenty working papers in five series. Each verifies its gap against the existing landscape before proposing anything.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/papers.html">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -42,13 +42,78 @@
 <main class="page-main">
   <h1 class="page-title">Papers</h1>
   <p class="page-sub">
-    Sixteen working papers in four series. Each verifies its gap against the existing landscape
+    Twenty working papers in five series. Each verifies its gap against the existing landscape
     before proposing anything, states the gap as a falsifiable claim, grades the evidence
     honestly (STRONG / PARTIAL / WEAK), and confronts the strongest objections to its own
     thesis. PDFs are hosted on this site; markdown sources live in the repository. The
     <a href="method.html">method page</a> documents the bar and the exclusions; the
     <a href="#cite">citing block</a> is at the bottom.
   </p>
+
+  <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-017</span><h3>The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</h3></div>
+      <div class="paper-tags"><span class="tag">privacy</span><span class="tag">protocols</span><span class="tag">consent</span></div>
+      <p>
+        &ldquo;You can withdraw anytime&rdquo; is the most repeated promise in software, and
+        withdrawal is a local event with no propagation semantics: the token dies at the
+        first hop while the data already exported, resold, and folded into models keeps
+        working. Grant objects with lineage, revocation events with coverage semantics,
+        signed receipts, re-attestation cycles that make consent re-earned rather than
+        remembered, canary audits, and a liability ladder where silence becomes evidence
+        &mdash; the certificate ecosystem&rsquo;s short-lived-cert lesson, applied to the
+        largest class of unkept promises in software.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-017.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a><a class="muted-link" href="blog/p017.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-018</span><h3>Epistemic Half-Life: Truth Decay Semantics for Stored Data</h3></div>
+      <div class="paper-tags"><span class="tag">data</span><span class="tag">temporal</span><span class="tag">query-semantics</span></div>
+      <p>
+        Food has sell-by dates, markets hard-code stale-quote bounds, and the database —
+        the artifact that stores more facts than all of them — models no perishability at
+        all. Decay functions with half-life families, confidence-aware queries, an honest
+        join algebra where the stale join inherits the worst of its inputs, half-lives
+        estimated from the organization&rsquo;s own change streams, budgeted verification
+        scheduling, and staleness as an outage class: truth decay, specified.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-018.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a><a class="muted-link" href="blog/p018.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-019</span><h3>Dormancy Engineering: Software Design for the Long Sleep</h3></div>
+      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">lifecycle</span><span class="tag">infrastructure</span></div>
+      <p>
+        Always-on proves systems by exercising them; archives preserve sources for
+        historians; between them sits the regime nobody engineers &mdash; software that
+        must work after years of not running. Dormancy classes with declared wake bounds,
+        the environment-drift ledger (the actuarial table of the world&rsquo;s churn),
+        the wake-probe ladder from checksums to germination tests, the exercise calendar,
+        and the readiness contract: the seed vault&rsquo;s discipline, built for the
+        drawer the boot stick is rotting in.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-019.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a><a class="muted-link" href="blog/p019.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-020</span><h3>Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</h3></div>
+      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">personal-infra</span><span class="tag">SRE</span></div>
+      <p>
+        SRE&rsquo;s deepest lesson is that failures correlate through shared roots &mdash;
+        and no discipline maps the correlations of the individual&rsquo;s stack: one
+        identity, one phone number, one cloud, one email reset path, one person. The
+        personal dependency graph with eight correlation classes, weighted blast radii,
+        composite-availability arithmetic that tells the truth about marketing&rsquo;s
+        nines, budgeted decorrelation placement, the failure weather report, and the
+        annual kill-one-root drill: Markowitz&rsquo;s mathematics, aimed at the household.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-020.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">source</a><a class="muted-link" href="blog/p020.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series IV &middot; assumptions &mdash; the quiet premises software runs on &middot; 2026</div>
   <div class="paper-grid">
@@ -326,11 +391,11 @@
   <div id="cite" class="cite-section">
     <div class="section-head"><h2>Cite</h2><div class="rule"></div></div>
     <p class="page-sub" style="margin-bottom: 24px;">
-      BibTeX for all sixteen working papers. Each entry cites the PDF (the typeset, canonical
+      BibTeX for all twenty working papers. Each entry cites the PDF (the typeset, canonical
       form); the markdown source lives at the same path in the repository.
     </p>
     <details class="cite-details">
-      <summary>Show BibTeX (16 entries)</summary>
+      <summary>Show BibTeX (20 entries)</summary>
       <div class="bibtex-block"><pre>@techreport{prick2026p012,
   title       = {The Complexity Ledger: Design as Relocation, Not Reduction},
   author      = {{p-rick research program}},
@@ -389,6 +454,54 @@
   year        = {2026},
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-016.pdf}
+}
+
+@techreport{prick2026p017,
+  title       = {The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-017},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-017.pdf}
+}
+
+@techreport{prick2026p018,
+  title       = {Epistemic Half-Life: Truth Decay Semantics for Stored Data},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-018},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-018.pdf}
+}
+
+@techreport{prick2026p019,
+  title       = {Dormancy Engineering: Software Design for the Long Sleep},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-019},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-019.pdf}
+}
+
+@techreport{prick2026p020,
+  title       = {Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-020},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-020.pdf}
 }
 
 @techreport{prick2026p008,

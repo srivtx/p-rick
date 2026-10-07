@@ -8,12 +8,12 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="p-rick — an independent research program on missing software">
-<meta property="og:description" content="Sixteen working papers in four series: software the world is missing, specified before anyone builds it. Papers, PDFs, essays — dark and light.">
+<meta property="og:description" content="Twenty working papers in five series: software the world is missing, specified before anyone builds it. Papers, PDFs, essays — dark and light.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="p-rick — software the world is missing, specified">
-<meta name="twitter:description" content="Sixteen working papers, four series, zero incumbents in-gap. Research first; products later.">
+<meta name="twitter:description" content="Twenty working papers, five series, zero incumbents in-gap. Research first; products later.">
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
@@ -54,9 +54,9 @@
     <strong>Research first; products later.</strong>
   </p>
   <div class="hero-facts">
-    <div class="fact"><div class="n">16</div><div class="l">working papers</div></div>
-    <div class="fact"><div class="n">4</div><div class="l">research series</div></div>
-    <div class="fact"><div class="n">16</div><div class="l">essays</div></div>
+    <div class="fact"><div class="n">20</div><div class="l">working papers</div></div>
+    <div class="fact"><div class="n">5</div><div class="l">research series</div></div>
+    <div class="fact"><div class="n">20</div><div class="l">essays</div></div>
     <div class="fact"><div class="n">0</div><div class="l">incumbents in-gap</div></div>
   </div>
 </section>
@@ -64,22 +64,90 @@
 <section class="section" id="papers">
   <div class="section-head"><h2>Papers</h2><div class="rule"></div></div>
   <p class="section-intro">
-    Four arcs. Series IV researches assumptions — the quiet premises software runs on and
-    what breaks when they are false: that complexity can be destroyed rather than relocated
-    (the complexity ledger), that a body has one owner (delegated operation), that the
-    user's senses are always online (modality failover), that every number is a point (the
-    uncertain document), and that defaults are neutral (the defaults ledger). Series III
-    researches continuity — what systems lose over time: vendor death (the afterlife of
-    devices), human biological time (circadian orchestration), maintainer mortality (the
-    bus factor protocol), and behavioral extinction (model conservation). Series II turns
-    to systems gaps: behavior under scarcity, storage that remembers, the scheduling of
-    human attention, and one machine across many devices. Series I specified user-owned
-    data infrastructure — the personal event bus, consumer entitlements as dead capital,
-    and the n=1 cost-of-living index. Each paper verifies its gap against the existing
-    landscape before proposing anything; the method is on <a href="method.html">its
-    own page</a>.
+    Five arcs. Series V researches promises — the guarantees software implies and never
+    has to honor: that withdrawal propagates (the revocation protocol), that stored
+    facts stay true (epistemic half-life), that dormant software will wake (dormancy
+    engineering), and that independent things fail independently (blast radius
+    engineering). Series IV researches assumptions — the quiet premises software runs
+    on: that complexity can be destroyed rather than relocated (the complexity ledger),
+    that a body has one owner (delegated operation), that the user's senses are always
+    online (modality failover), that every number is a point (the uncertain document),
+    and that defaults are neutral (the defaults ledger). Series III researches
+    continuity — what systems lose over time: vendor death (the afterlife of
+    devices), human biological time (circadian orchestration), maintainer mortality
+    (the bus factor protocol), and behavioral extinction (model conservation).
+    Series II turns to systems gaps: behavior under scarcity, storage that remembers,
+    the scheduling of human attention, and one machine across many devices. Series I
+    specified user-owned data infrastructure — the personal event bus, consumer
+    entitlements as dead capital, and the n=1 cost-of-living index. Each paper verifies
+    its gap against the existing landscape before proposing anything; the method is on
+    <a href="method.html">its own page</a>.
   </p>
 
+
+  <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-017</span><h3>The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</h3></div>
+      <p>
+        &ldquo;You can withdraw anytime&rdquo; &mdash; the most repeated promise in
+        software, and withdrawal ends at the first hop: the token dies while exported,
+        resold, and model-absorbed copies keep working. Grant objects with lineage,
+        revocation events with coverage semantics, signed receipts, re-attestation
+        cycles, canary audits, and a liability ladder where silence becomes evidence.
+        The certificate ecosystem&rsquo;s short-lived-cert lesson, applied to the
+        largest class of unkept promises in software.
+      </p>
+      <div class="paper-tags"><span class="tag">privacy</span><span class="tag">protocols</span><span class="tag">consent</span></div>
+      <div class="pc-links"><a href="pdfs/p-017.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a><a class="muted-link" href="blog/p017.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-018</span><h3>Epistemic Half-Life: Truth Decay Semantics for Stored Data</h3></div>
+      <p>
+        Food has sell-by dates, markets hard-code stale-quote bounds, and the
+        database &mdash; the artifact that stores more facts than all of them &mdash;
+        models no perishability at all. Decay functions with half-life families,
+        confidence-aware queries, an honest join algebra where the stale join inherits
+        the worst of its inputs, half-lives estimated from your own change streams,
+        budgeted verification scheduling, and staleness as an outage class.
+      </p>
+      <div class="paper-tags"><span class="tag">data</span><span class="tag">temporal</span><span class="tag">query-semantics</span></div>
+      <div class="pc-links"><a href="pdfs/p-018.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a><a class="muted-link" href="blog/p018.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-019</span><h3>Dormancy Engineering: Software Design for the Long Sleep</h3></div>
+      <p>
+        Always-on proves systems by exercising them; archives preserve sources for
+        historians; between them sits the regime nobody engineers &mdash; software
+        that must work after years of not running. Dormancy classes with declared
+        wake bounds, the environment-drift ledger, the wake-probe ladder from
+        checksums to germination tests, the exercise calendar, and the readiness
+        contract: the seed vault&rsquo;s discipline, built for the drawer the boot
+        stick is rotting in.
+      </p>
+      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">lifecycle</span><span class="tag">infrastructure</span></div>
+      <div class="pc-links"><a href="pdfs/p-019.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a><a class="muted-link" href="blog/p019.html">essay</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-020</span><h3>Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</h3></div>
+      <p>
+        SRE&rsquo;s deepest lesson is that failures correlate through shared roots
+        &mdash; and no discipline maps the correlations of the individual&rsquo;s
+        stack: one identity, one phone number, one cloud, one email reset path, one
+        person. The personal dependency graph, eight correlation classes, weighted
+        blast radii, composite-availability arithmetic that tells the truth about
+        marketing&rsquo;s nines, budgeted decorrelation placement, the failure
+        weather report, and the annual kill-one-root drill.
+      </p>
+      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">personal-infra</span><span class="tag">SRE</span></div>
+      <div class="pc-links"><a href="pdfs/p-020.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">source</a><a class="muted-link" href="blog/p020.html">essay</a></div>
+    </article>
+
+  </div>
 
   <div class="arc-label">series IV &middot; assumptions &mdash; the quiet premises software runs on &middot; 2026</div>
   <div class="paper-grid">
@@ -311,6 +379,26 @@
   <div class="section-head"><h2>Essays</h2><div class="rule"></div></div>
   <p class="section-intro">Each paper has a companion essay — the argument in plain language, written the way technical leaders write.</p>
   <div class="blog-list">
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p020.html">Everything Works. Everything Shares One Fuse.</a></h3><p>One identity, one phone number, one cloud, one email reset path. Your life has an org-chart of failure, and you&rsquo;ve never seen it.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p019.html">The Software You&rsquo;ll Need in Ten Years Is Rotting in a Drawer</a></h3><p>The drawer is not a vault. It is a slow-fire furnace with excellent marketing.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p018.html">Your Data Has a Shelf Life. Nothing Tracks It.</a></h3><p>Available, consistent, wrong — and no integrity constraint ever built will notice.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
+    <div class="blog-row">
+      <div class="br-date">2026-10-07</div>
+      <div class="br-body"><h3><a href="blog/p017.html">You Can Withdraw Anytime. The System Won&rsquo;t.</a></h3><p>The most repeated promise in software is a local event with global ambitions.</p></div>
+      <div class="br-arrow">&rarr;</div>
+    </div>
     <div class="blog-row">
       <div class="br-date">2026-10-07</div>
       <div class="br-body"><h3><a href="blog/p016.html">Defaults Are Legislation Nobody Voted On</a></h3><p>Organ donation at 4% or 99% between neighbors; $20B a year for one search box. The most powerful force in software has no records.</p></div>

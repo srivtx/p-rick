@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Everything Works. Everything Shares One Fuse. — p-rick</title>
+<meta name="description" content="In July 2024, one bad configuration file pushed to one endpoint-security agent took down roughly eight and a half million machines — flights grounded, broadcasters dark, hospitals …">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Everything Works. Everything Shares One Fuse.">
+<meta property="og:description" content="In July 2024, one bad configuration file pushed to one endpoint-security agent took down roughly eight and a half million machines — flights grounded, broadcasters dark, hospitals …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p020.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Everything Works. Everything Shares One Fuse.">
+<meta name="twitter:description" content="In July 2024, one bad configuration file pushed to one endpoint-security agent took down roughly eight and a half million machines — flights grounded, broadcasters dark, hospitals …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-020</div>
+    <h1 class="post-title">Everything Works. Everything Shares One Fuse.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>In July 2024, one bad configuration file pushed to one endpoint-security agent took down roughly eight and a half million machines — flights grounded, broadcasters dark, hospitals on paper. The postmortems were excellent, and every one of them was about an enterprise.</p>
+    <p>Here is what no postmortem recorded: that same morning, hundreds of millions of <em>individuals</em> had their own correlated outage. Their laptop, their files, their doctor's video call, their ability to authenticate to anything — gone, through a root they never chose deliberately and never once enumerated. Same physics as the enterprise event. Zero of the engineering.</p>
+    <h2>Your life has an org-chart of failure and you've never seen it</h2>
+    <p>SRE's deepest lesson is that failures are not independent. They correlate through shared roots — one account, one vendor, one region, one credential, one person. Organizations spend entire teams mapping those correlations. Your digital life is now a mission-critical system with the blast-radius profile of a mid-size enterprise and an observability budget of zero.</p>
+    <p>Run the enumeration once, honestly. One identity provider: mail, photos, calendar, documents, app logins — and the recovery path for the password manager itself. One phone number: every second factor for banking, work, health, government. One email address: the reset path for everything above, including the things that back up the email. One cloud region: every photo of your children, three copies of "backed up" data, the notes file with the seed phrases. One physical person: the only one who knows where it all is.</p>
+    <p>Each product on that list passed its own reliability review. The <em>composition</em> has never been reviewed by anyone — including you. Every 99.9% you were marketed was quoted as if independent; the shared roots make your effective availability that of the weakest root, raised to the number of critical paths through it. Markowitz built this mathematics for portfolios in 1952. Nobody has pointed it at a household.</p>
+    <h2>Convenience is a correlation engine</h2>
+    <p>This is the part that deserves sitting with. The graph's common factors are not mistakes. Every signup decision optimized local friction — and the locally-cheapest identity, inbox, and recovery channel are always the ones already in hand. A thousand convenient Tuesdays, each individually rational, assembled a system of maximum common factor and minimum awareness. You cannot read a structure you accreted; it has to be <em>made</em> before it can be seen.</p>
+    <p>That's why P-020 starts with a twenty-minute questionnaire rather than a dashboard — the design brief was zero telemetry, because your stack emits its data to vendors, not to you. The first ten questions are engineered to surprise. <em>What is the recovery email for your recovery email?</em> Four seconds into that question, you understand the whole thesis.</p>
+    <h2>Blast radius, budgeted</h2>
+    <p>The instrument is a ranked casualty list per root: <em>if this phone number dies — bank login, work login, medical portal, the password manager's own recovery.</em> Then placement, under a real budget, against the largest radius at the lowest cost: a second credential path (one device, one envelope, enormous radius cut), one critical capability that authenticates without the phone number, irreplaceable data on a second <em>vendor family</em> whose recovery routes through a <em>different</em> email root, and one offline, offsite recovery kit.</p>
+    <p>And once a year: kill one root on purpose. Pull the SIM into a drawer for an afternoon. Observe the casualty list against the prediction. It's the family chaos-engineering day — and it doubles as the succession rehearsal and the dormancy exercise for the recovery kit. One afternoon a year, three papers' loops closed.</p>
+    <h2>The realism is the point</h2>
+    <p>This is not paranoia-ware. The spec has a load-bearing <em>what-not-to-do</em> section: don't decorrelate convenience-tier capabilities, don't buy redundant everything, don't place anything whose maintenance cost exceeds its weighted blast radius. A discipline that nags dies of its own notifications.</p>
+    <p>SRE's sixty-year arc ran from "hope it works" through "measure it" to "design its failure domains." The mathematics was finished long before anyone thought to aim it at a household. Independent things fail independently — but only if someone engineered them that way. Nobody ever has, for the system that matters most: yours.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-020.pdf">Blast Radius Engineering (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

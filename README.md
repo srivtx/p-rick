@@ -1,21 +1,56 @@
-# p-rick — an independent research program on missing software
+<div align="center">
 
-> Software the world is **missing**, specified before anyone builds it.
+# p-rick
 
-**p-rick** finds and specifies software categories that do not exist yet — gaps where a real
-problem meets a large audience and no incumbent — and does the research to close them:
-landscape verification, formal models, reference architectures, evaluation designs, and
-honest confrontation with the reasons each gap survived. Every paper ships with a PDF and a
-plain-language essay. Research first; products later, in separate directories, only after the
-research is done.
+**Software the world is missing — specified before anyone builds it.**
 
-**Site (dark mode + light mode): <https://srivtx.github.io/p-rick/>** · [RSS feed](https://srivtx.github.io/p-rick/feed.xml) · [The method](https://srivtx.github.io/p-rick/method.html)
+[![Site](https://img.shields.io/website?down_message=offline&label=research%20site&up_color=%233ddc97&up_message=online&url=https%3A%2F%2Fsrivtx.github.io%2Fp-rick%2Findex.html&style=flat-square)](https://srivtx.github.io/p-rick/)
+[![Papers](https://img.shields.io/badge/papers-20%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Series](https://img.shields.io/badge/series-5%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Essays](https://img.shields.io/badge/essays-20-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
+[![Papers license: CC BY 4.0](https://img.shields.io/badge/paper%20license-CC%20BY%204.0-3ddc97?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
+[![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-3ddc97?style=flat-square)](LICENSE)
+[![RSS](https://img.shields.io/badge/RSS-feed-F26522?style=flat-square)](https://srivtx.github.io/p-rick/feed.xml)
+[![GitHub stars](https://img.shields.io/github/stars/srivtx/p-rick?style=flat-square&color=8B7E5A&label=stars)](https://github.com/srivtx/p-rick/stargazers)
+[![Last commit](https://img.shields.io/github/last-commit/srivtx/p-rick?style=flat-square&color=162032)](https://github.com/srivtx/p-rick/commits/main)
+
+[Research site](https://srivtx.github.io/p-rick/) · [Papers](https://srivtx.github.io/p-rick/papers.html) · [Blog](https://srivtx.github.io/p-rick/blog.html) · [The method](https://srivtx.github.io/p-rick/method.html) · [RSS](https://srivtx.github.io/p-rick/feed.xml)
+
+</div>
 
 ---
 
+**p-rick** is an independent research program that hunts for genuine gaps in the software
+landscape — categories with no incumbents, problems with large audiences, theories nobody
+has written down — and does the research to close them: landscape verification against
+everything that exists, formal models, reference architectures, evaluation designs, and
+honest confrontation with the reasons each gap survived. Every paper ships with a typeset
+PDF and a plain-language essay written the way technical leaders write.
+
+The program's operating rule is **research first; products later** — papers and
+specifications before code, in separate directories, only after the research freezes.
+Twenty working papers are published across five series, each stating its gap as a
+falsifiable claim with named incumbents and honest evidence grading. The bar, the
+exclusions, and the red-team discipline are codified on
+[the method page](https://srivtx.github.io/p-rick/method.html).
+
+> The exclusions are hard rules: no toy projects, no deterministic wrappers, no test
+> suites, no verification gadgets whose only user is their own construction, nothing
+> AI-obsolete, no CRUD, no chatbot shells. The program specifies missing *systems* —
+> software that has never been built because nobody wrote down what it would be.
+
 ## The papers
 
-### Series IV — assumptions: the quiet premises software runs on (current)
+### Series V — promises: the guarantees software implies and never has to honor (current)
+
+| ID | Paper | The missing thing |
+|----|-------|-------------------|
+| **P-017** | [The Revocation Protocol](papers/p-017-revocation-protocol.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-017.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p017.html) | Consent withdrawal as a propagation guarantee: grant objects with lineage, revocation events with coverage semantics, signed receipts, re-attestation cycles, canary audits, and the liability ladder that turns silence into evidence — the certificate ecosystem's short-lived-cert lesson applied to the most repeated promise in software. |
+| **P-018** | [Epistemic Half-Life](papers/p-018-epistemic-half-life.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-018.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p018.html) | Truth decay semantics for stored data: decay functions with half-life families, confidence-aware queries, an honest join algebra, half-lives estimated from your own change streams, budgeted verification scheduling, and staleness as an outage class. |
+| **P-019** | [Dormancy Engineering](papers/p-019-dormancy-engineering.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-019.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p019.html) | Software design for the long sleep: dormancy classes with declared wake bounds, the environment-drift ledger, the wake-probe ladder from checksums to germination tests, the exercise calendar, and the readiness contract for software that must work after years of not running. |
+| **P-020** | [Blast Radius Engineering](papers/p-020-blast-radius-engineering.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-020.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p020.html) | Personal reliability engineering for correlated failure: the personal dependency graph, eight correlation classes, weighted blast radii, composite-availability arithmetic, budgeted decorrelation placement, the failure weather report, and the annual kill-one-root drill. |
+
+### Series IV — assumptions: the quiet premises software runs on
 
 | ID | Paper | The missing thing |
 |----|-------|-------------------|
@@ -52,7 +87,7 @@ research is done.
 | **P-003** | [The n=1 Cost-of-Living Index](papers/p-003-n1-cost-of-living-index.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-003.pdf) | A statistically defensible personal price index — the methodology layer no consumer software has. |
 
 Each paper follows the same discipline: state the gap as a **falsifiable claim**, grade the
-evidence (strong / partial / weak), survey the adjacent systems that solve one slice, design
+evidence (STRONG / PARTIAL / WEAK), survey the adjacent systems that solve one slice, design
 the system that closes the gap, and confront the strongest objections — including the ones
 that might kill the thesis. Papers are working drafts; the ledger of revisions is
 [`agents.md`](agents.md).
@@ -112,14 +147,14 @@ python3 tools/build_site.py
 PDFs are typeset from `papers/*.md` via LaTeX (Tectonic) with composed covers; sources of the
 conversion pipeline are kept by the research program workspace and documented in `agents.md`.
 
-### Citing
+## Citing
 
-BibTeX for all sixteen papers is on the site's [papers page](https://srivtx.github.io/p-rick/papers.html#cite).
+BibTeX for all twenty papers is on the site's [papers page](https://srivtx.github.io/p-rick/papers.html#cite).
 Each entry cites the PDF (the typeset, canonical form).
 
 ## agents.md — automatic work tracking
 
-Every work session (human, AI, or hybrid) appends one record to [`agents.md`](agents.md]:
+Every work session (human, AI, or hybrid) appends one record to [`agents.md`](agents.md):
 what was done, when, how long, and links to artifacts. Read the last record to see where
 things stand; append a record when you finish work. The ledger is the source of truth for
 effort, output, and lineage — so nobody has to know how long we have worked; the file knows.
@@ -137,12 +172,16 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
 - Series IV complete (5 papers) — assumptions: the quiet premises software runs on. Complexity
   conservation (the complexity ledger), single-principal identity (delegated operation),
   sensory availability (modality failover), point-estimate numbers (the uncertain document),
-  default neutrality (the defaults ledger). Zero overlap with Series I–III territory; all
-  five directions pass the bar with no incumbents in-gap.
-- **Sixteen papers, sixteen essays, sixteen PDFs, four series, zero incumbents.**
+  default neutrality (the defaults ledger). Zero overlap with Series I–III territory.
+- Series V complete (4 papers) — promises: the guarantees software implies and never has to
+  honor. Withdrawal that propagates (the revocation protocol), facts that stay true
+  (epistemic half-life), dormant software that wakes (dormancy engineering), independence
+  under failure (blast radius engineering). Zero overlap with Series I–IV territory; all
+  four directions pass the bar with no incumbents in-gap.
+- **Twenty papers, twenty essays, twenty PDFs, five series, zero incumbents.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Papers and essays: CC BY 4.0 for the text; cite the paper ID.
+MIT for code — see [LICENSE](LICENSE). Papers and essays: CC BY 4.0 for the text; cite the paper ID.

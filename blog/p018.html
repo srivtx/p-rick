@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Data Has a Shelf Life. Nothing Tracks It. — p-rick</title>
+<meta name="description" content="A package is undeliverable because a checkout form joined a 2019 address to a 2026 order. A hospital's emergency-contact field, captured at admission, quietly rots through a decade…">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Your Data Has a Shelf Life. Nothing Tracks It.">
+<meta property="og:description" content="A package is undeliverable because a checkout form joined a 2019 address to a 2026 order. A hospital's emergency-contact field, captured at admission, quietly rots through a decade…">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/blog/p018.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07T00:00:00Z">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Your Data Has a Shelf Life. Nothing Tracks It.">
+<meta name="twitter:description" content="A package is undeliverable because a checkout form joined a 2019 address to a 2026 order. A hospital's emergency-contact field, captured at admission, quietly rots through a decade…">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
+  <div class="header-right">
+    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main class="blog-main">
+  <article class="post">
+    <div class="post-kicker">essay &middot; companion to P-018</div>
+    <h1 class="post-title">Your Data Has a Shelf Life. Nothing Tracks It.</h1>
+    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <p>A package is undeliverable because a checkout form joined a 2019 address to a 2026 order. A hospital's emergency-contact field, captured at admission, quietly rots through a decade of moves and deaths — and presents itself with exactly the same authority as the patient's blood type. A compliance dashboard marks a vendor "certified" three certifications after the certificate died.</p>
+    <p>The data is available. The data is consistent. The data is wrong — and no integrity constraint ever built will notice, because this failure mode isn't corruption. It is <em>time</em>.</p>
+    <h2>The only industry that never learned about expiry</h2>
+    <p>Food has sell-by dates. Medicine has lot numbers and recalls. Journalism runs corrections. Markets hard-code staleness bounds into matching engines — a stale quote is a regulatory concept, not a vibe. Software stores more facts about the world than all of those industries combined, and the database tuple has no concept whatsoever of perishability.</p>
+    <p>Codd's relational model is magnificent, and it baked in one assumption nobody has revisited in fifty years: a stored fact remains true. It doesn't. Addresses migrate, prices drift by the hour, credentials expire, certifications lapse, "current employer" fossilizes. The query planner — the most rigorous piece of logic machinery most companies own — will cheerfully join a fact that was verified yesterday with one that was last checked in 2019, and serve the result with identical confidence.</p>
+    <h2>Half-lives, not vibes</h2>
+    <p>P-018's core move is small and load-bearing: facts should carry decay functions, and the first-class parameter should be a <strong>half-life</strong>. An address: a few years. A retail price: weeks. A stock quote: seconds. A blood type: effectively never. Confidence decays from capture through verification to deprecation, queries return <em>(value, confidence)</em> pairs, and joins inherit the worst of their inputs — the algebra composes.</p>
+    <p>The part people don't believe until they see it: the half-lives are already sitting in your logs. Every organization's change-data-capture stream contains the empirical decay curve of every fact class it maintains — the actuarial table of its own data, discarded as operational exhaust. Nobody ever aggregated it, because no query semantics existed that would make the statistic worth computing. Supply the semantics, and the statistics become load-bearing.</p>
+    <h2>The economics close the loop</h2>
+    <p>Decay without verification is fatalism, so the paper budgets it: verification costs money — an API call, a letter, a nurse's minute — and the scheduler probes the facts whose expected confidence lift times downstream criticality is highest, per unit cost. The same discipline attention schedulers use for interruption, applied to re-checking facts.</p>
+    <p>And the funny part: this is the rare privacy paper where privacy and reliability point the same direction. Staleness is the enemy of both. Decay clocks schedule data minimization and data truthfulness on the same axis. One clock, two duties.</p>
+    <h2>Bitemporal is not the answer, and that matters</h2>
+    <p>The obvious objection — "isn't this just bitemporal databases?" — is worth confronting head-on, because the near-miss is what keeps the gap invisible. Bitemporality records when facts were <em>believed</em>. It is a perfect ledger of the past. Staleness is about the future: the probability that an unrefreshed belief is still true, right now. One is retrospective, one is predictive. The 2019 address is served with immaculate transaction-time legitimacy and decaying truth, and no temporal feature ever standardized will say a word about it.</p>
+    <p>Facts expire. Every industry that stores facts about the world knows this, except the one with the most facts. P-018 is the specification for catching up: decay declarations, honest joins, budgeted verification, staleness as an outage class — visible, routed, owned — instead of a private disappointment discovered by an undeliverable package.</p>
+    <div class="post-footer">
+      <p>This essay accompanies the research paper <a href="../pdfs/p-018.pdf">Epistemic Half-Life (PDF)</a>.
+      Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
+      the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
+    </div>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+    </div>
+    <div class="footer-links">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </div>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+</body>
+</html>

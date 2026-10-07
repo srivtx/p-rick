@@ -8,6 +8,34 @@
     <lastBuildDate>07 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srivtx.github.io/p-rick/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Everything Works. Everything Shares One Fuse.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p020.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p020.html</guid>
+      <description>In July 2024, one bad configuration file pushed to one endpoint-security agent took down roughly eight and a half million machines — flights grounded, broadcasters dark, hospitals …</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Software You&#x27;ll Need in Ten Years Is Rotting in a Drawer</title>
+      <link>https://srivtx.github.io/p-rick/blog/p019.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p019.html</guid>
+      <description>There is a boot stick in a drawer in a data center in Mumbai. Minimal OS, system image, six laminated steps. It has not been booted since it was sealed. An amateur radio club keeps…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Data Has a Shelf Life. Nothing Tracks It.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p018.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p018.html</guid>
+      <description>A package is undeliverable because a checkout form joined a 2019 address to a 2026 order. A hospital&#x27;s emergency-contact field, captured at admission, quietly rots through a decade…</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>You Can Withdraw Anytime. The System Won&#x27;t.</title>
+      <link>https://srivtx.github.io/p-rick/blog/p017.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p017.html</guid>
+      <description>Every privacy screen you have ever used carries the same sentence: emyou can withdraw consent at any time./em It is the most repeated promise in software. It is also, as engineering, …</description>
+      <pubDate>07 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Defaults Are Legislation Nobody Voted On</title>
       <link>https://srivtx.github.io/p-rick/blog/p016.html</link>
       <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p016.html</guid>
