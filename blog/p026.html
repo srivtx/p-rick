@@ -7,6 +7,9 @@
 <meta name="description" content="After the first credential breach of a user's life, every subsequent breach of every site is, partly, the same breach.
 
 You know the mechanism. The user reuses a password. The new …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/blog/p026.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="Every Breach Is Every Breach">
@@ -27,25 +30,34 @@ You know the mechanism. The user reuses a password. The new …">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html">Papers</a>
+      <a href="../blog.html" aria-current="page">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
-<main class="blog-main">
+<main id="main" class="page">
   <article class="post">
-    <div class="post-kicker">essay &middot; companion to P-026</div>
-    <h1 class="post-title">Every Breach Is Every Breach</h1>
-    <div class="post-meta">2026-10-09 &middot; p-rick research program</div>
+    <header class="post-head">
+      <p class="hero-kicker">essay &middot; companion to P-026</p>
+      <h1 class="post-title">Every Breach Is Every Breach</h1>
+      <div class="post-meta">2026-10-09 &middot; p-rick research program</div>
+    </header>
+    <div class="post-body">
     <p>After the first credential breach of a user's life, every subsequent breach of every site is, partly, the same breach.</p>
     <p>You know the mechanism. The user reuses a password. The new leak hands an attacker the (identity, password) pair, which gets stuffed into the login page of every other site that identity exists on. And there is a second mechanism underneath it that gets less attention: the leak teaches the attacker the <em>string</em> — and strings are shared across thousands of strangers. "Password123" is not one person's password. It is a skeleton key whose distribution has been measured, repeatedly, in every leaked corpus the field has ever studied.</p>
     <p>The security industry has excellent measurements of the ingredients — reuse rates, password frequency distributions, stuffing economics — and excellent folklore about the defenses: lock things that spray, hand out password managers. What it has never had is the <em>arithmetic of the cascade</em>: given a reuse rate, an ecosystem size, and a popularity distribution, what fraction of accounts falls? And which defense moves that number, for whom?</p>
@@ -70,24 +82,30 @@ You know the mechanism. The user reuses a password. The new …">
     </ul>
     <p>And notice what is <em>not</em> in the doctrine: blaming users for reuse. The reuse channel is real and expensive — 39% of a user's accounts in the median wave above — but it is fixed by personal structure and no platform lever moves it. The rage people direct at "users reuse passwords" is energy the arithmetic routes to two places instead: the login endpoint you can rate-limit, and the manager you can hand out.</p>
     <p>Every breach is every breach, on the concentrated side of the boundary, forever, until the popular strings stop being popular. The cascade is not mystical — it's a popularity distribution, a reuse rate, and a breach fraction. Now it has formulas, and the formulas have a doctrine attached. The paper, harness, and every number above: <a href="pdfs/p-026-credential-cascade.pdf">here</a>.</p>
-    <div class="post-footer">
+    </div>
+    <footer class="post-footer">
       <p>This essay accompanies the research paper <a href="../pdfs/p-026.pdf">The Cascade Law of Credential Reuse (PDF)</a>.
       Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
       the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
-    </div>
+    </footer>
   </article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
   </div>
 </footer>
 <script src="../assets/theme.js"></script>
+<script src="../assets/reveal.js"></script>
 </body>
 </html>

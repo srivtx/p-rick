@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>You Can Withdraw Anytime. The System Won't. — p-rick</title>
 <meta name="description" content="Every privacy screen you have ever used carries the same sentence: emyou can withdraw consent at any time./em It is the most repeated promise in software. It is also, as engineering, …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/blog/p017.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="You Can Withdraw Anytime. The System Won't.">
@@ -21,25 +24,34 @@
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html">Papers</a>
+      <a href="../blog.html" aria-current="page">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
-<main class="blog-main">
+<main id="main" class="page">
   <article class="post">
-    <div class="post-kicker">essay &middot; companion to P-017</div>
-    <h1 class="post-title">You Can Withdraw Anytime. The System Won't.</h1>
-    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <header class="post-head">
+      <p class="hero-kicker">essay &middot; companion to P-017</p>
+      <h1 class="post-title">You Can Withdraw Anytime. The System Won't.</h1>
+      <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    </header>
+    <div class="post-body">
     <p>Every privacy screen you have ever used carries the same sentence: <em>you can withdraw consent at any time.</em> It is the most repeated promise in software. It is also, as engineering, almost entirely fiction.</p>
     <p>Here is what actually happens when you press the button. The company you withdrew from — the first one, the one whose interface you were staring at — stops. Token dead. Emails stop. That part is real. Everything the consent ever <em>touched</em> downstream keeps going: the partner who ingested your data two years ago, the analytics house that enriched it, the model that absorbed it. Your withdrawal is a local event with global ambitions. It ends at the first hop, and the first hop is the only hop anyone ever shows you.</p>
     <h2>The law wrote the promise. Nobody wrote the protocol.</h2>
@@ -54,24 +66,30 @@
     <h2>The near-miss that proves it works</h2>
     <p>India's account-aggregator fabric runs purpose-bound, expiring, revocable consent artifacts across an entire financial-data economy, with regulators watching. The machinery works at national scale. What it has never been is <em>general</em> — one regulated domain, one closed architecture. The mechanics are proven. The missing thing is the fabric for everything else: your fitness app, the school form, the retailer.</p>
     <p>That is the gap P-017 specifies: grant objects with lineage, withdrawal with coverage semantics, receipts, re-attestation cycles, canary audits. The world does not lack consent. It lacks the keeping. Read the paper for the whole protocol — and the next time a privacy screen tells you that you can withdraw anytime, notice that it never says what happens next. Now you know why.</p>
-    <div class="post-footer">
+    </div>
+    <footer class="post-footer">
       <p>This essay accompanies the research paper <a href="../pdfs/p-017.pdf">The Revocation Protocol (PDF)</a>.
       Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
       the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
-    </div>
+    </footer>
   </article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
   </div>
 </footer>
 <script src="../assets/theme.js"></script>
+<script src="../assets/reveal.js"></script>
 </body>
 </html>

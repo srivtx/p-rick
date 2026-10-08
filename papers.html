@@ -4,780 +4,406 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Papers — p-rick</title>
-<meta name="description" content="All twenty p-rick working papers in five series: the revocation protocol, epistemic half-life, dormancy engineering, blast radius engineering, the complexity ledger, delegated operation, modality failover, the uncertain document, the defaults ledger, device succession, circadian orchestration, the bus factor protocol, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, consumer entitlements as dead capital, and the n=1 cost-of-living index.">
+<meta name="description" content="All twenty-six p-rick working papers across seven series — gap verification, formal models, validation harnesses, and typeset PDFs.">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/papers.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
-<meta property="og:title" content="p-rick papers — twenty working papers on missing software">
-<meta property="og:description" content="Twenty working papers in five series. Each verifies its gap against the existing landscape before proposing anything.">
+<meta property="og:title" content="Papers — p-rick">
+<meta property="og:description" content="Twenty-six working papers across seven series.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/papers.html">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav>
-      <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
-      <a href="method.html">Method</a>
-      <a href="index.html#about">About</a>
-      <a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary"><a href="papers.html" aria-current="page">Papers</a><a href="blog.html">Essays</a><a href="method.html">Method</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
+<main id="main" class="page">
 
-<main class="page-main">
-  <h1 class="page-title">Papers</h1>
-  <p class="page-sub">
-    Twenty working papers in five series. Each verifies its gap against the existing landscape
-    before proposing anything, states the gap as a falsifiable claim, grades the evidence
-    honestly (STRONG / PARTIAL / WEAK), and confronts the strongest objections to its own
-    thesis. PDFs are hosted on this site; markdown sources live in the repository. The
-    <a href="method.html">method page</a> documents the bar and the exclusions; the
-    <a href="#cite">citing block</a> is at the bottom.
-  </p>
-
-
-  
-  <div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</h3></div>
-      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-024/f2-threshold-law.png" alt="Measured thresholds against the first-moment bound across the (K, w) grid" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Dependency resolution is a constraint-satisfaction problem whose density has been
-        rising for two decades, and its failure is a phase transition: below a critical
-        dependency density resolutions exist; above it they cease to exist at all. The
-        first-moment bound D<sub>c</sub> &le; ln&thinsp;K&thinsp;/&thinsp;ln(K/w) (verified
-        exact by brute-force enumeration on the cyclic version space), a measured gap law
-        &gamma; &asymp; 0.71 with the constant labeled configuration-specific, the
-        easy&ndash;hard&ndash;easy cost anatomy, the hardness tax that separates practical
-        budgets from generous ones, the proliferation paradox (version growth at fixed
-        range width is fragility; at proportional width, slow slack), and a growth
-        experiment where crisis-pruning feedback alone pins an ecosystem just below its
-        collapse threshold while the no-feedback arm crosses and installs die permanently.
-        Solver validated against brute force; every figure regenerates from one file.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a><a class="muted-link" href="blog/p024.html">essay</a><a class="muted-link" href="figures/p-024/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</h3></div>
-      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-025/f2-collapse-law.png" alt="The collapse ceiling with measured policy thresholds at three timeout slacks" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Congestion collapse, priced. The good steady state of a timeout-retry system dies
-        at a tangency with a closed form &mdash; &lambda;<sub>c</sub> =
-        &mu;&theta;&rho;*&sup2;/(1+&theta;&rho;*) from the timeout kernel alone, independent
-        of every retry policy &mdash; and the collapsed state survives on the retry budget
-        itself, dying only below &lambda;<sub>r</sub> &asymp; &mu;/R, with drains measured
-        in the thousands of service-times. Between the two: hysteresis, the 70%-shed-or-restart
-        of every metastable postmortem. The knobs priced: jitter buys the tight-timeout
-        margin back (0.81 of ceiling vs 0.50 for instant retry), deterministic backoff
-        resonates (&minus;36%), and admission caps work only inside the timeout horizon.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">source</a><a class="muted-link" href="blog/p025.html">essay</a><a class="muted-link" href="figures/p-025/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-026/f2-concentration.png" alt="The cascade curve across the popularity-exponent sweep with the closed-form overlay" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Every breach is every breach, and now that has arithmetic. An exact blast-radius
-        law for the reuse channel (validated to 0.2%), an exact two-channel decomposition
-        F = F<sub>w</sub> + (1&minus;&lambda;)F<sub>s</sub>, and a concentration law with a
-        separatrix at password-popularity exponent 1: diverse pools make the cascade dilute
-        (risk grows with the user base), concentrated pools &mdash; where real corpora sit
-        &mdash; pin it at the backbone from the first breach onward. The defense asymmetry
-        the folklore blurs: lockout friction is the only herd-level lever on the backbone;
-        manager adoption is perfect private protection whose herd threshold is 99.997%.
-        Rate-limit everything that sprays; hand every user a manager; know which is which.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">source</a><a class="muted-link" href="blog/p026.html">essay</a><a class="muted-link" href="figures/p-026/results.json">data</a></div>
-    </article>
-
-  </div>
-
-  
-  <div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</h3></div>
-      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-024/f2-threshold-law.png" alt="Measured thresholds against the first-moment bound across the (K, w) grid" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Dependency resolution is a constraint-satisfaction problem whose density has been
-        rising for two decades, and its failure is a phase transition: below a critical
-        dependency density resolutions exist; above it they cease to exist at all. The
-        first-moment bound D<sub>c</sub> &le; ln&thinsp;K&thinsp;/&thinsp;ln(K/w) (verified
-        exact by brute-force enumeration on the cyclic version space), a measured gap law
-        &gamma; &asymp; 0.71 with the constant labeled configuration-specific, the
-        easy&ndash;hard&ndash;easy cost anatomy, the hardness tax that separates practical
-        budgets from generous ones, the proliferation paradox (version growth at fixed
-        range width is fragility; at proportional width, slow slack), and a growth
-        experiment where crisis-pruning feedback alone pins an ecosystem just below its
-        collapse threshold while the no-feedback arm crosses and installs die permanently.
-        Solver validated against brute force; every figure regenerates from one file.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a><a class="muted-link" href="blog/p024.html">essay</a><a class="muted-link" href="figures/p-024/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</h3></div>
-      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-025/f2-collapse-law.png" alt="The collapse ceiling with measured policy thresholds at three timeout slacks" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Congestion collapse, priced. The good steady state of a timeout-retry system dies
-        at a tangency with a closed form &mdash; &lambda;<sub>c</sub> =
-        &mu;&theta;&rho;*&sup2;/(1+&theta;&rho;*) from the timeout kernel alone, independent
-        of every retry policy &mdash; and the collapsed state survives on the retry budget
-        itself, dying only below &lambda;<sub>r</sub> &asymp; &mu;/R, with drains measured
-        in the thousands of service-times. Between the two: hysteresis, the 70%-shed-or-restart
-        of every metastable postmortem. The knobs priced: jitter buys the tight-timeout
-        margin back (0.81 of ceiling vs 0.50 for instant retry), deterministic backoff
-        resonates (&minus;36%), and admission caps work only inside the timeout horizon.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">source</a><a class="muted-link" href="blog/p025.html">essay</a><a class="muted-link" href="figures/p-025/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-026/f2-concentration.png" alt="The cascade curve across the popularity-exponent sweep with the closed-form overlay" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Every breach is every breach, and now that has arithmetic. An exact blast-radius
-        law for the reuse channel (validated to 0.2%), an exact two-channel decomposition
-        F = F<sub>w</sub> + (1&minus;&lambda;)F<sub>s</sub>, and a concentration law with a
-        separatrix at password-popularity exponent 1: diverse pools make the cascade dilute
-        (risk grows with the user base), concentrated pools &mdash; where real corpora sit
-        &mdash; pin it at the backbone from the first breach onward. The defense asymmetry
-        the folklore blurs: lockout friction is the only herd-level lever on the backbone;
-        manager adoption is perfect private protection whose herd threshold is 99.997%.
-        Rate-limit everything that sprays; hand every user a manager; know which is which.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">source</a><a class="muted-link" href="blog/p026.html">essay</a><a class="muted-link" href="figures/p-026/results.json">data</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series VI &middot; laws &mdash; from specification to derivation &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-021</span><h3>The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">networks</span><span class="tag">epidemiology</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-021/f2-phase-transition.png" alt="Outbreak probability vs transmissibility across registry sizes" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        The program&rsquo;s quantitative turn: compromised packages as epidemics on the
-        dependency DAG. The spectral threshold everyone computes on registries is exactly
-        zero (nilpotence &mdash; it certifies nothing), the correct threshold is the
-        branching law R&#8320;&#690; = T&middot;&lang;d&rang;, heavy-tailed registries sit in
-        the thresholdless regime where the safe transmissibility zone vanishes with
-        registry size, cascade-aware pinning buys herd immunity at one-eighth the random
-        budget, and the registry yank has a half-life of two cascade steps. Derived,
-        validated across 28 configurations, reproducible from one file.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-021.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-021-reproduction-number-of-code.md">source</a><a class="muted-link" href="blog/p021.html">essay</a><a class="muted-link" href="figures/p-021/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-022</span><h3>The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients</h3></div>
-      <div class="paper-tags"><span class="tag">caching</span><span class="tag">performance</span><span class="tag">closed-form</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-022/f2-pollution.png" alt="Hit ratio vs transient fraction with the capacity-tax law" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        The folklore of admission filters (TinyLFU doors, probation segments), written as
-        arithmetic: &tau;* = (1&minus;f)W / (H&middot;B<sup>&alpha;</sup>) &mdash; the
-        threshold tracks the stable-evidence volume, flat demand demands severe doors,
-        and the door legally disables itself when capacity covers the head. The capacity
-        tax prices the unfiltered cache at f/(1&minus;f) of its memory; the law&rsquo;s
-        argmax matches the closed form within 1% where the choice matters, and gains
-        over LRU reach 137% at the flat-and-dirty corner. Four measurements, one line
-        of arithmetic, the door.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-022.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-022-admission-law.md">source</a><a class="muted-link" href="blog/p022.html">essay</a><a class="muted-link" href="figures/p-022/results.json">data</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-023</span><h3>Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora</h3></div>
-      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span><span class="tag">rev 1.1</span></div>
-      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-023/f2-recall.png" alt="Recall decay: stale vs anchored vs re-embedded" style="width:100%;display:block;border-radius:5px;"></div>
-      <p>
-        Every vector index goes stale between encoder upgrades, and nobody has the law:
-        D(g) = 1&minus;&lambda;<sup>g</sup> with &lambda; the product of an isometry channel
-        (dimension-mercied into harmlessness and removable exactly by a Procrustes landmark
-        panel) and a distortion channel (dimension-free, un-alignable, the entire real cost
-        of churn). Validated to three decimals; anchored stale vectors hold nearly double the
-        recall at a rounding error of re-embedding cost. Revision 1.1: the draft's
-        &ldquo;L&thinsp;&asymp;&thinsp;8d&rdquo; landmark constant is withdrawn and replaced by a
-        derived estimation theorem &mdash; the panel budget is a four-factor law (accumulated
-        distortion, panel coverage, estimator class, tolerance) whose knee-migration
-        experiments (F6/F7) track within 11%; an undersized panel is shown to be worse than
-        no panel at all. The re-embed calendar, replaced by two probes and one matrix solve.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-023.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-023-generation-loss.md">source</a><a class="muted-link" href="blog/p023.html">essay</a><a class="muted-link" href="figures/p-023/results.json">data</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-017</span><h3>The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</h3></div>
-      <div class="paper-tags"><span class="tag">privacy</span><span class="tag">protocols</span><span class="tag">consent</span></div>
-      <p>
-        &ldquo;You can withdraw anytime&rdquo; is the most repeated promise in software, and
-        withdrawal is a local event with no propagation semantics: the token dies at the
-        first hop while the data already exported, resold, and folded into models keeps
-        working. Grant objects with lineage, revocation events with coverage semantics,
-        signed receipts, re-attestation cycles that make consent re-earned rather than
-        remembered, canary audits, and a liability ladder where silence becomes evidence
-        &mdash; the certificate ecosystem&rsquo;s short-lived-cert lesson, applied to the
-        largest class of unkept promises in software.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-017.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a><a class="muted-link" href="blog/p017.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-018</span><h3>Epistemic Half-Life: Truth Decay Semantics for Stored Data</h3></div>
-      <div class="paper-tags"><span class="tag">data</span><span class="tag">temporal</span><span class="tag">query-semantics</span></div>
-      <p>
-        Food has sell-by dates, markets hard-code stale-quote bounds, and the database —
-        the artifact that stores more facts than all of them — models no perishability at
-        all. Decay functions with half-life families, confidence-aware queries, an honest
-        join algebra where the stale join inherits the worst of its inputs, half-lives
-        estimated from the organization&rsquo;s own change streams, budgeted verification
-        scheduling, and staleness as an outage class: truth decay, specified.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-018.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a><a class="muted-link" href="blog/p018.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-019</span><h3>Dormancy Engineering: Software Design for the Long Sleep</h3></div>
-      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">lifecycle</span><span class="tag">infrastructure</span></div>
-      <p>
-        Always-on proves systems by exercising them; archives preserve sources for
-        historians; between them sits the regime nobody engineers &mdash; software that
-        must work after years of not running. Dormancy classes with declared wake bounds,
-        the environment-drift ledger (the actuarial table of the world&rsquo;s churn),
-        the wake-probe ladder from checksums to germination tests, the exercise calendar,
-        and the readiness contract: the seed vault&rsquo;s discipline, built for the
-        drawer the boot stick is rotting in.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-019.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a><a class="muted-link" href="blog/p019.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-020</span><h3>Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</h3></div>
-      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">personal-infra</span><span class="tag">SRE</span></div>
-      <p>
-        SRE&rsquo;s deepest lesson is that failures correlate through shared roots &mdash;
-        and no discipline maps the correlations of the individual&rsquo;s stack: one
-        identity, one phone number, one cloud, one email reset path, one person. The
-        personal dependency graph with eight correlation classes, weighted blast radii,
-        composite-availability arithmetic that tells the truth about marketing&rsquo;s
-        nines, budgeted decorrelation placement, the failure weather report, and the
-        annual kill-one-root drill: Markowitz&rsquo;s mathematics, aimed at the household.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-020.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">source</a><a class="muted-link" href="blog/p020.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series IV &middot; assumptions &mdash; the quiet premises software runs on &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-012</span><h3>The Complexity Ledger: Design as Relocation, Not Reduction</h3></div>
-      <div class="paper-tags"><span class="tag">theory</span><span class="tag">design</span><span class="tag">measurement</span></div>
-      <p>
-        Every discipline that moves matter has an accounting discipline; the one that
-        moves complexity has folklore. Tesler's law of conservation of complexity —
-        fifty years quoted, never once operationalized — becomes a falsifiable theory
-        over five sinks with field-measurable proxies (code, interaction, operation,
-        documentation, deferral), double-entry relocation records that refuse one-legged
-        claims of reduction, complexity budgets with reconciliation at release cadence,
-        and a consent column separating trades from externalities. The waterbed
-        signatures in compiler flags, ticket-migration signatures after UI
-        "simplifications," and documentation-volume compensation after API redesigns
-        are the theory's testable predictions.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-012.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source</a><a class="muted-link" href="blog/p012.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-013</span><h3>Delegated Operation: Software for the Body with More Than One Owner</h3></div>
-      <div class="paper-tags"><span class="tag">HCI</span><span class="tag">security</span><span class="tag">aging</span></div>
-      <p>
-        The single-principal assumption — one account, one human, present and able —
-        fails the 53 million unpaid family caregivers who operate a parent's phone,
-        bank, pharmacy, and email through shared passwords and video-call screen
-        shares that security teams classify as abuse. We specify the operator
-        principal: capability bundles instead of credential handover, a graduated
-        autonomy ladder (observe → advise → co-act → act → break-glass), grants that
-        are purpose-scoped, time-boxed, and device-bound, audit trails the primary
-        owns, drift detection aimed at the operator, and succession semantics ending
-        in an estate mode rather than a suspension email.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-013.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-013-delegated-operation.md">source</a><a class="muted-link" href="blog/p013.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-014</span><h3>Modality Failover: Cross-Sensory Redundancy for Critical Software</h3></div>
-      <div class="paper-tags"><span class="tag">accessibility</span><span class="tag">alerts</span><span class="tag">systems</span></div>
-      <p>
-        Alerting's hidden single point of failure is the human sensory channel: the
-        deaf user's intact smoke alarm, the pocketed phone at 3 a.m., the clinical
-        alarm-fatigue catastrophe — channel death treated as the environment's
-        problem. We specify RAID for the senses: platform-granted criticality
-        classes (advisory / action / life-safety), a local private capability
-        profile of live channels, k-of-n delivery, acknowledgment-gated escalation
-        across modalities, devices, and finally people, channel-health probing, and
-        an antifatigue governor. CAP standardized the message; this is the missing
-        receiving layer.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-014.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-014-modality-failover.md">source</a><a class="muted-link" href="blog/p014.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-015</span><h3>The Uncertain Document: Propagating Uncertainty Through Everyday Software</h3></div>
-      <div class="paper-tags"><span class="tag">data</span><span class="tag">statistics</span><span class="tag">documents</span></div>
-      <p>
-        Metrology solved error propagation a century ago (GUM); the office, the
-        hospital, and the ministry still run on bare floats whose point-estimate
-        form made the austerity-spreadsheet error invisible. We specify the quant —
-        {point, distribution, provenance, confidence, units} — as the document's
-        native numeric type, with tiered propagation (interval arithmetic, Monte
-        Carlo, GUM's law), a calibrated display contract built on the
-        natural-frequencies evidence, an assumption registry that ages, uncertainty
-        that survives copy-paste and APIs, and the calibration ledger: the first
-        instrument that lets an organization learn its own estimation bias.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-015.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-015-uncertain-document.md">source</a><a class="muted-link" href="blog/p015.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-016</span><h3>The Defaults Ledger: Governing the Strongest Force in Software</h3></div>
-      <div class="paper-tags"><span class="tag">governance</span><span class="tag">platforms</span><span class="tag">behavioral econ</span></div>
-      <p>
-        Defaults produce the largest measured effect sizes in behavioral science —
-        organ-donation consent from 4% to 99% between neighboring countries, a
-        $20B/year market price for one search box's placement — and the act of
-        setting one is recorded nowhere. We specify the civic layer: machine-readable
-        defaults manifests with provenance and changed-from, update-time diff and
-        drift notification, a portable personal override registry, household and
-        third-party negotiation layers (importable default packs), default impact
-        assessments above exposure thresholds, and procurement-grade defaults bills
-        of materials. Defaults are legislation nobody voted on; this is the
-        parliamentary record.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-016.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-016-defaults-ledger.md">source</a><a class="muted-link" href="blog/p016.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series III &middot; continuity &mdash; what systems lose over time &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-008</span><h3>The Afterlife of Devices: An Architecture for Vendor-Death Resilience</h3></div>
-      <div class="paper-tags"><span class="tag">IoT</span><span class="tag">lifecycle</span><span class="tag">escrow</span></div>
-      <p>
-        Connected devices have physical lifetimes of a decade and corporate lifetimes of a few
-        years, and the crossing is undesigned: Insteon darkened hubs overnight in 2023, Revolv
-        was bricked on a published schedule in 2016. We specify succession-ready devices — a
-        lifecycle state machine with an explicit succession transition, a device succession
-        manifest, escrowed continuity released by verifiable dead-hand triggers (bankruptcy
-        filings, certificate expiry, renewal silence), a threshold key-succession ceremony,
-        a degradation ladder, and a hardware-guaranteed fossil mode. Every component exists
-        in an adjacent industry; the composition does not exist anywhere.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-008.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a><a class="muted-link" href="blog/p008.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-009</span><h3>Circadian Orchestration: Team Scheduling on Human Biological Time</h3></div>
-      <div class="paper-tags"><span class="tag">HCI × OR</span><span class="tag">chronobiology</span><span class="tag">privacy</span></div>
-      <p>
-        Collaborative calendars model availability — free or busy — and nothing else, while
-        human performance varies by circadian phase with a population spread of four to six
-        hours. We specify circadian orchestration: a private phase state (questionnaire-grade
-        estimation, optional wearable calibration), circadian cost functions from the
-        two-process model of sleep regulation, fairness-constrained meeting placement with
-        minimax burden bounds, and the golden overlap — all under a privacy-first architecture
-        where only binned cost surfaces leave the client and no individual's phase is ever
-        transmitted. The evidence grades PARTIAL at components, STRONG at composition.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-009.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">source</a><a class="muted-link" href="blog/p009.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-010</span><h3>The Bus Factor Protocol: Succession Governance for Open-Source Package Registries</h3></div>
-      <div class="paper-tags"><span class="tag">supply chain</span><span class="tag">governance</span><span class="tag">registries</span></div>
-      <p>
-        Registries govern code identity — names, signing, provenance — but not maintainership
-        continuity, so the supply chain's load-bearing packages decay into abandonment by
-        default, and every catastrophic governance failure of the last decade began in the
-        succession gap: left-pad, event-stream, colors, and the 2024 xz-utils backdoor, which
-        was a succession attack executed through a tired maintainer's private handover. We
-        specify the bus factor protocol: an abandonment state machine, succession policy as
-        code, a dormancy escalation ladder ending in a narrow security-hold, an anti-xz
-        trust-elevation ladder (co-signed, delay-locked early releases), dead-hand transfers,
-        community takeover with tenure-in-graph vouching, and a public continuity ledger.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-010.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">source</a><a class="muted-link" href="blog/p010.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-011</span><h3>Model Extinction: Behavioral Conservation for the Age of Disposable AI</h3></div>
-      <div class="paper-tags"><span class="tag">AI infra</span><span class="tag">conservation</span><span class="tag">reproducibility</span></div>
-      <p>
-        We preserve web pages, source code, films, and seeds — but not the behavior of deployed
-        AI models, the fastest-dying artifact class in software history. Same-name drift,
-        fine-tune orphaning, unreproducible science, and silent product breakage are one
-        uncounted extinction event. We specify behavioral conservation: the behavioral
-        fingerprint (stratified, anchor-linked eval suites with confidence regions,
-        including consumer-contributed regression strata), equivalence testing for
-        replacements (TOST-based deprecation audits), an IUCN-style extinction registry,
-        inference-time provenance tokens, archival access tiers, and enforceable deprecation
-        contracts. Conserve the observable, not the substrate.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-011.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">source</a><a class="muted-link" href="blog/p011.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series II &middot; systems &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-004</span><h3>Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</h3></div>
-      <div class="paper-tags"><span class="tag">systems</span><span class="tag">formal model</span><span class="tag">QoS</span></div>
-      <p>
-        Every piece of software has two behaviors: the one it exhibits when resources are
-        abundant, and the one under pressure. The first is engineered — specified, tested,
-        monitored, budgeted. The second is emergent: accidental, untested, invisible. We propose
-        degradation contracts: a declarative formalism (fidelity ladders per feature, safe
-        shedding orders, hysteresis and recovery semantics, floor invariants) and a pressure
-        broker that measures pressure, mediates directives, and audits compliance into a
-        queryable ledger. The payoffs compound in the AI era, where quality is already a runtime
-        variable negotiated invisibly; contracts make that negotiation inspectable and fair.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-004.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a><a class="muted-link" href="blog/p004.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-005</span><h3>Provenance-Native Storage: The File System as a Causal Ledger</h3></div>
-      <div class="paper-tags"><span class="tag">systems</span><span class="tag">storage</span><span class="tag">trust</span></div>
-      <p>
-        Every file is an amnesiac: it knows its size and mtime, and has forgotten who created
-        it, from what inputs, over which network origin. PASS proved automatic file provenance
-        feasible in 2006; nothing shipped. The barriers have expired: eBPF/EndpointSecurity/ETW
-        capture substrates, content-addressed compaction, local analytical engines, and C2PA's
-        market education. This paper specifies the causal event ledger, the application
-        transform contract, the query algebra, and the retention semantics that treat
-        forgetting as a feature — the trust infrastructure the AI era just made mandatory.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-005.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">source</a><a class="muted-link" href="blog/p005.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-006</span><h3>The Attention Scheduler: Interruption Economics as an Operating System Problem</h3></div>
-      <div class="paper-tags"><span class="tag">OS</span><span class="tag">HCI × systems</span><span class="tag">agents</span></div>
-      <p>
-        OSes schedule processors, memory, and network with fifty years of theory; attention is
-        scheduled by a DND toggle and an adversarial engagement economy at a measured cost of
-        ~23 minutes of resumption per interruption, unrecorded. We specify the attention
-        scheduler: interruption-cost models, admission control with deferral queues,
-        breakpoint-timed dispatch, per-app budgets with honesty pricing, urgent-class bounded
-        latency, starvation freedom, and an attention ledger. Closed platform features are
-        approaching this system without the theory; the paper supplies the semantics first.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-006.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">source</a><a class="muted-link" href="blog/p006.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-007</span><h3>The Intermittent Compute Fabric: One Machine Across Many Devices</h3></div>
-      <div class="paper-tags"><span class="tag">distributed</span><span class="tag">local-first</span><span class="tag">AI infra</span></div>
-      <p>
-        The median user owns five to eight devices that behave as islands joined only by cloud
-        meters. The offloading research line died in 2012 for reasons that have quietly expired:
-        mesh VPNs solved reachability, WASM and containers solved portability, device identity
-        is solved, and distributed local AI is the first workload in a generation that needs
-        cross-device placement. We specify the fabric: a scheduler that treats sleep and
-        partition as inputs, a capability-delegation protocol, partition-tolerant task
-        semantics, and an ambient CRDT state layer — one machine across many devices, owned.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-007.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a><a class="muted-link" href="blog/p007.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series I &middot; user-owned data &amp; the economics of inattention &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-001</span><h3>The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</h3></div>
-      <div class="paper-tags"><span class="tag">middleware</span><span class="tag">privacy</span><span class="tag">events</span></div>
-      <p>
-        Phones receive the most valuable structured data of a person's life — payment events,
-        receipts, gate changes, renewals — and throw it away before it can be kept. The personal
-        event bus is user-owned middleware that captures ambient events, stores them under user
-        control, and projects permissioned views to consuming applications: the missing
-        skeleton of personal data infrastructure, specified formally.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-001.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a><a class="muted-link" href="blog/p001.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-002</span><h3>Consumer Entitlements as Dead Capital</h3></div>
-      <div class="paper-tags"><span class="tag">economics</span><span class="tag">rights</span><span class="tag">agents</span></div>
-      <p>
-        Billions per year in statutory and contractual rights — compensation regimes, refund
-        windows, class settlements — go unclaimed because rights are invisible, perishable, and
-        unpriced. The personal entitlement engine treats a right as a machine-readable object
-        with detection, valuation, and execution semantics, converting dead capital to live
-        capital for the holder.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-002.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">source</a><a class="muted-link" href="blog/p002.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-003</span><h3>The n=1 Cost-of-Living Index</h3></div>
-      <div class="paper-tags"><span class="tag">methodology</span><span class="tag">economics</span><span class="tag">statistics</span></div>
-      <p>
-        Official inflation is an average over a nation that matches no individual. This paper
-        specifies the methodology for a statistically defensible personal price index —
-        matched-model chaining, quality adjustment for shrinkflation, Bayesian shrinkage to
-        official indices, uncertainty bands — and the local-first multi-source software that
-        would compute it from a person's own receipts.
-      </p>
-      <div class="pc-links"><a href="pdfs/p-003.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">source</a><a class="muted-link" href="blog/p003.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div id="cite" class="cite-section">
-    <div class="section-head"><h2>Cite</h2><div class="rule"></div></div>
-    <p class="page-sub" style="margin-bottom: 24px;">
-      BibTeX for all twenty working papers. Each entry cites the PDF (the typeset, canonical
-      form); the markdown source lives at the same path in the repository.
+  <section class="page-head">
+    <p class="hero-kicker">working papers · 26 of them · 7 series</p>
+    <h1>Papers</h1>
+    <p class="lede">
+      Each paper states its gap as a falsifiable claim with named incumbents, specifies the
+      missing system or derives the missing law, and grades its own evidence. Typeset PDFs are
+      canonical; markdown sources and harnesses live in the repository.
     </p>
-    <details class="cite-details">
-      <summary>Show BibTeX (20 entries)</summary>
-      <div class="bibtex-block"><pre>@techreport{prick2026p012,
-  title       = {The Complexity Ledger: Design as Relocation, Not Reduction},
-  author      = {{p-rick research program}},
+    <div class="chip-row" role="group" aria-label="Filter by series">
+      <button class="chip is-on" data-filter="" aria-pressed="true">all</button><button class="chip" data-filter="VII" aria-pressed="false">VII</button><button class="chip" data-filter="VI" aria-pressed="false">VI</button><button class="chip" data-filter="V" aria-pressed="false">V</button><button class="chip" data-filter="IV" aria-pressed="false">IV</button><button class="chip" data-filter="III" aria-pressed="false">III</button><button class="chip" data-filter="II" aria-pressed="false">II</button><button class="chip" data-filter="I" aria-pressed="false">I</button>
+    </div>
+  </section>
+
+  <section class="section" data-series="VII">
+        <div class="fig-strip reveal">
+      <a class="fig-card" href="pdfs/p-024.pdf">
+        <img src="figures/p-024/f2-threshold-law.png" alt="Measured collapse thresholds against the first-moment bound across the (K, w) grid" width="1920" height="840" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-024</span> Measured collapse thresholds against the first-moment bound across the (&#8230;</span>
+      </a>
+      <a class="fig-card" href="pdfs/p-025.pdf">
+        <img src="figures/p-025/f2-collapse-law.png" alt="The collapse ceiling and recovery threshold: hysteresis measured against the law" width="1920" height="840" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-025</span> The collapse ceiling and recovery threshold: hysteresis measured against&#8230;</span>
+      </a>
+      <a class="fig-card" href="pdfs/p-026.pdf">
+        <img src="figures/p-026/f2-concentration.png" alt="Spray-channel takeover against password-popularity exponent across pool sizes" width="1320" height="840" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-026</span> Spray-channel takeover against password-popularity exponent across pool &#8230;</span>
+      </a>
+    </div>
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="VII"><span>series VII &middot; collapse — critical thresholds where everyday infrastructure fails</span><span class="ser-range">P-024 &ndash; P-026</span></div>
+      <div class="toc-row" data-series="VII">
+        <span class="toc-id">P-024</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</a></h3>
+          <p class="toc-dek">Dependency resolution is a constraint-satisfaction problem whose density has been rising for two decades, and its failure is a phase transition: below a critical dependency density resolutions exist; above it they cease to exist at all. The first-moment bound Dc ≤ ln K / ln(K/w) (verified exact by brute-force enumeration on the cyclic version space), a measured gap law γ ≈ 0.71 with the constant labeled configuration-specific, the easy–hard–easy cost anatomy, the hardness tax that separates practical budgets from generous ones, the proliferation paradox (version growth at fixed range width is fragility; at proportional width, slow slack), and a growth experiment where crisis-pruning feedback alone pins an ecosystem just below its collapse threshold while the no-feedback arm crosses and installs die permanently. Solver validated against brute force; every figure regenerates from one file.</p>
+          <div class="toc-tags"><span class="toc-tag">package management</span><span class="toc-tag">CSP</span><span class="toc-tag">phase transition</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-024.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a><a class="" href="blog/p024.html">essay</a><a class="" href="figures/p-024/results.json">data</a></div>
+      </div>
+      <div class="toc-row" data-series="VII">
+        <span class="toc-id">P-025</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</a></h3>
+          <p class="toc-dek">Congestion collapse, priced. The good steady state of a timeout-retry system dies at a tangency with a closed form — λc = μθρ*²/(1+θρ*) from the timeout kernel alone, independent of every retry policy — and the collapsed state survives on the retry budget itself, dying only below λr ≈ μ/R, with drains measured in the thousands of service-times. Between the two: hysteresis, the 70%-shed-or-restart of every metastable postmortem. The knobs priced: jitter buys the tight-timeout margin back (0.81 of ceiling vs 0.50 for instant retry), deterministic backoff resonates (−36%), and admission caps work only inside the timeout horizon.</p>
+          <div class="toc-tags"><span class="toc-tag">queueing</span><span class="toc-tag">SRE</span><span class="toc-tag">closed-form</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-025.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">source</a><a class="" href="blog/p025.html">essay</a><a class="" href="figures/p-025/results.json">data</a></div>
+      </div>
+      <div class="toc-row" data-series="VII">
+        <span class="toc-id">P-026</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</a></h3>
+          <p class="toc-dek">Every breach is every breach, and now that has arithmetic. An exact blast-radius law for the reuse channel (validated to 0.2%), an exact two-channel decomposition F = Fw + (1−λ)Fs, and a concentration law with a separatrix at password-popularity exponent 1: diverse pools make the cascade dilute (risk grows with the user base), concentrated pools — where real corpora sit — pin it at the backbone from the first breach onward. The defense asymmetry the folklore blurs: lockout friction is the only herd-level lever on the backbone; manager adoption is perfect private protection whose herd threshold is 99.997%. Rate-limit everything that sprays; hand every user a manager; know which is which.</p>
+          <div class="toc-tags"><span class="toc-tag">security</span><span class="toc-tag">cascades</span><span class="toc-tag">percolation</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-026.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">source</a><a class="" href="blog/p026.html">essay</a><a class="" href="figures/p-026/results.json">data</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="VI">
+        <div class="fig-strip reveal">
+      <a class="fig-card" href="pdfs/p-021.pdf">
+        <img src="figures/p-021/f2-phase-transition.png" alt="The compromise phase transition: measured attack prevalence against the threshold curve" width="1360" height="880" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-021</span> The compromise phase transition: measured attack prevalence against the &#8230;</span>
+      </a>
+      <a class="fig-card" href="pdfs/p-022.pdf">
+        <img src="figures/p-022/f2-pollution.png" alt="Transient pollution and the admission threshold across the Zipf sweep" width="1320" height="840" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-022</span> Transient pollution and the admission threshold across the Zipf sweep&#8230;</span>
+      </a>
+      <a class="fig-card" href="pdfs/p-023.pdf">
+        <img src="figures/p-023/f2-recall.png" alt="Recall degradation across re-embedding generations, measured against the drift law" width="1360" height="960" loading="lazy">
+        <span class="fig-card-cap"><span class="fig-no">p-023</span> Recall degradation across re-embedding generations, measured against the&#8230;</span>
+      </a>
+    </div>
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="VI"><span>series VI &middot; laws — from specification to derivation</span><span class="ser-range">P-021 &ndash; P-023</span></div>
+      <div class="toc-row" data-series="VI">
+        <span class="toc-id">P-021</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-021-reproduction-number-of-code.md">The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise</a></h3>
+          <p class="toc-dek">The program’s quantitative turn: compromised packages as epidemics on the dependency DAG. The spectral threshold everyone computes on registries is exactly zero (nilpotence — it certifies nothing), the correct threshold is the branching law R₀ʲ = T·⟨d⟩, heavy-tailed registries sit in the thresholdless regime where the safe transmissibility zone vanishes with registry size, cascade-aware pinning buys herd immunity at one-eighth the random budget, and the registry yank has a half-life of two cascade steps. Derived, validated across 28 configurations, reproducible from one file.</p>
+          <div class="toc-tags"><span class="toc-tag">security</span><span class="toc-tag">networks</span><span class="toc-tag">epidemiology</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-021.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-021-reproduction-number-of-code.md">source</a><a class="" href="blog/p021.html">essay</a><a class="" href="figures/p-021/results.json">data</a></div>
+      </div>
+      <div class="toc-row" data-series="VI">
+        <span class="toc-id">P-022</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-022-admission-law.md">The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients</a></h3>
+          <p class="toc-dek">The folklore of admission filters (TinyLFU doors, probation segments), written as arithmetic: τ* = (1−f)W / (H·Bα) — the threshold tracks the stable-evidence volume, flat demand demands severe doors, and the door legally disables itself when capacity covers the head. The capacity tax prices the unfiltered cache at f/(1−f) of its memory; the law’s argmax matches the closed form within 1% where the choice matters, and gains over LRU reach 137% at the flat-and-dirty corner. Four measurements, one line of arithmetic, the door.</p>
+          <div class="toc-tags"><span class="toc-tag">caching</span><span class="toc-tag">performance</span><span class="toc-tag">closed-form</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-022.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-022-admission-law.md">source</a><a class="" href="blog/p022.html">essay</a><a class="" href="figures/p-022/results.json">data</a></div>
+      </div>
+      <div class="toc-row" data-series="VI">
+        <span class="toc-id">P-023</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-023-generation-loss.md">Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora</a></h3>
+          <p class="toc-dek">Every vector index goes stale between encoder upgrades, and nobody has the law: D(g) = 1−λg with λ the product of an isometry channel (dimension-mercied into harmlessness and removable exactly by a Procrustes landmark panel) and a distortion channel (dimension-free, un-alignable, the entire real cost of churn). Validated to three decimals; anchored stale vectors hold nearly double the recall at a rounding error of re-embedding cost. Revision 1.1: the draft's “L ≈ 8d” landmark constant is withdrawn and replaced by a derived estimation theorem — the panel budget is a four-factor law (accumulated distortion, panel coverage, estimator class, tolerance) whose knee-migration experiments (F6/F7) track within 11%; an undersized panel is shown to be worse than no panel at all. The re-embed calendar, replaced by two probes and one matrix solve.</p>
+          <div class="toc-tags"><span class="toc-tag">AI-infra</span><span class="toc-tag">retrieval</span><span class="toc-tag">drift</span><span class="toc-tag">rev 1.1</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-023.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-023-generation-loss.md">source</a><a class="" href="blog/p023.html">essay</a><a class="" href="figures/p-023/results.json">data</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="V">
+    
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="V"><span>series V &middot; promises — the guarantees software implies and never has to honor</span><span class="ser-range">P-017 &ndash; P-020</span></div>
+      <div class="toc-row" data-series="V">
+        <span class="toc-id">P-017</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</a></h3>
+          <p class="toc-dek">“You can withdraw anytime” is the most repeated promise in software, and withdrawal is a local event with no propagation semantics: the token dies at the first hop while the data already exported, resold, and folded into models keeps working. Grant objects with lineage, revocation events with coverage semantics, signed receipts, re-attestation cycles that make consent re-earned rather than remembered, canary audits, and a liability ladder where silence becomes evidence — the certificate ecosystem’s short-lived-cert lesson, applied to the largest class of unkept promises in software.</p>
+          <div class="toc-tags"><span class="toc-tag">privacy</span><span class="toc-tag">protocols</span><span class="toc-tag">consent</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-017.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a><a class="" href="blog/p017.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="V">
+        <span class="toc-id">P-018</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">Epistemic Half-Life: Truth Decay Semantics for Stored Data</a></h3>
+          <p class="toc-dek">Food has sell-by dates, markets hard-code stale-quote bounds, and the database — the artifact that stores more facts than all of them — models no perishability at all. Decay functions with half-life families, confidence-aware queries, an honest join algebra where the stale join inherits the worst of its inputs, half-lives estimated from the organization’s own change streams, budgeted verification scheduling, and staleness as an outage class: truth decay, specified.</p>
+          <div class="toc-tags"><span class="toc-tag">data</span><span class="toc-tag">temporal</span><span class="toc-tag">query-semantics</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-018.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a><a class="" href="blog/p018.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="V">
+        <span class="toc-id">P-019</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">Dormancy Engineering: Software Design for the Long Sleep</a></h3>
+          <p class="toc-dek">Always-on proves systems by exercising them; archives preserve sources for historians; between them sits the regime nobody engineers — software that must work after years of not running. Dormancy classes with declared wake bounds, the environment-drift ledger (the actuarial table of the world’s churn), the wake-probe ladder from checksums to germination tests, the exercise calendar, and the readiness contract: the seed vault’s discipline, built for the drawer the boot stick is rotting in.</p>
+          <div class="toc-tags"><span class="toc-tag">reliability</span><span class="toc-tag">lifecycle</span><span class="toc-tag">infrastructure</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-019.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a><a class="" href="blog/p019.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="V">
+        <span class="toc-id">P-020</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</a></h3>
+          <p class="toc-dek">SRE’s deepest lesson is that failures correlate through shared roots — and no discipline maps the correlations of the individual’s stack: one identity, one phone number, one cloud, one email reset path, one person. The personal dependency graph with eight correlation classes, weighted blast radii, composite-availability arithmetic that tells the truth about marketing’s nines, budgeted decorrelation placement, the failure weather report, and the annual kill-one-root drill: Markowitz’s mathematics, aimed at the household.</p>
+          <div class="toc-tags"><span class="toc-tag">reliability</span><span class="toc-tag">personal-infra</span><span class="toc-tag">SRE</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-020.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">source</a><a class="" href="blog/p020.html">essay</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="IV">
+    
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="IV"><span>series IV &middot; assumptions — the quiet premises software runs on</span><span class="ser-range">P-012 &ndash; P-016</span></div>
+      <div class="toc-row" data-series="IV">
+        <span class="toc-id">P-012</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">The Complexity Ledger: Design as Relocation, Not Reduction</a></h3>
+          <p class="toc-dek">Every discipline that moves matter has an accounting discipline; the one that moves complexity has folklore. Tesler's law of conservation of complexity — fifty years quoted, never once operationalized — becomes a falsifiable theory over five sinks with field-measurable proxies (code, interaction, operation, documentation, deferral), double-entry relocation records that refuse one-legged claims of reduction, complexity budgets with reconciliation at release cadence, and a consent column separating trades from externalities. The waterbed signatures in compiler flags, ticket-migration signatures after UI "simplifications," and documentation-volume compensation after API redesigns are the theory's testable predictions.</p>
+          <div class="toc-tags"><span class="toc-tag">theory</span><span class="toc-tag">design</span><span class="toc-tag">measurement</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-012.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source</a><a class="" href="blog/p012.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="IV">
+        <span class="toc-id">P-013</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-013-delegated-operation.md">Delegated Operation: Software for the Body with More Than One Owner</a></h3>
+          <p class="toc-dek">The single-principal assumption — one account, one human, present and able — fails the 53 million unpaid family caregivers who operate a parent's phone, bank, pharmacy, and email through shared passwords and video-call screen shares that security teams classify as abuse. We specify the operator principal: capability bundles instead of credential handover, a graduated autonomy ladder (observe → advise → co-act → act → break-glass), grants that are purpose-scoped, time-boxed, and device-bound, audit trails the primary owns, drift detection aimed at the operator, and succession semantics ending in an estate mode rather than a suspension email.</p>
+          <div class="toc-tags"><span class="toc-tag">HCI</span><span class="toc-tag">security</span><span class="toc-tag">aging</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-013.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-013-delegated-operation.md">source</a><a class="" href="blog/p013.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="IV">
+        <span class="toc-id">P-014</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-014-modality-failover.md">Modality Failover: Cross-Sensory Redundancy for Critical Software</a></h3>
+          <p class="toc-dek">Alerting's hidden single point of failure is the human sensory channel: the deaf user's intact smoke alarm, the pocketed phone at 3 a.m., the clinical alarm-fatigue catastrophe — channel death treated as the environment's problem. We specify RAID for the senses: platform-granted criticality classes (advisory / action / life-safety), a local private capability profile of live channels, k-of-n delivery, acknowledgment-gated escalation across modalities, devices, and finally people, channel-health probing, and an antifatigue governor. CAP standardized the message; this is the missing receiving layer.</p>
+          <div class="toc-tags"><span class="toc-tag">accessibility</span><span class="toc-tag">alerts</span><span class="toc-tag">systems</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-014.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-014-modality-failover.md">source</a><a class="" href="blog/p014.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="IV">
+        <span class="toc-id">P-015</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-015-uncertain-document.md">The Uncertain Document: Propagating Uncertainty Through Everyday Software</a></h3>
+          <p class="toc-dek">Metrology solved error propagation a century ago (GUM); the office, the hospital, and the ministry still run on bare floats whose point-estimate form made the austerity-spreadsheet error invisible. We specify the quant — {point, distribution, provenance, confidence, units} — as the document's native numeric type, with tiered propagation (interval arithmetic, Monte Carlo, GUM's law), a calibrated display contract built on the natural-frequencies evidence, an assumption registry that ages, uncertainty that survives copy-paste and APIs, and the calibration ledger: the first instrument that lets an organization learn its own estimation bias.</p>
+          <div class="toc-tags"><span class="toc-tag">data</span><span class="toc-tag">statistics</span><span class="toc-tag">documents</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-015.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-015-uncertain-document.md">source</a><a class="" href="blog/p015.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="IV">
+        <span class="toc-id">P-016</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-016-defaults-ledger.md">The Defaults Ledger: Governing the Strongest Force in Software</a></h3>
+          <p class="toc-dek">Defaults produce the largest measured effect sizes in behavioral science — organ-donation consent from 4% to 99% between neighboring countries, a $20B/year market price for one search box's placement — and the act of setting one is recorded nowhere. We specify the civic layer: machine-readable defaults manifests with provenance and changed-from, update-time diff and drift notification, a portable personal override registry, household and third-party negotiation layers (importable default packs), default impact assessments above exposure thresholds, and procurement-grade defaults bills of materials. Defaults are legislation nobody voted on; this is the parliamentary record.</p>
+          <div class="toc-tags"><span class="toc-tag">governance</span><span class="toc-tag">platforms</span><span class="toc-tag">behavioral econ</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-016.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-016-defaults-ledger.md">source</a><a class="" href="blog/p016.html">essay</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="III">
+    
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="III"><span>series III &middot; continuity — what systems lose over time</span><span class="ser-range">P-008 &ndash; P-011</span></div>
+      <div class="toc-row" data-series="III">
+        <span class="toc-id">P-008</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">The Afterlife of Devices: An Architecture for Vendor-Death Resilience</a></h3>
+          <p class="toc-dek">Connected devices have physical lifetimes of a decade and corporate lifetimes of a few years, and the crossing is undesigned: Insteon darkened hubs overnight in 2023, Revolv was bricked on a published schedule in 2016. We specify succession-ready devices — a lifecycle state machine with an explicit succession transition, a device succession manifest, escrowed continuity released by verifiable dead-hand triggers (bankruptcy filings, certificate expiry, renewal silence), a threshold key-succession ceremony, a degradation ladder, and a hardware-guaranteed fossil mode. Every component exists in an adjacent industry; the composition does not exist anywhere.</p>
+          <div class="toc-tags"><span class="toc-tag">IoT</span><span class="toc-tag">lifecycle</span><span class="toc-tag">escrow</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-008.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a><a class="" href="blog/p008.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="III">
+        <span class="toc-id">P-009</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">Circadian Orchestration: Team Scheduling on Human Biological Time</a></h3>
+          <p class="toc-dek">Collaborative calendars model availability — free or busy — and nothing else, while human performance varies by circadian phase with a population spread of four to six hours. We specify circadian orchestration: a private phase state (questionnaire-grade estimation, optional wearable calibration), circadian cost functions from the two-process model of sleep regulation, fairness-constrained meeting placement with minimax burden bounds, and the golden overlap — all under a privacy-first architecture where only binned cost surfaces leave the client and no individual's phase is ever transmitted. The evidence grades PARTIAL at components, STRONG at composition.</p>
+          <div class="toc-tags"><span class="toc-tag">HCI × OR</span><span class="toc-tag">chronobiology</span><span class="toc-tag">privacy</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-009.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">source</a><a class="" href="blog/p009.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="III">
+        <span class="toc-id">P-010</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">The Bus Factor Protocol: Succession Governance for Open-Source Package Registries</a></h3>
+          <p class="toc-dek">Registries govern code identity — names, signing, provenance — but not maintainership continuity, so the supply chain's load-bearing packages decay into abandonment by default, and every catastrophic governance failure of the last decade began in the succession gap: left-pad, event-stream, colors, and the 2024 xz-utils backdoor, which was a succession attack executed through a tired maintainer's private handover. We specify the bus factor protocol: an abandonment state machine, succession policy as code, a dormancy escalation ladder ending in a narrow security-hold, an anti-xz trust-elevation ladder (co-signed, delay-locked early releases), dead-hand transfers, community takeover with tenure-in-graph vouching, and a public continuity ledger.</p>
+          <div class="toc-tags"><span class="toc-tag">supply chain</span><span class="toc-tag">governance</span><span class="toc-tag">registries</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-010.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">source</a><a class="" href="blog/p010.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="III">
+        <span class="toc-id">P-011</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">Model Extinction: Behavioral Conservation for the Age of Disposable AI</a></h3>
+          <p class="toc-dek">We preserve web pages, source code, films, and seeds — but not the behavior of deployed AI models, the fastest-dying artifact class in software history. Same-name drift, fine-tune orphaning, unreproducible science, and silent product breakage are one uncounted extinction event. We specify behavioral conservation: the behavioral fingerprint (stratified, anchor-linked eval suites with confidence regions, including consumer-contributed regression strata), equivalence testing for replacements (TOST-based deprecation audits), an IUCN-style extinction registry, inference-time provenance tokens, archival access tiers, and enforceable deprecation contracts. Conserve the observable, not the substrate.</p>
+          <div class="toc-tags"><span class="toc-tag">AI infra</span><span class="toc-tag">conservation</span><span class="toc-tag">reproducibility</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-011.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">source</a><a class="" href="blog/p011.html">essay</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="II">
+    
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="II"><span>series II &middot; systems — behavior under scarcity, memory, attention, fabric</span><span class="ser-range">P-004 &ndash; P-007</span></div>
+      <div class="toc-row" data-series="II">
+        <span class="toc-id">P-004</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</a></h3>
+          <p class="toc-dek">Every piece of software has two behaviors: the one it exhibits when resources are abundant, and the one under pressure. The first is engineered — specified, tested, monitored, budgeted. The second is emergent: accidental, untested, invisible. We propose degradation contracts: a declarative formalism (fidelity ladders per feature, safe shedding orders, hysteresis and recovery semantics, floor invariants) and a pressure broker that measures pressure, mediates directives, and audits compliance into a queryable ledger. The payoffs compound in the AI era, where quality is already a runtime variable negotiated invisibly; contracts make that negotiation inspectable and fair.</p>
+          <div class="toc-tags"><span class="toc-tag">systems</span><span class="toc-tag">formal model</span><span class="toc-tag">QoS</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-004.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a><a class="" href="blog/p004.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="II">
+        <span class="toc-id">P-005</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">Provenance-Native Storage: The File System as a Causal Ledger</a></h3>
+          <p class="toc-dek">Every file is an amnesiac: it knows its size and mtime, and has forgotten who created it, from what inputs, over which network origin. PASS proved automatic file provenance feasible in 2006; nothing shipped. The barriers have expired: eBPF/EndpointSecurity/ETW capture substrates, content-addressed compaction, local analytical engines, and C2PA's market education. This paper specifies the causal event ledger, the application transform contract, the query algebra, and the retention semantics that treat forgetting as a feature — the trust infrastructure the AI era just made mandatory.</p>
+          <div class="toc-tags"><span class="toc-tag">systems</span><span class="toc-tag">storage</span><span class="toc-tag">trust</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-005.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">source</a><a class="" href="blog/p005.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="II">
+        <span class="toc-id">P-006</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">The Attention Scheduler: Interruption Economics as an Operating System Problem</a></h3>
+          <p class="toc-dek">OSes schedule processors, memory, and network with fifty years of theory; attention is scheduled by a DND toggle and an adversarial engagement economy at a measured cost of ~23 minutes of resumption per interruption, unrecorded. We specify the attention scheduler: interruption-cost models, admission control with deferral queues, breakpoint-timed dispatch, per-app budgets with honesty pricing, urgent-class bounded latency, starvation freedom, and an attention ledger. Closed platform features are approaching this system without the theory; the paper supplies the semantics first.</p>
+          <div class="toc-tags"><span class="toc-tag">OS</span><span class="toc-tag">HCI × systems</span><span class="toc-tag">agents</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-006.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">source</a><a class="" href="blog/p006.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="II">
+        <span class="toc-id">P-007</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">The Intermittent Compute Fabric: One Machine Across Many Devices</a></h3>
+          <p class="toc-dek">The median user owns five to eight devices that behave as islands joined only by cloud meters. The offloading research line died in 2012 for reasons that have quietly expired: mesh VPNs solved reachability, WASM and containers solved portability, device identity is solved, and distributed local AI is the first workload in a generation that needs cross-device placement. We specify the fabric: a scheduler that treats sleep and partition as inputs, a capability-delegation protocol, partition-tolerant task semantics, and an ambient CRDT state layer — one machine across many devices, owned.</p>
+          <div class="toc-tags"><span class="toc-tag">distributed</span><span class="toc-tag">local-first</span><span class="toc-tag">AI infra</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-007.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a><a class="" href="blog/p007.html">essay</a></div>
+      </div>
+    </div>
+  </section>
+  <section class="section" data-series="I">
+    
+    <div class="toc reveal" style="margin-top:1.2rem">
+      <div class="toc-series-label" data-series="I"><span>series I &middot; user-owned data & the economics of inattention</span><span class="ser-range">P-001 &ndash; P-003</span></div>
+      <div class="toc-row" data-series="I">
+        <span class="toc-id">P-001</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</a></h3>
+          <p class="toc-dek">Phones receive the most valuable structured data of a person's life — payment events, receipts, gate changes, renewals — and throw it away before it can be kept. The personal event bus is user-owned middleware that captures ambient events, stores them under user control, and projects permissioned views to consuming applications: the missing skeleton of personal data infrastructure, specified formally.</p>
+          <div class="toc-tags"><span class="toc-tag">middleware</span><span class="toc-tag">privacy</span><span class="toc-tag">events</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-001.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a><a class="" href="blog/p001.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="I">
+        <span class="toc-id">P-002</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">Consumer Entitlements as Dead Capital</a></h3>
+          <p class="toc-dek">Billions per year in statutory and contractual rights — compensation regimes, refund windows, class settlements — go unclaimed because rights are invisible, perishable, and unpriced. The personal entitlement engine treats a right as a machine-readable object with detection, valuation, and execution semantics, converting dead capital to live capital for the holder.</p>
+          <div class="toc-tags"><span class="toc-tag">economics</span><span class="toc-tag">rights</span><span class="toc-tag">agents</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-002.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">source</a><a class="" href="blog/p002.html">essay</a></div>
+      </div>
+      <div class="toc-row" data-series="I">
+        <span class="toc-id">P-003</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">The n=1 Cost-of-Living Index</a></h3>
+          <p class="toc-dek">Official inflation is an average over a nation that matches no individual. This paper specifies the methodology for a statistically defensible personal price index — matched-model chaining, quality adjustment for shrinkflation, Bayesian shrinkage to official indices, uncertainty bands — and the local-first multi-source software that would compute it from a person's own receipts.</p>
+          <div class="toc-tags"><span class="toc-tag">methodology</span><span class="toc-tag">economics</span><span class="toc-tag">statistics</span></div>
+        </div>
+        <div class="toc-links"><a class="toc-pdf" href="pdfs/p-003.pdf">PDF</a><a class="" href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">source</a><a class="" href="blog/p003.html">essay</a></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="cite">
+    <hr class="section-rule">
+    <div class="section-head" style="margin-top:2.6rem">
+      <h2>Cite</h2>
+      <span class="count">26 entries</span>
+    </div>
+    <p class="lede">
+      BibTeX for every paper. Each entry cites the PDF (the typeset, canonical form);
+      the markdown source lives at the same path in the repository.
+    </p>
+    <details class="cite-details reveal">
+      <summary>Show BibTeX (26 entries)</summary>
+      <pre class="bibtex-block">@techreport{prick2026p001,
+  title       = {The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-012},
-  series      = {Series IV: Assumptions},
+  number      = {P-001},
+  series      = {Series I: User-owned data},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-012.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-001.pdf}
 }
 
-@techreport{prick2026p013,
-  title       = {Delegated Operation: Software for the Body with More Than One Owner},
-  author      = {{p-rick research program}},
+@techreport{prick2026p002,
+  title       = {Consumer Entitlements as Dead Capital},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-013},
-  series      = {Series IV: Assumptions},
+  number      = {P-002},
+  series      = {Series I: User-owned data},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-013.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-002.pdf}
 }
 
-@techreport{prick2026p014,
-  title       = {Modality Failover: Cross-Sensory Redundancy for Critical Software},
-  author      = {{p-rick research program}},
+@techreport{prick2026p003,
+  title       = {The n=1 Cost-of-Living Index},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-014},
-  series      = {Series IV: Assumptions},
+  number      = {P-003},
+  series      = {Series I: User-owned data},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-014.pdf}
-}
-
-@techreport{prick2026p015,
-  title       = {The Uncertain Document: Propagating Uncertainty Through Everyday Software},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-015},
-  series      = {Series IV: Assumptions},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-015.pdf}
-}
-
-@techreport{prick2026p016,
-  title       = {The Defaults Ledger: Governing the Strongest Force in Software},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-016},
-  series      = {Series IV: Assumptions},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-016.pdf}
-}
-
-@techreport{prick2026p017,
-  title       = {The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-017},
-  series      = {Series V: Promises},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-017.pdf}
-}
-
-@techreport{prick2026p018,
-  title       = {Epistemic Half-Life: Truth Decay Semantics for Stored Data},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-018},
-  series      = {Series V: Promises},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-018.pdf}
-}
-
-@techreport{prick2026p019,
-  title       = {Dormancy Engineering: Software Design for the Long Sleep},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-019},
-  series      = {Series V: Promises},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-019.pdf}
-}
-
-@techreport{prick2026p020,
-  title       = {Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-020},
-  series      = {Series V: Promises},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-020.pdf}
-}
-
-@techreport{prick2026p021,
-  title       = {The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-021},
-  series      = {Series VI: Laws},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-021.pdf}
-}
-
-@techreport{prick2026p022,
-  title       = {The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-022},
-  series      = {Series VI: Laws},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-022.pdf}
-}
-
-@techreport{prick2026p023,
-  title       = {Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-023},
-  series      = {Series VI: Laws},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-023.pdf}
-}
-
-
-@techreport{prick2026p008,
-  title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-008},
-  series      = {Series III: Continuity},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-008.pdf}
-}
-
-@techreport{prick2026p009,
-  title       = {Circadian Orchestration: Team Scheduling on Human Biological Time},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-009},
-  series      = {Series III: Continuity},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-009.pdf}
-}
-
-@techreport{prick2026p010,
-  title       = {The Bus Factor Protocol: Succession Governance for Open-Source Package Registries},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-010},
-  series      = {Series III: Continuity},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-010.pdf}
-}
-
-@techreport{prick2026p011,
-  title       = {Model Extinction: Behavioral Conservation for the Age of Disposable AI},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-011},
-  series      = {Series III: Continuity},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-011.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-003.pdf}
 }
 
 @techreport{prick2026p004,
   title       = {Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-004},
@@ -789,7 +415,7 @@
 
 @techreport{prick2026p005,
   title       = {Provenance-Native Storage: The File System as a Causal Ledger},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-005},
@@ -801,7 +427,7 @@
 
 @techreport{prick2026p006,
   title       = {The Attention Scheduler: Interruption Economics as an Operating System Problem},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-006},
@@ -813,7 +439,7 @@
 
 @techreport{prick2026p007,
   title       = {The Intermittent Compute Fabric: One Machine Across Many Devices},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-007},
@@ -823,44 +449,201 @@
   url         = {https://srivtx.github.io/p-rick/pdfs/p-007.pdf}
 }
 
-@techreport{prick2026p001,
-  title       = {The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events},
-  author      = {{p-rick research program}},
+@techreport{prick2026p008,
+  title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-001},
-  series      = {Series I: User-Owned Data},
+  number      = {P-008},
+  series      = {Series III: Continuity},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-001.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-008.pdf}
 }
 
-@techreport{prick2026p002,
-  title       = {Consumer Entitlements as Dead Capital},
-  author      = {{p-rick research program}},
+@techreport{prick2026p009,
+  title       = {Circadian Orchestration: Team Scheduling on Human Biological Time},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-002},
-  series      = {Series I: User-Owned Data},
+  number      = {P-009},
+  series      = {Series III: Continuity},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-002.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-009.pdf}
 }
 
-@techreport{prick2026p003,
-  title       = {The n=1 Cost-of-Living Index},
-  author      = {{p-rick research program}},
+@techreport{prick2026p010,
+  title       = {The Bus Factor Protocol: Succession Governance for Open-Source Package Registries},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
-  number      = {P-003},
-  series      = {Series I: User-Owned Data},
+  number      = {P-010},
+  series      = {Series III: Continuity},
   year        = {2026},
   month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-003.pdf}
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-010.pdf}
 }
+
+@techreport{prick2026p011,
+  title       = {Model Extinction: Behavioral Conservation for the Age of Disposable AI},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-011},
+  series      = {Series III: Continuity},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-011.pdf}
+}
+
+@techreport{prick2026p012,
+  title       = {The Complexity Ledger: Design as Relocation, Not Reduction},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-012},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-012.pdf}
+}
+
+@techreport{prick2026p013,
+  title       = {Delegated Operation: Software for the Body with More Than One Owner},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-013},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-013.pdf}
+}
+
+@techreport{prick2026p014,
+  title       = {Modality Failover: Cross-Sensory Redundancy for Critical Software},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-014},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-014.pdf}
+}
+
+@techreport{prick2026p015,
+  title       = {The Uncertain Document: Propagating Uncertainty Through Everyday Software},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-015},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-015.pdf}
+}
+
+@techreport{prick2026p016,
+  title       = {The Defaults Ledger: Governing the Strongest Force in Software},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-016},
+  series      = {Series IV: Assumptions},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-016.pdf}
+}
+
+@techreport{prick2026p017,
+  title       = {The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-017},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-017.pdf}
+}
+
+@techreport{prick2026p018,
+  title       = {Epistemic Half-Life: Truth Decay Semantics for Stored Data},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-018},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-018.pdf}
+}
+
+@techreport{prick2026p019,
+  title       = {Dormancy Engineering: Software Design for the Long Sleep},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-019},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-019.pdf}
+}
+
+@techreport{prick2026p020,
+  title       = {Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-020},
+  series      = {Series V: Promises},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-020.pdf}
+}
+
+@techreport{prick2026p021,
+  title       = {The Reproduction Number of Code: Epidemic Thresholds for Dependency-Borne Compromise},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-021},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-021.pdf}
+}
+
+@techreport{prick2026p022,
+  title       = {The Admission Law: A Closed-Form Threshold for Cache Admission under Zipf Demand with Transients},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-022},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-022.pdf}
+}
+
+@techreport{prick2026p023,
+  title       = {Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-023},
+  series      = {Series VI: Laws},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-023.pdf}
+}
+
 @techreport{prick2026p024,
   title       = {Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-024},
@@ -869,9 +652,10 @@
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-024.pdf}
 }
+
 @techreport{prick2026p025,
   title       = {The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-025},
@@ -879,44 +663,11 @@
   year        = {2026},
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-025.pdf}
-}
-@techreport{prick2026p026,
-  title       = {The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-026},
-  series      = {Series VII: Collapse},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-026.pdf}
 }
 
-@techreport{prick2026p024,
-  title       = {Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-024},
-  series      = {Series VII: Collapse},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-024.pdf}
-}
-@techreport{prick2026p025,
-  title       = {The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems},
-  author      = {{p-rick research program}},
-  institution = {p-rick},
-  type        = {Working paper},
-  number      = {P-025},
-  series      = {Series VII: Collapse},
-  year        = {2026},
-  month       = oct,
-  url         = {https://srivtx.github.io/p-rick/pdfs/p-025.pdf}
-}
 @techreport{prick2026p026,
   title       = {The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection},
-  author      = {{p-rick research program}},
+  author      = {p-rick research program},
   institution = {p-rick},
   type        = {Working paper},
   number      = {P-026},
@@ -924,31 +675,58 @@
   year        = {2026},
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-026.pdf}
-}
-</pre></div>
+}</pre>
     </details>
-    </details>
-    </details>
-  </div>
+  </section>
+
 </main>
-
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software — working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono · papers cc by 4.0 · code mit<br>
+        figures regenerate from code in the repository · srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
+    <nav class="footer-links" aria-label="Footer">
       <a href="index.html">Home</a>
       <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
+      <a href="blog.html">Essays</a>
       <a href="method.html">Method</a>
-      <a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a>
+      <a href="feed.xml">RSS</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    </nav>
   </div>
 </footer>
-
 <script src="assets/theme.js"></script>
+<script src="assets/reveal.js"></script>
+<script>
+(function () {
+  var chips = document.querySelectorAll('.chip');
+  function apply(f) {
+    document.querySelectorAll('.section[data-series], .toc-row[data-series], .toc-series-label[data-series]').forEach(function (el) {
+      el.style.display = (!f || el.getAttribute('data-series') === f) ? '' : 'none';
+    });
+    var strip = document.querySelector('.fig-strip');
+    if (strip) strip.style.display = (!f || f === 'VI' || f === 'VII') ? '' : 'none';
+    chips.forEach(function (c) {
+      var on = c.getAttribute('data-filter') === f;
+      c.classList.toggle('is-on', on);
+      c.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+  chips.forEach(function (c) {
+    c.addEventListener('click', function () {
+      var f = c.getAttribute('data-filter');
+      apply(f);
+      try { history.replaceState(null, '', f ? '?series=' + f : location.pathname); } catch (e) {}
+    });
+  });
+  var m = /series=([VIX]+)/.exec(location.search);
+  if (m && document.querySelector('.chip[data-filter="' + m[1] + '"]')) apply(m[1]);
+})();
+</script>
 </body>
 </html>

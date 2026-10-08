@@ -4,178 +4,256 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Method — p-rick</title>
-<meta name="description" content="The p-rick research bar: what qualifies as missing software, what is excluded (no toy projects, no deterministic wrappers, no test utilities), how gaps are verified, graded, specified, and red-teamed.">
+<meta name="description" content="How p-rick decides what to research: the four mandatory tests, the hard exclusions, the survey-claim-grade-specify-red-team pipeline, and the citation-honesty ledger.">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/method.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
-<meta property="og:title" content="The p-rick method: researching software that does not exist">
-<meta property="og:description" content="The bar, the exclusions, the grading, and the red-team discipline behind the p-rick working papers.">
+<meta property="og:title" content="Method — p-rick">
+<meta property="og:description" content="The bar, the exclusions, the pipeline, the grading — how p-rick decides what becomes a paper.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/method.html">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav>
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
       <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
-      <a href="method.html">Method</a>
-      <a href="index.html#about">About</a>
+      <a href="blog.html">Essays</a>
+      <a href="method.html" aria-current="page">Method</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
     </nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
 
-<main class="page-main">
-  <h1 class="page-title">Method</h1>
-  <p class="page-sub">
-    How p-rick decides what to research. The bar is deliberately high: the program hunts for
-    software categories that do not exist, not projects that are merely unbuilt. This page
-    states the bar, the exclusions, the grading, and the discipline every paper passes through
-    before it is called research.
-  </p>
+<main id="main" class="page">
 
-  <div class="about-body method-block">
-    <h2 class="m-h">The bar — four tests, all mandatory</h2>
-    <p>
-      A direction becomes a paper only if it passes all four tests. The problem must be
-      <strong>real</strong>: a failure mode that recurs, hurts, and is documented in incidents,
-      studies, or expensive behavior — not a hypothetical nobody has suffered. The audience must
-      be <strong>large</strong>: millions of people or an entire profession, not a hobby
-      community. The category must be <strong>empty</strong>: verified against the landscape
-      before writing, with every adjacent incumbent named and its boundary stated — &ldquo;no
-      incumbent anywhere in the center&rdquo; is a falsifiable claim, and one search can kill it.
-      And the result must be <strong>specifiable</strong>: formalizable into a model, protocol,
-      or architecture that a builder could implement and an evaluator could test — a feeling is
-      not a deliverable.
+  <section class="page-head">
+    <p class="hero-kicker">how p-rick decides what to research</p>
+    <h1>Method</h1>
+    <p class="lede">
+      The bar is deliberately high: the program hunts for software categories that do not
+      exist, not projects that are merely unbuilt. This page states the bar, the exclusions,
+      the grading, and the discipline every paper passes through before it is called research.
     </p>
+  </section>
 
-    <h2 class="m-h">The exclusions — what the program will never ship</h2>
-    <p>
-      The exclusions are as deliberate as the bar, and they are enforced as hard rules.
-      <strong>No toy projects:</strong> nothing whose primary value is demonstration,
-      novelty-of-implementation, or portfolio value. <strong>No deterministic wrappers:</strong>
-      no test suites, verification gadgets, &ldquo;verified wrapper&rdquo; utilities, or
-      deterministic-crypto proof-of-correctness artifacts whose only user is their own
-      construction. <strong>No AI-obsolete software:</strong> nothing whose reason-to-exist
-      disappears the moment a model can do it; the program prefers gaps the AI era makes
-      <em>larger</em>. <strong>No CRUD, no chatbot shells, no dashboards-as-research.</strong>
-      And <strong>no me-too products:</strong> if the category exists and is merely
-      under-served, that is a product review, not a gap. The program publishes specifications
-      for missing systems — not apps, not demos, not libraries wrapping an afternoon's insight.
-    </p>
+  <section class="section">
+    <div class="method-grid reveal">
+      <div class="method-card">
+        <div class="m-n">test 01</div>
+        <h3>Real problem</h3>
+        <p>A failure mode that recurs, hurts, and is documented in incidents, studies, or expensive behavior — not a hypothetical nobody has suffered.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 02</div>
+        <h3>Large audience</h3>
+        <p>Millions of people or an entire profession, not a hobby community. The missing thing must matter at mass scale to count as a gap.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 03</div>
+        <h3>Empty category</h3>
+        <p>Verified against the landscape before writing, with every adjacent incumbent named and its boundary stated. One search can kill the claim — that is the point of writing it falsifiably.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 04</div>
+        <h3>Specifiable result</h3>
+        <p>Formalizable into a model, protocol, or architecture that a builder could implement and an evaluator could test. A feeling is not a deliverable.</p>
+      </div>
+    </div>
+  </section>
 
-    <h2 class="m-h">The pipeline — survey, claim, grade, specify, red-team</h2>
-    <p>
-      Every paper travels the same route. <strong>Survey before writing:</strong> multi-agent
-      landscape scans that name the incumbents, the near-misses, and the dead research lines;
-      directions that die in survey die quietly, with their notes kept. <strong>Falsifiable
-      gap claims:</strong> &ldquo;nothing exists that does X&rdquo; is written so that one search
-      can refute it — and claims are scoped to survive the search (&ldquo;component PARTIAL,
-      composition STRONG&rdquo; is an honest verdict; the program uses it). <strong>Graded
-      evidence:</strong> STRONG / PARTIAL / WEAK verdicts appear in the papers themselves,
-      including where the strongest objections might kill the thesis. <strong>Specification over
-      prototype theater:</strong> formal models, protocols, threat models, and evaluation
-      designs — the artifacts a builder actually needs, before any code exists.
-      <strong>Red-team pass:</strong> adversarial review challenges novelty claims, headline
-      figures, formal properties, and cross-paper consistency; findings are fixed, not
-      footnoted. And <strong>an essay with every paper</strong>, because research nobody reads
-      is a diary.
-    </p>
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>The exclusions</h2>
+      <span class="count">hard rules, not preferences</span>
+    </div>
+    <div class="about-grid reveal">
+      <div class="prose">
+        <p>
+          <strong>No toy projects:</strong> nothing whose primary value is demonstration,
+          novelty-of-implementation, or portfolio value. <strong>No deterministic
+          wrappers:</strong> no test suites, verification gadgets, &ldquo;verified
+          wrapper&rdquo; utilities, or deterministic-crypto proof-of-correctness artifacts
+          whose only user is their own construction.
+        </p>
+        <p>
+          <strong>No AI-obsolete software:</strong> nothing whose reason-to-exist disappears
+          the moment a model can do it; the program prefers gaps the AI era makes
+          <em>larger</em>. <strong>No CRUD, no chatbot shells, no
+          dashboards-as-research.</strong>
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          <strong>No me-too products:</strong> if the category exists and is merely
+          under-served, that is a product review, not a gap. The program publishes
+          specifications for missing systems — not apps, not demos, not libraries wrapping
+          an afternoon&rsquo;s insight.
+        </p>
+        <p>
+          What survives is the narrow slice where a real, mass-scale problem has no
+          category at all: the empty quadrant. The 26-paper ledger below is the program&rsquo;s
+          claim that such quadrants exist and can be found reproducibly.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <h2 class="m-h">Citation honesty</h2>
-    <p>
-      Papers are drafted with domain knowledge and marked citations, then pass through a
-      live-source verification ledger before final release. References recorded from prior
-      knowledge are flagged <em>verification queued</em> until the pass completes; the ledger
-      travels with the sources, and corrections are applied to the papers rather than argued
-      around. Where the program is confident, it says so; where it is provisional, it says that
-      too.
-    </p>
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>The pipeline</h2>
+      <span class="count">survey · claim · grade · specify · red-team</span>
+    </div>
+    <div class="prose reveal">
+      <p>
+        <strong>Survey before writing:</strong> multi-agent landscape scans that name the
+        incumbents, the near-misses, and the dead research lines; directions that die in
+        survey die quietly, with their notes kept. <strong>Falsifiable gap claims:</strong>
+        &ldquo;nothing exists that does X&rdquo; is written so that one search can refute it —
+        and claims are scoped to survive the search (&ldquo;component PARTIAL, composition
+        STRONG&rdquo; is an honest verdict; the program uses it).
+      </p>
+      <p>
+        <strong>Graded evidence:</strong> STRONG / PARTIAL / WEAK verdicts appear in the
+        papers themselves, including where the strongest objections might kill the thesis.
+        <strong>Specification over prototype theater:</strong> formal models, protocols,
+        threat models, and evaluation designs — the artifacts a builder actually needs,
+        before any code exists. <strong>Red-team pass:</strong> adversarial review challenges
+        novelty claims, headline figures, formal properties, and cross-paper consistency;
+        findings are fixed, not footnoted. And <strong>an essay with every paper</strong>,
+        because research nobody reads is a diary.
+      </p>
+    </div>
+  </section>
 
-    <h2 class="m-h">The current ledger — gaps by grade</h2>
-    <table class="grade-table">
-      <thead><tr><th>Paper</th><th>The missing thing</th><th>Gap grade</th></tr></thead>
-      <tbody>
-        <tr><td>P-001</td><td>Personal event bus — user-owned ambient event middleware</td><td>STRONG</td></tr>
-        <tr><td>P-002</td><td>Entitlement engine — consumer rights as machine-readable objects</td><td>STRONG</td></tr>
-        <tr><td>P-003</td><td>n=1 cost-of-living index — the methodology layer</td><td>PARTIAL→STRONG</td></tr>
-        <tr><td>P-004</td><td>Degradation contracts — behavior under pressure, declared</td><td>STRONG</td></tr>
-        <tr><td>P-005</td><td>Provenance-native storage — the file system as causal ledger</td><td>STRONG</td></tr>
-        <tr><td>P-006</td><td>Attention scheduler — interruption economics as an OS problem</td><td>STRONG</td></tr>
-        <tr><td>P-007</td><td>Intermittent compute fabric — one machine across many devices</td><td>STRONG</td></tr>
-        <tr><td>P-008</td><td>Device succession — vendor-death resilience architecture</td><td>STRONG</td></tr>
-        <tr><td>P-009</td><td>Circadian orchestration — biological time in team scheduling</td><td>PARTIAL components / STRONG composition</td></tr>
-        <tr><td>P-010</td><td>Bus factor protocol — registry succession governance</td><td>STRONG</td></tr>
-        <tr><td>P-011</td><td>Model extinction — behavioral conservation instruments</td><td>STRONG</td></tr>
-      <tr><td>P-012</td><td>Complexity ledger — design as relocation, accounted</td><td>STRONG</td></tr>
-        <tr><td>P-013</td><td>Delegated operation — multi-principal software</td><td>STRONG</td></tr>
-        <tr><td>P-014</td><td>Modality failover — cross-sensory redundancy for alerts</td><td>STRONG</td></tr>
-        <tr><td>P-015</td><td>Uncertain document — uncertainty-native numbers</td><td>STRONG</td></tr>
-        <tr><td>P-016</td><td>Defaults ledger — governance for default settings</td><td>STRONG</td></tr>
-        <tr><td>P-017</td><td>Revocation protocol — consent withdrawal as propagation</td><td>STRONG</td></tr>
-        <tr><td>P-018</td><td>Epistemic half-life — truth decay semantics for stored data</td><td>STRONG</td></tr>
-        <tr><td>P-019</td><td>Dormancy engineering — wake-time assurance for sleeping software</td><td>STRONG</td></tr>
-        <tr><td>P-020</td><td>Blast radius engineering — personal reliability for correlated failure</td><td>STRONG</td></tr>
-        <tr><td>P-021</td><td>The reproduction number of code — epidemic thresholds for dependency compromise</td><td>LAW &middot; validated (28 configs)</td></tr>
-        <tr><td>P-022</td><td>The admission law — closed-form cache admission under Zipf + transients</td><td>LAW &middot; validated (18 configs)</td></tr>
-        <tr><td>P-023</td><td>Generation loss — drift law for re-embedded vector corpora</td><td>LAW &middot; validated (5 experiments)</td></tr>
-      </tbody>
-    </table>
-    <p>
-      Twenty-six papers, zero incumbents inside their gaps, seven series &mdash;
-      the newest of which (VI) is a different genre: not gap specifications but
-      laws &mdash; closed forms with validation harnesses and reproducible figures,
-      the program&rsquo;s quantitative turn:
-      user-owned data (I), systems (II), continuity — what systems lose over
-      time (III): capability, maintainers, behavior, and alignment with human time;
-      assumptions — the quiet premises software runs on (IV): conservation of
-      complexity, single-principal identity, sensory availability, point-estimate
-      numbers, and the neutrality of defaults; and promises — the guarantees
-      software implies and never has to honor (V): withdrawal that propagates,
-      facts that stay true, dormant software that wakes, and independent
-      things that fail independently.
-    </p>
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>Citation honesty</h2>
+    </div>
+    <div class="prose reveal">
+      <p>
+        Papers are drafted with domain knowledge and marked citations, then pass through a
+        live-source verification ledger before final release. References recorded from prior
+        knowledge are flagged <em>verification&nbsp;queued</em> until the pass completes; the
+        ledger travels with the sources, and corrections are applied to the papers rather
+        than argued around. Where the program is confident, it says so; where it is
+        provisional, it says that too.
+      </p>
+    </div>
+  </section>
 
-    <h2 class="m-h">Work tracking</h2>
-    <p>
-      The program logs itself: <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>
-      is the automatic session ledger — what was done, when, and by which agent. Research
-      first, products later, in separate directories, only after the research freezes.
-    </p>
-  </div>
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>The current ledger</h2>
+      <span class="count">gaps by grade · 26 papers</span>
+    </div>
+    <div class="reveal" style="overflow-x:auto">
+      <table class="ledger">
+        <thead>
+          <tr><th scope="col">Paper</th><th scope="col">The missing thing</th><th scope="col">Gap grade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>P-001</td><td>Personal event bus — user-owned ambient event middleware</td><td>STRONG</td></tr>
+          <tr><td>P-002</td><td>Entitlement engine — consumer rights as machine-readable objects</td><td>STRONG</td></tr>
+          <tr><td>P-003</td><td>n=1 cost-of-living index — the methodology layer</td><td>PARTIAL→STRONG</td></tr>
+          <tr><td>P-004</td><td>Degradation contracts — behavior under pressure, declared</td><td>STRONG</td></tr>
+          <tr><td>P-005</td><td>Provenance-native storage — the file system as causal ledger</td><td>STRONG</td></tr>
+          <tr><td>P-006</td><td>Attention scheduler — interruption economics as an OS problem</td><td>STRONG</td></tr>
+          <tr><td>P-007</td><td>Intermittent compute fabric — one machine across many devices</td><td>STRONG</td></tr>
+          <tr><td>P-008</td><td>Device succession — vendor-death resilience architecture</td><td>STRONG</td></tr>
+          <tr><td>P-009</td><td>Circadian orchestration — biological time in team scheduling</td><td>PARTIAL components / STRONG composition</td></tr>
+          <tr><td>P-010</td><td>Bus factor protocol — registry succession governance</td><td>STRONG</td></tr>
+          <tr><td>P-011</td><td>Model extinction — behavioral conservation instruments</td><td>STRONG</td></tr>
+          <tr><td>P-012</td><td>Complexity ledger — design as relocation, accounted</td><td>STRONG</td></tr>
+          <tr><td>P-013</td><td>Delegated operation — multi-principal software</td><td>STRONG</td></tr>
+          <tr><td>P-014</td><td>Modality failover — cross-sensory redundancy for alerts</td><td>STRONG</td></tr>
+          <tr><td>P-015</td><td>Uncertain document — uncertainty-native numbers</td><td>STRONG</td></tr>
+          <tr><td>P-016</td><td>Defaults ledger — governance for default settings</td><td>STRONG</td></tr>
+          <tr><td>P-017</td><td>Revocation protocol — consent withdrawal as propagation</td><td>STRONG</td></tr>
+          <tr><td>P-018</td><td>Epistemic half-life — truth decay semantics for stored data</td><td>STRONG</td></tr>
+          <tr><td>P-019</td><td>Dormancy engineering — wake-time assurance for sleeping software</td><td>STRONG</td></tr>
+          <tr><td>P-020</td><td>Blast radius engineering — personal reliability for correlated failure</td><td>STRONG</td></tr>
+          <tr><td>P-021</td><td>The reproduction number of code — epidemic thresholds for dependency compromise</td><td>LAW · validated (28 configs)</td></tr>
+          <tr><td>P-022</td><td>The admission law — closed-form cache admission under Zipf + transients</td><td>LAW · validated (18 configs)</td></tr>
+          <tr><td>P-023</td><td>Generation loss — drift law for re-embedded vector corpora</td><td>LAW · validated (5 experiments)</td></tr>
+          <tr><td>P-024</td><td>Resolution collapse — the satisfiability threshold of dependency resolution</td><td>LAW · validated (48 grids)</td></tr>
+          <tr><td>P-025</td><td>The collapse law — ceilings, hysteresis, and recovery for retry storms</td><td>LAW · validated (6 experiments)</td></tr>
+          <tr><td>P-026</td><td>The cascade law — the arithmetic of the credential cascade</td><td>LAW · validated (6 experiments)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose reveal" style="margin-top:1.4rem">
+      <p>
+        Twenty-six papers, zero incumbents inside their gaps, seven series. Series VI–VII are
+        a different genre from I–V: not gap specifications but laws — closed forms with
+        validation harnesses and reproducible figures, the program&rsquo;s quantitative turn.
+        The specification series: user-owned data (I), systems (II), continuity — what
+        systems lose over time (III), assumptions — the quiet premises software runs on (IV),
+        and promises — the guarantees software implies and never has to honor (V). The laws
+        series: derivation and validation (VI), and collapse — critical thresholds where
+        everyday infrastructure fails abruptly (VII).
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>Work tracking</h2>
+    </div>
+    <div class="prose reveal">
+      <p>
+        The program logs itself: <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>
+        is the automatic session ledger — what was done, when, and by which agent. Research
+        first, products later, in separate directories, only after the research freezes.
+      </p>
+    </div>
+  </section>
+
 </main>
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software — working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono · papers cc by 4.0 · code mit<br>
+        figures regenerate from code in the repository · srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
+    <nav class="footer-links" aria-label="Footer">
       <a href="index.html">Home</a>
       <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
+      <a href="blog.html">Essays</a>
       <a href="method.html">Method</a>
-      <a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a>
+      <a href="feed.xml">RSS</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>

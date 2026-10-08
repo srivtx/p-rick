@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your Dependencies Have an R₀. Nobody Computed It. — p-rick</title>
 <meta name="description" content="When a package gets compromised, our industry tells stories. Event-stream. ua-parser-js. The 2024 wave. We narrate the blast radius afterward, with the reverence of historians desc…">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/blog/p021.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="Your Dependencies Have an R₀. Nobody Computed It.">
@@ -21,25 +24,34 @@
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html">Papers</a>
+      <a href="../blog.html" aria-current="page">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
-<main class="blog-main">
+<main id="main" class="page">
   <article class="post">
-    <div class="post-kicker">essay &middot; companion to P-021</div>
-    <h1 class="post-title">Your Dependencies Have an R₀. Nobody Computed It.</h1>
-    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <header class="post-head">
+      <p class="hero-kicker">essay &middot; companion to P-021</p>
+      <h1 class="post-title">Your Dependencies Have an R₀. Nobody Computed It.</h1>
+      <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    </header>
+    <div class="post-body">
     <p>When a package gets compromised, our industry tells stories. Event-stream. ua-parser-js. The 2024 wave. We narrate the blast radius afterward, with the reverence of historians describing a battle nobody tried to model before it started.</p>
     <p>Epidemiologists don't do this. In 2020, nobody waited for the outbreak to finish to start talking about R₀ — the reproduction number, the count of new infections each infection causes. R₀ below 1, the disease dies on its own. Above 1, it grows. That single number decides whether you're having an incident or a catastrophe, and it's computable <em>before</em> either.</p>
     <p>We ran the mathematics on package registries, and the result is a paper: <a href="pdfs/p-021-reproduction-number-of-code.pdf">The Reproduction Number of Code</a>. Three findings, one of them embarrassing for the industry, one of them useful tonight, and one of them a clock nobody is watching.</p>
@@ -58,24 +70,30 @@
     <p>The series I–V of this program specified missing systems. This one does something different: it writes down mathematics that was already true. The dependency graph was measurable for a decade. The SIR model is seventy years old. The branching threshold is textbook. Nobody put them together and handed registry operators arithmetic they could run tonight.</p>
     <p>Every figure in the paper regenerates from one file with published seeds. The formulas need two telemetry numbers registries already have or could collect in a week: mean dependents count and patch-latency distribution. Compute your R₀. Find out which regime you're in. The answer is either "you're safe, here's the margin" or "you're supercritical, here's the pinning budget and the response clock" — and you'd know <em>before</em> the next event-stream, instead of after.</p>
     <p>That's the whole thesis: stop narrating outbreaks. Start computing them.</p>
-    <div class="post-footer">
+    </div>
+    <footer class="post-footer">
       <p>This essay accompanies the research paper <a href="../pdfs/p-021.pdf">The Reproduction Number of Code (PDF)</a>.
       Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
       the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
-    </div>
+    </footer>
   </article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
   </div>
 </footer>
 <script src="../assets/theme.js"></script>
+<script src="../assets/reveal.js"></script>
 </body>
 </html>

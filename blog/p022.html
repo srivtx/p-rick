@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>One-Timers Are Eating Your Cache, and the Fix Is a Formula — p-rick</title>
 <meta name="description" content="Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The col…">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/blog/p022.html">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="One-Timers Are Eating Your Cache, and the Fix Is a Formula">
@@ -21,25 +24,34 @@
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="../index.html#about">About</a><a href="https://github.com/srivtx/p-rick">GitHub</a></nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html">Papers</a>
+      <a href="../blog.html" aria-current="page">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
-<main class="blog-main">
+<main id="main" class="page">
   <article class="post">
-    <div class="post-kicker">essay &middot; companion to P-022</div>
-    <h1 class="post-title">One-Timers Are Eating Your Cache, and the Fix Is a Formula</h1>
-    <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    <header class="post-head">
+      <p class="hero-kicker">essay &middot; companion to P-022</p>
+      <h1 class="post-title">One-Timers Are Eating Your Cache, and the Fix Is a Formula</h1>
+      <div class="post-meta">2026-10-07 &middot; p-rick research program</div>
+    </header>
+    <div class="post-body">
     <p>Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The cold tail of a catalog nobody revisits. Every one of those misses — if your cache admits it — evicts an object that <em>was</em> going to be asked for again.</p>
     <p>The industry's answer is admission control: TinyLFU doors, probation segments, probabilistic admission. Real mechanisms, deployed in production, tuned by... folklore. Sizing guides. Trial and error on a Tuesday. A threshold someone set by feel in 2019 that everyone's afraid to touch.</p>
     <p>We asked the question nobody had written down: **given the workload, what is the <em>correct</em> threshold?** Not adaptive controllers that find it, not benchmarks that rank candidates — the closed form. It exists. The paper is <a href="pdfs/p-022-admission-law.pdf">The Admission Law</a>, and the formula is:</p>
@@ -56,24 +68,30 @@
     <h2>The essay's one-sentence version</h2>
     <p>The field spent a decade tuning admission filters that approximate a rank cutoff nobody had written down. We wrote it down; it's three symbols long; it needs four numbers you already have; and the code that generated every figure ships with the paper, seeds included.</p>
     <p>Stop tuning Tuesday. Compute the door.</p>
-    <div class="post-footer">
+    </div>
+    <footer class="post-footer">
       <p>This essay accompanies the research paper <a href="../pdfs/p-022.pdf">The Admission Law (PDF)</a>.
       Working papers and sources live in the <a href="https://github.com/srivtx/p-rick">p-rick repository</a>;
       the work ledger is <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>.</p>
-    </div>
+    </footer>
   </article>
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">an independent research program on missing software &middot; papers, PDFs, essays</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Blog</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
   </div>
 </footer>
 <script src="../assets/theme.js"></script>
+<script src="../assets/reveal.js"></script>
 </body>
 </html>

@@ -4,686 +4,390 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>p-rick — an independent research program on missing software</title>
-<meta name="description" content="p-rick finds and specifies software that does not exist yet: the conservation of complexity, delegated operation for caregivers, cross-sensory modality failover, uncertainty-native documents, and defaults governance — plus device succession, circadian orchestration, open-source succession governance, model extinction, degradation contracts, provenance-native storage, the attention scheduler, the intermittent compute fabric, the personal event bus, the entitlement engine, and the n=1 cost-of-living index. Papers, PDFs, and essays.">
+<meta name="description" content="p-rick hunts for genuine gaps in the software landscape — categories with no incumbents, problems with large audiences, theories nobody has written down — and specifies them: gap verification, formal models, validation harnesses. Twenty-six working papers across seven series.">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
-<meta property="og:title" content="p-rick — an independent research program on missing software">
-<meta property="og:description" content="Twenty-three working papers in six series: software the world is missing, specified before anyone builds it — and the laws that govern it, derived and validated. Papers, PDFs, essays, figures — dark and light.">
+<meta property="og:title" content="p-rick — working papers on the software the world is missing">
+<meta property="og:description" content="Twenty-six working papers across seven series: gap verification against everything that exists, formal models, validation harnesses, and honest confrontation with why each gap survived.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="p-rick — software the world is missing, specified">
-<meta name="twitter:description" content="Twenty-three working papers, six series, zero incumbents in-gap. Research first; products later.">
+<meta name="twitter:title" content="p-rick — working papers on the software the world is missing">
+<meta name="twitter:description" content="Twenty-six working papers across seven series: gap verification, formal models, validation harnesses.">
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
 <script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
 <header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research</span></a>
-  <div class="header-right">
-    <nav>
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
       <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
+      <a href="blog.html">Essays</a>
       <a href="method.html">Method</a>
-      <a href="#about">About</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
     </nav>
-    <button class="theme-toggle" aria-label="Toggle dark / light mode" title="Toggle dark / light mode">
-      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
     </button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="kicker">an independent research program</div>
-  <h1>Software the world is <em>missing</em>, specified before anyone builds it.</h1>
-  <p class="lede">
-    p-rick hunts for genuine gaps in the software landscape — categories with no incumbents,
-    problems with large audiences, theories nobody has written down — and does the research
-    to specify them: gap verification against everything that exists, formal models,
-    architectures, evaluation designs, and honest confrontation with the reasons each gap
-    has survived. Every paper ships with a PDF and a plain-language essay.
-    <strong>Research first; products later.</strong>
-  </p>
-  <div class="hero-facts">
-    <div class="fact"><div class="n">26</div><div class="l">working papers</div></div>
-    <div class="fact"><div class="n">7</div><div class="l">research series</div></div>
-    <div class="fact"><div class="n">26</div><div class="l">essays</div></div>
-    <div class="fact"><div class="n">0</div><div class="l">incumbents in-gap</div></div>
-  </div>
-</section>
+<main id="main" class="page">
 
-<section class="section" id="papers">
-  <div class="section-head"><h2>Papers</h2><div class="rule"></div></div>
-  <p class="section-intro">
-    Seven arcs. Series VII studies collapse &mdash; the critical thresholds where everyday
-    infrastructure fails abruptly: dependency resolution as a satisfiability phase
-    transition (P-024), the retry storm&rsquo;s capacity ceiling and recovery threshold
-    (P-025), and the credential cascade&rsquo;s concentration separatrix (P-026) &mdash;
-    three collapse phenomena, three derived laws, three harnesses. Series VI is the
-    program&rsquo;s quantitative turn &mdash; laws rather than
-    specifications: the reproduction number of dependency-borne compromise (P-021), the
-    closed-form cache admission threshold (P-022), and the generation-loss drift law for
-    embedding corpora (P-023) &mdash; each a theorem, a validation harness, and figures
-    that regenerate from code in the repository. Series V researches promises — the guarantees software implies and never
-    has to honor: that withdrawal propagates (the revocation protocol), that stored
-    facts stay true (epistemic half-life), that dormant software will wake (dormancy
-    engineering), and that independent things fail independently (blast radius
-    engineering). Series IV researches assumptions — the quiet premises software runs
-    on: that complexity can be destroyed rather than relocated (the complexity ledger),
-    that a body has one owner (delegated operation), that the user's senses are always
-    online (modality failover), that every number is a point (the uncertain document),
-    and that defaults are neutral (the defaults ledger). Series III researches
-    continuity — what systems lose over time: vendor death (the afterlife of
-    devices), human biological time (circadian orchestration), maintainer mortality
-    (the bus factor protocol), and behavioral extinction (model conservation).
-    Series II turns to systems gaps: behavior under scarcity, storage that remembers,
-    the scheduling of human attention, and one machine across many devices. Series I
-    specified user-owned data infrastructure — the personal event bus, consumer
-    entitlements as dead capital, and the n=1 cost-of-living index. Each paper verifies
-    its gap against the existing landscape before proposing anything; the method is on
-    <a href="method.html">its own page</a>.
-  </p>
-
-
-
-<div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse</h3></div>
-      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
-      <p>
-        Dependency resolution fails as a phase transition, and the threshold has a
-        formula&rsquo;s shadow over it: the first-moment bound ln&thinsp;K&thinsp;/&thinsp;ln(K/w)
-        with a measured, labeled gap constant. The proliferation paradox (version growth is
-        fragility at fixed range width, slack at proportional width), the hardness tax, and
-        a growth experiment where failure feedback alone holds the ecosystem at its
-        critical boundary.
+  <!-- ======== hero ======== -->
+  <section class="hero">
+    <div>
+      <p class="hero-kicker">working papers · series I–VII · since 2026</p>
+      <h1>Software the world is <em>missing</em>, specified before anyone builds it.</h1>
+      <p class="hero-body">
+        p-rick hunts for genuine gaps in the software landscape — categories with no
+        incumbents, problems with large audiences, theories nobody has written down —
+        and does the research to specify them: gap verification against everything that
+        exists, formal models, validation harnesses, and honest confrontation with the
+        reasons each gap has survived. Every paper ships with a PDF and a plain-language
+        essay. Research first; products later.
       </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="blog/p024.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law</h3></div>
-      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
-      <p>
-        The retry storm&rsquo;s arithmetic: a closed-form capacity ceiling computable from
-        the timeout alone &mdash; policy-independent, so retry engineering is not capacity
-        engineering &mdash; and a recovery threshold &lambda;<sub>r</sub> &asymp; &mu;/R where
-        the give-up budget feeds the very storm it fights. Hysteresis as the runbook made
-        arithmetic: shed 70% or restart; the queue will not drain itself on your schedule.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="blog/p025.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
-      <p>
-        The account-takeover cascade, computed: an exact blast-radius law for the reuse
-        channel, an exact two-channel decomposition, and a concentration separatrix at
-        password-popularity exponent 1 that splits dilute cascades (risk grows with the
-        user base) from backbone cascades (risk set by the first breach, forever). The
-        doctrine that follows: lockouts defend everyone, managers defend their users &mdash;
-        and no realistic adoption rate defends the herd.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="blog/p026.html">essay</a></div>
-    </article>
-
-  </div>
-
-  
-<div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse</h3></div>
-      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
-      <p>
-        Dependency resolution fails as a phase transition, and the threshold has a
-        formula&rsquo;s shadow over it: the first-moment bound ln&thinsp;K&thinsp;/&thinsp;ln(K/w)
-        with a measured, labeled gap constant. The proliferation paradox (version growth is
-        fragility at fixed range width, slack at proportional width), the hardness tax, and
-        a growth experiment where failure feedback alone holds the ecosystem at its
-        critical boundary.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="blog/p024.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law</h3></div>
-      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
-      <p>
-        The retry storm&rsquo;s arithmetic: a closed-form capacity ceiling computable from
-        the timeout alone &mdash; policy-independent, so retry engineering is not capacity
-        engineering &mdash; and a recovery threshold &lambda;<sub>r</sub> &asymp; &mu;/R where
-        the give-up budget feeds the very storm it fights. Hysteresis as the runbook made
-        arithmetic: shed 70% or restart; the queue will not drain itself on your schedule.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="blog/p025.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
-      <p>
-        The account-takeover cascade, computed: an exact blast-radius law for the reuse
-        channel, an exact two-channel decomposition, and a concentration separatrix at
-        password-popularity exponent 1 that splits dilute cascades (risk grows with the
-        user base) from backbone cascades (risk set by the first breach, forever). The
-        doctrine that follows: lockouts defend everyone, managers defend their users &mdash;
-        and no realistic adoption rate defends the herd.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="blog/p026.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series VI &middot; laws &mdash; from specification to derivation &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-021</span><h3>The Reproduction Number of Code</h3></div>
-      <div class="paper-tags"><span class="tag">security</span><span class="tag">networks</span><span class="tag">epidemiology</span></div>
-      <p>
-        Compromised packages are epidemics on the dependency DAG &mdash; and the spectral
-        threshold the industry computes on registries is exactly zero (the matrix is
-        nilpotent), while the true threshold is the branching law R&#8320;&#690; =
-        T&middot;&lang;d&rang;. Below degree exponent 2 &mdash; where the real registries
-        live &mdash; the safe zone vanishes as the registry grows. Herd pinning budgets,
-        the two-step half-life of a registry yank, and the mathematics nobody ran,
-        derived and validated.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-021.pdf">PDF</a><a class="muted-link" href="blog/p021.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-022</span><h3>The Admission Law</h3></div>
-      <div class="paper-tags"><span class="tag">caching</span><span class="tag">performance</span><span class="tag">closed-form</span></div>
-      <p>
-        Cache admission thresholds, tuned by folklore for a decade, written as a formula:
-        &tau;* = (1&minus;f)W / (H&middot;B<sup>&alpha;</sup>). The threshold tracks
-        stable evidence rather than pollution; one-timers tax the unfiltered cache at
-        f/(1&minus;f) of its capacity; the door legally disables itself when it stops
-        paying. Validated within 1% where the choice matters, gains to 137% at the
-        flat-and-dirty corner.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-022.pdf">PDF</a><a class="muted-link" href="blog/p022.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-023</span><h3>Generation Loss</h3></div>
-      <div class="paper-tags"><span class="tag">AI-infra</span><span class="tag">retrieval</span><span class="tag">drift</span></div>
-      <p>
-        Vector corpora drift between encoder upgrades by a law: D(g) =
-        1&minus;&lambda;<sup>g</sup>, with &lambda; split into an isometry channel
-        (harmless in high dimension and removable exactly by a landmark Procrustes
-        refresh) and a distortion channel (the entire real cost, un-alignable).
-        The re-embedding calendar becomes arithmetic: two probes, one matrix solve,
-        and the decision derives itself.
-      </p>
-      <div class="pc-links"><a href="papers.html">paper</a><a class="muted-link" href="pdfs/p-023.pdf">PDF</a><a class="muted-link" href="blog/p023.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series V &middot; promises &mdash; the guarantees software implies and never has to honor &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-017</span><h3>The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</h3></div>
-      <p>
-        &ldquo;You can withdraw anytime&rdquo; &mdash; the most repeated promise in
-        software, and withdrawal ends at the first hop: the token dies while exported,
-        resold, and model-absorbed copies keep working. Grant objects with lineage,
-        revocation events with coverage semantics, signed receipts, re-attestation
-        cycles, canary audits, and a liability ladder where silence becomes evidence.
-        The certificate ecosystem&rsquo;s short-lived-cert lesson, applied to the
-        largest class of unkept promises in software.
-      </p>
-      <div class="paper-tags"><span class="tag">privacy</span><span class="tag">protocols</span><span class="tag">consent</span></div>
-      <div class="pc-links"><a href="pdfs/p-017.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a><a class="muted-link" href="blog/p017.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-018</span><h3>Epistemic Half-Life: Truth Decay Semantics for Stored Data</h3></div>
-      <p>
-        Food has sell-by dates, markets hard-code stale-quote bounds, and the
-        database &mdash; the artifact that stores more facts than all of them &mdash;
-        models no perishability at all. Decay functions with half-life families,
-        confidence-aware queries, an honest join algebra where the stale join inherits
-        the worst of its inputs, half-lives estimated from your own change streams,
-        budgeted verification scheduling, and staleness as an outage class.
-      </p>
-      <div class="paper-tags"><span class="tag">data</span><span class="tag">temporal</span><span class="tag">query-semantics</span></div>
-      <div class="pc-links"><a href="pdfs/p-018.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a><a class="muted-link" href="blog/p018.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-019</span><h3>Dormancy Engineering: Software Design for the Long Sleep</h3></div>
-      <p>
-        Always-on proves systems by exercising them; archives preserve sources for
-        historians; between them sits the regime nobody engineers &mdash; software
-        that must work after years of not running. Dormancy classes with declared
-        wake bounds, the environment-drift ledger, the wake-probe ladder from
-        checksums to germination tests, the exercise calendar, and the readiness
-        contract: the seed vault&rsquo;s discipline, built for the drawer the boot
-        stick is rotting in.
-      </p>
-      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">lifecycle</span><span class="tag">infrastructure</span></div>
-      <div class="pc-links"><a href="pdfs/p-019.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a><a class="muted-link" href="blog/p019.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-020</span><h3>Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</h3></div>
-      <p>
-        SRE&rsquo;s deepest lesson is that failures correlate through shared roots
-        &mdash; and no discipline maps the correlations of the individual&rsquo;s
-        stack: one identity, one phone number, one cloud, one email reset path, one
-        person. The personal dependency graph, eight correlation classes, weighted
-        blast radii, composite-availability arithmetic that tells the truth about
-        marketing&rsquo;s nines, budgeted decorrelation placement, the failure
-        weather report, and the annual kill-one-root drill.
-      </p>
-      <div class="paper-tags"><span class="tag">reliability</span><span class="tag">personal-infra</span><span class="tag">SRE</span></div>
-      <div class="pc-links"><a href="pdfs/p-020.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-020-blast-radius-engineering.md">source</a><a class="muted-link" href="blog/p020.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series IV &middot; assumptions &mdash; the quiet premises software runs on &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-012</span><h3>The Complexity Ledger: Design as Relocation, Not Reduction</h3></div>
-      <p>
-        Tesler's law of conservation of complexity is fifty years old, universally
-        quoted, and measured by no one. A formal theory (Ashby's requisite variety as
-        the conservation constraint), five sinks with field-measurable proxies,
-        double-entry relocation records, complexity budgets, and the consent
-        principle &mdash; the first honest answer to what a simplification
-        simplified, and who is paying for it now.
-      </p>
-      <div class="paper-tags"><span class="tag">theory</span><span class="tag">design</span><span class="tag">measurement</span></div>
-      <div class="pc-links"><a href="pdfs/p-012.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source</a><a class="muted-link" href="blog/p012.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-013</span><h3>Delegated Operation: Software for the Body with More Than One Owner</h3></div>
-      <p>
-        One account, one human, present and able &mdash; the assumption every consumer
-        product inherits and 53 million caregivers improvise around with notepad
-        passwords and video-call screen shares. The operator principal, capability
-        bundles instead of credential handover, a graduated autonomy ladder, audit
-        trails the primary owns, drift detection, and succession semantics.
-      </p>
-      <div class="paper-tags"><span class="tag">HCI</span><span class="tag">security</span><span class="tag">aging</span></div>
-      <div class="pc-links"><a href="pdfs/p-013.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-013-delegated-operation.md">source</a><a class="muted-link" href="blog/p013.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-014</span><h3>Modality Failover: Cross-Sensory Redundancy for Critical Software</h3></div>
-      <p>
-        Storage has RAID, networks have multipath, flight control has dissimilar
-        redundancy &mdash; and the alerting stack runs as a single unprobed string
-        from speaker to cortex. Criticality classes, private capability profiles,
-        k-of-n delivery, acknowledgment-gated escalation across modalities,
-        devices, and people: RAID for the senses, specified.
-      </p>
-      <div class="paper-tags"><span class="tag">accessibility</span><span class="tag">alerts</span><span class="tag">systems</span></div>
-      <div class="pc-links"><a href="pdfs/p-014.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-014-modality-failover.md">source</a><a class="muted-link" href="blog/p014.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-015</span><h3>The Uncertain Document: Propagating Uncertainty Through Everyday Software</h3></div>
-      <p>
-        Metrology solved error propagation a century ago; the office, the hospital,
-        and the ministry still run on bare floats. The quant type (point,
-        distribution, provenance, confidence), tiered propagation engines, a
-        calibrated display contract, an assumption registry, and the calibration
-        ledger that finally lets an organization learn its own bias.
-      </p>
-      <div class="paper-tags"><span class="tag">data</span><span class="tag">statistics</span><span class="tag">documents</span></div>
-      <div class="pc-links"><a href="pdfs/p-015.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-015-uncertain-document.md">source</a><a class="muted-link" href="blog/p015.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-016</span><h3>The Defaults Ledger: Governing the Strongest Force in Software</h3></div>
-      <p>
-        Organ donation at 4% or 99% between neighboring countries; encryption for a
-        billion users in one release; $20B a year for a search box's placement
-        &mdash; and the act of setting a default is recorded nowhere. Defaults
-        manifests, provenance, drift notification, portable override registries,
-        negotiation layers, and impact assessments: the parliamentary record for
-        the default polity.
-      </p>
-      <div class="paper-tags"><span class="tag">governance</span><span class="tag">platforms</span><span class="tag">behavioral econ</span></div>
-      <div class="pc-links"><a href="pdfs/p-016.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-016-defaults-ledger.md">source</a><a class="muted-link" href="blog/p016.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series III &middot; continuity &mdash; what systems lose over time &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-008</span><h3>The Afterlife of Devices: An Architecture for Vendor-Death Resilience</h3></div>
-      <p>
-        Insteon died in 2023 and took a decade of installed hardware with it. Revolv was
-        bricked on a published schedule. Devices outlive their vendors by an order of
-        magnitude, and nothing anywhere specifies what happens at the crossing. Succession
-        manifests, escrowed firmware with dead-hand release, threshold key ceremonies, a
-        degradation ladder, and a hardware-guaranteed fossil mode — the death of the maker,
-        designed for.
-      </p>
-      <div class="paper-tags"><span class="tag">IoT</span><span class="tag">lifecycle</span><span class="tag">escrow</span></div>
-      <div class="pc-links"><a href="pdfs/p-008.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a><a class="muted-link" href="blog/p008.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-009</span><h3>Circadian Orchestration: Team Scheduling on Human Biological Time</h3></div>
-      <p>
-        Every calendar models availability; none models the four-to-six-hour spread of human
-        chronotype. A phase state estimated privately, circadian cost functions from the
-        two-process model, fairness-constrained meeting placement, and the golden overlap —
-        with privacy by construction: your biology never leaves your device, only binned
-        cost surfaces do.
-      </p>
-      <div class="paper-tags"><span class="tag">HCI × OR</span><span class="tag">chronobiology</span><span class="tag">privacy</span></div>
-      <div class="pc-links"><a href="pdfs/p-009.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-009-circadian-orchestration.md">source</a><a class="muted-link" href="blog/p009.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-010</span><h3>The Bus Factor Protocol: Succession Governance for Open-Source Package Registries</h3></div>
-      <p>
-        xz wasn't a hack; it was a retirement — the tired maintainer handed the keys to a
-        stranger, and the registry had no model of any of it. Legible maintainer state,
-        succession policy as code, dormancy escalation, an anti-xz trust-elevation ladder,
-        and a public continuity ledger: governance for the one property every supply chain
-        depends on and no registry governs.
-      </p>
-      <div class="paper-tags"><span class="tag">supply chain</span><span class="tag">governance</span><span class="tag">registries</span></div>
-      <div class="pc-links"><a href="pdfs/p-010.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-010-bus-factor-protocol.md">source</a><a class="muted-link" href="blog/p010.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-011</span><h3>Model Extinction: Behavioral Conservation for the Age of Disposable AI</h3></div>
-      <p>
-        We preserve films, seeds, and source code — not minds. Models are the fastest-dying
-        artifact class in software history, and nothing records what they were. Behavioral
-        fingerprints with confidence regions, equivalence testing for replacements, an
-        IUCN-style extinction registry, inference-time provenance, and deprecation contracts:
-        the conservation instruments for behavior, specified.
-      </p>
-      <div class="paper-tags"><span class="tag">AI infra</span><span class="tag">conservation</span><span class="tag">reproducibility</span></div>
-      <div class="pc-links"><a href="pdfs/p-011.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-011-model-extinction.md">source</a><a class="muted-link" href="blog/p011.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series II &middot; systems &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-004</span><h3>Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</h3></div>
-      <p>
-        Behavior under abundance is specified, tested, and monitored; behavior under resource
-        pressure is accidental and unaudited. A formal model — fidelity ladders, shedding
-        orders, recovery hysteresis, floor invariants — plus a pressure-broker runtime and a
-        degradation ledger. The missing discipline for the era when quality is a runtime variable.
-      </p>
-      <div class="paper-tags"><span class="tag">systems</span><span class="tag">formal model</span><span class="tag">QoS</span></div>
-      <div class="pc-links"><a href="pdfs/p-004.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a><a class="muted-link" href="blog/p004.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-005</span><h3>Provenance-Native Storage: The File System as a Causal Ledger</h3></div>
-      <p>
-        PASS proved automatic file provenance in 2006; nothing shipped. The barriers have
-        expired — eBPF/ES/ETW capture, content-addressed ledgers, on-device models, C2PA's
-        market education. A causal event ledger per volume, an application transform contract,
-        and the query algebra for the questions users already ask: where did this come from,
-        what breaks if I delete it, reproduce this.
-      </p>
-      <div class="paper-tags"><span class="tag">systems</span><span class="tag">storage</span><span class="tag">trust</span></div>
-      <div class="pc-links"><a href="pdfs/p-005.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-005-provenance-native-storage.md">source</a><a class="muted-link" href="blog/p005.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-006</span><h3>The Attention Scheduler: Interruption Economics as an Operating System Problem</h3></div>
-      <p>
-        OSes schedule CPUs with fifty years of fairness theory; human attention gets a DND
-        toggle and an adversarial notification economy. The specification of a real scheduler
-        for humans: interruption-cost models, admission control, breakpoint dispatch,
-        per-app attention budgets with honesty pricing, urgent-class latency bounds, and an
-        attention ledger — before closed platforms specify it badly.
-      </p>
-      <div class="paper-tags"><span class="tag">OS</span><span class="tag">HCI × systems</span><span class="tag">agents</span></div>
-      <div class="pc-links"><a href="pdfs/p-006.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-006-attention-scheduler.md">source</a><a class="muted-link" href="blog/p006.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-007</span><h3>The Intermittent Compute Fabric: One Machine Across Many Devices</h3></div>
-      <p>
-        The median user owns five-plus devices that behave as islands joined by cloud meters.
-        The offloading research line died in 2012 for reasons the substrate has erased:
-        mesh reachability, WASM portability, device identity, and the first workload that
-        wants it — distributed local AI. The scheduler, capability-delegation protocol, and
-        partition-tolerant task semantics that make a device set programmable as one machine.
-      </p>
-      <div class="paper-tags"><span class="tag">distributed</span><span class="tag">local-first</span><span class="tag">AI infra</span></div>
-      <div class="pc-links"><a href="pdfs/p-007.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a><a class="muted-link" href="blog/p007.html">essay</a></div>
-    </article>
-
-  </div>
-
-  <div class="arc-label">series I &middot; user-owned data &amp; the economics of inattention &middot; 2026</div>
-  <div class="paper-grid">
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-001</span><h3>The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</h3></div>
-      <p>
-        Phones receive the most valuable structured data of a person's life and throw it away.
-        A user-owned middleware that captures ambient events, keeps them under user control,
-        and projects them to consuming apps — the missing skeleton of personal data infrastructure.
-      </p>
-      <div class="paper-tags"><span class="tag">middleware</span><span class="tag">privacy</span><span class="tag">events</span></div>
-      <div class="pc-links"><a href="pdfs/p-001.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a><a class="muted-link" href="blog/p001.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-002</span><h3>Consumer Entitlements as Dead Capital</h3></div>
-      <p>
-        Billions per year in statutory and contractual rights go unclaimed because rights are
-        invisible, perishable, and unpriced. The personal entitlement engine — a right as a
-    machine-readable object with detection, valuation, and execution — converts dead capital to live.
-      </p>
-      <div class="paper-tags"><span class="tag">economics</span><span class="tag">rights</span><span class="tag">agents</span></div>
-      <div class="pc-links"><a href="pdfs/p-002.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-002-consumer-rights-dead-capital.md">source</a><a class="muted-link" href="blog/p002.html">essay</a></div>
-    </article>
-
-    <article class="paper-card">
-      <div class="pc-top"><span class="paper-id">P-003</span><h3>The n=1 Cost-of-Living Index</h3></div>
-      <p>
-        Official inflation is an average over a nation that matches no individual. The
-        methodology for a statistically defensible personal price index — matched-model
-        chaining, shrinkage to official indices, uncertainty bands — plus the local-first
-        multi-source software that would compute it.
-      </p>
-      <div class="paper-tags"><span class="tag">methodology</span><span class="tag">economics</span><span class="tag">statistics</span></div>
-      <div class="pc-links"><a href="pdfs/p-003.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-003-n1-cost-of-living-index.md">source</a><a class="muted-link" href="blog/p003.html">essay</a></div>
-    </article>
-
-  </div>
-</section>
-
-<section class="section" id="blogs">
-  <div class="section-head"><h2>Essays</h2><div class="rule"></div></div>
-  <p class="section-intro">Each paper has a companion essay — the argument in plain language, written the way technical leaders write.</p>
-  <div class="blog-list">
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p020.html">Everything Works. Everything Shares One Fuse.</a></h3><p>One identity, one phone number, one cloud, one email reset path. Your life has an org-chart of failure, and you&rsquo;ve never seen it.</p></div>
-      <div class="br-arrow">&rarr;</div>
+      <div class="hero-cta">
+        <a class="cta-primary" href="papers.html">Read the papers</a>
+        <a class="cta-quiet" href="pdfs/p-026.pdf">Latest&nbsp;: P-026 — the cascade law</a>
+      </div>
     </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p019.html">The Software You&rsquo;ll Need in Ten Years Is Rotting in a Drawer</a></h3><p>The drawer is not a vault. It is a slow-fire furnace with excellent marketing.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p018.html">Your Data Has a Shelf Life. Nothing Tracks It.</a></h3><p>Available, consistent, wrong — and no integrity constraint ever built will notice.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p017.html">You Can Withdraw Anytime. The System Won&rsquo;t.</a></h3><p>The most repeated promise in software is a local event with global ambitions.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p016.html">Defaults Are Legislation Nobody Voted On</a></h3><p>Organ donation at 4% or 99% between neighbors; $20B a year for one search box. The most powerful force in software has no records.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p015.html">The Spreadsheet Lied to You. It Was Designed To.</a></h3><p>Every number in everyday software is a point estimate, and the fiction is expensive. The fix is a type.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p014.html">Your Senses Have No Failover</a></h3><p>Storage has RAID. Networks have multipath. The one component guaranteed to fail nightly is wired with no backup.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p013.html">Software Assumes You&rsquo;re One Person. Half of Humanity Isn&rsquo;t.</a></h3><p>53 million caregivers operate someone else&rsquo;s software through the worst architecture ever improvised: shared passwords.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p012.html">Every Simplification Is a Relocation</a></h3><p>Tesler&rsquo;s law is fifty years old, universally quoted, and measured by no one. That&rsquo;s not a theory gap; it&rsquo;s an accounting gap.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p011.html">We Preserve Films and Seeds. Not Minds.</a></h3><p>The fastest-dying artifact class on earth has no conservation institution — and the instruments can be built today.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p010.html">xz Wasn't a Hack. It Was a Retirement.</a></h3><p>The tired maintainer handed the keys to a stranger. The registry had no model of any of it.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p009.html">Your Calendar Was Designed for a Species That Doesn't Exist</a></h3><p>Every calendar models availability. None models the four-to-six-hour spread of human chronotype.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p008.html">The Company Died. Your Lights Didn't Get the Memo.</a></h3><p>Insteon 2023, escrow since 1985, and the specification failure nobody has written down — until now.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p007.html">You Don't Own Five Computers. You Own One Bad Computer.</a></h3><p>The islands are real, the sea between them is drained, and the bridges are unbuilt.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p006.html">The Most Important Scheduler in Computing Hasn't Been Written</a></h3><p>Everything computers exist for gets scheduled except the thing they exist for.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p005.html">Every File You Own Forgot Who It Is</a></h3><p>Provenance was solved in 2006. Then nothing shipped. The AI era just made it mandatory.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p004.html">Your Software Has a Second Behavior Nobody Wrote Down</a></h3><p>There are two versions of every app: the one in the spec, and the one when the machine is tired.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p001.html">Your Phone Sees Everything and Remembers Nothing</a></h3><p>The missing skeleton of personal data infrastructure, and the organ that found it.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p002.html">The Largest Unclaimed Money on Earth Is Yours</a></h3><p>Rights are invisible, perishable, and unpriced. That is a software problem.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-    <div class="blog-row">
-      <div class="br-date">2026-10-07</div>
-      <div class="br-body"><h3><a href="blog/p003.html">Your Inflation Is Not the CPI</a></h3><p>Official inflation is an average over a nation that matches no individual — including you.</p></div>
-      <div class="br-arrow">&rarr;</div>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="about">
-  <div class="section-head"><h2>About</h2><div class="rule"></div></div>
-  <div class="about-body">
-    <p>
-      <strong>p-rick is an independent research program, not a product.</strong> Its subject is
-      missing software: categories where a real problem meets a large audience and no incumbent
-      — verified against the landscape before anything is proposed, not asserted after.
-      Every paper states its gap as a falsifiable claim, grades the evidence honestly
-      (strong / partial / weak), and confronts the strongest objections to its own thesis.
+    <figure class="hero-fig" aria-labelledby="hero-fig-cap">
+      <svg viewBox="0 0 460 300" role="img" aria-label="The concentration separatrix: cascade takeover fraction against password-popularity exponent for two ecosystem sizes, crossing at exponent one">
+        <!-- axes -->
+        <line x1="58" y1="258" x2="444" y2="258" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
+        <line x1="58" y1="18" x2="58" y2="258" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
+        <!-- y ticks -->
+        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.75">
+          <text x="50" y="261" text-anchor="end">0</text>
+          <text x="50" y="171.2" text-anchor="end">.25</text>
+          <text x="50" y="81" text-anchor="end">.50</text>
+          <line x1="56" y1="170.7" x2="444" y2="170.7" stroke="currentColor" stroke-opacity="0.16" stroke-dasharray="2 4"/>
+          <line x1="56" y1="83.5" x2="444" y2="83.5" stroke="currentColor" stroke-opacity="0.16" stroke-dasharray="2 4"/>
+        </g>
+        <!-- x ticks -->
+        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.75" text-anchor="middle">
+          <text x="58" y="272">0.5</text>
+          <text x="154.5" y="272">0.75</text>
+          <text x="251" y="272">1.0</text>
+          <text x="347.5" y="272">1.25</text>
+          <text x="444" y="272">1.5</text>
+        </g>
+        <text x="251" y="288" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85">β — password-popularity exponent</text>
+        <text x="17" y="138" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85" transform="rotate(-90 17 138)" text-anchor="middle">F — takeover fraction</text>
+
+        <!-- gap region: growth adds risk (left of separatrix) -->
+        <path d="M58.0,165.5 L67.7,164.7 L77.3,163.7 L86.9,162.6 L96.6,161.2 L106.2,159.6 L115.9,157.8 L125.6,155.7 L135.2,153.3 L144.8,150.6 L154.5,147.6 L164.2,144.3 L173.8,140.8 L183.4,137.0 L193.1,132.9 L202.8,128.6 L212.4,124.1 L222.1,119.5 L231.7,114.8 L241.3,110.1 L251.0,105.3 L251.0,41.2 L241.3,41.0 L231.7,40.8 L222.1,40.7 L212.4,40.5 L202.8,40.3 L193.1,40.2 L183.4,40.1 L173.8,40.1 L164.2,40.0 L154.5,39.9 L144.8,39.9 L135.2,39.9 L125.6,39.9 L115.9,39.9 L106.2,39.8 L96.6,39.8 L86.9,39.8 L77.3,39.8 L67.7,39.8 L58.0,39.8 Z" fill="var(--accent)" fill-opacity="0.10"/>
+
+        <!-- separatrix -->
+        <line x1="251" y1="18" x2="251" y2="258" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 3" stroke-opacity="0.85"/>
+        <text x="255" y="31" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent)">β* ≈ 1</text>
+
+        <!-- regime labels -->
+        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.65">
+          <text x="150" y="238" text-anchor="middle">dilute — cascade grows with U</text>
+          <text x="350" y="238" text-anchor="middle">saturating — backbone pinned</text>
+        </g>
+
+        <!-- curves -->
+        <path d="M58.0,165.5 L67.7,164.7 L77.3,163.7 L86.9,162.6 L96.6,161.2 L106.2,159.6 L115.9,157.8 L125.6,155.7 L135.2,153.3 L144.8,150.6 L154.5,147.6 L164.2,144.3 L173.8,140.8 L183.4,137.0 L193.1,132.9 L202.8,128.6 L212.4,124.1 L222.1,119.5 L231.7,114.8 L241.3,110.1 L251.0,105.3 L260.6,100.7 L270.3,96.1 L279.9,91.7 L289.6,87.4 L299.2,83.4 L308.9,79.6 L318.6,76.0 L328.2,72.7 L337.9,69.7 L347.5,66.9 L357.1,64.3 L366.8,62.0 L376.4,59.9 L386.1,58.0 L395.8,56.3 L405.4,54.8 L415.1,53.4 L424.7,52.2 L434.4,51.1 L444.0,50.1" fill="none" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.5"/>
+        <path d="M58.0,39.8 L67.7,39.8 L77.3,39.8 L86.9,39.8 L96.6,39.8 L106.2,39.8 L115.9,39.9 L125.6,39.9 L135.2,39.9 L144.8,39.9 L154.5,39.9 L164.2,40.0 L173.8,40.1 L183.4,40.1 L193.1,40.2 L202.8,40.3 L212.4,40.5 L222.1,40.7 L231.7,40.8 L241.3,41.0 L251.0,41.2 L260.6,41.4 L270.3,41.6 L279.9,41.8 L289.6,41.9 L299.2,42.0 L308.9,42.0 L318.6,42.0 L328.2,42.0 L337.9,41.9 L347.5,41.8 L357.1,41.7 L366.8,41.5 L376.4,41.4 L386.1,41.3 L395.8,41.1 L405.4,41.0 L415.1,40.9 L424.7,40.8 L434.4,40.7 L444.0,40.6" fill="none" stroke="var(--accent)" stroke-width="2.25"/>
+
+        <!-- curve labels -->
+        <g font-family="IBM Plex Mono, monospace" font-size="10.5">
+          <text x="62" y="34" fill="var(--accent)">U = 10⁶</text>
+          <text x="62" y="180" fill="currentColor" fill-opacity="0.8">U = 10³</text>
+        </g>
+      </svg>
+      <figcaption class="fig-caption" id="hero-fig-cap">
+        <span class="fig-no">fig. 1</span> — the concentration separatrix, β*&thinsp;≈&thinsp;1. Left of the boundary the takeover
+        cascade grows with ecosystem size; right of it, risk is pinned by the popular-string backbone — set by the
+        first breach, independent of further growth. From the concentration law of P-026 (ρ&thinsp;=&thinsp;0.5,
+        s&thinsp;=&thinsp;8, b&thinsp;=&thinsp;0.4, M&thinsp;=&thinsp;10⁵).
+      </figcaption>
+    </figure>
+  </section>
+
+  <!-- ======== stats ======== -->
+  <section class="stats reveal" aria-label="Program status">
+    <div class="stat"><div class="n">26</div><div class="l">working papers, each with a typeset PDF</div></div>
+    <div class="stat"><div class="n">7</div><div class="l">research series, one program arc</div></div>
+    <div class="stat"><div class="n">26</div><div class="l">companion essays, plain language</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">incumbents found in-gap, across all 26</div></div>
+  </section>
+
+  <!-- ======== latest papers ======== -->
+  <section class="section" id="papers">
+    <div class="section-head reveal">
+      <h2>Newest papers</h2>
+      <span class="count">series VII · collapse</span>
+      <a class="more" href="papers.html">All 26 papers →</a>
+    </div>
+    <p class="lede reveal">
+      Series VII studies collapse — the critical thresholds where everyday infrastructure fails
+      abruptly: dependency resolution as a satisfiability phase transition, the retry storm&rsquo;s
+      capacity ceiling and recovery threshold, and the credential cascade&rsquo;s concentration
+      separatrix. Three collapse phenomena, three derived laws, three harnesses.
     </p>
-    <p>
-      The program runs research-first: papers before products, always. The bar, the exclusions
-      (no toy projects, no deterministic wrappers), the grading, and the red-team discipline
-      are specified on <a href="method.html">the method page</a>. Work is tracked in
-      <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a> — an automatic
-      session ledger recording what was done, when, and by which agent, so nobody has to
-      remember or ask how long anything took.
-    </p>
-    <p>
-      Series I (user-owned data and the economics of inattention) began inside
-      <a href="https://github.com/srivtx/pocketveto">srivtx/pocketveto</a> and moved here when the
-      program outgrew its host. Series II (systems gaps), Series III (continuity — what
-      systems lose over time: capability, maintainers, behavior, and human time), and
-      Series IV (assumptions — the quiet premises software runs on, and what breaks when
-      they are false) were researched, written, and published from this repository. Everything is open: sources,
-      PDFs, essays, and the <a href="feed.xml">RSS feed</a>.
-    </p>
-  </div>
-</section>
+    <div class="toc reveal">
+
+      <div class="toc-series-label">
+        <span>series VII · collapse — critical thresholds where everyday infrastructure fails</span>
+        <span class="ser-range">P-024 – P-026</span>
+      </div>
+
+      <div class="toc-row">
+        <span class="toc-id">P-026</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="papers/p-026-credential-cascade.md">The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</a></h3>
+          <p class="toc-dek">The account-takeover cascade, computed: an exact blast-radius law for the reuse channel, an exact two-channel decomposition, and a concentration separatrix at password-popularity exponent 1 that splits dilute cascades from backbone cascades. The doctrine: lockouts defend everyone, managers defend their users — and no realistic adoption rate defends the herd.</p>
+          <div class="toc-tags"><span class="toc-tag">security</span><span class="toc-tag">cascades</span><span class="toc-tag">percolation</span></div>
+        </div>
+        <div class="toc-links">
+          <a href="pdfs/p-026.pdf">PDF</a>
+          <a href="papers/p-026-credential-cascade.md">paper</a>
+          <a href="blog/p026.html">essay</a>
+        </div>
+      </div>
+
+      <div class="toc-row">
+        <span class="toc-id">P-025</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="papers/p-025-collapse-law.md">The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Retry Storms</a></h3>
+          <p class="toc-dek">The retry storm&rsquo;s arithmetic: a closed-form capacity ceiling computable from the timeout alone — policy-independent — and a recovery threshold λ<sub>r</sub> ≈ μ/R where the give-up budget feeds the very storm it fights. Hysteresis as the runbook made arithmetic: shed 69% or restart; the queue will not drain itself on your schedule.</p>
+          <div class="toc-tags"><span class="toc-tag">queueing</span><span class="toc-tag">SRE</span><span class="toc-tag">closed-form</span></div>
+        </div>
+        <div class="toc-links">
+          <a href="pdfs/p-025.pdf">PDF</a>
+          <a href="papers/p-025-collapse-law.md">paper</a>
+          <a href="blog/p025.html">essay</a>
+        </div>
+      </div>
+
+      <div class="toc-row">
+        <span class="toc-id">P-024</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="papers/p-024-resolution-collapse.md">Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</a></h3>
+          <p class="toc-dek">Dependency resolution fails as a phase transition, and the threshold has a formula&rsquo;s shadow over it: the first-moment bound ln&thinsp;K&thinsp;/&thinsp;ln(K/w) with a measured, labeled gap constant. The proliferation paradox, the hardness tax, and a growth experiment where failure feedback alone holds the ecosystem at its critical boundary.</p>
+          <div class="toc-tags"><span class="toc-tag">package management</span><span class="toc-tag">CSP</span><span class="toc-tag">phase transition</span></div>
+        </div>
+        <div class="toc-links">
+          <a href="pdfs/p-024.pdf">PDF</a>
+          <a href="papers/p-024-resolution-collapse.md">paper</a>
+          <a href="blog/p024.html">essay</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======== series volumes ======== -->
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>Seven series, one program</h2>
+      <span class="count">26 papers</span>
+    </div>
+    <div class="volumes reveal">
+      <div class="volume">
+        <div class="vol-num">VII</div>
+        <div class="vol-name">Collapse</div>
+        <div class="vol-range">P-024 – P-026 · 2026</div>
+        <p class="vol-desc">Critical thresholds where everyday infrastructure fails abruptly: resolution satisfiability, retry-storm ceilings, credential cascades. Derived laws, not folklore.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">VI</div>
+        <div class="vol-name">Laws</div>
+        <div class="vol-range">P-021 – P-023 · 2026</div>
+        <p class="vol-desc">The quantitative turn — from specification to derivation: epidemic thresholds for compromise, a closed-form admission law, the drift law for re-embedded corpora.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">V</div>
+        <div class="vol-name">Promises</div>
+        <div class="vol-range">P-017 – P-020 · 2026</div>
+        <p class="vol-desc">The guarantees software implies and never has to honor: withdrawal propagates, stored facts stay true, dormant software wakes, independent things fail independently.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">IV</div>
+        <div class="vol-name">Assumptions</div>
+        <div class="vol-range">P-012 – P-016 · 2026</div>
+        <p class="vol-desc">The quiet premises software runs on: complexity can be destroyed, a body has one owner, the senses are always online, every number is a point, defaults are neutral.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">III</div>
+        <div class="vol-name">Continuity</div>
+        <div class="vol-range">P-008 – P-011 · 2026</div>
+        <p class="vol-desc">What systems lose over time: vendor death, biological time, maintainer mortality, behavioral extinction. Conservation engineering for software&rsquo;s mortal side.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">II</div>
+        <div class="vol-name">Systems</div>
+        <div class="vol-range">P-004 – P-007 · 2026</div>
+        <p class="vol-desc">Systems gaps: behavior under scarcity, storage that remembers, the scheduling of human attention, one machine across many devices.</p>
+      </div>
+      <div class="volume">
+        <div class="vol-num">I</div>
+        <div class="vol-name">User-owned data</div>
+        <div class="vol-range">P-001 – P-003 · 2026</div>
+        <p class="vol-desc">The origin series: the personal event bus, consumer entitlements as dead capital, the n=1 cost-of-living index — data infrastructure owned by its user.</p>
+      </div>
+      <a class="volume volume-charter" href="method.html">
+        <div class="vol-num" aria-hidden="true">§</div>
+        <div class="vol-name">The charter</div>
+        <div class="vol-range">method · four tests</div>
+        <p class="vol-desc">Research first, products later. Every paper verifies its gap, grades its evidence, and regenerates its figures from code — or it does not ship.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======== method ======== -->
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>The bar</h2>
+      <span class="count">four tests, all mandatory</span>
+      <a class="more" href="method.html">The method →</a>
+    </div>
+    <div class="method-grid reveal">
+      <div class="method-card">
+        <div class="m-n">test 01</div>
+        <h3>Gap verified</h3>
+        <p>Before anything is proposed, the landscape is searched for incumbents — products, papers, standards. A gap only counts if the search comes back empty.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 02</div>
+        <h3>Large audience</h3>
+        <p>The missing thing must matter to many: a category with mass use, not a niche tool or a wrapper around an existing capability.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 03</div>
+        <h3>No toy output</h3>
+        <p>Excluded by charter: test suites, deterministic wrappers, anything an AI obsolete. What ships is theory, architecture, or a validated harness.</p>
+      </div>
+      <div class="method-card">
+        <div class="m-n">test 04</div>
+        <h3>Honest grading</h3>
+        <p>Every paper grades its own evidence — claims are marked verified, estimation, or verification-queued. Constants are derived laws or labeled configuration-specific.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== essays ======== -->
+  <section class="section">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>From the essays</h2>
+      <span class="count">26 published</span>
+      <a class="more" href="blog.html">All essays →</a>
+    </div>
+    <div class="reveal">
+      <div class="essay-row">
+        <span class="essay-date">2026-10-09</span>
+        <div>
+          <h3 class="essay-title"><a href="blog/p026.html">Every Breach Is Every Breach</a></h3>
+          <p class="essay-dek">The credential cascade: two channels, one concentration separatrix, and the doctrine that splits lockouts (defend everyone) from password managers (defend their users) — with the herd threshold that adoption can never reach.</p>
+        </div>
+        <span class="essay-arrow" aria-hidden="true">→</span>
+      </div>
+      <div class="essay-row">
+        <span class="essay-date">2026-10-09</span>
+        <div>
+          <h3 class="essay-title"><a href="blog/p025.html">The Queue That Wouldn&rsquo;t Come Back</a></h3>
+          <p class="essay-dek">The collapse law: the capacity ceiling no retry policy moves, the recovery threshold your retry budget feeds, and the two formulas that turn &ldquo;shed load and restart&rdquo; from folklore into arithmetic.</p>
+        </div>
+        <span class="essay-arrow" aria-hidden="true">→</span>
+      </div>
+      <div class="essay-row">
+        <span class="essay-date">2026-10-09</span>
+        <div>
+          <h3 class="essay-title"><a href="blog/p024.html">Your Build Breaks All at Once, Not Gradually</a></h3>
+          <p class="essay-dek">Resolution collapse: dependency hell is a phase transition with a computable threshold, version growth is fragility or slack depending on range policy, and failure feedback alone holds an ecosystem at its critical boundary.</p>
+        </div>
+        <span class="essay-arrow" aria-hidden="true">→</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== about ======== -->
+  <section class="section" id="about">
+    <hr class="section-rule">
+    <div class="section-head reveal" style="margin-top:2.6rem">
+      <h2>About the program</h2>
+    </div>
+    <div class="about-grid reveal">
+      <div class="prose">
+        <p>
+          p-rick is an independent research program on missing software. It publishes working
+          papers the way a lab does: gap verification first, formal models second, evaluation
+          designs third — and only then, if ever, products. The program&rsquo;s unit of work is
+          the paper; each one states its gap as a falsifiable claim with named incumbents and
+          honest evidence grading, and each ships with a companion essay written for the
+          practitioner the paper is aimed at.
+        </p>
+        <p>
+          The program arc runs from specification (series I–V: the missing systems and their
+          quiet premises) to derivation (series VI–VII: laws with validation harnesses, figures
+          that regenerate from code in the repository). The bar every paper must clear — and
+          the exclusions the program will never ship — are on <a href="method.html">the method
+          page</a>.
+        </p>
+      </div>
+      <div class="prose">
+        <p>
+          Everything is open: papers as markdown, PDFs typeset from them, simulation harnesses
+          and figure code in the repository, and a work ledger (<a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>)
+          that records every research session. Papers are licensed CC&nbsp;BY&nbsp;4.0; code is MIT.
+          Cite from the <a href="papers.html#cite">BibTeX block</a>, subscribe to the
+          <a href="feed.xml">RSS feed</a> for essays, and read the work at
+          <a href="https://github.com/srivtx/p-rick">github.com/srivtx/p-rick</a>.
+        </p>
+        <p>
+          The program&rsquo;s name is a private joke about friction; the work is serious.
+          Research first; products later — if a gap survives its paper, building it is
+          someone else&rsquo;s very good business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="footer-inner">
     <div>
       <div class="f-brand">p-rick</div>
-      <div class="f-note">
-        an independent research program on missing software &middot;
-        papers, PDFs, essays &middot; dark and light, like a good reading room
+      <div class="f-note">An independent research program on missing software — working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono · papers cc by 4.0 · code mit<br>
+        figures regenerate from code in the repository · srivtx.github.io/p-rick
       </div>
     </div>
-    <div class="footer-links">
+    <nav class="footer-links" aria-label="Footer">
       <a href="index.html">Home</a>
       <a href="papers.html">Papers</a>
-      <a href="blog.html">Blog</a>
+      <a href="blog.html">Essays</a>
       <a href="method.html">Method</a>
       <a href="feed.xml">RSS</a>
       <a href="https://github.com/srivtx/p-rick">GitHub</a>
-      <a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
 <script src="assets/theme.js"></script>
+<script src="assets/reveal.js"></script>
 </body>
 </html>
