@@ -31,7 +31,7 @@ PDF and a plain-language essay written the way technical leaders write.
 
 The program's operating rule is **research first; products later** — papers and
 specifications before code, in separate directories, only after the research freezes.
-Twenty-three working papers are published across six series. Series I-V specify
+Twenty-six working papers are published across seven series. Series I-V specify
 missing systems — each stating its gap as a
 falsifiable claim with named incumbents and honest evidence grading. The bar, the
 exclusions, and the red-team discipline are codified on
@@ -44,7 +44,19 @@ exclusions, and the red-team discipline are codified on
 
 ## The papers
 
-### Series VI — laws: from specification to derivation (current)
+### Series VII — collapse: critical thresholds where everyday infrastructure fails abruptly (current)
+
+The third laws series: systems the field navigates by folklore, failing at thresholds
+nobody has written down. Each paper derives the threshold, validates it in seeded
+simulation, and ships the harness. 18 figures, all regenerable from `code/`.
+
+| ID | Paper | The derived law |
+|----|-------|-----------------|
+| **P-024** | [Resolution Collapse](papers/p-024-resolution-collapse.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-024-resolution-collapse.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p024.html) · [figures](figures/p-024/) | Dependency resolution fails as a phase transition with the first-moment bound **D_c ≤ ln K / ln(K/w)** (exact on the cyclic version space, brute-force-verified) and a measured gap law **D_c ≈ 0.71·D_fm** under a uniform budget — the constant labeled configuration-specific per the program's post-P-023 rule. Version growth at fixed range width is fragility, at proportional width slow slack (the proliferation paradox); crisis-pruning feedback alone pins a growing ecosystem just below its collapse threshold (near-criticality as an emergent property); pruning old versions is the two-sided lever (removes satisfiability, buys searchability). |
+| **P-025** | [The Collapse Law](papers/p-025-collapse-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-025-collapse-law.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p025.html) · [figures](figures/p-025/) | The retry storm's two thresholds: **λ_c = μθρ*²/(1+θρ*)** (the capacity ceiling from the timeout kernel — policy-independent, so retry engineering is not capacity engineering) and **λ_r ≈ μ/R** (the recovery threshold — the give-up budget feeds the storm it fights). Hysteresis width ≈ shed-70%-or-restart. Jitter recovers the tight-timeout margin (0.81 of ceiling vs 0.50); deterministic backoff resonates (−36%); admission caps work only inside the horizon L ≲ μT. |
+| **P-026** | [The Cascade Law of Credential Reuse](papers/p-026-credential-cascade.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-026-credential-cascade.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p026.html) · [figures](figures/p-026/) | The account-takeover cascade computed: exact blast-radius law **F_w = E[(k−j)1{j≥1}]/(s(1−b))** (validated 0.2%), exact decomposition **F = F_w + (1−λ)F_s**, and the concentration law with a separatrix at popularity exponent **β\* ≈ 1** — dilute cascades below (risk grows with the user base), backbone cascades above (risk set by the first breach, where real corpora sit). Defense asymmetry: lockouts are the only herd lever; adoption's herd threshold is 99.997%. |
+
+### Series VI — laws: from specification to derivation
 
 The program's quantitative turn: not what should be built, but what is already
 true and merely uncomputed. Each paper derives a law, validates it in seeded
@@ -145,8 +157,8 @@ p-rick/
 ├── assets/               # style.css (dual theme) + theme.js + favicon.svg
 ├── papers/               # paper sources (markdown)
 ├── pdfs/                 # typeset papers (PDF)
-├── figures/              # series VI simulation figures + results.json (per paper)
-├── code/                 # series VI reproduction harnesses (one file per paper)
+├── figures/              # series VI–VII simulation figures + results.json (per paper)
+├── code/                 # series VI–VII reproduction harnesses (one file per paper)
 ├── blogs/                # essay sources (markdown)
 ├── tools/build_site.py   # regenerates blog pages + feed.xml + sitemap.xml
 └── agents.md             # the automatic work ledger
@@ -190,12 +202,19 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
   conservation (the complexity ledger), single-principal identity (delegated operation),
   sensory availability (modality failover), point-estimate numbers (the uncertain document),
   default neutrality (the defaults ledger). Zero overlap with Series I–III territory.
-- Series V complete (4 papers) — promises: the guarantees software implies and never has to
+- Series VII complete (3 papers) — collapse: critical thresholds where everyday infrastructure fails
+  abruptly. Dependency resolution's satisfiability threshold (P-024), the retry storm's capacity ceiling
+  and recovery threshold (P-025), the credential cascade's concentration separatrix (P-026). Three
+  derived laws, three seeded harnesses, 18 figures; constants derived or labeled, per the round-7 bar.
+- Series VI complete (3 papers) — laws: from specification to derivation. The reproduction number of
+  dependency-borne compromise, the cache admission law, and generation loss for embedding corpora
+  (P-023 rev 1.1: the L≈8d constant withdrawn and replaced by the Landmark Estimation Law).
+- Series V complete (4 papers) — promises: the guarantees software implies and never have to
   honor. Withdrawal that propagates (the revocation protocol), facts that stay true
   (epistemic half-life), dormant software that wakes (dormancy engineering), independence
   under failure (blast radius engineering). Zero overlap with Series I–IV territory; all
   four directions pass the bar with no incumbents in-gap.
-- **Twenty-three papers, twenty-three essays, twenty-three PDFs, six series, zero incumbents in-gap — and three validated laws with 16 reproducible figures.**
+- **Twenty-six papers, twenty-six essays, twenty-six PDFs, seven series, zero incumbents in-gap — and six validated laws with 34 reproducible figures.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 

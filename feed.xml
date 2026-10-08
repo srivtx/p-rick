@@ -5,8 +5,54 @@
     <link>https://srivtx.github.io/p-rick</link>
     <description>Essays accompanying the p-rick working papers on missing software: the argument in plain language, written the way technical leaders write.</description>
     <language>en</language>
-    <lastBuildDate>07 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>09 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srivtx.github.io/p-rick/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Every Breach Is Every Breach</title>
+      <link>https://srivtx.github.io/p-rick/blog/p026.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p026.html</guid>
+      <description>After the first credential breach of a user&#x27;s life, every subsequent breach of every site is, partly, the same breach.
+
+You know the mechanism. The user reuses a password. The new …</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Queue That Wouldn&#x27;t Come Back</title>
+      <link>https://srivtx.github.io/p-rick/blog/p025.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p025.html</guid>
+      <description>You know this outage. Traffic rises. Latency crosses a timeout. Clients re-send work the server hasn&#x27;t finished. The re-sent work queues behind the original work, the queue deepens…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Build Breaks All at Once, Not Gradually</title>
+      <link>https://srivtx.github.io/p-rick/blog/p024.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p024.html</guid>
+      <description>There is a kind of Tuesday every engineering organization knows. A routine minor release lands. Nothing in the changelog is interesting. And by afternoon, codeinstall/code is hanging for …</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Every Breach Is Every Breach</title>
+      <link>https://srivtx.github.io/p-rick/blog/p026.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p026.html</guid>
+      <description>After the first credential breach of a user&#x27;s life, every subsequent breach of every site is, partly, the same breach.
+
+You know the mechanism. The user reuses a password. The new …</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Queue That Wouldn&#x27;t Come Back</title>
+      <link>https://srivtx.github.io/p-rick/blog/p025.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p025.html</guid>
+      <description>You know this outage. Traffic rises. Latency crosses a timeout. Clients re-send work the server hasn&#x27;t finished. The re-sent work queues behind the original work, the queue deepens…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Your Build Breaks All at Once, Not Gradually</title>
+      <link>https://srivtx.github.io/p-rick/blog/p024.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p024.html</guid>
+      <description>There is a kind of Tuesday every engineering organization knows. A routine minor release lands. Nothing in the changelog is interesting. And by afternoon, codeinstall/code is hanging for …</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Your Embeddings Are Photocopies of Photocopies</title>
       <link>https://srivtx.github.io/p-rick/blog/p023.html</link>

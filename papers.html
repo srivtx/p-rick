@@ -51,6 +51,132 @@
   </p>
 
 
+  
+  <div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</h3></div>
+      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-024/f2-threshold-law.png" alt="Measured thresholds against the first-moment bound across the (K, w) grid" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Dependency resolution is a constraint-satisfaction problem whose density has been
+        rising for two decades, and its failure is a phase transition: below a critical
+        dependency density resolutions exist; above it they cease to exist at all. The
+        first-moment bound D<sub>c</sub> &le; ln&thinsp;K&thinsp;/&thinsp;ln(K/w) (verified
+        exact by brute-force enumeration on the cyclic version space), a measured gap law
+        &gamma; &asymp; 0.71 with the constant labeled configuration-specific, the
+        easy&ndash;hard&ndash;easy cost anatomy, the hardness tax that separates practical
+        budgets from generous ones, the proliferation paradox (version growth at fixed
+        range width is fragility; at proportional width, slow slack), and a growth
+        experiment where crisis-pruning feedback alone pins an ecosystem just below its
+        collapse threshold while the no-feedback arm crosses and installs die permanently.
+        Solver validated against brute force; every figure regenerates from one file.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a><a class="muted-link" href="blog/p024.html">essay</a><a class="muted-link" href="figures/p-024/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</h3></div>
+      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-025/f2-collapse-law.png" alt="The collapse ceiling with measured policy thresholds at three timeout slacks" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Congestion collapse, priced. The good steady state of a timeout-retry system dies
+        at a tangency with a closed form &mdash; &lambda;<sub>c</sub> =
+        &mu;&theta;&rho;*&sup2;/(1+&theta;&rho;*) from the timeout kernel alone, independent
+        of every retry policy &mdash; and the collapsed state survives on the retry budget
+        itself, dying only below &lambda;<sub>r</sub> &asymp; &mu;/R, with drains measured
+        in the thousands of service-times. Between the two: hysteresis, the 70%-shed-or-restart
+        of every metastable postmortem. The knobs priced: jitter buys the tight-timeout
+        margin back (0.81 of ceiling vs 0.50 for instant retry), deterministic backoff
+        resonates (&minus;36%), and admission caps work only inside the timeout horizon.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">source</a><a class="muted-link" href="blog/p025.html">essay</a><a class="muted-link" href="figures/p-025/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</h3></div>
+      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-026/f2-concentration.png" alt="The cascade curve across the popularity-exponent sweep with the closed-form overlay" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Every breach is every breach, and now that has arithmetic. An exact blast-radius
+        law for the reuse channel (validated to 0.2%), an exact two-channel decomposition
+        F = F<sub>w</sub> + (1&minus;&lambda;)F<sub>s</sub>, and a concentration law with a
+        separatrix at password-popularity exponent 1: diverse pools make the cascade dilute
+        (risk grows with the user base), concentrated pools &mdash; where real corpora sit
+        &mdash; pin it at the backbone from the first breach onward. The defense asymmetry
+        the folklore blurs: lockout friction is the only herd-level lever on the backbone;
+        manager adoption is perfect private protection whose herd threshold is 99.997%.
+        Rate-limit everything that sprays; hand every user a manager; know which is which.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">source</a><a class="muted-link" href="blog/p026.html">essay</a><a class="muted-link" href="figures/p-026/results.json">data</a></div>
+    </article>
+
+  </div>
+
+  
+  <div class="arc-label">series VII &middot; collapse &mdash; critical thresholds where everyday infrastructure fails abruptly &middot; 2026</div>
+  <div class="paper-grid">
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-024</span><h3>Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</h3></div>
+      <div class="paper-tags"><span class="tag">package management</span><span class="tag">CSP</span><span class="tag">phase transition</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-024/f2-threshold-law.png" alt="Measured thresholds against the first-moment bound across the (K, w) grid" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Dependency resolution is a constraint-satisfaction problem whose density has been
+        rising for two decades, and its failure is a phase transition: below a critical
+        dependency density resolutions exist; above it they cease to exist at all. The
+        first-moment bound D<sub>c</sub> &le; ln&thinsp;K&thinsp;/&thinsp;ln(K/w) (verified
+        exact by brute-force enumeration on the cyclic version space), a measured gap law
+        &gamma; &asymp; 0.71 with the constant labeled configuration-specific, the
+        easy&ndash;hard&ndash;easy cost anatomy, the hardness tax that separates practical
+        budgets from generous ones, the proliferation paradox (version growth at fixed
+        range width is fragility; at proportional width, slow slack), and a growth
+        experiment where crisis-pruning feedback alone pins an ecosystem just below its
+        collapse threshold while the no-feedback arm crosses and installs die permanently.
+        Solver validated against brute force; every figure regenerates from one file.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-024.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a><a class="muted-link" href="blog/p024.html">essay</a><a class="muted-link" href="figures/p-024/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-025</span><h3>The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</h3></div>
+      <div class="paper-tags"><span class="tag">queueing</span><span class="tag">SRE</span><span class="tag">closed-form</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-025/f2-collapse-law.png" alt="The collapse ceiling with measured policy thresholds at three timeout slacks" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Congestion collapse, priced. The good steady state of a timeout-retry system dies
+        at a tangency with a closed form &mdash; &lambda;<sub>c</sub> =
+        &mu;&theta;&rho;*&sup2;/(1+&theta;&rho;*) from the timeout kernel alone, independent
+        of every retry policy &mdash; and the collapsed state survives on the retry budget
+        itself, dying only below &lambda;<sub>r</sub> &asymp; &mu;/R, with drains measured
+        in the thousands of service-times. Between the two: hysteresis, the 70%-shed-or-restart
+        of every metastable postmortem. The knobs priced: jitter buys the tight-timeout
+        margin back (0.81 of ceiling vs 0.50 for instant retry), deterministic backoff
+        resonates (&minus;36%), and admission caps work only inside the timeout horizon.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-025.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-025-collapse-law.md">source</a><a class="muted-link" href="blog/p025.html">essay</a><a class="muted-link" href="figures/p-025/results.json">data</a></div>
+    </article>
+
+    <article class="paper-card">
+      <div class="pc-top"><span class="paper-id">P-026</span><h3>The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</h3></div>
+      <div class="paper-tags"><span class="tag">security</span><span class="tag">cascades</span><span class="tag">percolation</span></div>
+      <div style="background:#fff;border-radius:8px;padding:6px;margin:10px 0 6px 0;display:block;"><img src="figures/p-026/f2-concentration.png" alt="The cascade curve across the popularity-exponent sweep with the closed-form overlay" style="width:100%;display:block;border-radius:5px;"></div>
+      <p>
+        Every breach is every breach, and now that has arithmetic. An exact blast-radius
+        law for the reuse channel (validated to 0.2%), an exact two-channel decomposition
+        F = F<sub>w</sub> + (1&minus;&lambda;)F<sub>s</sub>, and a concentration law with a
+        separatrix at password-popularity exponent 1: diverse pools make the cascade dilute
+        (risk grows with the user base), concentrated pools &mdash; where real corpora sit
+        &mdash; pin it at the backbone from the first breach onward. The defense asymmetry
+        the folklore blurs: lockout friction is the only herd-level lever on the backbone;
+        manager adoption is perfect private protection whose herd threshold is 99.997%.
+        Rate-limit everything that sprays; hand every user a manager; know which is which.
+      </p>
+      <div class="pc-links"><a href="pdfs/p-026.pdf">PDF</a><a class="muted-link" href="https://github.com/srivtx/p-rick/blob/main/papers/p-026-credential-cascade.md">source</a><a class="muted-link" href="blog/p026.html">essay</a><a class="muted-link" href="figures/p-026/results.json">data</a></div>
+    </article>
+
+  </div>
+
   <div class="arc-label">series VI &middot; laws &mdash; from specification to derivation &middot; 2026</div>
   <div class="paper-grid">
 
@@ -731,7 +857,77 @@
   year        = {2026},
   month       = oct,
   url         = {https://srivtx.github.io/p-rick/pdfs/p-003.pdf}
-}</pre></div>
+}
+@techreport{prick2026p024,
+  title       = {Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-024},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-024.pdf}
+}
+@techreport{prick2026p025,
+  title       = {The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-025},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-025.pdf}
+}
+@techreport{prick2026p026,
+  title       = {The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-026},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-026.pdf}
+}
+
+@techreport{prick2026p024,
+  title       = {Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-024},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-024.pdf}
+}
+@techreport{prick2026p025,
+  title       = {The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-025},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-025.pdf}
+}
+@techreport{prick2026p026,
+  title       = {The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection},
+  author      = {{p-rick research program}},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-026},
+  series      = {Series VII: Collapse},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/pdfs/p-026.pdf}
+}
+</pre></div>
+    </details>
+    </details>
     </details>
   </div>
 </main>

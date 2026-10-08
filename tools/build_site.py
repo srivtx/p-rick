@@ -8,7 +8,7 @@ BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BLOGS_MD = os.path.join(BASE, 'blogs')
 BLOG_OUT = os.path.join(BASE, 'blog')
 SITE_URL = 'https://srivtx.github.io/p-rick'
-BUILD_DATE = '2026-10-07'
+BUILD_DATE = '2026-10-09'
 
 BLOGS = [
     ('2026-10-07-your-phone-sees-everything.md', 'blog/p001.html', 'P-001',
@@ -57,6 +57,20 @@ BLOGS = [
      'The Admission Law', 'p-022'),
     ('2026-10-07-embeddings-photocopy-themselves.md', 'blog/p023.html', 'P-023',
      'Generation Loss', 'p-023'),
+    ('2026-10-09-your-build-breaks-all-at-once.md', 'blog/p024.html', 'P-024',
+     'Resolution Collapse', 'p-024'),
+    ('2026-10-09-the-queue-that-wouldnt-come-back.md', 'blog/p025.html', 'P-025',
+     'The Collapse Law', 'p-025'),
+    ('2026-10-09-every-breach-is-every-breach.md', 'blog/p026.html', 'P-026',
+     'The Cascade Law of Credential Reuse', 'p-026'),
+
+    ('2026-10-09-your-build-breaks-all-at-once.md', 'blog/p024.html', 'P-024',
+     'Resolution Collapse', 'p-024'),
+    ('2026-10-09-the-queue-that-wouldnt-come-back.md', 'blog/p025.html', 'P-025',
+     'The Collapse Law', 'p-025'),
+    ('2026-10-09-every-breach-is-every-breach.md', 'blog/p026.html', 'P-026',
+     'The Cascade Law of Credential Reuse', 'p-026'),
+
 ]
 
 NO_FLASH = (
@@ -298,7 +312,7 @@ def main():
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
              'og-image.png', 'feed.xml']
     pages += ['blog/p%03d.html' % n for n in range(1, 24)]
-    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 24)]
+    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 27)]
     build_sitemap(pages)
 
 

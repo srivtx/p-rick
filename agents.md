@@ -281,12 +281,12 @@ mass-usefulness, validated honestly (including where it bends).
 
 | metric | value |
 |---|---|
-| sessions logged | 16 |
-| total tracked effort | ~16h |
-| papers published | 23 (P-001 … P-023) |
-| essays published | 23 |
-| validated laws | 3 (R₀ᵛ, τ*, D(g)=1−λ^g) |
-| simulation figures | 16 (all seeded, reproducible) |
+| sessions logged | 17 |
+| total tracked effort | ~19h |
+| papers published | 26 (P-001 … P-026) |
+| essays published | 26 |
+| validated laws | 6 (R₀ᵛ, τ*, D(g)=1−λ^g, γ·D_fm, λ_c/λ_r, F_w+F_s) |
+| simulation figures | 34 (all seeded, reproducible) |
 | product substrates | 1 (PocketVeto) |
 
 ### Session 013 — 2026-10-08: research-integrity round (P-023 rev 1.1 + cross-paper figure corrections)
@@ -303,3 +303,20 @@ mass-usefulness, validated honestly (including where it bends).
 
 **Outcome.** P-023 v1.1: the critique is proved right in form (no universal constant) and answered in substance (a law with the critique's own factor list, derived and validated). counts unchanged (23 papers, 23 essays, 23 PDFs); quality bar raised: constants must now be laws or be labeled as configuration-specific.
 
+
+### Session 014 — 2026-10-09: series VII — collapse (P-024..P-026, three derived laws + harnesses)
+
+**Trigger.** User directive: one more round, new things. Program context: series VI's "laws" charter extended to a third laws series on collapse thresholds; round-7 bar in force (constants must be derived or labeled configuration-specific).
+
+**What was done.**
+- Designed series VII "collapse — critical thresholds where everyday infrastructure fails abruptly": the dependency resolver's satisfiability phase transition (P-024), the timeout-retry system's capacity ceiling and recovery threshold (P-025), the credential cascade's concentration separatrix (P-026). Zero overlap with series I–VI territory.
+- Built three seeded harnesses (`code/p-024..026-simulation.py`, seed 20261007) and ran them to completion, iterating on the physics until the laws validated:
+  - P-024: cyclic version space (brute-force-verified exact first moment: empirical mean solution count 1.00 where E[#sol]=1), FC+MRV solver with geometric random restarts (validated against brute force 15/15), twelve-configuration threshold grid (γ = 0.71 median, 0.74 ± 0.08, CV 10%), proliferation paradox panel, crisis-pruning growth experiment (no-selection crosses at step 121 and installs die at 0.00; selection pins 0.13 below threshold and holds 1.00 — near-criticality from failure feedback alone; the old-version shock absorber documented as the removed confound), interventions with the two-sided pruning lever.
+  - P-025: discrete-event simulator (two-phase final-window collapse classifier after finding and fixing an absolute-time arrival reseed that rewound the clock), closed-form ceiling λ_c = μθρ*²/(1+θρ*) with tangency θ(1−ρ*) = ln(1+θρ*), policy grid (jitter 0.81 of ceiling at θ=2 vs none 0.50; deterministic backoff resonates −36% at θ=5), recovery law λ_r ≈ μ/R validated by drain-bisection with the dwell-limited readings honestly framed, admission-cap horizon rule L ≲ μT (cap 2 doubles the load; cap 10 buys nothing), drain times 1,998/2,470 service-times.
+  - P-026: vectorized cascade model with exact two-channel decomposition (validated 0.01%), exact blast-radius law (0.2%), corrected union-channel concentration law via Poisson thinning (first attempt missed size-biasing; brute-force diagnosis; final residuals 0.4–3.1% tightening with β), finite-size separatrix evidence (dilute growth vs backbone saturation), adoption duality and the 99.997% herd threshold.
+- Wrote three papers (~15k words total) in the series-VI format: abstract, related work, model, propositions with proof sketches and boxed laws, experimental design, results with embedded figures, honest limitations (budget conflation, cyclic-vs-linear geometry, pool-level approximation, single-server M/M/1, dwell-limited recovery), references with verification-queued marks, reproducibility appendix. Constants labeled configuration-specific where measured (γ, γ_∞); every law either exact, exact-by-construction, or priced.
+- Wrote three CEO-voice essays (blogs/): "Your Build Breaks All at Once, Not Gradually", "The Queue That Wouldn't Come Back", "Every Breach Is Every Breach".
+- PDFs: md2tex7.py (abstract display-math stashing fix + em-dash tie), Tectonic zero errors (14/14/13 pp), Template-03 covers ×3 (check-html NONE errors, cover_validate ALL PASS, html2poster renders), merge_covers7 with exact A4 normalization; pdf_qa: p-026 full PASS, p-024/p-025 WARN-cosmetic (line-start quote; table-centering false positive VLM-verified clean); every body page VLM-verified (no figure/text overlap, no cut-offs).
+- Site: build_site.py BLOGS 26 + feed 29 items + sitemap 56 urls; index.html series-VII section + stats 26/7/26/0; papers.html series-VII cards with figure previews + data links + 3 BibTeX (26 entries); blog.html 3 rows; method.html grade table 26 rows + seven-series summary; README v7 (series-VII table, counts 26/26/26/7/34 figures).
+
+**Outcome.** Series VII complete: 26 papers / 26 essays / 26 PDFs / 7 series; six validated laws with 34 reproducible figures; the collapse genre added to the program (thresholds of feedback systems, not just passive ones). Next: citation verification pass (rate-limit queue from earlier series still outstanding); product directories after research freeze per the program charter.
