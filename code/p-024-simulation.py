@@ -279,6 +279,7 @@ else:
     trials1 = {40: 120, 80: 90, 160: 50}
     caps1 = {40: 12000, 80: 12000, 160: 10000}
     curves = {}
+    fits = {}
     for n in ns:
         rng = np.random.default_rng([SEED, 1, n])
         P, _ = solvable_curve(rng, n, K1, Dg1, w1, trials1[n],
@@ -319,7 +320,9 @@ else:
     ax.set_ylabel('P(resolvable within budget)')
     ax.set_title('Resolution collapses at a critical dependency density')
     ax.set_ylim(-0.03, 1.05)
-    ax.legend(loc='upper right', bbox_to_anchor=(1.0, 0.97), fontsize=8.6)
+    _h, _l = ax.get_legend_handles_labels()
+    fig.legend(_h, _l, loc='outside upper center', ncol=3, fontsize=8.2,
+               frameon=False, columnspacing=1.2, handlelength=1.7)
     clean_axis(ax)
     save(fig, 'f1-resolution-collapse.png')
 
@@ -395,8 +398,9 @@ axa.plot(xf, gamma_bar * xf, '-', color=CB[3], lw=1.6,
          label=f'law: $D_c = \\gamma\\,D_{{fm}}$,  $\\gamma = {gamma_bar:.2f}$')
 axa.set_xlabel('first-moment threshold $D_{fm} = \\ln K / \\ln(K/w)$')
 axa.set_ylabel('measured threshold $D_c$')
-axa.set_title('The gap is a near-constant ratio')
-axa.legend(loc='upper left', bbox_to_anchor=(0.02, 0.98), fontsize=8.6)
+axa.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.2,
+           title='The gap is a near-constant ratio', title_fontsize=8.8,
+           frameon=False)
 clean_axis(axa)
 
 labels = [f'{r["K"]}/{r["w"]}' for r in rows]
@@ -443,7 +447,9 @@ ax.text(fits[80][0] + 0.06, 2.0, '$D_c(n{=}80)$', fontsize=9, color=G700)
 ax.set_xlabel('dependency density $D$')
 ax.set_ylabel('median conflicts (log scale)')
 ax.set_title('Install cost: easy, hard at the threshold, easy again')
-ax.legend(loc='upper right', bbox_to_anchor=(1.0, 0.98))
+_h, _l = ax.get_legend_handles_labels()
+fig.legend(_h, _l, loc='outside upper center', ncol=3, fontsize=8.4,
+           frameon=False)
 clean_axis(ax)
 if not PART2:
     save(fig, 'f3-solver-cost.png')
@@ -569,14 +575,16 @@ ax1.axhline(Dthr, ls='--', color=G900, lw=1.4,
             label='measured collapse threshold $D_c$')
 ax1.set_ylabel('dependency density')
 ax1.set_title('Growth with and without resolvability selection')
-ax1.legend(loc='upper left', fontsize=8.8)
 clean_axis(ax1)
 ax2.plot(tA, sA, '-', color=CB[4], lw=1.8, label='install success (no selection)')
 ax2.plot(tB, sB, '-', color=CB[0], lw=1.8, label='install success (selection)')
 ax2.set_xlabel('growth step')
 ax2.set_ylabel('6-install rolling success rate')
 ax2.set_ylim(-0.05, 1.08)
-ax2.legend(loc='lower left', fontsize=8.8)
+_h1, _l1 = ax1.get_legend_handles_labels()
+_h2, _l2 = ax2.get_legend_handles_labels()
+fig.legend(_h1 + _h2, _l1 + _l2, loc='outside upper center', ncol=3,
+           fontsize=8.2, frameon=False, columnspacing=1.2)
 clean_axis(ax2)
 save(fig, 'f4-growth.png')
 
@@ -700,8 +708,9 @@ axa.plot(Dg5, prune_c, 'o-', color=CB[4], ms=4, lw=1.6,
          label='prune versions ($K$=48)')
 axa.set_xlabel('dependency density $D$')
 axa.set_ylabel('P(resolvable within budget)')
-axa.set_title('Levers: widening buys headroom; pruning loses it')
-axa.legend(loc='upper right', bbox_to_anchor=(1.0, 0.98), fontsize=8.4)
+axa.legend(loc='lower left', bbox_to_anchor=(0, 1.0), ncol=2, fontsize=8.0,
+           title='Levers: widening buys headroom; pruning loses it',
+           title_fontsize=8.8, frameon=False, columnspacing=1.1)
 clean_axis(axa)
 
 axb.plot(Ks, fixed_w, 'o-', color=CB[4], ms=5, lw=1.8, label='fixed width $w$=8')
@@ -712,8 +721,9 @@ axb.set_xticks(Ks)
 axb.set_xticklabels([str(k) for k in Ks])
 axb.set_xlabel('versions per package $K$ (log scale)')
 axb.set_ylabel(f'P(resolvable), $D$={Dfix}')
-axb.set_title('Version proliferation: fragility or slack?')
-axb.legend(loc='center left', bbox_to_anchor=(0.03, 0.5), fontsize=8.8)
+axb.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
+           title='Version proliferation: fragility or slack?',
+           title_fontsize=8.8, frameon=False)
 clean_axis(axb)
 save(fig, 'f5-interventions.png')
 

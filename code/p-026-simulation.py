@@ -207,7 +207,9 @@ for c, rho in zip(cols, [0.2, 0.5, 0.8]):
 ax.set_xlabel('breached fraction of sites $b$')
 ax.set_ylabel('reuse-channel takeover $F_w$')
 ax.set_title('The blast-radius law (exact)')
-ax.legend(loc='upper left', fontsize=8.6)
+_h, _l = ax.get_legend_handles_labels()
+fig.legend(_h, _l, loc='outside upper center', ncol=3, fontsize=8.4,
+           frameon=False)
 clean_axis(ax)
 save(fig, 'f1-blast-radius.png')
 
@@ -246,7 +248,9 @@ for c, beta in zip(cols, betas):
 ax.set_xlabel('breached fraction of sites $b$')
 ax.set_ylabel('cascade takeover $F_w + F_s$')
 ax.set_title('The concentration law: $\\beta$ sets the curve')
-ax.legend(loc='upper left', fontsize=7.8, ncol=2)
+_h, _l = ax.get_legend_handles_labels()
+fig.legend(_h, _l, loc='outside upper center', ncol=3, fontsize=7.4,
+           frameon=False, columnspacing=1.1, handlelength=1.6)
 clean_axis(ax)
 save(fig, 'f2-concentration.png')
 
@@ -283,8 +287,8 @@ for ax, beta, ttl in [(axa, 0.8, 'Diverse pool ($\\beta$ = 0.8): dilute'),
                 label=f'U = {U:,}')
     ax.set_xlabel('breached fraction of sites $b$')
     ax.set_ylabel('spray-channel takeover $F_s$')
-    ax.set_title(ttl)
-    ax.legend(loc='upper left', fontsize=8.2)
+    ax.legend(loc='lower left', bbox_to_anchor=(0, 1.0), ncol=2,
+              fontsize=7.8, title=ttl, title_fontsize=8.8, frameon=False)
     clean_axis(ax)
 save(fig, 'f3-separatrix.png')
 
@@ -327,7 +331,9 @@ for c, beta in zip([CB[0], CB[3]], [0.8, 1.2]):
 ax.set_xlabel('lockout friction $\\lambda$')
 ax.set_ylabel('takeover fraction at $b$ = 0.4')
 ax.set_title('The decomposition law')
-ax.legend(loc='upper right', fontsize=8.2)
+_h, _l = ax.get_legend_handles_labels()
+fig.legend(_h, _l, loc='outside upper center', ncol=3, fontsize=8.2,
+           frameon=False)
 clean_axis(ax)
 save(fig, 'f4-decomposition.png')
 
@@ -376,8 +382,9 @@ axa.plot(f_grid, ad_herd, 's', ms=6, mfc='none', mec=CB[4], mew=1.6,
          label='simulation (herd)')
 axa.set_xlabel('password-manager adoption $f$')
 axa.set_ylabel('takeover fraction ($\\beta$=1.2, $b$=0.4)')
-axa.set_title('Adoption: linear for the herd')
-axa.legend(loc='upper right', fontsize=8.6)
+axa.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
+           title='Adoption: linear for the herd', title_fontsize=8.8,
+           frameon=False)
 clean_axis(axa)
 
 for c, beta in zip([CB[1], CB[3], CB[4]], [0.8, 1.2, 1.5]):
@@ -385,8 +392,9 @@ for c, beta in zip([CB[1], CB[3], CB[4]], [0.8, 1.2, 1.5]):
              label=f'$\\beta$ = {beta}')
 axb.set_xlabel('lockout friction $\\lambda$')
 axb.set_ylabel('takeover fraction ($b$=0.4)')
-axb.set_title('Friction is the backbone defense')
-axb.legend(loc='upper right', fontsize=8.6)
+axb.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
+           title='Friction is the backbone defense', title_fontsize=8.8,
+           frameon=False)
 clean_axis(axb)
 save(fig, 'f5-interventions.png')
 
@@ -434,8 +442,9 @@ lim = [0, max(max(f1[0.5]['pred']), max(f1[0.8]['meas'])) * 1.15]
 axa.plot(lim, lim, '--', color=G400, lw=1.2)
 axa.set_xlabel('blast-radius law $F_w$ (closed form)')
 axa.set_ylabel('measured $F_w$')
-axa.set_title(f'L1: exact law (median |err| {res["L1_median"]:.1%})')
-axa.legend(loc='upper left', fontsize=8.6)
+axa.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
+           title=f'L1: exact law (median |err| {res["L1_median"]:.1%})',
+           title_fontsize=8.8, frameon=False)
 clean_axis(axa)
 
 # L3: pred vs meas
@@ -448,9 +457,10 @@ limb = [0, 1.0]
 axb.plot(limb, limb, '--', color=G400, lw=1.2)
 axb.set_xlabel('cascade law $F_w + F_s$ (closed form)')
 axb.set_ylabel('measured $F_w + F_s$')
-axb.set_title(f'L3: concentration law (median |err| '
-              f'{res["L3_median"]:.1%})')
-axb.legend(loc='upper left', fontsize=8.6)
+axb.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
+           title=f'L3: concentration law (median |err| '
+                 f'{res["L3_median"]:.1%})',
+           title_fontsize=8.8, frameon=False)
 clean_axis(axb)
 save(fig, 'f6-law-validation.png')
 

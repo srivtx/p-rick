@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Epistemic Half-Life: Truth Decay Semantics for Stored Data — p-rick P-018</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p018.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Epistemic Half-Life: Truth Decay Semantics for Stored Data">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p018.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Epistemic Half-Life: Truth Decay Semantics for Stored Data">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Epistemic Half-Life: Truth Decay Semantics for Stored Data","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-018","url":"https://srivtx.github.io/p-rick/paper/p018.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-018 &middot; series </p>
+      <h1 class="paper-title">Epistemic Half-Life: Truth Decay Semantics for Stored Data</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source</a> &middot; <a href="../pdfs/p-018.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-018.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-018-epistemic-half-life.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p018.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">staleness</span><span class="kw">truth decay</span><span class="kw">half-life</span><span class="kw">freshness</span><span class="kw">bitemporal</span><span class="kw">data quality</span><span class="kw">query semantics</span><span class="kw">verification scheduling</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>A theory of truth decay</a></li><li><a href="#s3"><span class="tocn">3.</span>The landscape: fragments everywhere, semantics nowhere</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap survived</a></li><li><a href="#s5"><span class="tocn">5.</span>The specification</a></li><li><a href="#s6"><span class="tocn">6.</span>Evaluation design</a></li><li><a href="#s7"><span class="tocn">7.</span>What this is not</a></li><li><a href="#s8"><span class="tocn">8.</span>Objections, confronted</a></li><li><a href="#s9"><span class="tocn">9.</span>Limitations</a></li><li><a href="#s10"><span class="tocn">10.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>A package is undeliverable, three thousand kilometers from its destination, because a checkout form joined a customer's address from 2019 to an order from 2026 — and no layer of the stack, from the form through the ORM to the database, possessed a representation of the fact that one of those two facts had not been re-verified in seven years. A hospital's emergency-contact field, captured at admission, silently rots across a decade of moves and deaths — and presents itself with exactly the same visual and logical authority as the patient's blood type. A compliance dashboard marks a vendor "certified" in 2023 and keeps marking it certified through the certification's expiry, the vendor's acquisition, and the certification body's own dissolution, because certification was modeled as a state rather than as a perishable claim. In each case the data is <em>available, consistent, and wrong</em> — the failure mode no integrity constraint detects.</p>
+<p>These are not exotic failures. They are the routine, quiet, compounding errors of every operational database, and the industry's response has been to treat them as someone else's layer. The ETL team calls it data quality; the CRM industry calls it contact decay and sells list-cleaning services against it (the B2B marketing literature quotes contact-data decay of a few percent <em>per month</em> — a figure this paper treats as domain lore marked <em>verification queued</em>, but one that practitioners repeat with the weary certainty of people who bill for it); the security team calls it credential hygiene; and the database — the one artifact common to all of them — models none of it. The tuple that was true when written is served with identical confidence on day zero and day four thousand, because Codd's relational model, for all its rigor, has exactly one temporal dimension baked into its soul: none.</p>
+<p>The deeper observation is that decay is <em>measurable in advance</em>. Facts do not rot at random; they rot by class. A stock quote has a half-life measured in seconds; a retail price, in weeks; an address, in years; a blood type, effectively never. An organization that has run for five years possesses, in its own update logs, the empirical decay curve of every fact class it maintains — the actuarial table of its own data — and it possesses it by accident, discarding it as operational exhaust. The half-life of a fact class is not a mystery; it is a statistic sitting in a change-data-capture stream that nobody has ever aggregated, because no query semantics existed that would make the statistic worth computing. This paper supplies the semantics, and the statistics become load-bearing.</p>
+<p>Section 2 formalizes decay and distinguishes it carefully from the adjacent temporal machinery (bitemporality models <em>belief</em>, not <em>truth</em>). Section 3 surveys the fragments — bitemporal databases, TTL caches, HTTP freshness, pipeline freshness tests, finance's stale-quote discipline — and verifies the gap. Section 4 explains the survival of the gap with reference to the relational model's history. Section 5 specifies the system: decay declarations, decay-function families, query semantics with composition rules, join-decay algebra, the verification scheduler and its budget, decay events, the decay ledger, and compaction. Sections 6–10 deliver the evaluation design, boundary claims, objections, limitations, and conclusion. This is series V's second paper: <em>promises software implies and never has to honor</em> — here, the promise that a stored fact is a fact.</p>
+<h2 id="s2"><span class="secno">2.</span>A theory of truth decay</h2>
+<h3 id="s21">2.1 Decay functions and half-life</h3>
+<p>For a fact f — an atomic (entity, attribute, value, t_capture) tuple — define a <strong>decay function</strong> d_f : time → [0, 1], the confidence that f's value still holds at query time. The first-class parameterization is the <strong>half-life</strong> h: exponential decay, d_f(Δt) = 2^(−Δt/h), for the broad class of facts whose hazard of invalidation is roughly constant per unit time (addresses, prices, contact details). Two other families cover the tails: <strong>step decay</strong> (d = 1 until a known expiry, then 0 — certifications, licenses, medication dosages with clinical review dates), and <strong>hazard-estimated decay</strong> (d derived from the observed update distribution of the fact's class — Section 5.2), which generalizes both and is the estimator that the change-stream statistics feed.</p>
+<p>The half-life is the right first-class constant for three reasons. It is human-interpretable ("addresses: ~4 years" is a sentence an administrator can argue with); it composes (Section 2.3); and it is estimable from update histories without domain committees, which matters because the political economy of asking every department to declare decay rates is the political economy of asking every department to volunteer work — the estimate from their own logs asks them nothing.</p>
+<h3 id="s22">2.2 Decay is not belief time: the bitemporal boundary</h3>
+<p>The adjacent machinery must be kept honest, because the nearest neighbor is genuinely near. Bitemporal databases (Snodgrass's tradition) record two times per fact: <em>valid time</em> (when the fact was true in the world) and <em>transaction time</em> (when the database believed it). They answer "what did we believe on date X about period Y" with archival rigor. What they do not and cannot express is a <em>probability that an unrefreshed belief is still true</em> — bitemporality is a ledger of belief changes, complete precisely because it records the changes that <em>arrived</em>. Staleness is about the changes that have <em>not yet arrived</em>: the address that has moved and not told us. A bitemporal database serves the 2019 address on January 1, 2026 with full transaction-time legitimacy — the belief is correctly recorded, its provenance immaculate, and its truth decaying invisibly. Decay semantics are thus not an extension of bitemporality but an orthogonal dimension: belief time is <em>retrospective</em>, truth decay is <em>predictive</em>. The composition of both — a decay-aware bitemporal store — is part of the specification (Section 5.6) precisely because the two dimensions answer different questions and the system needs both.</p>
+<p>The same boundary applies to freshness machinery in delivery systems. HTTP cache freshness (RFC 7234) and Redis TTLs govern <em>whether a cached copy may be served without revalidation</em> — a delivery-layer contract between cache and origin. This paper's object is the <em>epistemics of the origin's own facts</em>: the question is not "may I serve this copy" but "is this fact still true, and what is our confidence, and who should re-verify it, when, at what budget." The distinction sounds academic until one notices that a modern data platform's "freshness" tests (dbt source freshness, Great Expectations) are pipeline-latency monitors — they measure <em>when data last arrived</em>, a proxy that collapses entirely for slowly-changing dimensions, where the last arrival was years ago because most rows genuinely have not changed, and the monitor's green light means nothing about the rows whose world silently moved.</p>
+<h3 id="s23">2.3 Composition: the algebra of decayed facts</h3>
+<p>Decay propagates through derived values, and the propagation rule is the paper's technical core:</p>
+<ul>
+<li><strong>Selection/aggregation over source facts</strong>: confidence of the derived fact = the composition of input confidences — product for conjunction-style derivation, min for weakest-link aggregation (a mailing-list segment is as stale as its stalest address).</li>
+<li><strong>The stale join problem</strong>: joining fact sets A and B yields pairs whose joint confidence = d(A) · d(B) by independence, but <em>real joins are rarely independent</em> — the 2019 address and the 2026 order share an entity whose maintenance cadence itself decays. The specification's join-decay algebra therefore carries a per-entity <strong>maintenance half-life</strong> (how often the entity's facts are touched at all), and the join planner composes entity-level and attribute-level decay explicitly rather than pretending independence.</li>
+<li><strong>Divergence</strong>: when two sources assert different values for the same (entity, attribute), the system does not resolve the conflict silently; it records a <strong>divergence event</strong> with both confidences decayed to the moment of comparison. Conflict detection is decay's most valuable side effect — most real-world data conflicts are staleness conflicts wearing a contradiction's costume.</li>
+</ul>
+<p>The algebra's payoff: staleness stops being a monitoring dashboard's opinion and becomes a <em>computable property of every query result</em>, which is the single move that makes every downstream behavior (display, blocking, verification scheduling) implementable.</p>
+<h3 id="s24">2.4 The verification economy</h3>
+<p>Decay without verification is fatalism. The full model has three verbs per fact: <strong>capture</strong> (d resets to 1), <strong>verify</strong> (a probe that either resets d to 1 — fact confirmed — or supersedes the fact with a new capture), and <strong>deprecate</strong> (retire the fact from serving; archive it). Verification is not free: a probe costs an API call, a letter, a phone call, a nurse's minute, a field technician's afternoon. The interesting question — <em>which facts should be re-verified, in what order, under a budget</em> — is a scheduling problem over decay curves, with expected-information-gain per unit cost as the ranking function: the scheduler probes facts whose expected confidence lift × downstream dependency weight is highest. This is deliberately the attention-scheduler's economics (P-006) relocated from human interruption to data verification: attention was the scarce resource there; probes are the scarce resource here, and the optimal-policy family (index policies, aging-item scheduling) transfers.</p>
+<h2 id="s3"><span class="secno">3.</span>The landscape: fragments everywhere, semantics nowhere</h2>
+<p><strong>Bitemporal databases and SQL:2011 temporal features.</strong> The mature nearest neighbor: belief and validity periods, system-versioned tables in mainstream engines. Retrospective, complete, and silent on predictive truth decay (Section 2.2). Verdict: solves the history of belief; does not touch the future of it.</p>
+<p><strong>TTL caches (Redis et al.) and HTTP freshness (RFC 7234).</strong> Delivery-layer freshness with clean revalidation semantics — the protocol machinery this paper's verification verbs borrow, at the wrong layer and with no fact semantics. A cache that expires knows nothing about whether the origin's fact was true; a Redis TTL on a customer record is a janitor, not an epistemologist. Verdict: right verbs, wrong object.</p>
+<p><strong>Pipeline freshness tests (dbt source freshness, Great Expectations, Monte Carlo/observability).</strong> The modern data stack's honest admission that staleness matters — operationalized as <em>arrival latency</em> monitoring. Measures the pipe, not the water; blind to slowly-changing-dimension rot (Section 2.2). Verdict: a proxy metric with a dashboard, not query semantics.</p>
+<p><strong>Finance: stale quotes and market data.</strong> The deepest domain discipline: quotes carry timestamps, staleness bounds are hard-coded into matching engines, and "stale data" is a named regulatory concept in market infrastructure. Domain-bound, symbol-keyed, no general fact model; the discipline proves decay is <em>engineerable</em> under profit motive. Verdict: the existence proof, in one building.</p>
+<p><strong>CRM contact decay industry.</strong> An entire market (list hygiene, enrichment, "data enrichment decay" whitepapers) monetizing address/phone/email rot in B2B data. Rates quoted as a few percent per month (verification queued — the figures circulate through vendors selling the fix). The market exists <em>because</em> the databases have no decay semantics: decay is externalized to a cleaning service the way flood damage is externalized to insurance. Verdict: the gap, industrialized.</p>
+<p><strong>Master data management and entity resolution.</strong> Golden-record tooling with survivorship rules; strong on <em>conflict resolution at merge time</em>, weak on <em>time-passed-since-verification</em> as a survivorship criterion. Verdict: consolidation without half-lives.</p>
+<p><strong>Scientific data management.</strong> Curation metadata, dataset versions, README provenance — decay handled by retraction and versioning at the <em>document</em> level. The unit of rot in operational systems is the attribute, not the paper. Verdict: adjacent in spirit, different granularity.</p>
+<p><strong>GDPR Article 5(1)(d): the accuracy principle.</strong> Personal data must be "accurate and, where necessary, kept up to date." The legal system named the duty in 2016 — and, characteristically, supplied no mechanism, no semantics, no measurement. Verdict: the promise, without the postal service (the recurring series-V shape: P-017 found the same silhouette under consent).</p>
+<p><strong>Table 1: the landscape, graded.</strong></p>
+<div class="tbl-wrap"><table class="paper-table"><thead><tr><th>System</th><th>Time model</th><th>Decay function</th><th>Query semantics</th><th>Composition</th><th>Verification scheduler</th><th>General facts</th></tr></thead><tbody><tr><td>Bitemporal / SQL:2011</td><td>belief + validity</td><td>none</td><td>temporal predicates</td><td>none</td><td>none</td><td>yes</td></tr><tr><td>TTL caches / HTTP</td><td>delivery age</td><td>step (expiry)</td><td>cache gating</td><td>none</td><td>revalidate-on-miss</td><td>delivery objects</td></tr><tr><td>Pipeline freshness</td><td>arrival latency</td><td>none</td><td>alerts</td><td>none</td><td>none</td><td>pipelines</td></tr><tr><td>Market data feeds</td><td>quote time</td><td>domain bounds</td><td>engine-enforced</td><td>domain rules</td><td>feed ops</td><td>symbols</td></tr><tr><td>CRM hygiene</td><td>none</td><td>none</td><td>none</td><td>none</td><td>bulk campaigns</td><td>contacts</td></tr><tr><td>MDM / entity resolution</td><td>merge time</td><td>none</td><td>survivorship</td><td>none</td><td>none</td><td>entities</td></tr><tr><td>GDPR accuracy</td><td>legal duty</td><td>none</td><td>none</td><td>none</td><td>none</td><td>personal data</td></tr><tr><td><strong>This spec</strong></td><td>belief + <strong>decay</strong></td><td><strong>half-life families</strong></td><td><strong>confidence-aware</strong></td><td><strong>join algebra</strong></td><td><strong>budgeted</strong></td><td><strong>all facts</strong></td></tr></tbody></table></div>
+<p>Components PARTIAL-to-STRONG across the row; composition STRONG-vacant. The falsifiable claim: no deployed system offers fact-level, query-propagated, scheduled-verification truth decay as a general semantic. One counterexample refutes it, and the search protocol for that counterexample is recorded in the program ledger.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap survived</h2>
+<p><strong>The relational model's eternity clause.</strong> Codd's model fixed the time dimension at <em>snapshot</em>, and forty years of tooling, normalization theory, index structures, and personnel were trained on timeless tuples. Temporal extensions fought their way in over decades (and won a standard in 2011) by modeling <em>history</em> — the retrospective dimension, where the database is the authority. The predictive dimension — where the <em>world</em> is the authority and the database is a decaying sensor — never had a standardization beachhead, because it requires the database to express <em>uncertainty about the world</em>, a category the model's set-theoretic foundations were never asked to carry. The result is an ontological blind spot inherited by every engine built on the lineage.</p>
+<p><strong>Staleness fell between the chairs.</strong> Schema teams own structure; application teams own behavior; and decay is a <em>content</em> property — a fact about the world's churn rate per attribute class — that neither team's charter mentions. The DBA cannot declare an address's half-life (not a schema constraint); the application cannot enforce it per-join without re-implementing a query engine; and so both sides optimistically assume the other is handling it. Institutional gaps of exactly this shape — cross-cutting properties with no owning layer — are where this program keeps finding its territory (the same shape as defaults governance in P-016 and complexity accounting in P-012).</p>
+<p><strong>Storage got cheap, so deletion lost its urgency.</strong> The historical pressure that forced data lifecycle decisions was scarcity; abundance removed it. Decay is a <em>scarcity</em> discipline — half-lives matter when you must choose what to keep fresh — and in an era of effectively free storage, "keep everything forever" was always locally rational and globally a slow leak of falsehood into every downstream join.</p>
+<p><strong>Freshness proxies arrived first and satisfied the market.</strong> Pipeline-latency dashboards gave data teams a green light to show leadership, and the proxy — <em>data arrived recently</em> — felt like truth maintenance while measuring logistics. A satisfied market does not demand semantics; the dashboards are this gap's most effective insurance policy.</p>
+<p><strong>Nobody estimated the half-lives because nothing needed them.</strong> The empirical Bayes estimator of Section 5.2 requires only update logs that every operational store already keeps — but there was no consumer for its output, so no one ever ran it. Semantics precede statistics here, not the reverse; the gap is an engineering order-of-operations accident, frozen by forty years of it.</p>
+<h2 id="s5"><span class="secno">5.</span>The specification</h2>
+<h3 id="s51">5.1 Decay declarations</h3>
+<p>Schema-level, per (entity, attribute):</p>
+<p><code>FRESH(entity.address, family = exponential, half_life = 4y, verify = mail | api | human)</code> <code>FRESH(entity.certification, family = step, expires_at = attribute.certificate_expiry)</code> <code>FRESH(entity.blood_type, family = hazard, estimator = update_history, verify = clinical)</code></p>
+<p>Declarations are versioned metadata (the defaults-ledger discipline: every decay declaration is itself a governed default with provenance, because a half-life is a policy someone set — P-016's machinery composes directly). Defaults per type are seedable from the estimator; human declarations override; both are recorded in the decay ledger with who/when/why.</p>
+<h3 id="s52">5.2 The estimator: half-lives from your own change stream</h3>
+<p>For each (entity-class, attribute), aggregate the interval distribution between successive updates across entities with at least two observed updates; fit the implied hazard rate λ; the class half-life is ln 2 / λ. The estimator is deliberately naive — empirical, not mechanistic — and deliberately <em>local to the organization</em>: a logistics company's address half-life differs from a pediatric clinic's, and the spec's position is that the organization's own history is the best prior available, superior to any industry table (the CRM vendors' tables are the industry table, and they are the <em>competition's</em> average, not your fleet's). Entities with a single update (never refreshed) are censored observations — the estimator handles them via survival analysis rather than dropping them, because the never-refreshed population is precisely where decay hides.</p>
+<h3 id="s53">5.3 Storage and query semantics</h3>
+<p>Each fact row carries <code>(value, t_capture, t_last_verify, confidence)</code> where confidence is <em>derived at read time</em> from the decay family and the elapsed interval — not stored and updated on a clock (a cron-driven confidence column is a correctness bug wearing a workflow's clothes). The query surface:</p>
+<ul>
+<li><code>SELECT ... WITH CONFIDENCE</code> returns (value, confidence) pairs.</li>
+<li><code>WHERE CONFIDENCE(x) &gt; 0.7</code> filters on freshness — the checkout form's minimum viable hygiene: do not join an address below the delivery threshold.</li>
+<li><code>JOIN ... ON MIN_CONFIDENCE</code> applies the join algebra of Section 2.3, with the maintenance half-life composition.</li>
+<li>Aggregates degrade honestly: <code>AVG(price)</code> over decayed inputs reports its confidence bound — composition with the uncertain-document's arithmetic (P-015): measurement uncertainty and staleness uncertainty multiply into one reported bound, and the display contract of P-015 renders it. The two papers are one system at the surface: P-015 made numbers honest about <em>how they were measured</em>; this one makes them honest about <em>when</em>.</li>
+</ul>
+<h3 id="s54">5.4 The verification scheduler</h3>
+<p>A budgeted scheduler over the decay ledger: inputs are per-fact decay curves, per-verb verification costs (api: ~0; mail: ~0.50; call: ~5; human: ~60 — currency-agnostic units), and downstream dependency weights (facts feeding payment routing or clinical decisions outrank facts feeding analytics). The policy class is an index policy: rank by expected confidence-lift × dependency weight / cost, probe within budget, capture the reset or the supersession. Escalation is automatic: facts below serving threshold that exhaust their cheap verification verbs escalate to expensive ones <em>only when</em> dependency weight justifies it — the attention-scheduler's admission control, transposed (P-006). The scheduler's honesty rule: it never silently fabricates verification (marking a fact verified because "it looked fine") — the decay ledger records the verb or it records nothing, and anything else is the doctrine of fake freshness, which is worse than decay because it is decay with a forged timestamp.</p>
+<h3 id="s55">5.5 Decay events</h3>
+<p>The serving threshold crossing is an <em>event</em>: <code>fact_stale(entity, attribute, confidence, consumers)</code> — published to consumers on the event bus (the P-001 fabric is the natural substrate; the paper's contribution is the event <em>type</em> and its semantics). Consumers subscribe the way they subscribe to outages: a payment router freezes a beneficiary record pending verification; a mail-merge drops below-threshold addresses; a compliance dashboard turns amber. Staleness becomes an outage class — visible, routed, owned — rather than a private disappointment discovered by the undeliverable package.</p>
+<h3 id="s56">5.6 The decay ledger and compaction</h3>
+<p>The ledger records per-fact capture/verify/supersede history with actor and verb — bitemporality's transaction-time rigor (Section 2.2) retained as the audit spine, with the decay dimension as the predictive overlay. Compaction is the lifecycle's quiet half: facts below archival confidence migrate to a cold tier where they are <em>unqueryable by default</em> (selectable only with explicit <code>INCLUDING STALE</code>), which is the storage-honesty discipline the era of free storage never developed: old data does not disappear, it <em>demotes</em>, and demotion is a semantic state, not a deletion. Privacy composes here: retention limits (GDPR storage-limitation) become an <em>upper bound on half-life</em> — decay is privacy legislation's natural ally, and the same fabric that schedules verification also schedules minimization, one clock serving both duties.</p>
+<h3 id="s57">5.7 Display and API contract</h3>
+<p>External surfaces (UI, partner APIs) receive confidence-annotated values under the calibrated display contract inherited from P-015: tiers (fresh / aging / stale / archived), rendered consistently, never fabricated precision. API consumers declare minimum confidence the way they declare timeouts; the contract is enforceable at the gateway. The end state is a lingua franca: "this address, confidence 0.31, last verified 2023-04" is a sentence both a courier's routing engine and a nurse's admission form can act on — and today, in every stack on earth, it is a sentence no system can say.</p>
+<h2 id="s6"><span class="secno">6.</span>Evaluation design</h2>
+<ol>
+<li><strong>Staleness audit of real corpora.</strong> Instrument three personal-scale and one enterprise-scale dataset (with owner consent): sample fact classes, verify ground truth, measure realized invalidation rates, and compare against estimator predictions. Success: estimator calibration within noise for slowly-changing classes.</li>
+<li><strong>The stale-join experiment.</strong> Reproduce the checkout failure synthetically: join orders to addresses across a 6-year window with and without decay semantics; measure misdelivery-rate proxies (join to superseded addresses) and the blocking rate of the confidence filter. Success: semantic blocking with false-block rate below the misdelivery rate by an order of magnitude.</li>
+<li><strong>Scheduler economics.</strong> Simulate a 10^6-fact ledger with heterogeneous classes and a verification budget; compare the index policy against round-robin and age-only baselines on downstream-weighted confidence. Success: the information-gain policy dominates at all budgets.</li>
+<li><strong>Display-contract legibility.</strong> User study on confidence-tier rendering (inherited from P-015's instrument): can untrained users correctly defer on stale values? Success: decisions track confidence tiers.</li>
+</ol>
+<h2 id="s7"><span class="secno">7.</span>What this is not</h2>
+<p><strong>Not bitemporality.</strong> The belief ledger is retained, not replaced; decay is the orthogonal predictive dimension (Section 2.2). <strong>Not cache freshness.</strong> Revalidation verbs are borrowed; the object is the origin's facts, not the cache's copies. <strong>Not data-quality dashboards.</strong> There is no dashboard: the semantics live in the query path, which is the difference between an opinion and a type. <strong>Not automatic deletion.</strong> Compaction demotes; it does not destroy — though it composes with retention law (Section 5.6), minimization is a policy that rides the same clock. <strong>Not a conflict resolver.</strong> Divergence events surface conflicts with decayed confidences; resolution is a downstream, often human, decision — the system's job is to make the conflict visible before it costs a delivery or a dosage.</p>
+<h2 id="s8"><span class="secno">8.</span>Objections, confronted</h2>
+<p><strong>"The metadata overhead is prohibitive."</strong> Four columns per fact and read-time derivation of confidence — a rounding error against the indexes every operational table already carries. The expensive-looking component, the verification scheduler, spends <em>budgeted</em> money replacing the unbudgeted money currently spent on the consequences (undeliverable mail, failed payments, wrong-door field visits, compliance findings). The objection prices the ledger and forgets to price the rot.</p>
+<p><strong>"Half-lives are unknowable per attribute."</strong> They are <em>estimated</em>, from the organization's own logs, with censoring-aware survival statistics (Section 5.2) — and the estimator's honest output includes its uncertainty, which the display contract renders. The alternative is not perfect knowledge; it is the current regime of <em>zero</em> knowledge, whose error rate the B2B hygiene market quietly monetizes.</p>
+<p><strong>"Finance already solved staleness."</strong> For quotes, with hard domain bounds, in engines built for one asset class — the existence proof that decay is engineerable, and simultaneously the proof that it has never been <em>generalized</em> (no CRM, no EHR, no ERP offers quote-machine staleness discipline for its own facts). Domain success without generalization is the landscape's signature shape, and this program's opportunity.</p>
+<p><strong>"Just update the data."</strong> Verification costs money and attention; "just update" is the instruction that has no budget, no ranking, and no admission control — the verification economy of Section 2.4 is the missing allocation layer between the instruction and the spend. Everything schedulable gets scheduled; nothing schedulable gets done.</p>
+<p><strong>"Stale-but-stable dimensions will be flagged forever."</strong> Facts whose true hazard is near zero (blood types, national identifiers) <em>should</em> verify cheaply and rarely — the hazard estimator assigns them long half-lives automatically, and their verification verbs are batch checks that cost pennies. The policy calibrates; the objection assumes it cannot.</p>
+<h2 id="s9"><span class="secno">9.</span>Limitations</h2>
+<p>Hazard heterogeneity within a class is real — "address" in a student city and "address" in a retirement town share a column and not a biology; class-conditional estimators (segmented by entity covariates) mitigate at the cost of sample size, and the spec leaves the segmentation depth to the operator. Adversarial staleness — a party deliberately maintaining a false-but-fresh front — defeats time-based decay entirely; freshness is evidence, not proof, and the fabric composes with (but does not replace) source-trust machinery. Cold-start with thin update history yields wide intervals; the honest response is wide display tiers, not fake precision. The join-decay independence assumptions are approximations that entity-level maintenance half-lives only partially repair; the algebra's goal is calibrated-enough propagation, not probabilistic rigor. And the display burden is a genuine UX cost — tiered rendering must not become tiered nagging — which is why the display contract inherits P-015's calibrated minimalism rather than inventing a new anxiety grammar. Citations from domain knowledge carry the program's <em>verification-queued</em> mark and pass the live-source ledger before final release.</p>
+<h2 id="s10"><span class="secno">10.</span>Conclusion</h2>
+<p>The database is the only major information artifact that stores facts about the world without storing their perishability. Food has dates; medicine has lots; journalism has corrections; markets have staleness bounds wired into matching engines with regulatory teeth. Software — the industry with the most facts, the most joins, and the most downstream decisions per fact — has an eternity clause inherited from a 1970 model that never had to think about it, and a hygiene market that bills monthly for the consequences. The half-life semantics specified here are small, composable, and estimable from logs every operator already keeps: decay declarations, read-time confidence, an honest join algebra, a budgeted verification scheduler, staleness as an outage event, demotion as a storage state. The promise every stored value implies — <em>this is still true</em> — becomes a typed, measurable, schedulable property, and the undeliverable package becomes the relic it should always have been. Facts expire. The systems that store them should finally know that.</p>
+<h2 id="references">References</h2>
+<p><em>Verification-queued marks follow the program's citation-honesty convention.</em></p>
+<ol>
+<li>Snodgrass, R. <em>Developing Time-Oriented Database Applications in SQL</em>. Morgan Kaufmann, 1999.</li>
+<li>International Organization for Standardization. <em>ISO/IEC 9075:2011 SQL, Part 2: temporal features (system-versioned tables)</em>.</li>
+<li>Fielding, R. et al. <em>RFC 7234: HTTP/1.1 Caching</em>. IETF, 2014.</li>
+<li>Redis Ltd. <em>Expiration and TTL semantics</em>. Documentation. <em>(verification queued)</em></li>
+<li>dbt Labs. <em>Source freshness configuration</em>. Documentation. <em>(verification queued)</em></li>
+<li>European Union. <em>GDPR Article 5(1)(d) — accuracy principle; Article 5(1)(e) — storage limitation</em>. 2016.</li>
+<li>FINRA / exchange rulebooks on stale quotes and market data integrity. <em>(verification queued)</em></li>
+<li>B2B contact-data decay whitepapers, enrichment vendors. <em>(verification queued; vendor-sourced figures)</em></li>
+<li>Kalashnikov, L., Chen, Z., et al. on entity resolution and temporal aspects. <em>(verification queued)</em></li>
+<li>Cox, E., Seaman, C. on data quality dimensions in warehousing. <em>(verification queued)</em></li>
+<li>Aalen, O., Borgan, Ø., Gjessing, H. <em>Survival and Event History Analysis</em> (censoring-aware estimation). Springer.</li>
+<li>Gittins, J., Glazebrook, K., Weber, R. <em>Multi-Armed Bandit Allocation Indices</em> (index policies for sequential allocation). Wiley.</li>
+<li>Codd, E. F. <em>A Relational Model of Data for Large Shared Data Banks</em>. CACM 13(6), 1970.</li>
+<li>p-rick research program. <em>P-001 The Personal Event Bus; P-006 The Attention Scheduler; P-015 The Uncertain Document; P-016 The Defaults Ledger</em>. 2026.</li>
+<li>Woodall, P., et al. on data quality and maintenance-cost literature. <em>(verification queued)</em></li>
+<li>Dhamija, R., Dusseault, L. "The seven flaws of identity management: usability and security." <em>IEEE Security &amp; Privacy</em>, 2008 (staleness of contact/recovery channels).</li>
+</ol>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p017.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p019.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Dormancy Engineering: Software Design for the Long Sleep</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p018,
+  title       = {Epistemic Half-Life: Truth Decay Semantics for Stored Data},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-018},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p018.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

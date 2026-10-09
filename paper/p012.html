@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Complexity Ledger: Design as Relocation, Not Reduction — p-rick P-012</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p012.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Complexity Ledger: Design as Relocation, Not Reduction">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p012.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Complexity Ledger: Design as Relocation, Not Reduction">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Complexity Ledger: Design as Relocation, Not Reduction","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-012","url":"https://srivtx.github.io/p-rick/paper/p012.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-012 &middot; series </p>
+      <h1 class="paper-title">The Complexity Ledger: Design as Relocation, Not Reduction</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source</a> &middot; <a href="../pdfs/p-012.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-012.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-012-complexity-ledger.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p012.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">—</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The theory, stated precisely</a></li><li><a href="#s3"><span class="tocn">3.</span>The landscape: folklore, fragments, and the empty composition</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap survived</a></li><li><a href="#s5"><span class="tocn">5.</span>The specification</a></li><li><a href="#s6"><span class="tocn">6.</span>Evaluation design</a></li><li><a href="#s7"><span class="tocn">7.</span>What this is not</a></li><li><a href="#s8"><span class="tocn">8.</span>Objections, confronted</a></li><li><a href="#s9"><span class="tocn">9.</span>Limitations</a></li><li><a href="#s10"><span class="tocn">10.</span>Conclusion</a></li><li><a href="#s11"><span class="tocn">11.</span>References</a></li></ol><ul class="toc-extra"></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>In the middle 1970s, at Xerox PARC, a researcher named Larry Tesler grew tired of watching designers move difficulty around and call the result simplicity. He wrote down what he called the law of conservation of complexity: every application must have an inherent amount of irreducible complexity; the only question is where that complexity lives. Tesler's own gloss is the part everyone forgets: <em>"the user or the designer must deal with it."</em> Not "complexity is bad" — complexity <em>placement</em> is the design act. Tesler spent a career acting on the law (modeless editing, cut and paste, the dynamic debugging he built into the Smalltalk browser) and died in 2020 with his law quoted in a thousand conference talks and operationalized in exactly zero engineering processes.</p>
+<p>The law's neglect has a cost, and the cost is now macroscopic. The software industry's characteristic failure of the last decade is not bad engineering; it is unaccounted complexity relocation. Consider the pattern, which recurs at every scale:</p>
+<ul>
+<li>A platform "simplifies" its API by hiding configuration behind auto-detection. The complexity moves from the integration engineer's configuration file to every user's failure modes, which now occur inside a black box at runtime, in production, at 3 a.m.</li>
+<li>A product "simplifies" its settings by removing them. The complexity moves into forums, where users reconstruct the removed decision tree as folklore, and into power users' homegrown tooling, which Hyrum's Law then makes load-bearing.</li>
+<li>A regulation mandates a "simpler" consent flow. The complexity moves into the dark-pattern engineering of the pre-consent screens, which the regulation does not see because the accounting does not exist.</li>
+<li>A team migrates to a framework that "removes boilerplate." The complexity moves into the framework's upgrade path, surfaced years later as a breaking-change migration measured in engineer-months.</li>
+</ul>
+<p>Each of these transactions is a real economic event: complexity — which is to say, human attention, error rate, and time — moved from one party to another. None of them is recorded anywhere. No commit message says "relocated 3 complexity units to 2M users." No launch review compares where the difficulty went against where it came from. The industry that instrumented request latency to the microsecond has no instrument for the one quantity it moves around most.</p>
+<p>The thesis in one sentence: <strong>complexity is conserved across design boundaries — reduction of accidental complexity is possible but rare and hard, relocation is the common case — and the discipline that makes relocation visible, consensual, and budgeted is an accounting specification, not a new methodology.</strong></p>
+<p>This is a theory paper with an instrument. Section 2 states the theory precisely enough to be falsifiable. Section 3 surveys the landscape — folklore, measurement fragments, adjacent disciplines — and verifies the gap. Section 4 explains why the gap survived. Section 5 specifies the ledger. Section 6 gives the evaluation design, including the natural experiments that could kill the theory. Sections 7–9 do what the program requires: what this is not, objections confronted, limitations.</p>
+<h2 id="s2"><span class="secno">2.</span>The theory, stated precisely</h2>
+<h3 id="s21">2.1 Definitions</h3>
+<p><strong>Complexity</strong>, for the purposes of a conservation law, cannot be a single ontological quantity — Section 8 confronts this at length — so the theory is stated over an operational definition: the complexity of a system-region is the <em>capacity-adjusted cost of achieving correct outcomes within that region</em>. "Cost" decomposes into the proxies any accounting can use: time, error rate, cognitive load, and maintenance labor. "Capacity-adjusted" is the crucial qualifier: one hour of difficulty for an expert is not one hour of difficulty for a civilian; a relocation is <em>transductive</em> when it moves capacity-adjusted cost upward, from experts to non-experts.</p>
+<p>A <strong>boundary</strong> is any design-relevant division between system regions maintained by different parties: the API surface, the UI, the documentation, the deployment pipeline, the support organization, the user's habits. The choice of boundaries is itself a design decision — an accounting discipline makes boundary choice explicit rather than inherited.</p>
+<p><strong>Reduction</strong> is a design change that lowers total capacity-adjusted cost across the whole system with no compensating increase elsewhere. Brooks's distinction is the theoretical warrant: essential complexity (inherent in the problem) cannot be reduced; accidental complexity (artifacts of the chosen solution) can. Brooks's "No Silver Bullet" claim is precisely that accidental-complexity reduction yields <em>linear</em> gains while the demand is for an <em>order-of-magnitude</em> gain — a prediction forty years accurate and counting.</p>
+<p><strong>Relocation</strong> is a design change that lowers capacity-adjusted cost in one region and raises it in another. Ashby's law of requisite variety is the conservation constraint: a controller must have at least as much variety as the disturbances it must regulate. Delete variety from the controller (the software), and the variety demand does not vanish — it relocates to whatever remains in the loop: the user, the operator, the documentation, or the failure rate. Ashby, 1956, is the formal statement of what Tesler said informally and what designers experience as the waterbed: push it down here, it surfaces there.</p>
+<h3 id="s22">2.2 The law and its falsifiable form</h3>
+<p><strong>Conservation claim (weak form).</strong> For design changes that alter interfaces and not underlying solution structure — the overwhelming majority of what product engineering does — total capacity-adjusted cost across all regions is approximately conserved; measured "simplifications" are predominantly relocations.</p>
+<p><strong>Conservation claim (strong form).</strong> The approximation error is structured, not random: relocations systematically <em>understate</em> total cost when moving complexity to lower-capacity regions (the transduction penalty — a cost is amplified when received by a party with less capacity to bear it), so naive conservation is a <em>lower bound</em> on the true post-change cost.</p>
+<p>The weak form is directly falsifiable: instrument the five sinks (§5.2) before and after a sequence of interface redesigns; if total measured cost systematically <em>drops</em> with no compensating rise, relocation theory is wrong and something like genuine mass-simplification exists at product cadence. The strong form adds a testable asymmetry: relocations toward users should show total-cost <em>inflation</em> (the same nominal difficulty costs more downstream), which the ledger can detect as negative-sum transactions. Note what the theory does <em>not</em> claim: it does not claim all complexity is irreducible (that would make it unfalsifiable orthodoxy); it claims reduction is rare, hard, and trackable, and that the common case masquerading as reduction is relocation.</p>
+<h3 id="s23">2.3 The five sinks</h3>
+<p>Relocations have five observable destinations, which together exhaust the space in a way that makes accounting closed:</p>
+<ol>
+<li><strong>Code</strong> — internal complexity of the artifact: static measures, dependency mass, flag count, migration surface.</li>
+<li><strong>Interaction</strong> — the user's side of the boundary: steps, decisions, state the user must hold, error recovery they must perform.</li>
+<li><strong>Operation</strong> — the running side: runbooks, alert load, toil, incident frequency.</li>
+<li><strong>Documentation</strong> — the corpus that externalizes cognition: docs, tutorials, forum answers, tribal knowledge.</li>
+<li><strong>Deferral</strong> — time-shifted complexity: technical debt, workarounds, deprecated-but-alive paths. Deferral is the sink with interest.</li>
+</ol>
+<p>A closed accounting over five sinks is what makes the ledger's double-entry possible: any "reduction" claim must show which sink absorbed the relocated cost, and a claim that no sink absorbed it is a claim of genuine reduction — which the theory says should be rare and which the ledger will therefore <em>surface as the exceptional, headline event it is</em>.</p>
+<h2 id="s3"><span class="secno">3.</span>The landscape: folklore, fragments, and the empty composition</h2>
+<p>The gap verification follows the program's method: everything adjacent exists; the accounting discipline does not.</p>
+<p><strong>The folklore exists and is load-bearing.</strong> Tesler's law (1970s, PARC) is canonical design culture. Brooks's essential/accidental distinction (1986) is canonical software culture. The waterbed effect is canonical compiler culture — optimization folklore holding that suppressing complexity in one stage forces it to resurface in another; compilers are also the field's best natural laboratory, having visibly converted "simpler source languages" into "flag-space explosion" (the classic observation that the compiler driver's hundreds of flags are where the abstraction's unresolved decisions live). Spolsky's law of leaky abstractions (2002) states the failure mode of complexity relocated <em>downward</em> into a leak-proof-looking layer. Hyrum's Law — users will depend on any observable behavior, documented or not — states why relocated complexity becomes contractual: the workaround built to absorb relocated complexity is now a dependency. Cunningham's technical-debt metaphor (1992) is the deferral sink named. The folklore is complete. It is also completely unoperationalized: no one has ever stated what to <em>measure</em>, where to record it, or what reconciliation would look like.</p>
+<p><strong>The measurement fragments exist and are disconnected.</strong> Static complexity measurement is fifty years old (McCabe's cyclomatic complexity, 1976; the maintainability-index family; the language workbench's complexity smells), and every large codebase has dashboards for it. Interaction cost is measured by the HCI tradition: keystroke-level modeling (Card, Moran, Newell, 1980), time-on-task, error rate, SUS — an entire apparatus that lives in usability labs, never in release engineering. Operational load is measured by the SRE tradition: alert volume, toil surveys (the SRE book's own toil accounting), incident frequency. Documentation cost is countable (corpus size, read time, search success rate) and almost never counted. User-side absorption is measured by the organization's most honest instrument — support tickets — and reported as a <em>support problem</em> rather than a complexity-relocation receipt. Cognitive-dimensions-of-notations research (Green, 1989; Green and Petre, 1996) built the vocabulary for notational complexity and never built the accounting. Each sink has a mature measurement community; no one has joined the five series into one ledger, because no one owns the transaction.</p>
+<p><strong>Adjacent disciplines solved the accounting pattern and did not import it.</strong> Double-entry bookkeeping is the oldest and best precedent: every transaction has two legs, forcing the question "from whom, to whom." Thermodynamics is the conservation precedent: energy accounting works over operational proxies, not ontology. Environmental regulation is the externality precedent: impact assessments exist precisely because relocations with diffuse costs and concentrated benefits are invisible to the transacting parties. Industrial engineering's waste accounting is the process precedent. The pattern is not novel; its application to software design transactions is.</p>
+<p><strong>Practitioner culture gestures at the ledger without building it.</strong> Design-decision records (ADRs, DDRs) capture <em>rationale</em> but not <em>magnitude</em> or <em>destination</em>. Complexity budget reviews exist in informal form at strong engineering cultures — the code review that pushes back "this moves the burden to on-call" is a verbal ledger entry, made once, unrecorded, unmeasured. Steering committees ask "what did we simplify?" and receive adjectives.</p>
+<p>VERDICT: <strong>STRONG.</strong> No incumbent instrument exists for complexity accounting; every measurement primitive exists; the folklore is universally believed and never operationalized; the demand (steering committees, regulators, platform/developer relations) is expressed constantly in unanswerable form. A gap that is folklore-complete and instrumentation-empty is the cleanest gap class this program has specified since P-005.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap survived</h2>
+<p><strong>Complexity moves are excellent strategy when unpriced.</strong> Relocating complexity to users converts engineering cost into diffuse user time — the transaction is profitable precisely because the ledger does not exist. Every "smart defaults that occasionally need overrides" design, every "zero-config until it breaks" deployment story, every consumer product whose manual is a forum thread is a profitable unrecorded relocation. The parties that profit built the tooling; the tooling does not record their transactions.</p>
+<p><strong>The quantity has no unit, so no one owed anyone a number.</strong> Energy had no unit until Joule; software complexity has resisted its unit because the ontological question (what IS complexity?) ate the operational question (what does it cost, where?). The measurement communities grew up in separate buildings — usability, SRE, static analysis, support — with separate vocabularies, so the transaction never had a place to be joined even in principle. Accounting needs a closed set of accounts more than it needs a true ontology of the underlying quantity; GDP is not a natural kind either.</p>
+<p><strong>Simplification is the industry's marketing language.</strong> A discipline that shows most "simplification" to be relocation is a discipline that contradicts launch announcements, performance reviews, and conference keynotes. The folklore survives because it is said in the abstract and never applied to the specific — Tesler's law quoted in the morning, "our new streamlined experience" shipped in the afternoon.</p>
+<p><strong>Reduction DOES happen, and its possibility inoculates the rest.</strong> Genuine accidental-complexity reduction is real (garbage collection over manual memory; packet switching over circuit engineering; the gradual disappearance of build-path hell in modern package managers). Because reduction is occasionally achieved, every relocation can claim to be one. The ledger is precisely the instrument that separates the claims.</p>
+<h2 id="s5"><span class="secno">5.</span>The specification</h2>
+<h3 id="s51">5.1 The relocation record</h3>
+<p>Every design decision that alters an interface between sinks emits a <strong>relocation record</strong> — the ledger's fundamental transaction, structured as double-entry:</p>
+<ul>
+<li><strong>Motivating change.</strong> What was changed, in the vocabulary of the design system (API surface, settings, flow, pipeline stage).</li>
+<li><strong>Claimed direction.</strong> What the change claims about complexity (the launch-announcement form: "simpler," "zero-config," "fewer steps").</li>
+<li><strong>Leg entries.</strong> For each sink touched: sign, magnitude estimate in that sink's proxies, and confidence. A record with one leg (only a debit from code) is not a valid transaction — it is the <em>claim</em> of reduction and is flagged as such for reconciliation rather than accepted.</li>
+<li><strong>Receiving parties.</strong> Whose capacity-adjusted cost rises: which user class, which operator role, which maintainer team. Transduction flag set when the receiving party has lower capacity than the sending party.</li>
+<li><strong>Consent.</strong> Whether the receiving parties agreed, were informed, or neither. The three states — <em>consensual, disclosed, externality</em> — are the accounting's moral column.</li>
+<li><strong>Reversibility and deferral terms.</strong> If cost is time-shifted (the deferral sink), the record states the interest terms: expected size at maturity, trigger conditions.</li>
+</ul>
+<p>The record format is deliberately boring — a schema, a file, a diff — because the discipline's power is in the reconciliation, not the capture ceremony.</p>
+<h3 id="s52">5.2 The proxies per sink</h3>
+<p>Each sink's unit is a field-measurable proxy set, chosen to be already-collected or trivially collectible:</p>
+<ul>
+<li><strong>Code sink:</strong> static complexity delta on changed surfaces; dependency count delta; configuration-flag count delta (the single most honest proxy for relocated decision complexity — the flag is where a "removed" decision goes to live); migration-surface size.</li>
+<li><strong>Interaction sink:</strong> added/removed steps on the primary task; new user-held state; new error-recovery obligations; post-change time-on-task delta; accessibility of the moved burden (which percentile of user capacity).</li>
+<li><strong>Operation sink:</strong> runbook delta; alert-rule delta; toil-hours delta; incident-class changes.</li>
+<li><strong>Documentation sink:</strong> corpus delta in tasks documented; read-time delta; forum-folklore creation rate (the community's undocumented absorption — measurable as question volume on the changed surface).</li>
+<li><strong>Deferral sink:</strong> debt items with size and trigger; workaround birth rate; deprecated-path census.</li>
+</ul>
+<p>Proxies are proxies. The ledger does not claim to measure complexity; it claims to <em>account</em> the costs complexity generates in units organizations already trust. This is the same epistemic move as GDP, and it is the move that makes the whole thing buildable now.</p>
+<h3 id="s53">5.3 Budgets and reconciliation</h3>
+<p>The <strong>complexity budget</strong> is set at release cadence per surface: an allowed net relocation per sink, with the strong-form prediction (§2.2) implying the rule of thumb — <em>relocations toward the interaction and deferral sinks should be priced with a multiplier</em>, because that is where the transduction penalty and the interest live. <strong>Reconciliation</strong> is the release review's new final act: sum the records; a claimed reduction with no receiving leg triggers a verification task (the exceptional headline event); a net relocation beyond budget triggers the same conversation a cost overrun does; repeated externalities on the same receiving party surface as a governance signal, the way Sarbanes-Oxley made repeated unrecorded transactions a red flag rather than a style.</p>
+<h3 id="s54">5.4 The consent principle</h3>
+<p>The instrument's normative core, stated as policy rather than law: relocating capacity-adjusted cost to a party without disclosure is an <strong>externality</strong>; with disclosure, a <strong>price</strong>; with agreement, a <strong>trade</strong>. The ledger's job is to make the third state available and the first state visible. The software-market precedents for each state exist: the "zero-config" product that documents its failure modes prices the relocation honestly; the silent settings removal that surfaces as forum folklore does not. This is deliberately the environmental-impact-assessment pattern: not a prohibition on relocation (some relocations are <em>correct</em> — moving complexity from users to experts is usually progress, and the transduction flag's arrow is the theory's own statement of which direction progress usually flows) but a disclosure regime that makes the choice legible to the parties who pay.</p>
+<h2 id="s6"><span class="secno">6.</span>Evaluation design</h2>
+<p>The theory is testable with data that already exists, which is the cheapest possible form of research:</p>
+<ol>
+<li><strong>Retrospective A/B on ticket migration.</strong> For a sample of major consumer-software "simplification" releases (UI redesigns, settings removals, zero-config launches), align support-forum and ticket volume time-series before/after, topic-classified. The relocation theory predicts ticket-migration signatures — volume moving from the removed surface to new failure classes — with timing at release. Reduction theory predicts net decline. The two theories disagree in the data; count the wins.</li>
+<li><strong>The waterbed in flag space.</strong> For compiler and build-tool histories (the cleanest public archives), test the relationship between abstraction-simplifying milestones and flag-count trajectory. The folklore predicts flag-space growth as the reservoir for relocated decisions; the measurement is a decade-scale correlation, publicly auditable.</li>
+<li><strong>Documentation-volume compensation.</strong> For API redesigns in open-source projects, test whether claimed simplification is followed by documentation and tutorial-volume growth on the new surface (the documentation sink absorbing what the interface shed).</li>
+<li><strong>Transduction-penalty asymmetry.</strong> For relocations classifiable by receiving-party capacity (expert→expert vs. expert→civilian), test whether post-change total cost inflates for civilian receivers — the strong form's signature. Support-ticket labor-hour cost is the operational measure.</li>
+<li><strong>Ledger-instrumentation field trial.</strong> One engineering organization runs the record format for two quarters on one product surface; the deliverable is the reconciliation's effect on design review conversations — does the question "which sink receives this?" change decisions, and how often does a claimed reduction survive reconciliation. n=1 by construction; the program grades it accordingly.</li>
+</ol>
+<p>Studies 1–4 are falsification opportunities: if interface-level "simplifications" routinely show <em>net total-cost reduction</em> across the joined sinks, the conservation theory is wrong, and the finding — that mass-simplification at product cadence is real — would be more surprising and more useful than the theory. Study 5 measures the instrument's behavioral effect, not the theory's truth.</p>
+<h2 id="s7"><span class="secno">7.</span>What this is not</h2>
+<p>This is not a <em>complexity metric</em> proposal. Cyclomatic complexity, cognitive dimensions, and the maintainability-index family measure artifacts; the ledger accounts transactions between parties. The two are related the way thermometry is related to bookkeeping. This is not a <em>methodology religion</em> — the ledger is deliberately agnostic about which design method you use; it only prices what any method moves. This is not a <em>proposal to never simplify</em>. Reduction of accidental complexity is the industry's genuine progress; the ledger exists to distinguish that rare event from its frequent impostor, and to celebrate the former with receipts. This is not a <em>regulation proposal</em> — though the disclosure regime would be the natural reference of any future consumer-software disclosure rule, the specification works entirely inside a single engineering organization, today, with files it already owns.</p>
+<h2 id="s8"><span class="secno">8.</span>Objections, confronted</h2>
+<p><strong>"Complexity is not a single quantity, so conservation is a category error."</strong> Correct about ontology, irrelevant to accounting. Energy was operationalized by calorimetry before anyone agreed what it <em>was</em>; GDP is measured in proxies every day and steers nations. The ledger never sums heterogeneous units into one number — it keeps five accounts in five native proxy sets and requires every claim of reduction to name its receiving leg. Conservation here is a <em>discipline about transactions</em>, not a scalar conservation law; the theory's falsifiable content (§2.2, §6) is stated over the measured accounts.</p>
+<p><strong>"The law is unfalsifiable — you can always find complexity somewhere."</strong> The weak form is falsified by any sustained sequence of interface redesigns whose five joined sinks show net total-cost decline; study 1's design exists precisely because that outcome is measurable and would refute the claim. The theory also forbids its own abuse: it predicts <em>rare</em> reduction, quantifiable as the rate at which claimed reductions survive reconciliation — a rate the ledger measures rather than assumes. If that rate turns out to be 90%, Tesler was wrong and the paper will say so with pleasure.</p>
+<p><strong>"User-freedom measures will be gamed; the numbers will be massaged."</strong> Some will be — the same is true of financial accounting, whose answer was reconciliation discipline and external audit, not abandoning double-entry. The ledger's first customer is the honest internal question ("what are we actually doing to our users?"), which does not survive being lied to, and its second customer is any external auditor for whom the records, once they exist, are diffable.</p>
+<p><strong>"This adds process to design, which is the last thing design needs."</strong> The ceremony is one record per interface-altering decision and one reconciliation per release — the same order as the ADR practice that strong teams already run. The design <em>conversation</em> the ledger replaces ("trust me, it's simpler") is not free either; it is paid in the failure classes of §1.</p>
+<p><strong>"Reduced-complexity products obviously exist — the smartphone is simpler than the mainframe terminal."</strong> The smartphone is the strongest objection and the theory's best exhibit. The mainframe's operating complexity was relocated, not destroyed: out of the end user's terminal and into the platform, the operator, and a hundred-million-line software stack — a massive, <em>consensual, expert-ward</em> relocation, exactly the direction the transduction flag marks as progress. The theory does not say relocations are bad; it says they should be legible. The smartphone story told through the ledger is a story of one of the largest complexity trades in history, priced honestly enough to be repeatable.</p>
+<h2 id="s9"><span class="secno">9.</span>Limitations</h2>
+<p>The proxy accounts are coarse and boundary-sensitive: sink definitions are a design choice, and adversarial boundary-drawing can hide transactions the way creative accounting hides costs — the reconciliation's aggregate view mitigates but cannot eliminate this. Attribution is genuinely hard: post-release ticket migration is confounded by everything else that shipped; the retrospective studies lean on release-timing alignment and class-level topic matching, which narrows but does not close the causal window. The deferral sink's interest terms are estimates about the future and will frequently be wrong. The strong form's transduction multiplier will initially be folklore with a number attached — calibrating it is a research program in itself, and the ledger should ship with the multiplier marked as a tunable prior, not a constant. n=1 organizational field trials do not generalize. And the theory's scope is deliberately bounded: it governs interface transactions, not algorithmic discovery — a new algorithm that genuinely reduces essential-complexity-equivalents (quicksort over bubble sort; the FFT) is outside the accounting's reach, and pretending otherwise would overclaim the instrument.</p>
+<h2 id="s10"><span class="secno">10.</span>Conclusion</h2>
+<p>Fifty years ago Tesler wrote down the law and everyone agreed with it in principle and ignored it in practice, because agreeing costs nothing and accounting costs a schema. The schema is this paper's contribution: five sinks with field-measurable proxies, a double-entry transaction that refuses one-legged claims of reduction, budgets and reconciliation at release cadence, a consent column that distinguishes trades from externalities, and falsifiable predictions whose disproof is as valuable as their proof. The engineering organizations that adopt the discipline get the one artifact the industry has never had: an honest answer, with receipts, to "what did we simplify, and who is paying for it now?" The answer will sometimes be unflattering. That is the instrument working. The law was never that complexity is destiny; the law is that it is <em>conserved, movable, and billable</em> — and the billables are overdue.</p>
+<h2 id="s11"><span class="secno">11.</span>References</h2>
+<ol>
+<li>Tesler, L. — the law of conservation of complexity, formulated at Xerox PARC in the 1970s; widely known as Tesler's Law; his gloss: the inherent complexity "must be dealt with by the user or the designer." [Design-culture record; high confidence on the attribution and formulation; verification queued for the primary note.]</li>
+<li>Brooks, F. P. (1986). "No Silver Bullet — Essence and Accident in Software Engineering." <em>Information Processing '86</em> (IFIP). [Peer-reviewed/proceedings; high confidence.]</li>
+<li>Ashby, W. R. (1956). <em>An Introduction to Cybernetics</em> — the law of requisite variety. [Book; high confidence.]</li>
+<li>Spolsky, J. (2002). "The Law of Leaky Abstractions." [Engineering essay; high confidence.]</li>
+<li>Hyrum's Law — "users will depend on any observable behavior of your system, documented or not"; named for Hyrum Wright. [Engineering-culture record; high confidence.]</li>
+<li>Cunningham, W. (1992). Technical debt metaphor, OOPSLA experience report. [Conference record; high confidence.]</li>
+<li>McCabe, T. (1976). "A Complexity Measure." <em>IEEE Transactions on Software Engineering</em>. [Peer-reviewed; high confidence.]</li>
+<li>Green, T. R. G. (1989); Green &amp; Petre (1996). Cognitive dimensions of notations. [Research line; high confidence.]</li>
+<li>Card, S., Moran, T., Newell, A. (1980). The keystroke-level model. <em>Communications of the ACM</em>. [Peer-reviewed; high confidence.]</li>
+<li>The "waterbed effect" in compiler and systems folklore — suppressing complexity in one stage resurfaces it in another. [Folk-lore record; PARTIAL confidence on a canonical citation; verification queued.]</li>
+<li>Google SRE — toil accounting and alert-budget practice. [Book/practice record; high confidence.]</li>
+<li>Panko, R. — spreadsheet-error research program (also load-bearing in P-015 of this program). [Research line; high confidence on the program's existence and magnitudes.]</li>
+<li>Double-entry bookkeeping and the reconciliation/audit pattern (Pacioli, 1494, for the classic codification). [Historical record; high confidence.]</li>
+<li>Environmental impact assessment — disclosure regimes for diffuse externalities. [Regulatory pattern; high confidence.]</li>
+<li>p-rick P-004, <em>Degradation Contracts</em> — the pressure-side behavior ledger; the complexity ledger is its design-side counterpart, and the two ledgers share the "queryable record of an invisible transaction" pattern. [Program cross-reference.]</li>
+<li>p-rick P-006, <em>The Attention Scheduler</em> — the interaction sink's largest single cost (interruption) has a scheduled instrument there; the ledger prices the relocations that fill this sink. [Program cross-reference.]</li>
+</ol>
+<p><em>Working-paper note: references marked "verification queued" are recorded from domain knowledge at high confidence and await the program's live citation-verification pass (see agents.md); the verification ledger is maintained with the paper sources.</em></p>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p011.html"><span class="pn-k">&larr; previous</span><span class="pn-t">Model Extinction: Behavioral Conservation for the Age of Disposable AI</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p013.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Delegated Operation: Software for the Body with More Than One Owner</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p012,
+  title       = {The Complexity Ledger: Design as Relocation, Not Reduction},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-012},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p012.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

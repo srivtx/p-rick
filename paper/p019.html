@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dormancy Engineering: Software Design for the Long Sleep — p-rick P-019</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p019.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Dormancy Engineering: Software Design for the Long Sleep">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p019.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dormancy Engineering: Software Design for the Long Sleep">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Dormancy Engineering: Software Design for the Long Sleep","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-019","url":"https://srivtx.github.io/p-rick/paper/p019.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-019 &middot; series </p>
+      <h1 class="paper-title">Dormancy Engineering: Software Design for the Long Sleep</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source</a> &middot; <a href="../pdfs/p-019.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-019.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-019-dormancy-engineering.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p019.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">dormancy</span><span class="kw">cold standby</span><span class="kw">wake-time assurance</span><span class="kw">bit-rot</span><span class="kw">capability drift</span><span class="kw">wake probes</span><span class="kw">exercise calendar</span><span class="kw">readiness contract</span><span class="kw">emergency software</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The physics of sleeping software</a></li><li><a href="#s3"><span class="tocn">3.</span>The landscape: mature on both sides, empty in the middle</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap survived</a></li><li><a href="#s5"><span class="tocn">5.</span>The specification</a></li><li><a href="#s6"><span class="tocn">6.</span>Evaluation design</a></li><li><a href="#s7"><span class="tocn">7.</span>What this is not</a></li><li><a href="#s8"><span class="tocn">8.</span>Objections, confronted</a></li><li><a href="#s9"><span class="tocn">9.</span>Limitations</a></li><li><a href="#s10"><span class="tocn">10.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>There is a boot stick in a drawer in a data center in Mumbai, assembled the week the world learned what ransomware does to hospitals. It contains a minimal OS, an image of the department's systems, and a laminated card with six steps. It has not been booted since. Somewhere in the same city, an amateur radio club maintains a packet-radio firmware image for the regional emergency network — refreshed annually in principle, untouched in practice since the drill of three years ago, because drills are volunteer weekends and winters are short. In a law firm's evidence vault, a matter-closed archive holds encrypted containers and the e-discovery tool that reads them, both seized under legal hold and both now four years into a sleep that may end in a courtroom. And on a continent with more seismic optimism than budget, a school keeps a USB stick of offline enrollment software in a steel box marked <em>earthquake kit</em>.</p>
+<p>These artifacts share one property more important than any of their differences: they are <em>guaranteed to be exercised exactly when everything else has failed</em>. The boot stick boots when the hospital is down; the radio firmware configures when the network is gone; the evidence tool decrypts when a judge orders production; the enrollment software enrolls when the buildings are unsafe. Their moment of maximum dependence is precisely their moment of minimum preparation — and the years between acquisition and use are not neutral. They are an active adversary: certificates expire on schedule, TLS libraries forget the ciphers that old endpoints still speak, operating systems remove the syscall that the recovery tool links, cloud endpoints move or die, media accumulates read errors, and the six laminated steps slowly outlive the people who could have debugged step four. The drawer is not a vault. It is a slow-fire furnace with excellent marketing.</p>
+<p>The industry's answer to the passage of time has hardened into two regimes. The <strong>always-on regime</strong> keeps software alive by exercising it: CI runs the tests nightly, synthetic checks hit the endpoints hourly, chaos engineering kills components deliberately so that failure is rehearsed before it is real. The approach works — for systems whose owners can afford to run them forever. The <strong>archival regime</strong> accepts that software stops and preserves its <em>sources</em>: Software Heritage harvests repositories; emulation stacks (emulators, VM images, container snapshots) promise that <em>somewhere</em>, on <em>some</em> maintained hypervisor, the artifact could run again. The approach works — for historians, whose deadlines are generous.</p>
+<p>Neither regime serves the drawer. The boot stick cannot run continuously — its entire value is being offline, unreachable by the adversary that motivates it; and it is not a source tree to be recompiled on demand — its entire value is turning on with <em>zero</em> build infrastructure, in a building that may not have network, let alone a toolchain. Dormant software must be <em>both</em> preserved (like an archive) and <em>operational</em> (like a service), while being <em>neither</em> maintained daily (like CI) nor freely re-derivable (like a repo). That intersection — operational, preserved, unmaintained, and <em>warranted</em> — is an engineering regime with no name, no metrics, and no discipline. This paper gives it all three.</p>
+<p>The series context: series V — <em>promises software implies and never has to honor</em>. The promise here is the quietest one software ever makes: <em>when you need me, I will turn on</em>. No interface states it, no SLO covers it, and nothing anywhere measures whether it is true. Section 2 defines dormancy and its failure physics. Section 3 surveys the adjacent worlds and verifies the gap. Section 4 analyzes why the empty regime stayed empty. Section 5 specifies the discipline. Sections 6–10 close with evaluation, boundary, objections, limitations, and conclusions.</p>
+<h2 id="s2"><span class="secno">2.</span>The physics of sleeping software</h2>
+<h3 id="s21">2.1 Dormancy classes</h3>
+<p>Define dormancy operationally: a system is <strong>dormant</strong> at time t if it is <em>not running</em> and its <em>next intended use</em> is conditional and future. The always-on/archival regimes bookend the spectrum; the interesting middle is stratified by the <em>maximum wake latency</em> the owner can tolerate:</p>
+<ul>
+<li><strong>D1 — warm standby</strong> (wake bound: minutes to hours). Cold spares in a cluster, secondary regions, failover appliances. Verification cadence: continuous-to-weekly (this class borders the always-on regime, and SRE practice genuinely covers parts of it — it is included for completeness of the ladder, not as the gap).</li>
+<li><strong>D2 — cold standby</strong> (wake bound: hours to days, usable quarterly). The break-glass runbook, the cold-site rebuild kit, the offline enrollment stack, the sealed diagnostic firmware. Exercise cadence: quarterly-to-annual. <em>This is the gap's center of mass.</em></li>
+<li><strong>D3 — deep dormancy</strong> (wake bound: days, usable on demand). Legal-hold evidence systems, escrowed updates under multi-year release terms, cold wallets with paper procedures, seed-vault-grade software artifacts. Exercise cadence: annual-to-multi-year, with <em>probe</em> (non-invasive) substitutions between full exercises.</li>
+</ul>
+<p>The classes are not flavors but <em>contracts</em>: a class declares who is allowed to forget what, how fast, and at what verification price. Class D2 is where the economics bite — frequent enough that rot accumulates, rare enough that nobody remembers the details.</p>
+<h3 id="s22">2.2 The four decay channels</h3>
+<p>What actually kills dormant software is enumerable, and the enumeration matters because each channel has a distinct sensor and a distinct countermeasure:</p>
+<ol>
+<li><strong>Capability drift</strong> — the environment removes what the artifact depends on. The TLS handshake of 2018 is refused by the endpoint of 2026; the syscall is gone from the kernel; the cloud API's v2 endpoint returned 404 sometime in 2023; the firmware image assumes a bootloader partition layout that the vendor silently changed. This is the channel with the <em>largest measured surface</em> in the wild, and the one cloud-native architecture accelerated: the assumption of continuous reachability made endpoint churn someone else's cost — until the dormant artifact wakes and finds the address vacant.</li>
+<li><strong>Credential expiry</strong> — secrets die on the clock. Code-signing certificates, TLS chains, API tokens, and encryption subkeys all carry lifetimes chosen for <em>continuously-maintained</em> systems, where rotation is routine. A dormant artifact inherits short-lived credentials with no rotation loop: the wake proceeds, the handshake fails, and the failure is discoverable only by waking. The 2021 mass breakage from a widely-trusted root certificate's expiry — old devices dropping off the web they still nominally spoke — is the public demonstration that clock-time kills stopped systems (event details: verification queued; the class of event is the point, not the instance).</li>
+<li><strong>Media decay</strong> — the physical layer rots. Flash loses charge over years; the celebrated archival USB stick is among the <em>worst</em> storage media for dormancy, a fact almost perfectly inverse to its popularity in emergency kits; optical media outlasts it by an order of magnitude; paper's century-plus half-life embarrasses every digital competitor. Multi-copy, multi-media storage with checksums is the partial answer — but a checksum proves the bits; it says nothing about whether the bits still <em>run</em> (the distinction Section 3's archival science knows well).</li>
+<li><strong>Knowledge decay</strong> — the humans leave. The runbook's author changes jobs; the six laminated steps reference an internal wiki that was migrated twice; the only engineer who knew why step four has a 90-second timeout is now a manager in another time zone. The bus-factor protocol (P-010) formalized this for package maintainers; here it recurs at the scale of a single laminated card, where the bus factor is usually one from day one.</li>
+</ol>
+<h3 id="s23">2.3 Wake-time assurance</h3>
+<p>The measurable object: <strong>wake-time assurance</strong> W(D, T) = P(system meets its declared service contract within its declared wake bound, after T time dormant). The definition does the same work SRE's error budgets did for availability: it converts an aspiration into a number a contract can hold. Declaring a dormancy class is committing to a W floor; failing a scheduled exercise is burning the budget; and the readiness contract of Section 5.5 prices the difference. Note what the definition implies: W is <em>conditional on the environment's</em> churn — a D2 artifact with identical bits can have W = 0.98 in one infrastructure and W = 0.4 in another, because capability drift is a property of the world, not the artifact. Dormancy engineering is therefore intrinsically an <em>actuarial</em> discipline: it models the environment's removal rates (Section 5.2) the way reliability engineering models component failure rates — the artifact is a component, the world is the machine.</p>
+<h2 id="s3"><span class="secno">3.</span>The landscape: mature on both sides, empty in the middle</h2>
+<p><strong>SRE and continuous verification.</strong> The always-on regime's discipline: SLIs and SLOs, canaries, synthetic monitoring, game days, chaos engineering. Its methods measure and maintain <em>running</em> systems; its tools assume telemetry exists. A dormant artifact has no telemetry by definition — it emits nothing, so it cannot page, so the monitoring tradition has no object to attach to. The discipline's one transferable gift is the exercise philosophy: rehearse failure deliberately. Verdict: the philosophy transfers; the machinery does not apply.</p>
+<p><strong>Software preservation: Software Heritage, emulators, OAIS.</strong> The archival regime's discipline, and it is genuinely rigorous — OAIS (ISO 14721) specifies ingest, storage, and <em>designated communities</em>; Software Heritage's content-addressed vault preserves sources at scale; emulation research (Emularity, EaaSI) demonstrates re-execution of decades-old artifacts. The boundary is in the <em>guarantee</em>: archival guarantees <em>preservation</em>, with executability as a research goal, and its success criterion is scholarly access under no time pressure. A courtroom's 48-hour production order, a hospital's down week, or an emergency network's 4-hour activation target are not in the model. Verdict: the preservation half of dormancy, mature and adoptable; the operational half, absent.</p>
+<p><strong>MIL storage standards and shelf-life engineering.</strong> The tradition of equipment that must work after decades in a crate: storage-condition specs, preservation packaging, periodic inspection cycles, the military's culture of monthly checks. This is the closest <em>institutional</em> precedent — maintenance-by-calendar rather than maintenance-by-telemetry — and the exercise calendar of Section 5.4 is its direct transplant into software terms. Verdict: the precedent proves institutions can run calendar-based assurance programs for decades; the specifics never crossed to software artifacts.</p>
+<p><strong>Seed banks and germination testing.</strong> Svalbard's operators periodically germination-test stored seed lots to measure <em>viability</em>, not just presence: the analogue is exact — the archive's integrity check (checksum) versus the archive's <em>viability check</em> (does it grow). The paper's probe/exercise distinction (Section 5.3) is the software translation. Verdict: the conceptual model exists, in another kingdom of engineering entirely.</p>
+<p><strong>Backup and disaster-recovery practice.</strong> The one software-adjacent field with genuine dormancy muscle: restore testing, DR drills, immutable snapshots, air-gapped copies. DR is the <em>founding</em> use case of this paper's D2 class, and the better enterprises run annual restore tests. But DR tooling is scoped to <em>data</em> recovery within vendor ecosystems — its wake probes are restore jobs, its contracts are RTO/RPO — and nothing generalizes to the boot stick's TLS handshake, the radio firmware's endpoint, the evidence tool's format readers, or the knowledge channel. Verdict: the strongest existing fragment; domain-bound to backup/restore.</p>
+<p><strong>Containerization and its illusion.</strong> The reflexive modern answer: "containerize it; images are portable." The illusion dissolves on inspection — registries delete unused images (the major registry's free-tier purge events are public; details verification-queued), base images churn under CVE pressure, the image format itself moves, and the runtime that boots the image assumes a kernel that drifts. A container is a <em>snapshot of an environment contract</em>, and the contract's other party keeps editing the terms. Verdict: a dormancy <em>mechanism</em> that pretends to be a dormancy <em>guarantee</em>.</p>
+<p><strong>Table 1: the landscape, graded.</strong></p>
+<div class="tbl-wrap"><table class="paper-table"><thead><tr><th>System</th><th>Models time</th><th>Exercise</th><th>Credential clock</th><th>Media plan</th><th>Knowledge plan</th><th>Wake bound contract</th></tr></thead><tbody><tr><td>SRE continuous verification</td><td>running time</td><td>continuous</td><td>rotation built-in</td><td>n/a</td><td>runbooks + game days</td><td>SLO (while running)</td></tr><tr><td>Software Heritage / OAIS</td><td>archival time</td><td>none (preservation)</td><td>out of scope</td><td>mature</td><td>designated community</td><td>access, unbounded</td></tr><tr><td>MIL storage standards</td><td>shelf time</td><td>calendar inspection</td><td>partial</td><td>preservation packaging</td><td>institutional</td><td>implied</td></tr><tr><td>Seed-bank germination</td><td>shelf time</td><td>viability tests</td><td>n/a</td><td>cold storage, multi-copy</td><td>institutional</td><td>implied</td></tr><tr><td>Backup/DR drills</td><td>recovery time</td><td>restore tests</td><td>partial</td><td>immutable snapshots</td><td>DR runbooks</td><td>RTO/RPO for <em>data</em></td></tr><tr><td>Container snapshots</td><td>none (implicit)</td><td>none</td><td>image CVE churn</td><td>registry deletion risk</td><td>none</td><td>none</td></tr><tr><td><strong>This spec</strong></td><td><strong>dormancy time</strong></td><td><strong>probe/exercise ladder</strong></td><td><strong>ledger + wake probe</strong></td><td><strong>multi-media, checksummed</strong></td><td><strong>succession pointer</strong></td><td><strong>declared wake bound</strong></td></tr></tbody></table></div>
+<p>Components PARTIAL-to-STRONG on both flanks; the middle regime vacant. The falsifiable claim: <em>no deployed system declares a dormancy class, maintains a drift ledger, schedules escalating probes, and contracts a wake bound for a non-running software artifact.</em> One counterexample refutes it.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap survived</h2>
+<p><strong>The always-on regime won the culture.</strong> The industry's center of gravity moved decisively toward continuously-exercised systems: cloud-native, microservices, observability, chaos engineering — all fluent in the running state and structurally mute about the stopped one. The stopped state became a <em>failure</em> to be paged about, not a <em>regime</em> to be engineered — so the artifacts that are supposed to be stopped (the emergency kit, the break-glass path) inherited no vocabulary. Their owners file them under "backup," a word whose practice covers data and dissolves before software.</p>
+<p><strong>Dormancy failures are invisible until they are catastrophic.</strong> An always-on system's failure pages someone at 3 a.m. and gets fixed; a dormant system's failure is discovered <em>inside the emergency it was built for</em>, when the marginal cost of discovery is the event itself. The feedback loop is inverted: the worse the rot, the quieter the years that hide it. No telemetry, no page, no ticket, no burn-down — the organizational absence this program's other papers keep cataloguing (defaults were ungoverned because invisible; complexity was unaccounted because diffuse; here the root is <em>temporal</em>: the failure mode only manifests when nothing else is working).</p>
+<p><strong>Certification chose snapshots over processes.</strong> Compliance regimes audit <em>the state of artifacts</em> — the sealed kit exists, the runbook is filed, the evidence vault is locked — because states are photographable. Dormancy assurance is a <em>process property</em>: a schedule kept, a ledger maintained, a probe history proving the artifact stayed alive. A framework that photographs cannot certify a heartbeat, so the market never demanded one.</p>
+<p><strong>The economics looked trivial and weren't.</strong> "Just boot it once a year" is the folk answer, and it is correct as far as it goes — the way "just eat less" is the folk answer to a metabolic epidemic. The unpriced parts: who owns the calendar across staff changes; what "boot" means when the exercise needs an isolated network; what counts as <em>pass</em> (it started? it started and reached its first dependency? it completed a representative workload?); what happens on <em>partial</em> pass; and who renews the credentials the clock keeps killing. The folk answer outsources all of that to heroism, and heroism does not survive reorganizations.</p>
+<p><strong>The container illusion arrived at the perfect time.</strong> Right as practitioners might have noticed the drawer, the industry handed them a story in which the problem no longer existed. The story is load-bearing and false (Section 3), and it will take a decade of registry-purge and endpoint-churn casualties to falsify it publicly at scale.</p>
+<h2 id="s5"><span class="secno">5.</span>The specification</h2>
+<h3 id="s51">5.1 The readiness manifest</h3>
+<p>Every dormant artifact ships with a machine-readable manifest — the wake contract's terms:</p>
+<p><code>dormancy: { class: D2, wake_bound: 4h, exercise: semiannual, probes: [monthly], owner: role-not-person, succession: pointer, environment: { min_kernel, endpoints[], crypto[], formats[] }, credentials: { inventory, expiry_ledger }, media: { copies, media_types, checksums } }</code></p>
+<p>Three design decisions inside the fields. <em>Owner is a role, not a person</em> — the knowledge-decay channel's first countermeasure, borrowed from the bus-factor protocol's legibility rules (P-010). <em>Environment is enumerated as a capability list</em> — the drift ledger's seed. <em>Credentials are inventoried with expiries</em> — the clock's channel made visible before it bites. The manifest is itself versioned and checksummed in every media copy; a manifest that cannot be found or trusted is a wake failure discovered at wake time, which is one wake failure too late.</p>
+<h3 id="s52">5.2 The environment-drift ledger</h3>
+<p>The artifact's environment section is maintained as a <em>ledger of observed world-changes</em>: endpoint monitor results, deprecation notices from dependencies, TLS capability surveys. The wake probe ladder (5.3) updates it; between probes, the ledger's <em>model</em> extrapolates: endpoints with historical annual removal probability p are risk-scored as the dormancy interval grows. This is the actuarial heart of the discipline — W(D, T) is computable from the ledger without waking the artifact, and <em>that</em> is what turns the readiness contract from a promise into a forecast. The ledger's data sources are deliberately boring (availability probes, vendor deprecation feeds, certificate transparency logs for the crypto section), and its aggregation is deliberately cheap: a dormant artifact's monitoring budget should be a rounding error against a running service's, or the discipline prices itself out of its own market.</p>
+<h3 id="s53">5.3 The wake-probe ladder</h3>
+<p>Probing at three depths, escalating:</p>
+<ul>
+<li><strong>P1 — presence probes</strong> (cheap, monthly): checksum media copies; verify manifest integrity; confirm key custody. No execution. Catches media decay and custody loss.</li>
+<li><strong>P2 — capability probes</strong> (quarterly): from an <em>isolated</em> environment, exercise the artifact's external dependencies — TLS handshakes against its endpoints, API shape checks, DNS reachability, root-store validation of its certificate chains. No full boot of the artifact. Catches capability drift and credential expiry — the two clock channels — at their <em>source</em>, before the artifact's own state matters.</li>
+<li><strong>P3 — exercise</strong> (semiannual or annual): full wake in an isolated environment, against mocked or sandboxed versions of the live world, completing a <em>representative workload</em>: the boot stick restores a canary image; the enrollment kit enrolls a synthetic student; the evidence tool decrypts and produces a test container. Pass criteria declared in advance in the manifest — it started; it reached first dependency; it completed workload within wake bound × 2 (the doubling is honest: an isolated exercise is a rehearsal, not the performance).</li>
+</ul>
+<p>The P2/P3 distinction is the seed bank's germination insight generalized: <em>viability</em> is measurable without <em>planting the whole field</em>. A full exercise is expensive and mildly risky (secrets exposed to a sandbox, calendars consumed); the ladder buys most of the assurance at a fraction of the cost, and the calendar (5.4) spends the full exercise only when probe evidence says the world moved.</p>
+<h3 id="s54">5.4 The exercise calendar and escalation policy</h3>
+<p>The calendar is the discipline's spine: P1 monthly, P2 quarterly, P3 semiannual, with <em>event-driven escalation</em> — a ledger entry showing endpoint churn, a root expiry, a dependency deprecation triggers the next-depth probe immediately. The policy is an event-sourced audit trail: every probe appended with actor, timestamp, result; missed probes accumulate as <em>burned readiness</em> visible in the next audit (the error-budget's dormancy twin). The succession pointer in the manifest designates the probe's runner as a role; calendar systems already handle role-based assignment, and the manifest's succession field links to the bus-factor machinery's succession registry (P-010) when one exists upstream.</p>
+<h3 id="s55">5.5 The readiness contract and the audit form</h3>
+<p>The contract binds three parties: the owner declares class, wake bound, and cadence; the auditor (internal or insurer-grade) verifies the probe history against the manifest; and the <em>consumer</em> of the artifact — the hospital administrator, the court, the emergency network's coordinator — receives the only artifact that matters: a dated, signed statement of the form <em>"This system is warranted to wake within 4 hours and complete its declared workload, with wake-time assurance estimated at 0.97, last exercised 2026-04-11, drift ledger current through 2026-10."</em> The audit form is deliberately short — history table, ledger currency, credential state, knowledge-channel check (succession pointer answered within 72h in a challenge test) — because audit forms that are long become shelf documents, and shelf documents are this discipline's enemy. Procurement language is the adoption wedge: any vendor selling "cold standby," "break-glass," or "offline recovery" can be held to the contract's terms, which is precisely the language no current vendor can sign — the gap's market shape, made executable.</p>
+<h3 id="s56">5.6 Design for dormancy: the artifact-side rules</h3>
+<p>The protocol above meets the artifact halfway; artifacts can be <em>built</em> to sleep better, and the rules are cheap at design time and ruinous to retrofit:</p>
+<ul>
+<li><strong>Clock independence</strong>: never let correctness depend on wall-clock trust at wake; handle expired-cert failure with an explicit degraded path rather than a crash (the wake probe will find it either way — the rule makes the finding survivable).</li>
+<li><strong>Endpoint pinning with declared alternates</strong>: ship the capability list <em>and</em> fallbacks; the ledger tracks both.</li>
+<li><strong>Bundled secrets with expiry-laddering</strong>: rotate <em>before</em> dormancy into the longest-lived credential class the counterparty supports, and record the ladder in the manifest.</li>
+<li><strong>Media diversity</strong>: never a single USB; the multi-copy rule with at least two media families (optical + flash, or flash + paper-encoded for the smallest critical secrets).</li>
+<li><strong>The manifest is the artifact</strong>: every copy ships the manifest; every exercise updates it; a found-without-manifest artifact is <em>presumed dead</em> until proven otherwise — the presumption that makes honest discovery the default.</li>
+</ul>
+<h2 id="s6"><span class="secno">6.</span>Evaluation design</h2>
+<ol>
+<li><strong>Dormancy audit of real kits.</strong> Recruit 20 real D2 artifacts (break-glass runbooks, sealed emergency media, legal-hold tooling, radio firmware images) across organizations; run the P2/P3 ladder against them; report pass rates by decay channel. Hypothesis: majority failure, dominated by capability drift and credential expiry — the audit <em>itself</em> is the paper's headline instrument, since the current pass rate is unknown precisely because nobody measures it.</li>
+<li><strong>Ledger forecast validation.</strong> For artifacts with probe history, test whether W(D, T) forecasts from the drift ledger predict exercise outcomes (calibration curves, Brier scores on pass/fail). Success: forecast beats a base-rate guess.</li>
+<li><strong>Calendar adherence study.</strong> Deploy the manifest+calendar pattern with three organizations for 18 months; measure probe adherence, escalation latency, and the succession challenge's response rate.</li>
+<li><strong>Wake economics.</strong> Cost accounting across the ladder: P1/P2/P3 costs versus the always-on alternative and the no-maintenance baseline, at D2 and D3. Success: the ladder dominates both at realistic event probabilities.</li>
+</ol>
+<h2 id="s7"><span class="secno">7.</span>What this is not</h2>
+<p><strong>Not high availability.</strong> HA keeps systems running through failure; dormancy engineering keeps <em>stopped</em> systems wakeable through time. The tools overlap (probes, drills) and the contracts differ (uptime SLO vs wake bound). <strong>Not archival.</strong> Preservation guarantees the bits exist; this discipline guarantees the bits <em>work</em> — OAIS composition is welcome, and its criteria (designated community, ingest discipline) are borrowed, but the success predicate differs. <strong>Not a backup product.</strong> DR tooling covers data recovery well; the specification generalizes to artifacts whose wake depends on live environments, credentials, and humans — the class DR does not model. <strong>Not a container-scanning vendor.</strong> Image CVE scanners audit <em>contents</em>; the drift ledger audits the <em>world's side of the contract</em> — the registry's and endpoint's behavior over calendar time, which no current scanner models. <strong>Not rotation-only credential hygiene.</strong> Rotation keeps running systems fresh; the ladder keeps sleeping systems' credentials <em>valid</em> or their expiry <em>known</em>, which is a different actuarial object.</p>
+<h2 id="s8"><span class="secno">8.</span>Objections, confronted</h2>
+<p><strong>"Just keep it running."</strong> The counsel of the always-on regime, and it fails three ways: the artifact's value often <em>is</em> its disconnection (the air gap is the security model); running costs continuous money against a conditional event (the economics invert exactly at D2); and the always-on copy is not the dormant artifact — the sealed kit, the escrowed image, and the evidence container have identity and legal meaning that a parallel running instance does not share. <strong>"Containers solve this."</strong> Section 3's analysis: registries purge, bases churn, kernels drift — the image freezes the artifact's side of a contract whose other party keeps editing. The drift ledger is precisely the missing other side. <strong>"Test it once a year — how hard?"</strong> Section 4 priced the folk answer: ownership across reorganizations, isolation for the exercise, pass criteria, partial passes, credential renewal — the calendar is the difference between an intention and an institution. <strong>"Nobody will pay for dormant assurance."</strong> They already pay for its absence — inside the emergencies the kits exist for — but the bill arrives unpriced and unlabeled, which is the feedback-visibility problem of Section 4. The readiness contract's procurement wedge converts the unpriced bill into a line item vendors compete on. <strong>"Air-gapped artifacts can't have ledgers/probes."</strong> The probes run from <em>adjacent</em> semi-isolated stations against mirrored world-state; the ledger lives outside the gap and predicts across it. The air gap constrains <em>data flow in</em>, not <em>assurance flow around</em>.</p>
+<h2 id="s9"><span class="secno">9.</span>Limitations</h2>
+<p>The environment model is an extrapolation over a partially observable world — endpoints die without notice, and the ledger's forecasts carry the honest uncertainty of any actuarial table (the evaluation's Brier-score instrument exists because the forecasts will sometimes be wrong). Exercise fidelity is bounded: a sandboxed P3 workload is a rehearsal, and real wakes will find conditions the rehearsal mocked away — the wake-bound doubling in 5.3 is the acknowledgment, not a fix. The knowledge channel resists full mechanization: the succession challenge checks that <em>someone</em> answers, not that the answer is right; deeper verification costs exactly the human attention whose decay is being measured. The D3 regime inherits cryptographic epoch risk (the migration of the world's roots and algorithms) that no ladder shorter than re-instrumentation fully covers. And the discipline's adoption depends on the audit ecosystem — without insurers or procurement demanding the contract, the manifest is a document drawer-bound next to the artifact it describes; the DEPA-style lesson from P-017 applies: regulated perimeters adopt protocols first, and the general web follows only when the priced silence gets loud. Citations from domain knowledge carry <em>verification-queued</em> status through the live-source ledger.</p>
+<h2 id="s10"><span class="secno">10.</span>Conclusion</h2>
+<p>The drawer is not neutral. Everything in it — the boot stick, the sealed firmware, the evidence tool, the runbook's six laminated steps — is running a race against a world that edits itself on a clock, credentials that die politely in the dark, media that forgets, and people who move on. The industry's two mature regimes, always-on and archival, cover the race's two banks and none of its middle: the artifacts whose entire purpose is to sleep through the years and wake in the emergency. Dormancy engineering gives that middle a class system, an actuarial ledger for the world's churn, a probe ladder that measures viability without planting the field, a calendar that survives reorganizations, and a contract that lets a hospital administrator, a judge, or an emergency coordinator read one sentence — <em>this will wake within four hours; here is the proof it still can</em> — and act on it. The seed vaults already run this discipline for germplasm; the arsenals ran it for crates; the DR rooms almost ran it for data. Software — the most churn-dependent artifact class humanity has ever produced — is the last one still filing its emergency kits under a laminated promise. The promise is now a protocol.</p>
+<h2 id="references">References</h2>
+<p><em>Verification-queued marks follow the program's citation-honesty convention.</em></p>
+<ol>
+<li>Google SRE Team. <em>Site Reliability Engineering</em> (error budgets, game days, chaos practice). O'Reilly, 2016.</li>
+<li>ISO. <em>ISO 14721: Open Archival Information System (OAIS)</em> — reference model.</li>
+<li>Software Heritage. <em>The Software Heritage Archive</em> — content-addressed source preservation. swheritage.org.</li>
+<li>Abrams, S., et al. on emulation-based re-execution of preserved software. (EaaSI program publications; verification queued.)</li>
+<li>United States Department of Defense. <em>MIL-STD storage and preservation packaging standards</em> (calendar-inspection tradition; verification queued.)</li>
+<li>Svalbard Global Seed Vault / NordGen. <em>Germination testing procedures for stored seed lots</em>. (verification queued)</li>
+<li>ISRG / Let's Encrypt. <em>DST Root CA X3 expiry and legacy-client breakage, September 2021</em>. (verification queued)</li>
+<li>Docker Inc. <em>Free-tier image deletion policy announcements, 2023–24</em>. (verification queued)</li>
+<li>Snedaker, S. on business continuity and DR testing cadence. (verification queued)</li>
+<li>Vovk, P. et al. on cold-storage cryptocurrency custody procedures. (verification queued)</li>
+<li>Rosenthal, D. S. H. "Emulation as a digital preservation strategy." <em>D-Lib Magazine</em>, 2015-ish. (verification queued)</li>
+<li>Gray, J., van Ingen, C. <em>Empirical measurements of disk error rates</em>. MSR-TR. (media-failure priors; verification queued)</li>
+<li>p-rick research program. <em>P-008 The Afterlife of Devices; P-010 The Bus Factor Protocol; P-011 Model Extinction; P-004 Degradation Contracts</em>. 2026.</li>
+<li>RFC 8446 / TLS capability evolution literature. (handshake-version drift priors; verification queued)</li>
+<li>Jones, C. <em>Applied Software Measurement</em> (maintenance-to-development cost ratios; verification queued)</li>
+<li>Backblaze. <em>Drive-stats and flash-decay annual reports</em>. (media priors; verification queued)</li>
+</ol>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p018.html"><span class="pn-k">&larr; previous</span><span class="pn-t">Epistemic Half-Life: Truth Decay Semantics for Stored Data</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p020.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Blast Radius Engineering: Personal Reliability Engineering for Correlated Failure</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p019,
+  title       = {Dormancy Engineering: Software Design for the Long Sleep},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-019},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p019.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

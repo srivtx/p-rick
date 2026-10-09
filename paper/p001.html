@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events — p-rick P-001</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p001.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p001.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-001","url":"https://srivtx.github.io/p-rick/paper/p001.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-001 &middot; series I &middot; User-owned data</p>
+      <h1 class="paper-title">The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source</a> &middot; <a href="../pdfs/p-001.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-001.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-001-personal-event-bus.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p001.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">personal event bus</span><span class="kw">local-first</span><span class="kw">ambient computing</span><span class="kw">data portability</span><span class="kw">middleware</span><span class="kw">privacy</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The problem: ambient events, institutional amnesia</a></li><li><a href="#s3"><span class="tocn">3.</span>The design space: fifteen adjacent systems, none in the center</a></li><li><a href="#s4"><span class="tocn">4.</span>Formal specification</a></li><li><a href="#s5"><span class="tocn">5.</span>Architecture</a></li><li><a href="#s6"><span class="tocn">6.</span>Threat model and trust boundaries</a></li><li><a href="#s7"><span class="tocn">7.</span>Why the gap persists</a></li><li><a href="#s8"><span class="tocn">8.</span>Adoption mechanics: vertical-first, retrofitted substrate</a></li><li><a href="#s9"><span class="tocn">9.</span>Platform feasibility and the regulatory argument</a></li><li><a href="#s10"><span class="tocn">10.</span>Limitations and honest risks</a></li><li><a href="#s11"><span class="tocn">11.</span>Roadmap and open problems</a></li><li><a href="#s12"><span class="tocn">12.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#appendix-a-survey-method">Appendix A — Survey method</a></li><li><a href="#disclosure">Disclosure</a></li><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>Consider an ordinary Tuesday. A bank pushes a notification: "₹1,199 debited by UPI mandate to NATIONWIDE-INSURE". A pharmacy app emails a receipt for a refill. A flight app notifies a gate change. A subscription renews silently on a card. Each of these is a <em>structured, consequential, machine-parseable event</em> about your life. What happens to them?</p>
+<p>The bank's notification scrolls away after a glance. The email sits in an inbox of ten thousand. The renewal charge surfaces a month later in a statement PDF. The events are <em>ambient</em> — they arrive unprompted, unauthenticated by you, and semantically dense — and the computing ecosystem's answer to them is, functionally, <em>amnesia</em>. Weiser and Brown's "calm technology" program anticipated ambient information that stays in the periphery until it matters; what it did not anticipate is that the infrastructure of <em>remembering</em> would never be built.</p>
+<p>This is a strange state of affairs, because every ingredient needed to remember is present. Phones can observe their own notifications (Android has exposed <code>NotificationListenerService</code> since API 18). Inboxes are machine-readable via IMAP. On-device models can parse free text into structured records without a byte leaving the phone. Storage is effectively free. Yet no mainstream system composes these ingredients into a durable personal memory. The result is a systemic asymmetry: <em>platforms</em> keep exhaustive behavioral records of users, while <em>users</em> keep almost none of the events that constitute their financial and civic lives. Institutional memory without personal memory is the defining data asymmetry of the current era — and most responses to it (privacy law, delete buttons, vaults) treat data as a <em>stock</em> while ignoring that for the individual, the meaningful unit is a <em>flow</em>.</p>
+<p>This paper names and specifies the missing layer. We call it the <strong>personal event bus</strong>: a user-owned, on-device middleware that (a) captures ambient events through pluggable adapters, (b) normalizes them into a versioned schema, (c) appends them to an encrypted, append-only local log, and (d) exposes typed, revocable subscriptions to local consumer applications — with all inference on-device.</p>
+<p>The contributions of this paper are:</p>
+<ol>
+<li><strong>A naming and bounding of a barely-named software category.</strong> Exact-term searches for the concept return nothing but noise (Appendix A documents the search protocol); the category has no incumbents because it has no stable name. We give it one and delimit it from fifteen adjacent systems (Section 3).</li>
+<li><strong>A formal specification</strong> of the event model, log, and permission calculus, sufficient for independent interoperable implementations (Section 4).</li>
+<li><strong>An architecture</strong> for capture adapters, parser plugins, and consumer APIs, with a privacy threat model that treats <em>parser plugins</em> as the primary trust boundary (Sections 5–6).</li>
+<li><strong>An explanation of persistence</strong> for the gap: infrastructure-first sequencing failures across a decade of attempts (Solid, Databox, HAT, digi.me), a 2019 platform-policy event that chilled the SMS-parsing generation, and the chicken-and-egg problem of middleware without consumers (Section 7).</li>
+<li><strong>Adoption mechanics</strong> grounded in a shipping case study — PocketVeto, an Android application whose payment-notification capture is an existence proof for one bus adapter (Section 8).</li>
+<li><strong>A regulatory extension</strong>: personal data portability under GDPR Article 20 and the DMA is defined over data <em>provided by</em> the user, not event streams; we argue the bus is the correct receiving endpoint for event-level portability and propose the standard's role in that future (Section 9).</li>
+</ol>
+<p>We are deliberate about what this paper is not. It is not a proposal for another cloud automation service, a personal knowledge base, or a research prototype awaiting a data-warehouse backend. The position is narrower and more infrastructural: the bus is to personal events what the print spooler is to documents — boring, local, universally assumed, and therefore never built on purpose.</p>
+<hr>
+<h2 id="s2"><span class="secno">2.</span>The problem: ambient events, institutional amnesia</h2>
+<p>Define an <strong>ambient personal event</strong> as a machine-delivered record of a real-world transition involving the user — a payment, a shipment, an appointment, a renewal, a price change, a recall — that arrives <em>without user initiation</em> and carries <em>parseable structure</em> (sender identity, timestamp, amounts, counterparties, references).</p>
+<p>Ambient events differ from the personal data that privacy scholarship usually concerns itself with in three ways:</p>
+<ul>
+<li><strong>Provenance.</strong> They are <em>pushed to</em> the user by counterparties (banks, merchants, carriers, governments). The user is the recipient, not the requester. This matters legally: GDPR Article 20 portability covers data "provided by" the data subject, and an event pushed by a bank sits in a gray zone.</li>
+<li><strong>Temporality.</strong> Their value decays. A payment notification is maximally actionable within seconds (fraud), useful within days (budgeting), and merely archival within months. A stock-oriented model (export, archive, vault) systematically arrives too late.</li>
+<li><strong>Composition.</strong> No single source suffices. A complete picture of a household's financial events is scattered across one bank's SMS channel, three UPI apps' notifications, two card issuers' emails, and a merchant's e-receipts. Any single-source tool is structurally partial.</li>
+</ul>
+<p>The consequences of discarding this stream are not hypothetical. They are the subject of two companion papers in this program: subscription autopays persist because renewal events are never observed and compared (P-002: unclaimed consumer rights, of which silently renewed subscriptions are a leading instance, run to billions per year); and price histories vanish because purchase events are never accumulated, making personal inflation uncomputable (P-003). Both downstream failures trace to the same upstream absence: <strong>there is no place for the events to land.</strong></p>
+<hr>
+<h2 id="s3"><span class="secno">3.</span>The design space: fifteen adjacent systems, none in the center</h2>
+<p>We surveyed the landscape across products, open-source projects, and research systems (protocol in Appendix A). The result is summarized in Table 1, along five axes that define the design space: <em>capture</em> (does it ingest ambient events?), <em>durability</em> (does it persist them?), <em>semantics</em> (does it normalize structure?), <em>consumers</em> (can third-party apps subscribe?), and <em>ownership</em> (is the data user-held and local?).</p>
+<p><strong>Table 1 — The design space.</strong></p>
+<div class="tbl-wrap"><table class="paper-table"><thead><tr><th>System / category</th><th>Capture</th><th>Durability</th><th>Semantics</th><th>Consumers</th><th>Ownership</th></tr></thead><tbody><tr><td>Solid pods / Inrupt</td><td>—</td><td>✓ (documents)</td><td>linked data</td><td>web apps (ACL)</td><td>user-held</td></tr><tr><td>IFTTT / Zapier</td><td>✓ (cloud triggers)</td><td>—</td><td>per-service</td><td>actions</td><td>vendor-held</td></tr><tr><td>Node-RED / n8n / Huginn</td><td>✓ (feeds, incl. IMAP)</td><td>✓</td><td>ad hoc</td><td>flows</td><td>self-hosted</td></tr><tr><td>Home Assistant</td><td>✓ (device/integration events)</td><td>✓ (recorder)</td><td>typed per integration</td><td>local automations</td><td>user-held</td></tr><tr><td>MyLifeBits (Bell &amp; Gemmell, MSR 2001–07)</td><td>✓ (lifelogging)</td><td>✓</td><td>— (raw artifacts)</td><td>research UI</td><td>local</td></tr><tr><td>KDE Connect / Pushbullet</td><td>✓ (mirror)</td><td>—</td><td>—</td><td>other devices</td><td>paired</td></tr><tr><td>Apple Shortcuts / Automations</td><td>partial</td><td>—</td><td>shallow</td><td>Apple only</td><td>sandboxed</td></tr><tr><td>Apple Intelligence / Gemini</td><td>✓ (on-device)</td><td>—</td><td>vendor AI</td><td>first-party</td><td>vendor</td></tr><tr><td>Notification-history apps (Notlog, Catch Notify)</td><td>✓</td><td>✓ (raw text)</td><td>—</td><td>single app</td><td>local</td></tr><tr><td>Vertical capture apps (Walnut, ET Money, PocketVeto)</td><td>✓</td><td>✓</td><td>one vertical</td><td>own app only</td><td>varies</td></tr><tr><td>Tasker / AutoNotification</td><td>✓</td><td>— (variables)</td><td>ad hoc</td><td>own tasks</td><td>local</td></tr><tr><td>Databox / HAT / digi.me (research)</td><td>✓ (partner APIs)</td><td>✓</td><td>mixed</td><td>consented firms</td><td>box/vault</td></tr><tr><td>Local-first CRDT apps (Kleppmann et al.)</td><td>—</td><td>✓</td><td>documents</td><td>collaborators</td><td>local-first</td></tr><tr><td>Google Takeout</td><td>— (batch)</td><td>✓ (files)</td><td>raw</td><td>manual</td><td>export-only</td></tr><tr><td><strong>Personal event bus (proposed)</strong></td><td><strong>✓ (ambient)</strong></td><td><strong>✓ (append-only)</strong></td><td><strong>✓ (normalized)</strong></td><td><strong>✓ (typed, local)</strong></td><td><strong>✓ (user)</strong></td></tr></tbody></table></div>
+<p>Four observations follow.</p>
+<p><strong>First, the center is unoccupied.</strong> Every existing category is strong on one or two axes and absent on the rest. Solid stores documents but captures nothing ambient. IFTTT routes triggers but persists nothing and routes them through vendor cloud. Notification loggers capture everything but normalize nothing and share with no one. Vertical finance apps capture and normalize but only for their own schema and their own consumption.</p>
+<p><strong>Second, the two OS vendors are converging on a closed subset of the center.</strong> As of October 2026, Apple Intelligence summarizes notifications on-device and Android's Gemini-era stack does similarly (vendor documentation; these are moving targets — the urgency argument below degrades if either ships durable, open notification subscriptions, and we would welcome the obsolescence). Both are currently ephemeral (no durable log), first-party-only (no third-party subscriptions), and non-interoperable (no schema export). The semantic layer over notifications is being built — <em>as a proprietary feature, not as infrastructure</em>. The window for an open version is closing.</p>
+<p><strong>Third, the closest relatives died of sequencing — or scoped themselves elsewhere.</strong> Imperial College's Databox (Haddadi et al., 2016) proposed a personal, networked box for consented data processing, with trusted execution and per-app data access — and has been dormant since ~2018. The HAT and digi.me lineage similarly aimed at personal data marketplaces and pivoted or wound down (digi.me moved to medical records). ProjectVRM, Searls' long-running customer-empowerment program, concluded as recently as 2025 that the infrastructure future it advocated "is still not here." Home Assistant proves local, user-owned event-bus architecture is buildable and beloved — but for devices, never for personal records; MyLifeBits proved a decade of durable personal capture in research — without schemas, subscriptions, or permissions; the Context Toolkit (Dey &amp; Abowd 2001) supplied typed context subscriptions for ubicomp research a quarter-century ago. These were not wrong ideas; they were <em>infrastructure-first</em> ideas, shipped before any consumer application created demand, or <em>adjacent-domain</em> ideas that never crossed into personal records. We return to this in Section 7.</p>
+<p><strong>Fourth, an exact-term search for the category returns noise.</strong> Searches for "personal event bus" and "ambient ledger" surface no product, standard, or project claiming the concept (Appendix A). The category is not contested; it is <em>unnamed</em>. Naming is cheap coordination — we do not claim that names cause categories, only that an unnamed category cannot be found by the founders and researchers who would build it.</p>
+<hr>
+<h2 id="s4"><span class="secno">4.</span>Formal specification</h2>
+<p>We now specify the bus precisely enough for interoperable implementations. The specification is deliberately minimal; it standardizes the <em>envelope</em>, not the payload taxonomies, which are left to per-domain schema packs.</p>
+<h3 id="s41">4.1 Event model</h3>
+<p>Let <code>E</code> be the set of ambient events. An event <code>e ∈ E</code> is a tuple:</p>
+<p><pre class="code"><code>e = (id, source, type, occurred_at, captured_at, payload, provenance, confidence, lineage)</code></pre></p>
+<ul>
+<li><code>id</code>: content-addressed identifier (e.g., BLAKE3 hash of the canonical serialization).</li>
+<li><code>source</code>: capture adapter identity — <code>{adapter, channel, counterparty_hints}</code> (e.g., <code>{notif_listener, whatsapp://notification, sender=bank}</code>, <code>{imap, inbox/messages/4123, from=payments@stripe}</code>).</li>
+<li><code>type</code>: URI-namespaced event type from a versioned schema pack (e.g., <code>finance/payment/v1</code>, <code>logistics/shipment/v1</code>, <code>calendar/appointment/v1</code>).</li>
+<li><code>occurred_at</code> / <code>captured_at</code>: the real-world event time (parsed or inferred) and the local capture time. The difference is a first-class field; downstream applications must be able to discount late or backfilled captures.</li>
+<li><code>payload</code>: typed record per the schema pack — for <code>finance/payment/v1</code>: <code>{amount, currency, direction, counterparty, mandate_hints[], references[]}</code>.</li>
+<li><code>provenance</code>: cryptographic pointer to the raw artifact (the raw notification bytes, the RFC-822 message) retained in a raw blob store, enabling re-parsing and audit.</li>
+<li><code>confidence</code>: parser-emitted scalar plus per-field confidences. Ambiguity is a <em>first-class</em> state, never silently resolved.</li>
+<li><code>lineage</code>: if this event was derived from another (dedupe, merge, enrichment), the parent <code>id</code>s.</li>
+</ul>
+<h3 id="s42">4.2 The log</h3>
+<p>The bus is an <strong>append-only log</strong> <code>L = e₁, e₂, …</code>, physically stored in an encrypted local database (SQLite as reference), with three structural invariants:</p>
+<ol>
+<li><strong>Immutability.</strong> Events are never updated; corrections are new events with lineage. This is required because the log is evidence — P-002's claim engine consumes it to assert legal entitlements, and evidence must be append-only to be auditable.</li>
+<li><strong>Deterministic ordering and tamper evidence.</strong> By <code>captured_at</code>, with <code>id</code> as tiebreaker. Each event record carries a running hash over the canonical serialization of its predecessor (a per-record chain), and the chain head is periodically checkpointed — anchored, optionally, to any durable external store the user chooses (a personal cloud drive, a paper copy). Verification replays the chain; neither construction replaces cryptography with trust in a remote party.</li>
+<li><strong>Retention policy as data, with an evidence-grade mode.</strong> Per-source retention rules (including infinite) are part of the bus's user-facing configuration, not a storage implementation detail. Because P-002's claim engine treats the log as legal evidence, sources may be marked <em>evidence-grade</em>: deletions in those classes are tombstoned rather than erased (content removed, chain continuity preserved), reconciling GDPR Article 17 erasure with auditability. We state the compromise rather than hide it: tombstoning shifts what can be <em>proven</em> from content to continuity, and downstream consumers (P-002 §5.5) may rely only on the guarantees stated here.</li>
+</ol>
+<h3 id="s43">4.3 Subscriptions and the permission calculus</h3>
+<p>A <strong>consumer</strong> is a local application that reads the bus. Consumers do not get raw log access. They hold <strong>subscriptions</strong>:</p>
+<p><pre class="code"><code>sub = (consumer_id, type_filter, field_mask, since)</code></pre></p>
+<ul>
+<li><code>type_filter</code>: schema-pack types (a ledger app subscribes to <code>finance/payment/v1</code>).</li>
+<li><code>field_mask</code>: the subset of payload fields the consumer may read — a calendar app gets <code>occurred_at</code> and <code>counterparty_hints</code>, not <code>amount</code>.</li>
+</ul>
+<p>The permission model is <strong>capability-based and revocable</strong>: subscriptions are granted by an explicit user action (an OS-style permission sheet), can be narrowed or revoked without consumer consent, and are enforced by the broker process, not by consumer goodwill. Formally, the information available to a consumer is:</p>
+<p><pre class="code"><code>I(c, t) = Π_mask( L filtered by type_filter, up to t )</code></pre></p>
+<p>where <code>Π_mask</code> is the field-mask projection. This is the calculable privacy property we consider load-bearing: a consumer's access is <em>bounded in field content</em> by its subscription, by construction. We state the residual channels honestly: two consumers with complementary masks can collude to reconstruct records, and event <em>arrival times</em> are a side channel that survives even a null mask (the fact that <em>something</em> happened is itself information). The broker can mitigate (per-consumer delivery pacing; dummy traffic at the user's discretion) but not eliminate these; the claim is bounded, not zero.</p>
+<h3 id="s44">4.4 Parser plugins and schema packs</h3>
+<p>Parsing (raw notification bytes → typed event) is performed by <strong>plugins</strong> — sandboxed, capability-less code (WASM as the reference target) with no network access, selected by a routing table from <code>(channel, sender)</code> to plugin. Schema packs are versioned collections of types + plugins, maintained as community artifacts (the analogue of a blocklist/adblock subscription). This is the standard's <em>open commons</em> layer: the bus is the substrate; the packs are the collaborative corpus.</p>
+<hr>
+<h2 id="s5"><span class="secno">5.</span>Architecture</h2>
+<p>The reference runtime has five components:</p>
+<ol>
+<li><strong>Capture adapters.</strong> Android <code>NotificationListenerService</code> (proven in production by verticals); IMAP IDLE for e-receipts (universal, platform-neutral); SMS where carrier/platform policy permits (India's UPI SMS trail being the canonical high-value case); manual share-sheet fallback for locked platforms.</li>
+<li><strong>Raw blob store.</strong> Verbatim artifacts (notification bytes, MIME messages), content-addressed, encrypted, governed by retention policy.</li>
+<li><strong>Parser router + plugins.</strong> The routing table and sandboxed plugin set; plugins emit typed events with confidences and never touch the network.</li>
+<li><strong>The log and broker.</strong> The append-only store and the process that enforces subscriptions, exposes a local typed API (gRPC-over-UDS or in-process), and emits change notifications to consumers.</li>
+<li><strong>User surfaces.</strong> A permission manager (grants, masks, retention), an event inspector (audit surface), and export (the log in an open serialization — the interoperability escape hatch).</li>
+</ol>
+<p>A deliberate omission: there is <strong>no cloud component, no account, and no telemetry</strong>. Sync (multi-device) is out of scope for v1 and, when it arrives, must be end-to-end encrypted with the log's hash chain intact across replicas.</p>
+<hr>
+<h2 id="s6"><span class="secno">6.</span>Threat model and trust boundaries</h2>
+<p>The interesting adversary is not the network observer (the bus is local and encrypted at rest) but the <strong>components</strong>:</p>
+<ul>
+<li><strong>A hostile consumer app</strong> wants events it is not subscribed to. Mitigated by construction: it can only call the broker, which enforces the mask. The consumer never handles raw artifacts.</li>
+<li><strong>A hostile parser plugin</strong> wants to exfiltrate. It runs sandboxed with no network capability; its only output channel is typed events, which are themselves available for audit in the user-facing inspector. The residual risk — encoding data <em>into</em> typed-event fields (e.g., smuggling a phone number into <code>counterparty</code> so that a subscribed consumer reads it out) — cannot be bounded by the mask, which constrains <em>consumers</em>, not <em>writers</em>. It is mitigated by audit (the inspector shows any plugin's complete output, unmasked) and by plugin provenance (signed packs with reputations). Parser-output audit is an open UX problem, not a solved one, and we flag it as such.</li>
+<li><strong>A compromised host OS</strong> is out of scope; no local-first design survives it. We note, however, that the bus <em>reduces</em> the value of OS compromise for mass surveillance relative to cloud alternatives, because no central collection point exists.</li>
+<li><strong>Counterparty countermeasures</strong> (banks obfuscating notification text to defeat parsing) are a live, ongoing adversarial co-evolution. The provenance store (keeping raw artifacts) is the hedge: parsers are replaceable retroactively, so counterparty obfuscation degrades gracefully rather than catastrophically.</li>
+</ul>
+<p>The privacy calculus literature (Culnan &amp; Armstrong 1999; Dienlin &amp; Trepte 2015) predicts adoption of disclosure-gated systems from perceived benefit versus risk. The bus improves the calculus by construction: disclosure is field-scoped, local, and revocable — the three levers the calculus identifies. We conjecture (and a deployment study should test) that this makes ambient capture <em>more</em> adoptable than the status quo, where users grant blanket permissions to vertical apps with unbounded retention.</p>
+<hr>
+<h2 id="s7"><span class="secno">7.</span>Why the gap persists</h2>
+<p>Four independent causes, each instructive:</p>
+<ol>
+<li><strong>Infrastructure-first sequencing.</strong> Solid, Databox, HAT, and digi.me all shipped the substrate and waited for applications. The applications never came (cold start), and the projects pivoted or died. The lesson is not "the layer is unwanted" but "the layer cannot lead." Middleware gets adopted <em>retrofitted onto a killer consumer</em>, not procured in advance. (This is the same pattern that killed general-purpose rdf stores in the 2000s while RSS — a narrower event format — saturated the web.)</li>
+<li><strong>The 2019 chilling event.</strong> Google Play policy changes (October 2019) restricted SMS and call-log access to a narrow class of apps, effectively ending the SMS-parsing personal-finance generation (Walnut et al.) and teaching the ecosystem that ambient capture is a policy-hostile category. Notification-based capture survived as a quieter niche — which is where PocketVeto lives.</li>
+<li><strong>Platform absorption in progress.</strong> The OS vendors are building the semantic layer (Apple Intelligence, Gemini) as proprietary features. When the platform provides a <em>closed</em> version for free, an <em>open</em> version must justify itself on durability, interoperability, and audit — arguments that only land once the closed version's limitations are felt.</li>
+<li><strong>The unnamed-category problem.</strong> Search for the concept and you find nothing, so founders and researchers cannot find prior art, competitors, or vocabulary. Categories are coordination devices; without the name, no one coordinates. This paper's first contribution is fixing that.</li>
+</ol>
+<hr>
+<h2 id="s8"><span class="secno">8.</span>Adoption mechanics: vertical-first, retrofitted substrate</h2>
+<p>The Databox lesson dictates the strategy: **the bus ships as the <em>engine</em> of a consumer application that would exist anyway, then reveals itself as infrastructure.**</p>
+<p>The case study is PocketVeto (this repository's companion product): an Android autopay/subscription tracker whose capture path is exactly one bus adapter (payment notifications → typed payment events) with one consumer (the app's ledger). In bus terms, PocketVeto is <code>finance/payment/v1</code> schema pack plus a radar UI. The retrofit path is literal: extract the adapter and broker from the app into a library, add the permission sheet and event inspector, and the app's capture layer <em>becomes</em> the bus, gaining a second consumer the moment a second schema pack (e-receipts) is enabled.</p>
+<p>The sequencing hypothesis is testable and falsifiable: <strong>no general personal-data substrate will reach consumer adoption without first surviving as the hidden engine of a specific app that solves a specific money problem.</strong> If true, it explains every failure in Section 3 and predicts the only viable route for the bus. If false, the bus remains a specification waiting for a vendor — and the closed OS absorption wins by default.</p>
+<p>Distribution realities are acknowledged: sideload friction (Play Protect false positives on notification-listening wrappers — documented in this repo's own release engineering), and the iOS constraint (Section 9), which confines the reference platform to Android + desktop e-mail.</p>
+<hr>
+<h2 id="s9"><span class="secno">9.</span>Platform feasibility and the regulatory argument</h2>
+<p><strong>Platforms.</strong> Android: full-fidelity capture is feasible today (<code>NotificationListenerService</code>; self-rebind after OS unbinds — a production lesson documented in PocketVeto v1.5.3). iOS: no third-party notification API; the bus degrades to share-sheet manual ingestion and IMAP e-receipt capture. Desktop: IMAP is the universal, durable channel, and e-receipts cover a large fraction of consumer-commerce events.</p>
+<p><strong>Regulation.</strong> GDPR Article 20 grants portability over data "provided by" the data subject — historically read as account data and uploads. A payment notification is pushed by a counterparty; whether it is "provided by" the user is unsettled. The DMA (Art. 6) imposes portability obligations on gatekeepers, but again over <em>held data</em>, not <em>event streams</em>. The gap is doctrinally interesting: the events that matter most for consumer empowerment (transactions, renewals, receipts) are precisely the ones the portability framework is least sure about. We propose the standard the bus implements as the <em>receiving endpoint</em> for an event-level right to portability: if regulators ever require counterparties (banks, merchants) to emit machine-readable event streams to a user-designated endpoint, the bus — schema-versioned, append-only, locally enforced — is, to our knowledge, the only proposed architecture that could receive them without becoming a cloud honeypot. The bus is thus not only a product thesis but a <em>regulatory completion</em>: the missing receiving side of portability.</p>
+<hr>
+<h2 id="s10"><span class="secno">10.</span>Limitations and honest risks</h2>
+<p>We state the strongest objections rather than the kindest:</p>
+<ol>
+<li><strong>iOS lockout.</strong> The platform where affluent consumers are blocks ambient capture. The bus is Android+desktop-first; if Apple ships an open notification-subscription API (currently: no public plans), the calculus changes.</li>
+<li><strong>OS-vendor absorption.</strong> "The OS already does this" will be the reviewer's one-line kill. The counter — closed, ephemeral, first-party-only — is real but must be <em>demonstrated</em>, not asserted, as absorption proceeds.</li>
+<li><strong>Chicken-and-egg residual risk.</strong> Even vertical-first, the bus competes with every vertical app's <em>private</em> capture stack. The library must be strictly easier than the one-off.</li>
+<li><strong>Counterparty obfuscation.</strong> Banks and UPI apps have already degraded notification text; parsing is an arms race. The provenance hedge makes losses recoverable, not preventable.</li>
+<li><strong>Scope discipline.</strong> The temptation to add inference, dashboards, and AI features to the bus is the death of it. The bus's product surface is the permission sheet, the inspector, and the log. Everything else is a consumer.</li>
+</ol>
+<hr>
+<h2 id="s11"><span class="secno">11.</span>Roadmap and open problems</h2>
+<ul>
+<li><strong>v0 (exists):</strong> single-app embedded capture (PocketVeto's adapter as the seed).</li>
+<li><strong>v1:</strong> extracted library — broker, log, permission sheet, <code>finance/payment/v1</code> and <code>commerce/ereceipt/v1</code> packs, IMAP adapter, export.</li>
+<li><strong>v2:</strong> third-party consumer API stability; hash-chained checkpoints; pack registry as a community artifact.</li>
+<li><strong>Open problems:</strong> multi-device sync with chain preservation; formal verification of the broker's mask enforcement; a usable language for users to <em>read</em> what a subscription means (permission UX is the real bottleneck); plugin update distribution without a central authority (web-of-trust signing of schema packs).</li>
+</ul>
+<hr>
+<h2 id="s12"><span class="secno">12.</span>Conclusion</h2>
+<p>Personal computing keeps exhaustive institutional records and gives individuals amnesia. The ambient event stream that constitutes a person's financial and civic life arrives, is glanced at, and evaporates — not because capture, storage, or parsing are hard, but because no layer exists whose job is to remember it <em>for the user, under the user's terms, in a form other software can use</em>. We have specified that layer, shown that the design space around it is crowded with partial solutions and empty at the center, explained a decade of failures as sequencing and domain-scoping rather than refutation, and argued the window is closing as OS vendors absorb the semantics into closed features. The personal event bus is the missing middleware of user-owned computing — and the two companion papers in this program (P-002, P-003) are the consumer engines that make it necessary.</p>
+<hr>
+<h2 id="appendix-a-survey-method">Appendix A — Survey method</h2>
+<p>Landscape claims (Table 1, the unoccupied-center claim) derive from structured web searches conducted 6–7 October 2026 via a commercial search API: ~80 queries across term sets {"personal event bus", "ambient ledger", "local-first personal data event stream", "notification history app schema/export", "personal data vault events", "Solid pods events adoption", "IFTTT local privacy alternative", "n8n personal notifications", "MyLifeBits", "Databox personal data"}, English-language, first 10 results per query; inclusion criterion = the system claims to capture, normalize, or serve personal ambient events; exclusion = enterprise ETL/CEP/telemetry. Raw result JSONs are retained in the program's research archive. Single-engine, English-only bias is acknowledged; the claim is "no shipping product found under this protocol," not "no conceivable product exists."</p>
+<h2 id="disclosure">Disclosure</h2>
+<p>The p-rick program is developed alongside PocketVeto (this repository), cited here as an existence proof and case study. The bus is designed to be extractable from PocketVeto's capture stack; the program's interest in the category's existence is therefore not disinterested, and readers should weigh the positioning accordingly.</p>
+<hr>
+<h2 id="references">References</h2>
+<ul>
+<li>Culnan, M. J., &amp; Armstrong, P. K. (1999). Information privacy concerns, procedural fairness, and impersonal trust. <em>Organization Science</em>, 10(1). — privacy calculus.</li>
+<li>Dienlin, T., &amp; Trepte, S. (2015). Is the privacy paradox a relic of the past? <em>New Media &amp; Society</em>.</li>
+<li>Haddadi, H., et al. (2016). Personal data management with the Databox. <em>ACM Cloud and Autonomic Computing Conference</em>. — closest academic precedent; dormant since ~2018.</li>
+<li>Kleppmann, M., Wiggins, A., van Hardenberg, S., &amp; McGranaghan, M. (2019). <em>Local-First Software: You Own Your Data, in spite of the Cloud</em>. Ink &amp; Switch. — local-first for documents; the event layer is absent.</li>
+<li>Searls, D., &amp; ProjectVRM (2025). ProjectVRM — the customer-empowerment future is still not here (site posts, 2024–2025). projectvrm.org.</li>
+<li>Unver, B. (2017). The right to data portability in the GDPR and EU competition law. <em>European Data Protection Law Review</em> — Art. 20 scope analysis.</li>
+<li>Digital Markets Act (EU 2022/1925), Art. 6 — gatekeeper portability obligations.</li>
+<li>Android Developers. <code>NotificationListenerService</code> API reference. developer.android.com.</li>
+<li>Google Play policy (2019). SMS/Call Log permission restrictions. android-developers.googleblog.com.</li>
+<li>Weiser, M., &amp; Brown, J. S. (1996). The Coming Age of Calm Technology. Xerox PARC. — ambient computing's founding framing.</li>
+<li>Bell, G., &amp; Gemmell, J. (2007). A Digital Life. <em>Scientific American</em>, 296(3); and the MyLifeBits project, Microsoft Research, 2001–2007. — durable personal capture without semantics or permissions.</li>
+<li>Dey, A. K., &amp; Abowd, G. D. (2001). A conceptual framework and a toolkit for supporting the rapid prototyping of context-aware applications. <em>Human-Computer Interaction</em>, 16(2–4). — typed context subscriptions, research scale.</li>
+<li>Home Assistant (2026). Architecture: event bus, recorder, integration subscriptions. home-assistant.io/docs/architecture.</li>
+<li>Searls, D. (2025). ProjectVRM — post: the customer-empowerment future is still not here. projectvrm.org.</li>
+<li>Notification-history apps: Notlog (Play Store), Catch Notify (catch-notify.com). — raw-text capture, no semantics.</li>
+<li>PocketVeto (2025–2026). On-device payment-notification parsing, production evidence. github.com/srivtx/pocketveto.</li>
+</ul>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p002.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Consumer Rights as Dead Capital: The Case for a Personal Entitlement Engine</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p001,
+  title       = {The Personal Event Bus: User-Owned Middleware for Ambient Digital-Life Events},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-001},
+  series      = {Series I: User-owned data},
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p001.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

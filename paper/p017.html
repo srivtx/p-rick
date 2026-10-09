@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee — p-rick P-017</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p017.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p017.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-017","url":"https://srivtx.github.io/p-rick/paper/p017.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-017 &middot; series </p>
+      <h1 class="paper-title">The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source</a> &middot; <a href="../pdfs/p-017.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-017.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-017-revocation-protocol.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p017.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">consent</span><span class="kw">revocation</span><span class="kw">propagation</span><span class="kw">privacy</span><span class="kw">GDPR</span><span class="kw">OAuth</span><span class="kw">consent receipts</span><span class="kw">data deletion</span><span class="kw">protocol design</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>A theory of revocation</a></li><li><a href="#s3"><span class="tocn">3.</span>The landscape: every slice solved, no composition</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap survived</a></li><li><a href="#s5"><span class="tocn">5.</span>The specification</a></li><li><a href="#s6"><span class="tocn">6.</span>Evaluation design</a></li><li><a href="#s7"><span class="tocn">7.</span>What this is not</a></li><li><a href="#s8"><span class="tocn">8.</span>Objections, confronted</a></li><li><a href="#s9"><span class="tocn">9.</span>Limitations</a></li><li><a href="#s10"><span class="tocn">10.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>Consider three ordinary events. A user opens her phone's privacy settings and revokes a fitness app's access to her health data; the app's OAuth token dies on the spot, and three hundred kilometers away a partner analytics service that ingested her nightly heart-rate stream a year ago continues to hold, query, and enrich it. A man clicks "unsubscribe" on a retailer's mailing list; the emails stop within days, while the behavioral profile built from two years of opens and clicks keeps feeding the retailer's lookalike modeling, because the unsubscribe event terminated a <em>delivery</em> relationship, not a <em>processing</em> one. A regulator-mandated tracking opt-out fires on a device; the identifier refuses itself at the boundary, and every downstream copy of that identifier — already joined, hashed, synced, sold — receives no notification at all, because the opt-out was a gate, not a message.</p>
+<p>Each event is a local success and a global failure. The interface said "withdraw anytime," and the interface was truthful in the narrowest possible sense: the withdrawal <em>was</em> accepted, by the first party, instantly. What no system in any of these scenarios possesses is a model of what the withdrawal must <em>reach</em> — the derivation graph of everything the consent ever authorized, transitively, across organizational boundaries, including copies already materialized. Withdrawal is treated as an event that ends at the first hop; the actual object it should be terminating is a distributed data structure that nobody has an interface for.</p>
+<p>The problem is not legal. GDPR Article 7(3) (2016) requires withdrawal to be as easy as consent was given; Article 17 grants erasure; CCPA/CPRA (2018/2020) grants deletion with a 45-day clock. The problem is that law describes <em>outcomes</em> and provides no <em>protocol</em>: no wire format for the withdrawal event, no semantics for what it covers, no delivery guarantees, no acknowledgment, no receipt, no way for a supervisory authority — or the user — to distinguish "deleted" from "ignored." The result is an observability vacuum: compliance is asserted, violations are invisible, and enforcement is complaint-driven after invisible violations compound for years. Regulation wrote the promise; nothing implemented the keeping of it.</p>
+<p>This paper specifies the missing system. Section 2 builds the formal model: consent as a versioned grant object, derivation as a graph relation, withdrawal as a propagation event with definable completeness, and two timestamps — <em>requested</em> revocation time and <em>effective</em> revocation time — whose difference is the measurable broken promise. Section 3 surveys the adjacent systems that each solve one slice (OAuth token revocation, Kantara consent receipts, India's account-aggregator consent artifacts, certificate revocation's hard-won lessons) and verifies the gap. Section 4 explains why the gap survived forty years of privacy engineering. Section 5 specifies the protocol itself: grant objects, derivation rules, revocation events, receipts, re-attestation cycles, staleness ladders, shadow audits, and the liability ladder that turns silence into evidence. Sections 6–10 give the evaluation design, the boundary with adjacent work, the objections, the limitations, and the conclusion.</p>
+<p>The series context: this is the first paper of series V — <em>promises: the guarantees software implies and never has to honor</em>. Every interface that collects consent implies a withdrawal guarantee. This paper is that guarantee, specified.</p>
+<h2 id="s2"><span class="secno">2.</span>A theory of revocation</h2>
+<h3 id="s21">2.1 Consent as a grant object</h3>
+<p>Formalize a <strong>grant</strong> g as a signed, versioned record:</p>
+<p><code>g = { id, principal, processor, scope, purpose, lawful_basis, issued_at, expires_at, ttl, version, parent, sig }</code></p>
+<p>The fields that do the work: <strong>scope</strong> is a machine-readable set of data categories (not a prose privacy policy); <strong>purpose</strong> binds processing to a declared class, following the purpose-limitation tradition; <strong>ttl</strong> is a maximum half-life after which the grant must be re-earned rather than remembered (Section 5.3 develops why TTLs, not revocation propagation, carry the load); <strong>parent</strong> is a back-pointer to the grant from which this one derives, making the consent graph a DAG rather than a set; <strong>sig</strong> makes the grant non-repudiable by its issuing principal, and versioning makes changes diffable — the property that turns a privacy policy from a document into a dataset (a move this program makes repeatedly: series IV's defaults ledger applied it to configuration, and the same discipline applies here).</p>
+<p>Grants <em>derive</em>: processor P1, holding grant g from user U, shares a subset of scope with processor P2 for a sub-purpose. Under the specification, P2's possession is lawful only via a child grant g2 with <code>parent = g</code>, <code>scope(g2) ⊆ scope(g)</code>, and <code>ttl(g2) ≤ ttl(g)</code>. Derivation without a child grant is exactly what the law calls onward transfer without basis — today it is invisible, and under the protocol it is <em>structurally</em> unrecordable in compliant form, which is the point of formalizing at all.</p>
+<h3 id="s22">2.2 The revocation gap</h3>
+<p>When U withdraws consent at time t_R for grant g, define:</p>
+<ul>
+<li><strong>Requested revocation time</strong> RRT(g) = t_R: the moment the principal acts.</li>
+<li><strong>Effective revocation time</strong> ERT(e) for each edge e derivable from g: the moment processing on e actually ceases.</li>
+<li><strong>The revocation gap</strong> Δ(e) = ERT(e) − RRT(e) ≥ 0.</li>
+<li><strong>Revocation completeness</strong> κ(g) = |{e : Δ(e) &lt; Δ_max}| / |edges(e derivable from g)|, for a regulatory bound Δ_max.</li>
+</ul>
+<p>These three quantities make the promise falsifiable. "Withdraw anytime" currently has no defined semantics beyond the first hop; with them, a system either meets κ = 1 within Δ_max or it does not, and the difference is measured, not litigated. The analogy is deliberately operational: TCP does not define reliability as a vibe, it defines it as a sequence of acknowledgments and timeouts; the same discipline is applied here to a promise that is presently enforced by complaint letters.</p>
+<p>The subtlety the definitions expose: ERT is defined <em>per edge</em>, because revocation is not one event but a family. The mailing list unsubscribe achieved ERT on the delivery edge (emails stopped) and never even attempted ERT on the processing edges (profiling, modeling). The OAuth token revocation achieved ERT on the API-call edge and was silent on the ingest edge. Today's systems each terminate exactly the edge their own product controls — which is to say, they are not failing at revocation; they are succeeding at a much smaller thing that wears revocation's name.</p>
+<h3 id="s23">2.3 Withdrawal, deletion, forgetting</h3>
+<p>The protocol distinguishes three distinct operations that current UI language collapses into "withdraw":</p>
+<ol>
+<li><strong>Cessation</strong> — stop new processing. Cheapest; locally achievable; what every current button actually does.</li>
+<li><strong>Deletion</strong> — destroy materialized copies and derived records. Requires delivery semantics downstream; provable only via receipt and audit, not physics (Section 7).</li>
+<li><strong>Forgetting</strong> — remove the <em>influence</em> of the data from models, aggregates, and indexes. Partially achievable through retraining triggers and contribution-tracking; in general unachievable exactly, and the honest position is to bound it, not promise it.</li>
+</ol>
+<p>The specification machinery (events, receipts, audits) is shared across the three; the guarantees differ deliberately. Conflating them is how interfaces make promises that are simultaneously trivial (cessation) and impossible (perfect forgetting); separating them is how an implementable guarantee reappears.</p>
+<h2 id="s3"><span class="secno">3.</span>The landscape: every slice solved, no composition</h2>
+<p>The claim of this section is falsifiable: <em>no deployed system implements cross-processor, receipt-carrying, version-aware revocation propagation for general consent</em>. Each adjacent system below implements a fragment; the table at the end grades them.</p>
+<p><strong>OAuth 2.0 token revocation (RFC 7009, 2013).</strong> The closest everyday object. A client POSTs a token to a revocation endpoint; the authorization server invalidates that token, and RFC 7009 §2 notes the <em>possibility</em> of cascading to related tokens. But the revocation universe ends at the authorization server's own token table: it is a protocol for killing <em>credentials</em>, not <em>consequences</em>. Data already delivered through the token is out of scope by design. Verdict: solves cessation at exactly one hop, one issuer, no derivations, no receipts to third parties.</p>
+<p><strong>Kantara Consent Receipts (2017).</strong> A receipt format issued <em>at consent time</em>: what was collected, for what purpose, with what policy. Its own specification names the follow-on work — an "updated consent receipt" to record changes — and the ecosystem has not built the update layer at scale. Consent receipts record the <em>birth</em> of consent with no machinery for its death. Verdict: the issue-time half of the problem, elegant and stalled.</p>
+<p><strong>UMA 2.0 (User-Managed Access, Kantara).</strong> The closest live protocol in spirit: a resource owner delegates access via claims-scoped tokens that expire, and monitors an introspection endpoint. But UMA governs <em>live access</em> to a resource server's guarded resources; once data leaves the guardian, UMA's model ends. It is a door with excellent locks and no memory of what walked out. Verdict: strong single-resource delegation, no derivation graph, no propagation.</p>
+<p><strong>India's account aggregator / DEPA consent artifacts (2020–).</strong> The strongest existence proof that the machinery works at national scale: purpose-bound, TTL-carrying, revocable data-sharing artifacts, regulator-audited, with escrowed revocation semantics. The caution for this paper's claim is honest: revocation <em>is</em> propagated across the AA fabric. But the domain is financial data inside a licensed, closed, four-party architecture — the protocol is mandatory within a regulated perimeter and does not exist as a general fabric for the open ecosystem of ordinary consent (a fitness app, a retailer, a school form). Verdict: proves the mechanics; confined to one regulated domain; not general. This is recorded as the strongest adjacent system and the reason the paper's claim is scoped to <em>general, cross-domain</em> fabrics.</p>
+<p><strong>GDPR/CCPA/CPRA.</strong> The promise's legal layer: withdrawal as easy as giving (Art. 7(3)), erasure (Art. 17), deletion with a 45-day clock (CCPA §1798.105). Mandates outcomes; specifies no wire format, no receipt, no registry; enforcement is complaint-driven. The supervisory authorities receive individual complaints the way mail rooms receive letters. Verdict: the promise, without a protocol to keep it.</p>
+<p><strong>Global Privacy Control (GPC).</strong> A browser signal expressing a legal opt-out. A broadcast, not a conversation: no per-processor state, no acknowledgment, no downstream coverage. Verdict: one bit, one direction, no receipts.</p>
+<p><strong>Apple App Tracking Transparency (2021).</strong> Refuses the identifier <em>at the device boundary</em> — a gate, not a message. Post-ATT research documented the partial nature of the boundary and the adaptability of fingerprinting; the already-sold copies of identifiers were never in ATT's model. Verdict: excellent cessation gate; zero propagation.</p>
+<p><strong>Platform data-deletion endpoints.</strong> Meta and Google require apps to expose deletion callbacks as a platform policy. Real, enforced, and single-platform: the callback reaches the app, not the app's own downstream; the platform audits its own perimeter. Verdict: deletion propagation one hop deep, inside one company's app ecosystem, by contract.</p>
+<p><strong>Certificate revocation: CRL, OCSP, and the short-lived-cert lesson.</strong> The deepest prior art, and the source of this paper's most important design decision. The web spent a decade trying to propagate revocation of bad certificates and largely failed on economics: CRLs were too big, OCSP added latency and was soft-failed by browsers that preferred availability to rigor, and the ecosystem converged on the solution that <em>stopped propagating bad news</em> — short-lived certificates (Let's Encrypt's 90-day and shorter lifetimes) that make revocation mostly unnecessary by making trust re-earned frequently. The lesson imported wholesale: <strong>do not build a system whose correctness depends on bad news traveling; build one where good news travels on a short schedule and withdrawal collapses the schedule.</strong> Consent re-attestation cycles (Section 5.4) are the direct application.</p>
+<p><strong>Adjacent evidence, no interface: takedown and counternotice.</strong> DMCA-style takedown is the one revocation-like fabric that demonstrably propagates across independent parties at scale (search engines, hosts, registries) — with notices, counter-notices, and repeat-infringer consequences. It is content-specific, legally forceful, and adversarial by design; the general consent case lacks its lever, which is precisely the gap the liability ladder (Section 5.7) is designed to supply.</p>
+<p><strong>Table 1: the landscape, graded.</strong></p>
+<div class="tbl-wrap"><table class="paper-table"><thead><tr><th>System</th><th>Cessation</th><th>Deletion</th><th>Forgetting</th><th>Derivations</th><th>Receipts</th><th>Cross-org</th><th>General domain</th></tr></thead><tbody><tr><td>OAuth RFC 7009</td><td>STRONG</td><td>none</td><td>none</td><td>none</td><td>no</td><td>no</td><td>credentials</td></tr><tr><td>Kantara receipts</td><td>none</td><td>none</td><td>none</td><td>none</td><td>birth-only</td><td>no</td><td>issue-time</td></tr><tr><td>UMA 2.0</td><td>STRONG</td><td>none</td><td>none</td><td>single</td><td>partial</td><td>no</td><td>guarded resources</td></tr><tr><td>DEPA/AA fabric</td><td>STRONG</td><td>PARTIAL</td><td>none</td><td>registry-bound</td><td>yes</td><td>regulated 4-party</td><td>financial data</td></tr><tr><td>GDPR/CCPA</td><td>legal only</td><td>legal only</td><td>legal only</td><td>undefined</td><td>none</td><td>by complaint</td><td>all</td></tr><tr><td>GPC signal</td><td>one bit</td><td>none</td><td>none</td><td>none</td><td>no</td><td>broadcast</td><td>opt-out</td></tr><tr><td>Apple ATT</td><td>device-gate</td><td>none</td><td>none</td><td>none</td><td>no</td><td>no</td><td>tracking ID</td></tr><tr><td>Platform deletion callbacks</td><td>PARTIAL</td><td>one hop</td><td>none</td><td>none</td><td>platform-side</td><td>one ecosystem</td><td>app data</td></tr><tr><td>Certificate short-TTLs</td><td>STRONG</td><td>n/a</td><td>n/a</td><td>none</td><td>n/a</td><td>yes</td><td>certificates</td></tr><tr><td><strong>This spec</strong></td><td>STRONG</td><td>receipt-bound</td><td>bounded</td><td>DAG</td><td>signed, chained</td><td>yes</td><td><strong>general consent</strong></td></tr></tbody></table></div>
+<p>The verdict in this program's grading language: components PARTIAL-to-STRONG (every mechanism exists somewhere), composition STRONG-vacant (no system composes them for general consent). The one near-miss — DEPA — is domain-bound and architecturally closed; generality is not a deployment detail but a different object.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap survived</h2>
+<p><strong>The holder profits from the residue.</strong> Every byte downstream of a withdrawal is an asset to the holder and a liability only in the event of an audit that cannot see it. The incentive gradient points exactly at the gap. This is not a moral claim but a structural one; protocol design that assumes volunteerism at the point where incentives reverse is design that will not deploy. The specification's answer is not to reverse the incentive but to <em>price the silence</em> (Sections 5.6–5.7): make non-propagation observable enough that its expected cost changes.</p>
+<p><strong>The revoker cannot see downstream.</strong> The principal withdrawing consent has, at best, a first-hop list (OAuth's granted-apps screen, the newsletter's unsubscribe). She cannot enumerate derivations, so she cannot test compliance, so she cannot complain accurately. In security terms, the data subject lacks egress visibility — the same asymmetry that made network intrusion detection necessary. The shadow-ledger instruments of Section 5.6 are the intrusion-detection analog for personal data.</p>
+<p><strong>Distributed naivety.</strong> Each processor in the chain honestly believes "we honor revocations" about its own hop — the app deleted its copy; the partner deleted its copy "per contract"; the sub-processor "per policy." No single actor is lying; the composition is. Unowned composition failure is the signature of missing <em>infrastructure</em> rather than missing intent, and it is the signature this program's other series keep finding (the defaults ledger found it in configuration, the complexity ledger in design).</p>
+<p><strong>The email-era interface froze.</strong> "Unsubscribe" was invented when the consent object <em>was</em> a mailing list entry — one row, one hop, termination was deletion. The interface survived the migration of consent from rows-in-a-list to graphs-of-derived-assets, carrying with it the assumption that withdrawal ends at the first server. Every privacy UI since has been a re-skin of that 1996 shape.</p>
+<p><strong>No wire format, so no market.</strong> Vendors cannot sell revocation-propagation middleware because there is nothing for it to speak; regulators cannot check compliance because there is nothing to inspect; auditors cannot certify because there is nothing to sample. The absence of a protocol is the absence of an industry — which is also why building the protocol first, before the product, is the correct order for this program.</p>
+<h2 id="s5"><span class="secno">5.</span>The specification</h2>
+<p>The protocol has seven components. Each is specified to the depth an implementer could build against; together they form the Revocation Fabric (working name; the paper is indifferent to branding).</p>
+<h3 id="s51">5.1 Grant objects and the derivation DAG</h3>
+<p>Grants (Section 2.1) are issued in JSON-LD-signed envelopes (the format choice is illustrative; the requirements are signature, versioning, and parent-pointers). Issue-time is receipted in the Kantara tradition — the birth certificate — but unlike Kantara, the object carries its own liveness budget (<code>ttl</code>) and its derivation policy (<code>derive: {allowed: bool, max_scope_subset: float, purpose_narrowing: required}</code>).</p>
+<p>Onward transfer under the protocol: P1 may only share with P2 by <em>co-issuing</em> a child grant signed by <em>both</em> P1 (as grantor-processor) and the principal U (as data owner). The double-signature requirement is the load-bearing wall: it means no lawful derivation can exist without a record whose lineage points back to U's original grant. Silent derivation — the everyday reality of today's ad-tech and analytics resellers — becomes structurally unrecordable in compliant systems, and <em>only recorded derivations are processable</em>: downstream processors that receive data without an accompanying child grant are, by protocol definition, processing ungranted data, which converts a privacy question into a contract question any auditor can check mechanically.</p>
+<p>The DAG is stored where the consent was issued — a <strong>grant ledger</strong> — mirrored to the principal's personal store. This is the event-bus family reunion: series I's personal event bus (P-001) specified the capture and durability layer; a grant is simply one more event type in that ledger, and the revocation protocol composes with it rather than replacing it.</p>
+<h3 id="s52">5.2 The revocation event</h3>
+<p><code>revoke = { grant_id, versions: [all | enumerated], scope: [all | enumerated categories], operations: [cessation, deletion, forgetting-bounded], issued_at, sig_principal, nonce }</code></p>
+<p>Three coverage dimensions, independently addressable: <em>which versions</em> (the versioning of grants means a withdrawal can target today's terms without litigating yesterday's), <em>which categories</em> (partial withdrawal — "stop the location sharing, keep the receipts" — which current UIs make impossible because consent was never category-addressable at the point of re-withdrawal), and <em>which operations</em> (cessation-only, cessation+deletion, or the full bounded package). The nonce defeats replay. The signature makes the withdrawal non-repudiable, which matters because the receipt architecture makes the <em>absence of response</em> legally meaningful — that only works if the withdrawal itself is beyond dispute.</p>
+<h3 id="s53">5.3 Propagation semantics</h3>
+<p>Delivery is <strong>at-least-once, idempotent, acknowledgment-gated</strong>, on a bounded schedule:</p>
+<ul>
+<li><strong>Push window Δ_max</strong> — every processor in the derivation DAG must acknowledge the revocation event within a regulatory bound (the DEPA fabric's working analog is measured in days; the general web's honest bound is discussed in Section 9). Idempotency keys on <code>grant_id + versions + nonce</code> make re-delivery free and replay harmless.</li>
+<li><strong>Escalation on silence</strong> — unacknowledged processors are re-queried on a doubling backoff, and every silence is <em>recorded</em>, timestamped, and visible: to the principal, to the grant ledger, and — at thresholds — to the audit fabric (Section 5.6).</li>
+<li><strong>The staleness ladder</strong> — a grant's confidence decays toward its TTL; a revocation <em>collapses the schedule</em>, forcing the next re-attestation cycle to arrive immediately. The certificate lesson (Section 3) is applied structurally: the protocol does not depend on the withdrawal traveling; it depends on the <em>renewal</em> schedule, which the withdrawal accelerates. A processor that simply ignores revocation events still stops lawful processing at the next renewal it fails to obtain — the "graceful degradation" of the bad-news-propagation problem.</li>
+</ul>
+<h3 id="s54">5.4 Re-attestation cycles</h3>
+<p>Every grant's TTL schedules a renewal: the processor re-requests, the principal re-grants (one interaction, by the Art. 7(3) symmetry), and the renewal re-signs the derivation DAG one level at a time. Defaults matter here and are borrowed from the series IV defaults ledger: renewal is <em>not</em> automatic silence-extends-consent; silence <em>decays</em> it. A processor that wants to keep processing must ask again, the way Let's Encrypt asks again every 90 days rather than asking once and remembering forever. The economic consequence is the inversion the certificate ecosystem discovered: consent becomes cheap to renew and expensive to assume — and the revocation button becomes the emergency brake on a train that is already stopping itself on schedule.</p>
+<h3 id="s55">5.5 The receipt registry</h3>
+<p>Each processor returns a signed <strong>revocation receipt</strong> for each covered derivation:</p>
+<p><code>receipt = { revoke_id, processor, derived_copies: [inventory classes], method: [purge | crypto-shredded | third-party-held], completed_at, attestation_cycle_next, sig_processor }</code></p>
+<p>Receipts are tamper-evident, chained (each attestation cycle's receipt references the prior), stored in the grant ledger, and — critically — <em>deletable only by the principal</em>. The registry is the first artifact that makes "we deleted your data" an inspectable claim with a signature on it rather than an email from a support address. It does not prove deletion (nothing proves deletion; Section 7); it proves the making and maintenance of the claim, which is the strongest provable thing and, as Section 5.7 argues, the legally load-bearing one.</p>
+<h3 id="s56">5.6 Shadow audits and the honeytoken ledger</h3>
+<p>Observability of <em>non-compliance</em> cannot come from the compliant channel alone. The protocol's audit fabric plants <strong>canary records</strong> at issue time: synthetic, uniquely-marked data objects (a distinctive name, a one-off email alias, a synthetic device fingerprint) issued <em>only</em> under a specific grant. Post-revocation, any downstream appearance of a canary — a marketing email to the alias, a lookup hit in a broker's enrichment API, the canary identifier surfacing in a breach corpus — is direct, timestamped evidence that some edge in the revoked subgraph was never terminated. The technique is the privacy-audit cousin of intrusion canaries and egress traps: instead of proving the attacker got in, it proves the data got out, after it promised not to. Coverage is probabilistic and stacking — a hundred canaries planted across categories raise detection probability for silent derivations; each hit also <em>localizes</em> the leak to the edge whose grant the canary rode. This is the instrument that converts the observability asymmetry of Section 4 from a permanent condition into an audit design.</p>
+<h3 id="s57">5.7 The liability ladder</h3>
+<p>Silence, at each rung, costs more than the rung below:</p>
+<ol>
+<li><strong>Contractual</strong> — processors that co-sign child grants accept receipt obligations; silence past Δ_max is a per-event contract breach with liquidated damages (the DMCA lever, imported).</li>
+<li><strong>Presumptive</strong> — after a signed revocation event and a recorded Δ_max breach, the burden of proof inverts: the processor is <em>presumed</em> to be processing without basis unless its receipt chain shows otherwise. The presumption is rebuttable, but the rebuttal requires the registry artifacts the protocol defines — which is the designed coupling: the protocol creates exactly the evidence class that the presumption demands.</li>
+<li><strong>Procurement-grade</strong> — receipt-coverage ratios become a procurable metric ("99.4% effective-revocation coverage, median gap 11 days, attested") the way SOC 2 and uptime SLAs are procurable. Enterprise procurement is the fastest enforcement engine in software history; the spec is deliberately shaped so it can grip.</li>
+<li><strong>Regulatory</strong> — supervisory authorities receive aggregate gap statistics and canary-hit localizations, not individual letters: enforcement shifts from mail-room to dashboard, the single largest lever the protocol supplies.</li>
+</ol>
+<h3 id="s58">5.8 The withdrawal surface</h3>
+<p>The Art. 7(3) symmetry requirement becomes a machine-checkable UI contract: <em>the withdrawal interaction cost must be ≤ the grant interaction cost</em> — one tap, on the same surface, in the same session context, or the grant ledger records the asymmetry as a compliance event. Making ease-of-withdrawal a <em>measured property of the interaction graph</em> — rather than an aspiration in a recital — is a small formalism with a large effect, because it converts the most-cited and least-enforced sentence in GDPR into a testable assertion.</p>
+<h2 id="s6"><span class="secno">6.</span>Evaluation design</h2>
+<p>The protocol is evaluable on four instruments, in increasing order of cost:</p>
+<ol>
+<li><strong>Revocation-latency measurement.</strong> Implement the event format against a test federation of 20 processors across 3 derivation levels; instrument RRT and ERT per edge; report the Δ distribution and κ by Δ_max. Success criterion: the machinery demonstrably measures the gap — the metric is the product.</li>
+<li><strong>Coverage audit via canaries.</strong> In an authorized test bed, plant 100 honeytoken records across 5 data categories, revoke, then monitor 12 downstream observation points (alias inboxes, enrichment APIs, ad-reset signals) for 180 days. Report detection probability per category and localization accuracy per hit.</li>
+<li><strong>Receipt-forgery resistance.</strong> Red-team the receipt chain: attempt backdated receipts, receipt substitution at renewal, and co-signature forgery; measure detection by the ledger's chaining and signature verification. This is the adversarial pass this program requires of its own specifications.</li>
+<li><strong>Longitudinal field deployment.</strong> A single high-trust domain first (a university's alumni-data sharing, a hospital's research-consent fabric — domains where the principal population is captive and the processors are auditable), instrumented for one renewal cycle. The DEPA fabric's national-scale precedent suggests the mechanics hold; the field test's question is whether the <em>general</em> wire format survives contact with heterogeneous processors.</li>
+</ol>
+<h2 id="s7"><span class="secno">7.</span>What this is not</h2>
+<p><strong>Not a deletion oracle.</strong> Copies cannot be un-copied; no protocol proves the absence of a byte in a party's basement. The claim is narrower and honest: the protocol makes non-compliance <em>observable</em> (canaries), non-response <em>presumptive</em> (ladder), and renewal <em>conditional</em> (TTLs). Perfect enforcement is not on offer; priced silence is.</p>
+<p><strong>Not forgetting.</strong> Model-internal residues (weights trained on revoked data) are bounded, not erased, and the bounding is honest: contribution-tracking triggers retraining at thresholds, and beyond that the paper claims nothing. The model-extinction paper (P-011) owns the behavioral-residue territory; this protocol supplies it the trigger events it lacks.</p>
+<p><strong>Not an anonymity system.</strong> Data minimization is upstream of consent; pseudonymization is orthogonal. The revocation fabric terminates <em>authorizations</em>, not identities.</p>
+<p><strong>Not blockchain-dependent.</strong> The ledger needs tamper-evidence, not consensus; a signed append-only log at the issuing surface suffices, and the design assumes nothing costlier than a notary-grade hash chain.</p>
+<h2 id="s8"><span class="secno">8.</span>Objections, confronted</h2>
+<p><strong>"Data holders will ignore it."</strong> Outside regulated perimeters, some will — exactly as some ignored DMCA and OCSP. The design's response is the certificate ecosystem's lesson inverted: the TTL schedule makes ignoring <em>expensive by default</em> (processing authority expires on its own), and the ladder prices <em>remaining</em> silent. The realistic deployment thesis is not universal voluntary compliance; it is procurement pull (rung 3) making the protocol a market requirement the way SOC 2 became one.</p>
+<p><strong>"Users will not bother revoking."</strong> The interaction economics answer: the protocol's withdrawal is one tap <em>because the grant ledger made consent addressable</em>, and re-attestation cycles mean the user manages consent at renewal frequency, not in crises. The privacy-paradox literature cuts the other way here: low-cost withdrawal raises withdrawal rates, which is precisely why holders historically priced withdrawal high — and why the machine-checkable symmetry of Section 5.8 exists.</p>
+<p><strong>"GDPR already mandates this."</strong> GDPR mandates the <em>outcome</em> and specifies no <em>mechanism</em>; no wire format, no receipts, no observability. A law without a protocol is a promise without a postal service — and the decade since Art. 7(3) is the natural experiment: the outcome is broadly unmet, and the unmet part is exactly the part no protocol covers.</p>
+<p><strong>"Propagation across the open web is impossible."</strong> For anonymous, cash-and-carry data flows, true — and the spec does not claim that regime. Consent regimes operate in <em>identified B2B graphs</em> (app↔platform, retailer↔partner, hospital↔research sponsor), where parties are contractual, reachable, and auditable — the same graphs where DMCA propagates and platform deletion callbacks already fire. The open-web residue is the honest boundary, and it is the same boundary every enforcement architecture in this program's prior series has accepted (the bus factor protocol governs registries, not vandals).</p>
+<p><strong>"Short TTLs alone suffice; skip revocation."</strong> TTLs cover <em>decay</em>, not <em>directed</em> withdrawal: a user revoking today does not want the data to expire gracefully in eight months — and TTLs say nothing about derivations already materialized into models and lookalike tables. The two mechanisms are complements, and the revocation event is what collapses the TTL schedule on demand.</p>
+<h2 id="s9"><span class="secno">9.</span>Limitations</h2>
+<p>The general-web residue (Section 8) is real: below the contractual waterline, the protocol's instruments degrade to canary evidence and presumption, not enforcement. Δ_max for the open ecosystem is a policy parameter this paper does not fix; honest values differ by two orders of magnitude across jurisdictions, and the spec treats it as configurable rather than pretending one number fits all. Canaries are probabilistic, and a sophisticated holder can avoid seeded records at some cost — the audit arms race is genuine, though each escalation raises the holder's marginal cost, which is the ladder's design intent. Cold-start is the classic protocol bootstrapping problem: the fabric is worthless at one processor and compounding at a thousand, so the deployment path runs through regulated perimeters first (the DEPA sequence, deliberately). And the model-residue bound inherits every limitation P-011 catalogued for behavioral conservation; this protocol's contribution is the trigger, not the solvent.</p>
+<p>Citations recorded from domain knowledge carry this program's standing honesty mark — <em>verification queued</em> — and pass through the live-source ledger before final release; the paper's load-bearing claims (RFC 7009's scope, Kantara's issue-time focus, DEPA's revocation mechanics, ATT's boundary behavior) are each independently checkable against primary sources.</p>
+<h2 id="s10"><span class="secno">10.</span>Conclusion</h2>
+<p>Every consent interface on earth implies a guarantee that no system implements: that "withdraw" is a verb with an object, that it reaches what the consent touched, that stopping is distinguishable from ignoring. The law has demanded the outcome for a decade; the missing artifact is the protocol — grant objects with lineage, withdrawal events with coverage, delivery with receipts, renewal on a schedule that consent-holders cannot assume their way past, audits that canary the silence, and a liability ladder that turns absence of response into presence of evidence. The certificate ecosystem spent fifteen years and billions of failed-propagation dollars to teach the load-bearing lesson: do not propagate the bad news; schedule the good news, and let withdrawal be the schedule's collapse. The revocation protocol is that lesson, applied to the largest class of unkept promises in software. The world does not lack consent. It lacks the keeping.</p>
+<h2 id="references">References</h2>
+<p><em>Verification-queued marks follow the program's citation-honesty convention; primary sources are checked through the live-source ledger before final release.</em></p>
+<ol>
+<li>European Union. <em>Regulation (EU) 2016/679 (GDPR)</em>, Articles 5, 7(3), 17. 2016.</li>
+<li>Jones, M., Bradley, J., Sakimura, N. <em>RFC 7009: OAuth 2.0 Token Revocation</em>. IETF, 2013.</li>
+<li>Kantara Initiative. <em>Consent Receipt Specification v1.1</em>. 2017.</li>
+<li>Kantara Initiative. <em>User-Managed Access (UMA) 2.0</em>. 2018–2019.</li>
+<li>Reserve Bank of India / DEPA architecture working group. <em>Data Empowerment and Protection Architecture: consent artifacts, purpose, and revocation</em>. 2020. <em>(verification queued)</em></li>
+<li>California Legislature. <em>CCPA §1798.105; CPRA amendments</em>. 2018, 2020.</li>
+<li>W3C Privacy Community Group. <em>Global Privacy Control (GPC) specification draft</em>. <em>(verification queued)</em></li>
+<li>Apple Inc. <em>App Tracking Transparency documentation and App Store policy</em>. 2021.</li>
+<li>Meta Platforms. <em>Platform data deletion endpoint requirements, developer documentation</em>. <em>(verification queued)</em></li>
+<li>Lindgren, D. et al. <em>Post-ATT measurement studies</em>. 2021–2023. <em>(verification queued)</em></li>
+<li>Barnes, R., Hoffman-Andrews, J., McCarney, D. <em>Let's Encrypt approach to revocation and short-lived certificates</em>. ISRG engineering blog. <em>(verification queued)</em></li>
+<li>de la Cuadra, F. <em>OCSP soft-fail behavior in major browsers</em>. <em>(verification queued)</em></li>
+<li>United States Code. <em>17 U.S.C. §512 — DMCA notice-and-takedown</em>.</li>
+<li>Rescorla, E. <em>On the economics of certificate revocation</em>. USENIX Security. 2003. <em>(verification queued)</em></li>
+<li>Acquisti, A., Brandimarte, L., Loewenstein, G. "Privacy and human behavior in the age of information." <em>Science</em> 347. 2015.</li>
+<li>Delacroix, S. <em>Recursive consent</em> and downstream-data-flow scholarship. 2021. <em>(verification queued)</em></li>
+<li>p-rick research program. <em>P-001 The Personal Event Bus</em>; <em>P-005 Provenance-Native Storage</em>; <em>P-011 Model Extinction</em>; <em>P-016 The Defaults Ledger</em>. 2026.</li>
+<li>OpenSSL Foundation. <em>X.509 CRL/OCSP operational history</em>. <em>(verification queued)</em></li>
+</ol>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p016.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The Defaults Ledger: Governing the Strongest Force in Software</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p018.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Epistemic Half-Life: Truth Decay Semantics for Stored Data</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p017,
+  title       = {The Revocation Protocol: Consent Withdrawal as a Propagation Guarantee},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-017},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p017.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

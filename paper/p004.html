@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure — p-rick P-004</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p004.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p004.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-004","url":"https://srivtx.github.io/p-rick/paper/p004.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-004 &middot; series </p>
+      <h1 class="paper-title">Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source</a> &middot; <a href="../pdfs/p-004.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-004.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-004-degradation-contracts.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p004.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">—</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The problem: degradation is emergent, accidental, and untested</a></li><li><a href="#s3"><span class="tocn">3.</span>The design space: fourteen adjacent systems, none at the center</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap persists</a></li><li><a href="#s5"><span class="tocn">5.</span>The degradation contract model</a></li><li><a href="#s6"><span class="tocn">6.</span>Architecture: the pressure broker</a></li><li><a href="#s7"><span class="tocn">7.</span>What this buys, for whom</a></li><li><a href="#s8"><span class="tocn">8.</span>The AI era makes this more necessary, not less</a></li><li><a href="#s9"><span class="tocn">9.</span>Prototype and evaluation design</a></li><li><a href="#s10"><span class="tocn">10.</span>Limitations and honest risks</a></li><li><a href="#s11"><span class="tocn">11.</span>Roadmap</a></li><li><a href="#s12"><span class="tocn">12.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#appendix-a-dsl-sketch">Appendix A — DSL sketch</a></li><li><a href="#disclosure">Disclosure</a></li><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>Software behavior under abundance is the best-engineered artifact of our industry. Specifications enumerate features; tests freeze them; observability platforms watch them; SLOs budget their latency and error rate. Behavior under scarcity — memory pressure, thermal throttle, dying battery, collapsing bandwidth, CPU contention — has no comparable apparatus. It is decided, if at all, by scattered conditional statements, OOM killers, silent feature flakiness, and user confusion. The result is a universal, familiar failure pattern: the application that "just gets weird" when the machine is tired. Animations stutter, buttons deaden, saves lag, syncs corrupt, caches thrash — and no artifact anywhere says what should have happened instead.</p>
+<p>This is not a small corner of behavior. Resource scarcity is the <em>common case</em> for most of the world's devices: mid-range Android phones (the global median device) live under permanent memory and battery pressure; laptops throttle on lap use; every network is intermittently terrible. Industry practice treats abundance as the norm and scarcity as an incident. The truth is the reverse — pressure is a steady-state condition, and graceful behavior under it is a feature users can feel but cannot specify, buy, or audit.</p>
+<p>Two industries have quietly proven that degradation can be a first-class engineering object. Video streaming made degradation <em>ladder-shaped and declarative</em>: an adaptive stream encodes a staircase of quality levels, and the player picks rungs by measured throughput — the single most successful degradation contract in production, though nobody calls it that. Web infrastructure made degradation <em>policy-shaped</em>: load shedding, admission control, and brownout-mode systems decide which requests to serve, drop, or simplify under overload. Mobile operating systems are inching the same direction: Windows EcoQoS lets processes request efficiency scheduling; Android's ADPF lets games declare performance targets and receive hints; Linux exposes Pressure Stall Information so userspace can <em>see</em> pressure.</p>
+<p>What does not exist — anywhere, in research or product — is the unification: a general language in which any application <strong>declares how it degrades</strong>, and a runtime that <strong>measures pressure, dispatches degradation directives, enforces floors, and audits compliance</strong>. We call the declaration a <em>degradation contract</em> and the runtime a <em>pressure broker</em>. This paper specifies both, argues the gap is load-bearing rather than incidental, and designs the system that would close it.</p>
+<p>The thesis in one sentence: <strong>degradation is the only user-visible behavior that no software system specifies, and it can be made contractual.</strong></p>
+<h2 id="s2"><span class="secno">2.</span>The problem: degradation is emergent, accidental, and untested</h2>
+<p>Consider what actually happens when a modern laptop hits memory pressure. The kernel reclaims caches, then swaps, then invokes a killer (kernel OOM or userspace like <code>oomd</code>) that terminates some process by heuristic. Applications receive, at best, an <code>onTrimMemory</code> callback or a looming <code>SIGKILL</code>. None of them declared what they would sacrifice when memory grew scarce: which caches to drop first, which features to suspend, what fidelity floor keeps the app <em>usable</em>. Each developer improvised, usually by ignoring the condition entirely. The user experiences the composite of dozens of uncoordinated improvisations: a machine that becomes slow and strange together, with no way to ask "what was sacrificed, and by whom?"</p>
+<p>The same story repeats per resource. Under thermal throttling, the OS slows the CPU and the application discovers it only through frame deadline misses — if it notices at all. Under battery saver, the OS imposes policy globally while applications make their own random trade-offs. Under bandwidth collapse, each app invents its own timeout ladder, retry policy, and "offline mode," which is why the same train tunnel produces different behavior in every app simultaneously. Under CPU contention, schedulers fairly share cycles while <em>user value</em> — which feature of which app the human currently needs — is nowhere represented in the decision.</p>
+<p>Four properties make this a <em>systems</em> problem rather than an accumulation of app bugs:</p>
+<ol>
+<li><strong>Coordination.</strong> Degradation decisions interact across processes. A browser shedding a tab and an OS killing a tab and a sync engine pausing uploads all fight for the same memory headroom. Uncoordinated, they overshoot (too much shed) or undershoot (too little), and they flap.</li>
+<li><strong>Ordering.</strong> Which feature dies first is a <em>product decision</em> with safety implications (the messaging app's emergency SMS path must not be shed before the animation polish) — yet no artifact records the intended order, so it cannot be reviewed, tested, or honored.</li>
+<li><strong>Recovery.</strong> Systems that degrade must also <em>heal</em>, with hysteresis; oscillating between tiers (the "flap" pathology) can be worse than staying degraded. Recovery semantics are absent from every API that exists today.</li>
+<li><strong>Accountability.</strong> When a user asks "why is this slow?", no system can answer with a degradation audit: what was shed, when, under what pressure, by whose decision. Observability covers latency and errors — the <em>symptoms</em> — never the <em>decisions</em>.</li>
+</ol>
+<p>We name the accumulated, unrecorded liability of all this improvisation <strong>degradation debt</strong> — the analogue of technical debt for behavior under pressure. It is invisible because nothing measures it, and it grows silently as apps gain features (more things to degrade badly) and devices age (more pressure to degrade under).</p>
+<h2 id="s3"><span class="secno">3.</span>The design space: fourteen adjacent systems, none at the center</h2>
+<p>The claim "nothing exists" must survive a landscape survey. We organize adjacent work by which slice of the problem it solves. (Citations in §12.)</p>
+<p>**Per-resource pressure <em>measurement</em> (no semantics).** Linux Pressure Stall Information (PSI, kernel 4.20, 2018) reports per-resource stall time — the kernel finally made pressure <em>observable</em>. Facebook's <code>oomd</code> consumes PSI to make userspace kill decisions. This is the sensing layer our proposal builds on; PSI has no notion of what applications <em>should</em> do, and <code>oomd</code>'s only directive is termination.</p>
+<p><strong>Infrastructure load shedding (server-side, request-granular).</strong> The "Tail at Scale" discipline (Dean &amp; Barroso, 2013) and its descendants: Envoy's overload manager, gRPC load-shedding policies, Netflix adaptive concurrency limits, admission control in databases (Oracle Resource Manager's consumer groups come closest to contractual: it demotes sessions to lower resource share under contention — but only for CPU inside the database, with no application-visible semantics). These systems degrade <em>requests</em>, not <em>features</em>; the unit of shedding is an incoming call, chosen by the server. Nothing carries the notion of "the application's own features degrade in a declared order."</p>
+<p><strong>Brownout and control-theoretic degradation.</strong> The brownout line of research (Klein, Maggio, Árzen and colleagues, ~2014) reduced served content under overload using feedback control — a genuinely important precedent: degradation as a <em>controlled</em> variable. But brownout assumed a fixed two-tier request simplification inside a web server; no general model of per-feature ladders, ordering, or recovery, and no client/desktop story.</p>
+<p><strong>Streaming's declarative ladders.</strong> MPEG-DASH and HLS encode explicit quality rungs; players traverse rungs on measured throughput with hysteresis. Per-title encoding (Netflix, 2015) tunes the ladder itself. This is the strongest existence proof of <em>declarative</em> degradation — and its limits: the ladder is one-dimensional (bitrate), single-resource (bandwidth), per-stream, and lives entirely in the media stack. Games independently invented the same idea as dynamic resolution scaling, again private to the render loop.</p>
+<p><strong>OS quality-of-service knobs (coarse, one-way).</strong> Windows EcoQoS (2022) marks processes "efficient"; Windows Power Throttling and macOS App Nap deprioritize; Android Doze and App Standby defer background work; Android's ADPF lets games submit target frame durations and receive headroom hints — the closest any platform comes to <em>bidirectional</em> negotiation, but scoped to thermal/CPU headroom for games, with no feature semantics, no floors, no audit.</p>
+<p><strong>Adaptive middleware and imprecise computation (the research ancestors).</strong> The mid-2000s adaptive-QoS middleware line — Quality Objects (QuO, BBN/Washington University, Schmidt et al.) and its contemporaries — expressed QoS contracts between clients and objects in distributed settings; the imprecise-computation theory of the real-time community (J. Liu et al., 1994) split tasks into mandatory and optional parts with formal deadline semantics; anytime algorithms (Zilberstein, 1996) formalized monotone quality-versus-time trade-offs for AI planning. These are the true intellectual ancestors. They assumed distributed-object or real-time-scheduling settings, pre-cloud, pre-mobile, and none produced an OS-integrated, general-purpose discipline — they remain specialized theory.</p>
+<p><strong>Self-adaptive software and autonomic computing (the meta-framework).</strong> MAPE-K (Kephart &amp; Chess, 2003) and the self-adaptive-software research program (de Lemos et al.) give the governing <em>loop</em> (measure–analyze–plan–execute) but deliberately leave the contract language, the enforcement point, and the cross-layer composition unspecified — the field's own surveys list exactly this as the open problem.</p>
+<p><strong>Chaos engineering (tests failure, not degradation).</strong> Chaos engineering verifies that systems <em>fail</em> interestingly; it injects resource exhaustion and observes. It has no declarative target to verify <em>against</em> — it discovers your emergent degradation behavior and hopes it is acceptable.</p>
+<p>The center of the design space — a general, declarative, per-feature, multi-resource degradation specification with a mediating runtime, floors, recovery, and audit — is empty. Each neighbor solved a slice, validated the concept, and stopped at its domain boundary. The gap persists not because the idea is unknown but because no one owned the <em>unification</em>.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap persists</h2>
+<p>Four structural reasons, each with a counter-trend that is now dissolving it.</p>
+<p><strong>Ownership is split.</strong> Degradation decisions live half in the OS (which sees pressure) and half in applications (which own features). Neither can act alone: the OS cannot know that shedding the spell-checker before autosave is wrong; the app cannot know the system is under thermal pressure until too late. A shared contract <em>is</em> the missing coordination artifact. The trend dissolving this: OS vendors are already shipping pressure/negotiation APIs (PSI, EcoQoS, ADPF) — the substrate for a shared language now exists on every major platform.</p>
+<p><strong>Abundance bias in tooling.</strong> Performance engineering optimizes the p50/p99 of <em>throughput and latency</em> under load — abundance metrics. No dashboard displays "user-visible quality under pressure." The trend: energy costs, mid-range global hardware, and battery-first design have moved pressure from incident to steady state; Apple's Low Power Mode normalization proved users <em>notice and value</em> honest degradation.</p>
+<p><strong>Verification is genuinely hard.</strong> Testing degradation requires producing pressure states deterministically, which is why chaos tools exist; verifying <em>contract compliance</em> additionally needs a machine-checkable specification — which is precisely what does not exist, a chicken-and-egg the contract language breaks. The trend: runtime verification is mature (Leucker &amp; Schallhart), and eBPF/ETW/EndpointSecurity make per-process resource behavior observable cheaply.</p>
+<p><strong>No economic surface.</strong> Users cannot ask "which app degrades best?" because no artifact distinguishes disciplined from undisciplined software; procurement cannot demand contracts because there is no format to demand. A standard manifest creates the market surface the same way nutrition labels did — and, closer to home, the way SLO/error-budget culture created the reliability market.</p>
+<h2 id="s5"><span class="secno">5.</span>The degradation contract model</h2>
+<h3 id="s51">5.1 Resources, signals, and pressure states</h3>
+<p>Let the resource universe be finite: <strong>R</strong> = {memory, cpu, thermal, battery, bandwidth, disk, latency-to-critical-service}. Each resource r has a <em>pressure signal</em> π_r(t) ∈ [0,1], normalized so that 0 is abundance and 1 is exhaustion — PSI-style stall fractions for cpu/memory/io, thermal headroom fraction, battery drain-vs-charge margin, measured goodput against demand, and so on. Define a <strong>pressure state</strong> as the vector Π(t) = (π_{r1}, ..., π_{rk}). To avoid pathological reactivity, signals are consumed as <em>tiered windows</em> (e.g., ω_r: [0,0.4) → L0 abundant, [0.4,0.7) → L1 tight, [0.7,0.9) → L2 scarce, [0.9,1] → L3 critical), each with independent entry/exit hysteresis.</p>
+<h3 id="s52">5.2 Features, tiers, and ladders</h3>
+<p>An application declares a set of features <strong>F</strong>. Each feature f ∈ F carries a finite, totally ordered <strong>fidelity ladder</strong> T_f = (f^0 ≻ f^1 ≻ ... ≻ f^{m_f}), where f^0 is full fidelity and f^{m_f} is <em>suspended</em> (f^m_f = ⊥). Ladder rungs are the application's semantic units — "animation at 60/30/no fps," "sync full/incremental/deferred," "voice hi-fi/telephone/off" — and only the application can define them; the runtime never invents semantics, only selects rungs.</p>
+<h3 id="s53">5.3 The contract</h3>
+<p>A <strong>degradation contract</strong> is the tuple <strong>C = (F, T, ≺, ρ, H, I, V)</strong>:</p>
+<ul>
+<li><strong>F, T</strong>: features and their ladders (above).</li>
+<li><strong>≺</strong>: the <strong>shedding order</strong>, a partial order over F encoding product safety: f ≺ g means <em>f must be degraded (or suspended) before g may be suspended</em>, i.e., g is protected relative to f. Acyclicity of ≺ is checkable at validation time; the transitive reduction is the reviewable artifact ("what dies first").</li>
+<li><strong>ρ</strong>: the <strong>response map</strong> ρ: L(R) → bounds, assigning to each pressure tier-vector an allowed fidelity bound per feature — formally a map from the pressure lattice to the product of ladders, specifying the <em>maximum degradation permitted</em> (the app may run better than the bound, never worse), plus <em>mandated</em> floors. We require ρ to be antitone in pressure: more pressure permits (weakly) lower fidelity.</li>
+<li><strong>H</strong>: <strong>hysteresis and recovery semantics</strong>: per-tier entry/exit thresholds (enter L2 at 0.7, exit at 0.55), minimum dwell time per tier (anti-flap), and recovery delay τ_rec: after pressure clears, the app must return toward ρ(abundance) within τ_rec and at bounded ramp rate (avoiding quality whiplash).</li>
+<li><strong>I</strong>: <strong>invariants</strong>, the formal properties the runtime checks: (i) <em>floor safety</em>: ∀f ∈ Floors: tier(f) ≥ floor(f, Π) — protected features never fall below their pressure-dependent floor; (ii) <em>liveness</em>: eventual recovery within τ_rec of sustained abundance; (iii) <em>stability</em>: at most k tier transitions per feature per sliding window (flap bound); (iv) <em>ordering compliance</em>: suspension of g only if every f ≺ g is already suspended.</li>
+<li><strong>V</strong>: <strong>violation semantics</strong> — what the broker does when the app ignores directives: log-only (default), visual marking (UI badge "degraded contract: memory"), resource demotion (EcoQoS-style), or suspension. The default is transparency, not punishment: the point is an auditable record, and the market does the punishing.</li>
+</ul>
+<h3 id="s54">5.4 Semantics and properties</h3>
+<p>The contract gives degradation a state-machine semantics: the app's observable fidelity state σ(t) ∈ Π_f T_f evolves under broker directives; the broker computes directive targets from ρ, H and current Π. Three properties define correct behavior:</p>
+<ul>
+<li><strong>Safety</strong>: σ(t) never violates an active floor, and suspension ordering respects ≺. Violation is <em>detectable in bounded time</em> by the runtime monitor (each directive is acked or observable via resource telemetry).</li>
+<li><strong>Liveness</strong>: if Π(t) &lt; abundance-threshold for τ_rec, then σ recovers to the abundance bound within τ_rec + ε.</li>
+<li><strong>Stability</strong>: transition count per feature per window ≤ k, enforced by H's dwell times.</li>
+</ul>
+<p>These are deliberately modest — in the style of transactional memory's forward-progress guarantees, not full verification. The aspiration is not to <em>prove</em> applications degrade correctly but to make the contract the <em>checkable interface</em> such that violations are recorded and blame is attributable.</p>
+<h3 id="s55">5.5 Composition and cross-layer refinement</h3>
+<p>Contracts compose by <strong>refinement</strong>. A platform (OS shell, cloud runtime, browser) holds its own contract C_plat; an app's C_app must satisfy: floors of C_plat are respected, and C_app's lattices refine the platform's per-signal tiers. This is where the model earns its generality: a cloud service's broker can consume contracts from dozens of microservices and expose a single composed contract to its own load shedder (the "requests" the infra sheds become <em>feature tiers</em> of the composed service). A browser becomes a mini-broker for tabs; an OS the broker of last resort. The contract is the unit that travels across layers — the piece every prior system (server load shedding, DASH ladders, OS throttling) kept private.</p>
+<h2 id="s6"><span class="secno">6.</span>Architecture: the pressure broker</h2>
+<p>A reference implementation on a modern OS:</p>
+<ol>
+<li><strong>Pressure broker</strong> (privileged daemon, or kernel service): consumes PSI/eBPF (Linux), ETW + EcoQoS (Windows), EndpointSecurity/QoS classes (macOS), /proc + thermal + battery APIs; maintains tiered windows per resource with hysteresis; emits <code>PressureEvent(tier transitions)</code> globally.</li>
+<li><strong>Contract registry</strong>: validates manifests (<code>degradation.yaml</code>), checks ≺-acyclicity, lattice consistency, and floor coherence at install/update time; rejects or warns (validation is static and cheap).</li>
+<li><strong>Per-process contract agent</strong> (library, <code>libdgc</code>): receives directives <code>SetTier(f, k)</code> for each feature; the application implements tier functions; the agent acks with timing, exposing telemetry to the broker. Unmodified apps simply never register — no contract, no directives (they keep today's behavior, but the broker still <em>records</em> their resource pressure exposure: degradation debt becomes measurable even for non-adopters).</li>
+<li><strong>Enforcement hooks</strong>: the broker maps pressure tiers to platform knobs — cgroup memory limits, EcoQoS classes, ADPF hints — and maps app acks back; the <em>pairing</em> of directive and observable resource behavior is the compliance signal.</li>
+<li><strong>Degradation ledger</strong>: append-only local log of every pressure transition, directive, ack, and violation; exported as metrics (degradation-exposure seconds per resource; contract compliance rate; flap count) and queryable ("what was shed between 14:00 and 15:00 and why") — the audit surface that does not exist today.</li>
+<li><strong>Offline verification</strong>: a contract model-checker for I-properties, runnable in CI: simulate tier traces, assert floors/ordering/liveness under adversarial pressure sequences — degradation chaos testing with a specification.</li>
+</ol>
+<p>The DSL sketch (Appendix A) is deliberately boring: declarative YAML, one section per feature, tiers as names, ordering as a list. Boring is the point — contracts must be diffable in code review and greppable in audits.</p>
+<h2 id="s7"><span class="secno">7.</span>What this buys, for whom</h2>
+<p><strong>Users</strong>: an answer to "why is my machine weird right now" (ledger query); devices that degrade <em>honestly</em> — visible, ordered, recoverable; the ability to prefer disciplined software (the nutrition-label effect).</p>
+<p><strong>Developers</strong>: pressure as an API instead of folklore; tier functions are small, testable units; CI simulation of pressure traces replaces hoping; postmortems gain a degradation timeline.</p>
+<p><strong>Platform vendors</strong>: a differentiation axis that costs little (the substrate APIs already exist) and monetizes trust; reduced support load ("why is it slow" becomes answerable); a story for the AI-on-device era, where quality is negotiated per second (§8).</p>
+<p><strong>Procurement/enterprise</strong>: a vendor-requirement format ("all vendor apps must ship contracts with floors on sync/audit paths"), impossible to state today.</p>
+<h2 id="s8"><span class="secno">8.</span>The AI era makes this more necessary, not less</h2>
+<p>AI systems are <em>natively</em> degradation-shaped. An assistant's answer quality varies with context window truncation, model substitution (large → small → distilled), speculative decoding aggressiveness, retrieval depth, and quantization — all runtime quality knobs under memory/battery/latency pressure. Today these knobs are turned invisibly by whatever heuristic the vendor shipped; the user cannot see <em>which</em> quality they received, nor compare, nor hold anyone to a floor. Degradation contracts are precisely the interface that makes AI runtime quality <strong>inspectable and contractual</strong>: "under L2 memory pressure, this assistant answers with the 7B model and 4k context, <em>never below</em>, and the UI says so." Agentic systems compound the need: agents that consume machine resources must negotiate with the pressure broker rather than heuristically grab; contracts are the negotiation protocol. Far from being obsoleted by AI, the formalism is the missing governance layer for it.</p>
+<h2 id="s9"><span class="secno">9.</span>Prototype and evaluation design</h2>
+<p>A minimal credible prototype: the broker as a Linux userspace daemon (PSI + cgroups v2), <code>libdgc</code> with a C/Python binding, the YAML DSL, and the ledger as SQLite with a query CLI. Port three real applications: a video-streaming player (native ladders), a browser (tab eviction as tier moves), and a local LLM assistant (model/context tiers). Evaluate:</p>
+<ul>
+<li><strong>Compliance</strong>: directive-ack latency; floor-violation rate ≈ 0 on ported apps; ledger completeness.</li>
+<li><strong>Stability</strong>: transitions per feature-hour under synthetic pressure traces (compare flap vs. dwell-tuned H).</li>
+<li><strong>Utility under pressure</strong>: task-completion proxies (e.g., words typed, commits, video minutes watched at ≥ declared tier) under memory/thermal squeeze, contract on vs. off — the headline number is <em>useful time under pressure</em>, not throughput.</li>
+<li><strong>Overhead</strong>: broker CPU ≤ 1% on mid-range hardware; manifest validation ≤ 50 ms.</li>
+<li><strong>Chaos validation</strong>: reproduce 48 h of pressure traces from real telemetry; assert CI-simulated properties held in the wild.</li>
+</ul>
+<p>Threats to validity: ported apps are enthusiast apps (selection bias); utility proxies are crude; single-platform prototype. The paper's claim survives these: the contract format and broker semantics are the contribution; ports demonstrate feasibility.</p>
+<h2 id="s10"><span class="secno">10.</span>Limitations and honest risks</h2>
+<p><strong>Applications lie.</strong> An app can register a contract and ignore directives; floors are only as real as enforcement. Response: default violation semantics is <em>transparency</em> (ledger + UI marking), demotion for repeated violations; strongest enforcement reserved for platform-managed features (the OS can always evict memory, so floors implemented via platform knobs are physical). The honest concession: contracts are primarily <em>accountability + coordination</em>, secondarily coercion — the same bargain as every QoS standard ever fielded.</p>
+<p><strong>Cross-layer gaming.</strong> A composed platform contract is only as honest as its components. Response: ledgers compose; a platform exposing a composed contract must forward child telemetry or its own audit fails visibly. Concession: adversarial compositions need signed manifests — solvable, but real work.</p>
+<p><strong>Nobody writes manifests.</strong> The strongest objection. Response: three beachheads where writing is nearly free — media players (ladders already exist), games (dynamic-resolution logic already exists, ADPF already speaks performance), and local AI (model tiers already exist) — then let the ledger make non-adopters <em>visible</em> in their degradation debt. Chromium shipping a tab contract would move the industry more than any standard body. Concession: this is a beachhead theory of adoption, not a guarantee.</p>
+<p><strong>Semantic laundering.</strong> An app can define a ladder whose "lowest tier" is indistinguishable from full (declaring compliance trivially). Response: tier definitions are declarative and public; the market and reviewers can read them; platform certification can demand semantic tiers for protected classes (sync, autosave). Partial answer only — honesty about limits is part of the contract's own design philosophy.</p>
+<p><strong>Energy paradox.</strong> The enforcement layer itself consumes energy. Response: PSI-style counters are already maintained by kernels; the broker is event-driven; measured target &lt; 1% CPU. If that fails, the ledger degrades gracefully — itself a contract.</p>
+<h2 id="s11"><span class="secno">11.</span>Roadmap</h2>
+<p>Phase 1 (this paper): model, DSL, broker design, three ports. Phase 2: cross-platform agents (Windows/macOS), composed contracts, browser tab-contract experiment. Phase 3: standardization path (an RFC-shaped spec; interest test with one OS vendor's existing performance APIs), AI-quality contract extension. Open problems: formal verification of composed liveness; contract-aware scheduling (should the <em>scheduler itself</em> consider declared floors when placing work?); degradation-aware pricing (cloud instances that <em>bid</em> on quality floors); the game theory of shared-pressure bargaining between apps.</p>
+<h2 id="s12"><span class="secno">12.</span>Conclusion</h2>
+<p>The software industry has spent fifty years specifying and verifying behavior under abundance while leaving behavior under pressure to folklore — an asymmetry that made sense when resources were growing exponentially and makes none now that the median device is permanently pressed and the newest workloads degrade by design. Every ingredient for closing the gap exists and is battle-tested in isolation: PSI measures pressure, cgroups and EcoQoS enforce shares, DASH proved declarative ladders, brownout proved control-theoretic shedding, imprecise computation and anytime algorithms supplied the formalism, chaos engineering supplied the test harness. What is missing is the unifying contract — the language that makes degradation reviewable, floors enforceable, recovery bounded, and debt auditable. Degradation contracts are that language. The first platform that ships a pressure broker with a real ledger will not merely make its apps behave better when the machine is tired; it will create the first honest market for behavior under scarcity, one nutrition label at a time.</p>
+<h2 id="appendix-a-dsl-sketch">Appendix A — DSL sketch</h2>
+<p><pre class="code"><code>contract: com.example.editor/1
+resources: [memory, cpu, battery]
+features:
+  - id: animations
+    ladder: [full, reduced, suspended]
+  - id: spellcheck
+    ladder: [full, suspended]
+  - id: autosave
+    ladder: [immediate, deferred-10s]      # no suspended rung: never off
+shed-order: [animations, spellcheck]        # autosave protected by absence
+floors:
+  autosave: deferred-10s                    # under any pressure &lt;= L3
+  spellcheck: {L2: full}                    # held until scarce
+response:
+  memory:  {L1: {animations: reduced}, L2: {spellcheck: full, animations: suspended}, L3: {autosave: deferred-10s}}
+hysteresis: {entry: {L2: 0.70}, exit: {L2: 0.55}, dwell: 30s, recover: 10s}
+violations: log                             # log | mark | demote | suspend</code></pre></p>
+<h2 id="disclosure">Disclosure</h2>
+<p>p-rick is an independent research program. No vendor has commissioned or reviewed this work. The author has no financial interest in any system cited. Prior p-rick papers (P-001..P-003) concern personal-data infrastructure; this series-II paper shares no topic overlap — it concerns systems behavior under resource scarcity.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>Barroso, L., &amp; Dean, J. (2013). <em>The Tail at Scale</em>. Communications of the ACM 56(2).</li>
+<li>Dean, J., &amp; Barroso, L. <em>Hedged requests</em> — in [1], §"Taming tail latency".</li>
+<li>Weiner, J. (2018). <em>PSI — pressure stall information for CPU, memory, and IO</em>. Linux kernel documentation; LWN.net coverage, 2018.</li>
+<li>Facebook Engineering (2018). <em>oomd: a more flexible userspace OOM killer</em> (and follow-up, 2019: <em>oomd 2.0</em>).</li>
+<li>Klein, C., Maggio, M., Árzen, K.-E., et al. (2014). <em>Brownout: reducing the peak load with graceful performance degradation</em> (brownout line; see also Maggio et al., IEEE TSE follow-ups).</li>
+<li>MPEG-DASH: ISO/IEC 23009-1; Stockhammer, T. (2011). <em>Dynamic adaptive streaming over HTTP</em>. ACM MMSys.</li>
+<li>Netflix Technology Blog (2015). <em>Per-title encode optimization</em>.</li>
+<li>Microsoft (2022). <em>EcoQoS — quality of service class for efficiency</em>. Windows developer blog; Microsoft (2017) <em>Power throttling</em>.</li>
+<li>Android Developers (2022–). <em>Android Dynamic Performance Framework (ADPF) — performance hint API</em>.</li>
+<li>Zinky, J., Bakken, D., &amp; Schantz, R. (1997). <em>Architectural support for quality of service in CORBA</em> (Quality Objects / QuO line). OOPSLA.</li>
+<li>Liu, J. W. S., Lin, K.-J., Shih, W.-K., et al. (1994). <em>Imprecise computations</em>. Proceedings of the IEEE 82(1).</li>
+<li>Zilberstein, S. (1996). <em>Using anytime algorithms in intelligent systems</em>. AI Magazine 17(3).</li>
+<li>Kephart, J., &amp; Chess, D. (2003). <em>The vision of autonomic computing</em>. IEEE Computer 36(1).</li>
+<li>de Lemos, R., et al. (2013). <em>Software engineering for self-adaptive systems: a second research roadmap</em>. Springer LNCS.</li>
+<li>Leucker, M., &amp; Schallhart, C. (2009). <em>A brief account of runtime verification</em>. Journal of Logic and Algebraic Programming 78(5).</li>
+<li>Rosenthal, C., &amp; Jones, N. (2017). <em>Chaos Engineering</em>. O'Reilly.</li>
+<li>Meyer, B. (1988). <em>Object-Oriented Software Construction</em> (design by contract). Prentice-Hall.</li>
+<li>Huang, Y., Kintala, C., Kolettis, N., &amp; Fulton, N. (1995). <em>Software rejuvenation: analysis, module and applications</em>. IEEE FTCS-25.</li>
+<li>Kubernetes documentation (2024). <em>Pod QoS classes; PriorityClasses; resource eviction</em>.</li>
+<li>Linux kernel (2024). <em>cgroup v2 — memory controller, memory.reclaim</em>.</li>
+<li>Intel (2015). <em>Energy-efficient scheduling</em> / Android (2015). <em>JobScheduler, Doze, and App Standby</em>.</li>
+<li>Kleppmann, M., et al. (2019). <em>Local-first software: you can own your data, in spite of the cloud</em>. Ink &amp; Switch (offline degradation modes, cross-referenced in §3).</li>
+</ol>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p003.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The n=1 Cost-of-Living Index: Statistically Defensible Personal Inflation from Local-First Purchase Streams</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p005.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Provenance-Native Storage: The File System as a Causal Ledger</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p004,
+  title       = {Degradation Contracts: Specifying and Enforcing How Software Behaves Under Pressure},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-004},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p004.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

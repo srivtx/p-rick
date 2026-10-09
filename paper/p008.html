@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Afterlife of Devices: An Architecture for Vendor-Death Resilience — p-rick P-008</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p008.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Afterlife of Devices: An Architecture for Vendor-Death Resilience">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p008.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Afterlife of Devices: An Architecture for Vendor-Death Resilience">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Afterlife of Devices: An Architecture for Vendor-Death Resilience","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-008","url":"https://srivtx.github.io/p-rick/paper/p008.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-008 &middot; series </p>
+      <h1 class="paper-title">The Afterlife of Devices: An Architecture for Vendor-Death Resilience</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source</a> &middot; <a href="../pdfs/p-008.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-008.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-008-afterlife-of-devices.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p008.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">—</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The failure taxonomy: five ways a vendor dies</a></li><li><a href="#s3"><span class="tocn">3.</span>The landscape: every slice exists, the center is empty</a></li><li><a href="#s4"><span class="tocn">4.</span>Why the gap persists</a></li><li><a href="#s5"><span class="tocn">5.</span>The model: lifecycle, ladder, and floor</a></li><li><a href="#s6"><span class="tocn">6.</span>The protocol</a></li><li><a href="#s7"><span class="tocn">7.</span>Threat model</a></li><li><a href="#s8"><span class="tocn">8.</span>Evaluation design</a></li><li><a href="#s9"><span class="tocn">9.</span>Economics and policy</a></li><li><a href="#s10"><span class="tocn">10.</span>Objections</a></li><li><a href="#s11"><span class="tocn">11.</span>Limitations</a></li><li><a href="#s12"><span class="tocn">12.</span>Conclusion</a></li><li><a href="#s13"><span class="tocn">13.</span>References</a></li></ol><ul class="toc-extra"></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>A light switch lasts thirty years. A light-bulb company lasts five. This arithmetic is the central, unaddressed fact of the connected-device industry: hardware designed to outlive its maker by an order of magnitude, coupled to a software organization that can vanish in an afternoon.</p>
+<p>The industry's answer to date has been to not have an answer. Devices are shipped <em>cloud-coupled</em>: their most basic functions depend on a vendor-operated backend, an authentication service, a signing authority, or a configuration API. The coupling is invisible at purchase time, structural at death time. When Insteon abruptly ceased operations in April 2023, its cloud went dark with no notice; hubs that had coordinated locks, lights, and sensors for years became decorative objects. When Google retired the Revolv home-automation hub in 2016, it did so on a published schedule — and bricked the hardware on that schedule, offering a refund instead of a downgrade. When Chamberlain decided in 2023 to block local API access to myQ garage openers, the devices continued to function, but the <em>behavior owners had paid for</em> — integration with their own home systems — died by policy. The pattern repeats across Wink's collapse, Sonos's legacy-device disputes, and dozens of smaller vendors whose deaths never made the news because their installed bases were too small to mourn publicly.</p>
+<p>Three observations sharpen the problem. First, these events are not breaches of contract in any actionable sense — they <em>are</em> the contract, read closely. Second, each event produces an identical aftermath: a volunteer scramble (the Insteon resurrection effort), a partial rescue, a wave of e-waste, and no systemic change. Third, and most tellingly, nobody anywhere has written down what <em>should</em> happen. There is no lifecycle state, no protocol, no artifact, no instrument through which a device survives the death of its vendor. The event is as undesigned as an earthquake.</p>
+<p>This paper writes it down. We treat vendor death as a <strong>first-class lifecycle transition</strong> that can be specified, contracted, escrowed, and executed — the way enterprise software has treated source-code escrow for four decades, and the way DNS treats delegation failure. The thesis in one sentence: <strong>a device's useful life should not be a contingent consequence of its vendor's corporate life, and the mechanism that decouples them can be fully specified today.</strong></p>
+<h2 id="s2"><span class="secno">2.</span>The failure taxonomy: five ways a vendor dies</h2>
+<p>Vendor death is not one event but a family of events with different signatures, and a succession architecture must handle each.</p>
+<p><strong>Insolvency.</strong> The company runs out of money; servers stop; nobody answers. Insteon (2023) is the canonical case: an abrupt shutdown with no transition plan, followed by a partial community resurrection after the brand was acquired. Insolvency is the hardest case because there is no cooperating counterparty — but it is also the most <em>legally verifiable</em> (bankruptcy filings are public records), which matters for the dead-hand triggers of §6.</p>
+<p><strong>Strategic sunset.</strong> The vendor is alive and simply retires the product line. Google's Revolv shutdown (2016) — a hub deliberately disabled after Google acquired the underlying team — is the canonical case. The vendor is solvent, communicative, and uninterested. Any succession mechanism must survive a counterparty who is healthy enough to interfere and uninterested in cooperating.</p>
+<p><strong>Ecosystem consolidation.</strong> A platform retires third-party integrations in favor of its own stack. The 2016 "Works with Nest" shutdown did this at ecosystem scale; the Chamberlain myQ lockout of Home Assistant (2023) did it at device scale. The device survives; its <em>interoperability</em> dies.</p>
+<p><strong>Acquisition churn.</strong> The acquirer retires or repurposes the acquired product line, or imposes account migration that breaks older hardware. Sonos's long-running legacy-device disputes — including a 2020 trade-in program that permanently disabled traded-in devices ("recycle mode") — illustrate a vendor using its technical authority over hardware it has already sold.</p>
+<p><strong>Neglect death.</strong> No announcement; the cloud simply rots. Certificates expire, TLS versions age out, domains lapse, mobile apps fall off the stores. Neglect death is the most common and least reported: for every Insteon, hundreds of vendors quietly stop renewing. It matters because it is <em>mechanically detectable</em> without anyone's cooperation.</p>
+<p>From the device's perspective these five modes differ in one property that matters: <strong>whether a counterparty exists who could deliberately interfere with succession.</strong> Insolvency and neglect leave no active adversary. Sunset, consolidation, and acquisition leave a healthy one. The architecture of §6 is designed around exactly this distinction.</p>
+<h2 id="s3"><span class="secno">3.</span>The landscape: every slice exists, the center is empty</h2>
+<p>A claim of a missing category must survive a survey. Each adjacent field holds one component of a solution; none composes them.</p>
+<p><strong>Interoperability standards (Matter, Thread, Zigbee, Z-Wave).</strong> Matter in particular is frequently proposed as the answer to device longevity. It is not, and the distinction is load-bearing: Matter specifies how <em>cooperating live devices</em> talk to each other. It specifies nothing about what happens when a vendor's commissioning backend, account service, or firmware-update authority disappears. A Matter device can still lose its cloud-dependent features, its updates, and its security posture on vendor death. Interoperability is a <em>protocol</em> property; succession is a <em>lifecycle</em> property. The industry has built the first and assumed the second.</p>
+<p><strong>Enterprise source-code escrow.</strong> Since the 1980s, enterprise software contracts routinely place source code with an escrow agent, released to the licensee on defined trigger events (vendor insolvency, support failure). This is the strongest existence proof that <em>escrowed continuity is contractually routine</em> — for million-dollar deals between sophisticated parties. It has never been productized for a $60 lightbulb. The consumer setting differs in three ways worth specifying: licensees are millions of strangers with no contract privity; the asset is firmware plus signing authority, not just source; and the trigger must be verifiable without litigation. Escrow industry practice is the precedent the paper scales down.</p>
+<p><strong>Right-to-repair law and policy.</strong> A real and accelerating movement: warranty-void restrictions (US FTC enforcement, 2021, and the 2024 Massachusetts automotive-right-to-repair law), the French repairability index (mandatory since 2021, with a durability index legislated to follow), the EU ecodesign regulations mandating spare-parts and update availability windows, and US state laws covering electronics. But repair law governs <em>physical</em> restoration and parts. Firmware release on vendor death — the exact thing a succession protocol needs — is governed by copyright, licensing, and the DMCA's §1201 anti-circumvention regime, where the Library of Congress's triennial rulemaking has granted only narrow class exemptions (repair and security research in specific categories). Repair law fixes the hand; succession fixes the mind.</p>
+<p><strong>The reverse-engineering culture.</strong> Home Assistant, ESPHome, Tasmota, and their communities represent the world's most impressive <em>unsolicited</em> succession system: thousands of volunteers reverse-engineer dead and dying devices, write local replacements, and re-host functionality. The Insteon partial resurrection of 2023 was community work. Two structural limits: it is illegal-adjacent (circumvention), unreliable (depends on a device being popular enough to attract a maintainer — the long tail of devices dies unmourned), and <em>unsigned</em>: community firmware on a locked bootloader is impossible; on an unlocked one it is a security downgrade. The culture proves demand and capability; it cannot be the mechanism, because it lacks standing, keys, and coverage.</p>
+<p><strong>Degradation contracts (P-004).</strong> This program's earlier paper specifies how software <em>behaves under resource pressure</em> — an ordered, contractual ladder of reduced fidelity. Vendor death is a different resource axis with the same shape: an input the system depended on disappears, and the correct response is a <em>specified</em> degradation, not an improvised one. The succession ladder of §5 is a degradation contract over the vendor-dependency axis; the papers share the model deliberately, and §5 states exactly where the analogy holds and breaks.</p>
+<p><strong>Dependable-systems research.</strong> Literature on graceful degradation, fail-operational systems, and long-life embedded systems supplies vocabulary (fail-operational, safe-state) but assumes the <em>system</em> is the artifact whose internal components fail — not that the artifact's <em>manufacturer</em> fails while the artifact is healthy. The economics of the problem (shrouded attributes, adverse selection) has clean treatments (Gabaix &amp; Laibson's shrouded-attributes model, 2006) but no engineering counterpart.</p>
+<p>The center — a pre-agreed, escrowed, key-carrying, verifiable mechanism by which a device outlives its vendor — is empty. VERDICT: the gap is <strong>STRONG</strong>: recurring catastrophic events, no incumbent of any size, every component individually proven, and a decade of volunteer demand demonstrated by the reverse-engineering culture.</p>
+<h2 id="s4"><span class="secno">4.</span>Why the gap persists</h2>
+<p><strong>Liability asymmetry.</strong> A vendor that plans for its own death writes evidence for plaintiffs in the cases where it degrades service while alive. No GC wants a document titled "what we owe you when we stop existing."</p>
+<p><strong>Shrouded attributes.</strong> Buyers cannot observe longevity terms at purchase, so the market cannot price them (Gabaix &amp; Laibson's model applies precisely: shrouded attributes are over-produced by competitive sellers). Cloud coupling that saves the vendor per-unit cost is thus structurally over-supplied and survives every outage scandal, because the scandal happens after the sale.</p>
+<p><strong>The coordination window closes at death.</strong> Community takeover requires firmware, specifications, and signing authority — things only the <em>live</em> vendor can provide, and precisely the things it has least incentive to provide the closer it gets to being dead. The protocol must be armed while everyone is happy, which is why escrow-at-sale (§6) rather than request-at-death is the load-bearing design decision.</p>
+<p><strong>The key-continuity problem looks unsolved.</strong> Firmware signing keys in the hands of a dead company rot; keys handed to a community quorum look like a malware pipeline. It <em>is</em> solvable — §6.3 gives the ceremony — but the folklore that "you can't just give away signing keys" has discouraged attempts.</p>
+<p><strong>Boot chains assume the vendor forever.</strong> Modern devices burn vendor public keys into ROM for secure boot. Well-intentioned security engineering <em>manufactured</em> the bricking problem: the better the secure boot, the harder the rescue. Succession-ready devices must treat key succession as a design requirement of the boot chain itself.</p>
+<h2 id="s5"><span class="secno">5.</span>The model: lifecycle, ladder, and floor</h2>
+<h3 id="s51">5.1 Lifecycle state machine</h3>
+<p>A cloud-coupled device occupies a defined lifecycle, and for the first time the post-vendor states are <em>specified</em> rather than improvised:</p>
+<ul>
+<li><strong>LIVE</strong> — vendor operates the cloud, ships updates, honors the manifest (§5.2).</li>
+<li><strong>ANNOUNCED</strong> — vendor publishes an end-of-support date; manifest's local floor (§5.3) activates automatically.</li>
+<li><strong>SUCCESSION</strong> — dead-hand trigger fired (§6.2); escrow opens; community quorum forms.</li>
+<li><strong>COMMUNITY</strong> — community-signed firmware, local or community-hosted services, per the manifest.</li>
+<li><strong>FOSSIL</strong> — no software maintenance at all; physical floor functions guaranteed by hardware design (§5.4).</li>
+</ul>
+<p>The two novel transitions are LIVE→ANNOUNCED (which must be <em>automatic</em>, not negotiated at death time) and SUCCESSION→COMMUNITY (which must carry signing authority without a trusted center). Everything else in the architecture serves those two transitions.</p>
+<h3 id="s52">5.2 The device succession manifest (DSM)</h3>
+<p>Each product line ships a signed, machine-readable manifest — the contract that makes longevity observable at purchase time:</p>
+<ol>
+<li><strong>Cloud-dependency graph.</strong> Every runtime capability, marked <code>local</code>, <code>vendor-cloud</code>, or <code>community-portable</code>, with the services each cloud capability requires. This is the artifact reviewers, procurement, and regulators read.</li>
+<li><strong>Escrow declaration.</strong> Firmware source (or verified buildable artifacts), board schematics, protocol specifications, and provisioning secrets schedule — the release set, committed at escrow (§6.1).</li>
+<li><strong>Succession policy.</strong> Dormancy thresholds, quorum definition, accepted community-operator formats (e.g., a specified Home Assistant/ESPHome target profile), and the choice of fossil floor.</li>
+<li><strong>Key-succession plan.</strong> The ceremony parameters of §6.3, binding while the vendor is alive.</li>
+</ol>
+<p>The DSM is to device longevity what a nutrition label is to food: not a guarantee of health, but the end of invisibility. The French repairability index demonstrates that such labels are already legislatable.</p>
+<h3 id="s53">5.3 The succession ladder</h3>
+<p>When the ANNOUNCED or SUCCESSION state is entered, capability degrades along a <em>declared</em> ladder — a degradation contract (P-004) over the vendor-dependency axis:</p>
+<ul>
+<li><strong>Tier 0 (full):</strong> all cloud features live.</li>
+<li><strong>Tier 1 (local core):</strong> the manifest's local floor — everything marked <code>local</code> continues; cloud features queue or degrade to manual control.</li>
+<li><strong>Tier 2 (community core):</strong> community firmware provides the <code>community-portable</code> set at parity or reduced fidelity, per a published changelog.</li>
+<li><strong>Tier 3 (fossil):</strong> hardware-guaranteed floor (§5.4).</li>
+</ul>
+<p>The ladder's safety requirement: <strong>downward transitions are total but recoverable</strong> — a device in Tier 2 must re-enter Tier 1 automatically if the vendor revives (this happens; Insteon partially did). Hysteresis is inherited from the P-004 model: no thrash between tiers on flapping renewal signals (§6.2 requires sustained silence, not a single missed ping).</p>
+<h3 id="s54">5.4 Fossil mode: the hardware floor</h3>
+<p>Some classes of devices can kill people or strand them: locks, garage openers, thermostats in winter, medical-adjacent sensors. For these, the manifest certifies a <strong>fossil floor</strong> — a set of functions guaranteed by <em>hardware alone</em>: a manual deadbolt, a physical garage button, a dumb-thermostat mode, a local alarm independent of any service. Fossil mode is a manufacturing requirement (a physical path that no firmware state can disable), and it is the paper's answer to the strongest objection ("software solutions can't guarantee anything about vendor death"): at the bottom of the ladder sits physics, not policy.</p>
+<h2 id="s6"><span class="secno">6.</span>The protocol</h2>
+<h3 id="s61">6.1 Escrow while alive</h3>
+<p>At first general availability, the vendor deposits the DSM's release set with <strong>N independent escrow agents</strong> (a mature industry; agents hold sealed release sets and are paid whether or not release ever occurs). The deposit is <em>renewed periodically</em>: each renewal is a signed proof published to a public append-only log. Renewal is deliberately cheap — a signed timestamp — and deliberately public.</p>
+<h3 id="s62">6.2 Dead-hand release</h3>
+<p>Release requires a <strong>trigger</strong> and a <strong>quorum</strong>. Triggers are events verifiable from public records, without any escrow agent's discretion:</p>
+<ul>
+<li>bankruptcy or receivership filing by the vendor (public court records);</li>
+<li>domain non-renewal beyond a threshold (WHOIS/RDAP-observable);</li>
+<li>TLS certificate non-renewal on the manifest's declared service endpoints beyond a threshold;</li>
+<li>silence: no published renewal proof for θ days (θ chosen per device class; e.g., 90 days for light-duty, 180 with amber warnings at 60).</li>
+</ul>
+<p>False positives are the design constraint: renewal proofs are public <em>and</em> mirrorable, so silence is hard to fake unintentionally, and the ladder's hysteresis means an accidental release is recoverable — the vendor renews, devices re-enter Tier 1. The 2023 Insteon resurrection (brand acquired, service partially restored months later) is the exact scenario the recoverable-transition requirement is drawn from.</p>
+<p>On trigger, k-of-N escrow agents open the release set to the public, and the community-formation protocol begins.</p>
+<h3 id="s63">6.3 The key-succession ceremony</h3>
+<p>The hard part: devices must <em>accept</em> community firmware, and accept it only from a legitimate successor, after the vendor's signing keys are orphaned.</p>
+<ol>
+<li><strong>At manufacture</strong>, the device is provisioned with the vendor root key <em>and</em> a <strong>continuity commitment</strong>: a hash of a future "succession root" — not the key itself (it does not exist yet), but a specification of the quorum that will define it: a threshold t of n pre-committed identities (escrow agents plus independent stewards).</li>
+<li><strong>On succession</strong>, the t-of-n quorum generates the succession root and signs the <em>first</em> community release. The device bootloader verifies the quorum signature against the burned-in commitment — a decentralization of trust performed while everyone was alive, exercised only when they are not.</li>
+<li><strong>Thereafter</strong>, the succession root rotates on the ordinary rules; every device knows the full chain.</li>
+</ol>
+<p>This is standard threshold-cryptography composition (t-of-n key generation over a pre-committed quorum, then ordinary rotation); its novelty here is not cryptographic but <em>institutional</em> — the boot chain finally treats the vendor as mortal. Adversarial analysis (§7) treats the quorum as the adversary in several scenarios.</p>
+<h3 id="s64">6.4 Community operation</h3>
+<p>The manifest's accepted-operator formats matter: they pre-legitimize the actual rescue culture. If the DSM names a Home Assistant integration or an ESPHome port as an accepted community target, the successor does not start from zero, and the community's legality improves from "gray" to "specified by the manufacturer." The successor operator inherits obligations with the keys: vulnerability response windows, release signing rules, and telemetry defaults (death of vendor must equal death of telemetry — the manifest sets it to zero on succession, by default).</p>
+<h2 id="s7"><span class="secno">7.</span>Threat model</h2>
+<p><strong>Malicious vendor while alive.</strong> Sunset mode can be abused as a kill switch for market segmentation (the Sonos recycle-mode dispute is the live precedent). Mitigations: the DSM is a <em>public commitment</em> — a vendor that ships a manifest promising Tier-1 local floor and later disables it by policy has manufactured its own evidence; procurement contracts (§8) convert manifests into money; and fossil mode (§5.4) caps the worst-case physical harm regardless of vendor behavior. Honesty: nothing fully constrains a solvent vendor; the manifest's power is reputational, contractual, and regulatory, not cryptographic.</p>
+<p><strong>Escrow-agent collusion.</strong> Fewer than t agents cannot release; a colluding majority can. Mitigations: agents are diversified (jurisdictions, business models — the existing escrow industry plus open archives), the release set is public on release (so the damage of a corrupt release is bounded to firmware <em>signing</em>, which the device-side ceremony still gates), and release events are on the public log, making collusion self-demonstrating.</p>
+<p><strong>Malicious successor (the xz problem).</strong> The most serious class: an attacker joins the community quorum and ships backdoored firmware — precisely the attack pattern of the 2024 xz-utils compromise (P-010's subject). The succession protocol inherits P-010's defenses: staged trust elevation for new maintainers, co-signature requirements for releases in the first window after succession, and mandatory public review periods for any post-succession key change. A device fleet is <em>better positioned</em> than a package registry to enforce this: boot chains can enforce time-locks in hardware.</p>
+<p><strong>Downgrade attacks.</strong> An attacker forces early release (false trigger) to push the fleet to Tier 2 with a weaker security posture. Mitigations: sustained-silence thresholds, mirrorable renewal proofs, and the requirement that Tier-2 transitions only ever increase <em>local</em> autonomy — never disable the local floor that already exists.</p>
+<p><strong>Key compromise of the dead vendor's keys.</strong> If the vendor's private keys leak post-mortem, devices must prefer the live succession chain; the protocol's default is that succession-root time-lock windows make vendor keys unforgeably stale after the quorum ceremony.</p>
+<h2 id="s8"><span class="secno">8.</span>Evaluation design</h2>
+<p>A reference implementation is a test harness, not a product: a small fleet of development boards (ESP32-class) behind a fabricated "vendor" — a cloud emulator with deliberate death modes (insolvency, neglect, sunset). The evaluation answers:</p>
+<ol>
+<li><strong>Survival:</strong> fraction of capabilities preserved across each death mode, measured against the manifest's ladder (target: Tier-1 floor 100% within 24 hours of trigger; Tier-2 community parity within 90 days for the portable set).</li>
+<li><strong>False positives:</strong> accidental trigger rate over a year of synthetic flapping (missed renewals, DNS failures, cert churn) — target zero with hysteresis at the declared thresholds.</li>
+<li><strong>Ceremony soundness:</strong> formal verification of the boot-chain acceptance rules (the threshold ceremony's signature verification in a small TLA+-style model).</li>
+<li><strong>Adversary replay:</strong> re-run the xz-style malicious-successor attack against the staged elevation rules; measure whether the co-signature window blocks the backdoor publish.</li>
+<li><strong>Fossil floor audit:</strong> physical-interlock verification for the lock/opener/thermostat classes (the floor must survive total firmware compromise).</li>
+</ol>
+<p>A second, retrospective evaluation replays real events against the model: for Insteon (insolvency), Revolv (sunset), myQ (consolidation), and Sonos (acquisition), we reconstruct which manifest tier the architecture would have held, and what the actual outcome was. The delta between the two columns is the paper's quantified claim.</p>
+<h2 id="s9"><span class="secno">9.</span>Economics and policy</h2>
+<p><strong>Procurement is the first market.</strong> Hotels, property managers, and municipalities buy devices in fleets of thousands, hold them for a decade, and already read lifecycle terms (the enterprise escrow precedent). A "succession-ready" seal backed by a verifiable manifest is exactly the artifact procurement processes can require — the demand side the consumer market lacks. B2B adoption funds the tooling; consumer labels follow.</p>
+<p><strong>Regulation is converging on adjacent ground.</strong> The French repairability index (2021) proves longevity labeling is legislatable; the EU's ecodesign rules already mandate support windows for some device classes; right-to-repair statutes are spreading across US states. A mandated <em>succession manifest</em> for device classes with safety-relevant fossil floors (locks, openers, thermostats) is a plausible 5-year extension of exactly these instruments — this paper supplies the specification such a rule would reference.</p>
+<p><strong>The dead-hand trigger as public infrastructure.</strong> Renewal-proof logs are cheap, boring, and useful to more than devices (P-010's registry governance, P-011's model-deprecation notices need the same primitive). One public "liveness ledger" serves the whole continuity series — a deliberate reuse.</p>
+<h2 id="s10"><span class="secno">10.</span>Objections</h2>
+<p><strong>"Vendors will never opt in."</strong> While alive and competing, most won't. The design does not require consensus: it requires one seal, one procurement channel, and time. Enterprise escrow was also "never going to happen" until customers with leverage wrote it into contracts. The manifest's observability converts an invisible attribute into a purchasable one; that is all a market needs to start sorting.</p>
+<p><strong>"You're handing attack surface to volunteers."</strong> The comparison is not "community firmware vs. safe status quo" — it is community firmware vs. an abandoned fleet running unmaintained cloud-coupled firmware on expired certificates, which is the actual status quo after vendor death. The successor at least patches. Staged elevation and co-signature windows (the xz defenses) address the takeover attack specifically; the fossil floor caps the physical worst case categorically.</p>
+<p><strong>"Bankruptcy estates own that IP."</strong> Escrow terms are contracts executed <em>before</em> insolvency, transferring specified release rights on defined triggers; what the estate retains is what it never had in escrow. This is the exact structure forty years of software escrow practice has litigated into predictability. (Jurisdictional variation is real — see §11.)</p>
+<p><strong>"Matter solves this."</strong> Matter standardizes live interoperability. It has no lifecycle semantics: no escrow, no triggers, no key succession, no floor. A Matter device whose vendor dies loses updates and cloud features exactly as a non-Matter device does. The standards body could adopt the DSM; until then, the gap is open.</p>
+<p><strong>"Just buy local-first devices."</strong> Excellent practice, incomplete answer: it solves <em>your</em> next purchase, not the installed base of billions, and even local devices need firmware updates and signing authority — vendor death eventually reaches them through the same rot. Succession-readiness is complementary to local-first, not replaced by it.</p>
+<h2 id="s11"><span class="secno">11.</span>Limitations</h2>
+<p>The protocol depends on the vendor arming it while alive; the installed base of already-sold cloud-coupled devices cannot be retrofitted, and volunteer reverse-engineering remains their only recourse. Boot chains with burned vendor-only keys are unrescuable by software; fossil floors are manufacturable only at design time. Community capacity is unevenly distributed — popular devices attract maintainers, the long tail does not; the manifest's accepted-operator formats mitigate but do not solve coverage. Dead-hand triggers are jurisdiction- and record-sensitive (bankruptcy records differ across countries; WHOIS privacy post-GDPR erodes domain-lapse observability). And the malicious-vendor-while-alive case is capped, not solved, by manifest observability. These are real boundaries; none of them rescinds the specification, they bound its deployment.</p>
+<h2 id="s12"><span class="secno">12.</span>Conclusion</h2>
+<p>The industry ships hardware with a decade of physical life into an ecosystem with a few years of corporate attention, and the mismatch is treated as weather. It is a specification failure with a known shape: a lifecycle state machine that pretends vendors are immortal; a capability floor that exists only in marketing copy; signing authority with no succession plan; and a rescue culture that is admired, unpaid, and technically illegal. Every component needed to fix this — escrow contracts, dead-hand triggers, threshold key ceremonies, degradation ladders, hardware interlocks, longevity labels — exists today in an adjacent industry, proven at its own scale. This paper composes them into a specification for the one transition nobody designs: the death of the maker. The devices are ready. The protocol, now, is too.</p>
+<h2 id="s13"><span class="secno">13.</span>References</h2>
+<ol>
+<li>Insteon service shutdown and partial restoration (2023). Reporting: <em>The Verge</em>, April 2023 ("Insteon servers shut down, bricking hubs without warning") and follow-ups on the community-led restoration. [Event record; to be verified against live sources in the citation-verification pass.]</li>
+<li>Revolv hub shutdown by Google/Nest (2016). Reporting: <em>Ars Technica</em> / <em>The Verge</em>, May 2016, including the "Works with Nest" integration retirement. [Event record; verification queued.]</li>
+<li>Chamberlain myQ local-API access blocked for Home Assistant (2023). Reporting: <em>The Verge</em>, June 2023; Home Assistant announcement of integration removal. [Event record; verification queued.]</li>
+<li>Sonos legacy-product dispute and trade-in "recycle mode" (2020). Reporting: <em>The Verge</em>, January–February 2020. [Event record; verification queued.]</li>
+<li>Connectivity Standards Alliance. <em>Matter Specification</em> (1.x, 2022–). Interoperability standard; no lifecycle/succession semantics. [Standards record.]</li>
+<li>Gabaix, X., &amp; Laibson, D. (2006). "Shrouded Attributes, Consumer Myopia, and Information Suppression in Competitive Markets." <em>Quarterly Journal of Economics</em>, 121(2). [Peer-reviewed; high confidence.]</li>
+<li>Source-code escrow practice. Industry standard in enterprise software contracting since the 1980s; see e.g. Iron Mountain / NCC Group escrow service descriptions. [Industry record; verification queued.]</li>
+<li>French repairability index (indice de réparabilité), mandatory January 2021 (AGEC law); durability index legislated in follow-on. [Regulatory record; high confidence, details queued.]</li>
+<li>U.S. FTC, "Nixing the Fix" report (2019) and 2021 policy statement against warranty-void-if-removed restrictions; state right-to-repair statutes (NY 2022, CA 2023, MA automotive 2020/2024). [Regulatory record; high confidence on FTC, details queued.]</li>
+<li>EU Ecodesign Directive implementation measures mandating spare-parts availability and software-update windows for energy-related products (2019–, evolving). [Regulatory record; details queued.]</li>
+<li>DMCA §1201 (17 U.S.C. §1201) anti-circumvention regime; Library of Congress triennial rulemaking exemptions for repair and security research (2018–2021 cycles). [Statutory record; high confidence.]</li>
+<li>Wink hub outages and transition to paid subscription (2020). Reporting: <em>The Verge</em>, May–July 2020. [Event record; verification queued.]</li>
+<li>"Works with Nest" program shutdown (2016), retiring Revolv and third-party integrations. [Event record; folded into reference 2.]</li>
+<li>Borbély two-process alertness model — not cited here; see P-009 for the human-time axis of continuity. [Cross-reference.]</li>
+<li>p-rick P-004, <em>Degradation Contracts</em> (this program, 2026): fidelity ladders, hysteresis, and floor invariants reused as the succession ladder's semantics. [Program cross-reference.]</li>
+<li>p-rick P-010, <em>The Bus Factor Protocol</em> (this program, 2026): staged trust elevation and co-signature windows for post-succession maintainers. [Program cross-reference.]</li>
+</ol>
+<p><em>Working-paper note: references marked "verification queued" are recorded from domain knowledge at high confidence and await the program's live citation-verification pass (see agents.md); the verification ledger is maintained with the paper sources.</em></p>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p007.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The Intermittent Compute Fabric: One Machine Across Many Devices</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p009.html"><span class="pn-k">next &rarr;</span><span class="pn-t">Circadian Orchestration: Team Scheduling on Human Biological Time</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p008,
+  title       = {The Afterlife of Devices: An Architecture for Vendor-Death Resilience},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-008},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p008.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

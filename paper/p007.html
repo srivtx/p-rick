@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Intermittent Compute Fabric: One Machine Across Many Devices — p-rick P-007</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p007.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Intermittent Compute Fabric: One Machine Across Many Devices">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p007.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-07">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Intermittent Compute Fabric: One Machine Across Many Devices">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Intermittent Compute Fabric: One Machine Across Many Devices","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-07","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-007","url":"https://srivtx.github.io/p-rick/paper/p007.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-007 &middot; series </p>
+      <h1 class="paper-title">The Intermittent Compute Fabric: One Machine Across Many Devices</h1>
+      <div class="paper-meta">2026-10-07 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source</a> &middot; <a href="../pdfs/p-007.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-007.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-007-intermittent-compute-fabric.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p007.html">companion essay</a>
+
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">—</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>The problem: five islands owned by one person, mediated by a billing meter</a></li><li><a href="#s3"><span class="tocn">3.</span>Why offloading died, and why the death expired</a></li><li><a href="#s4"><span class="tocn">4.</span>The modern landscape: every layer exists, no integration</a></li><li><a href="#s5"><span class="tocn">5.</span>The fabric: model and semantics</a></li><li><a href="#s6"><span class="tocn">6.</span>Architecture</a></li><li><a href="#s7"><span class="tocn">7.</span>Evaluation design</a></li><li><a href="#s8"><span class="tocn">8.</span>Objections, confronted</a></li><li><a href="#s9"><span class="tocn">9.</span>The window: local AI and the two-to-three-year gap</a></li><li><a href="#s10"><span class="tocn">10.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#disclosure">Disclosure</a></li><li><a href="#references">References</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>Consider a completely ordinary evening: a person with a phone, a laptop, and a desktop (with a GPU) wants to run a 7B-parameter language model privately. The phone cannot fit it; the laptop runs it slowly; the desktop runs it well but is across the room. Industry's answer is buy a cloud subscription, or carry the workload by hand (copy the file, run it there, copy it back) — the ritual everyone performs daily across documents, media, builds, and model weights. The devices are islands connected through a third party that bills by the month and reads by the byte. The absurdity is structural, not incidental: nothing in the consumer stack lets one machine <em>ask another machine to do work</em>.</p>
+<p>The industry solved the trivially visible slices. Apple's continuity stack (Handoff, 2014; AirDrop; Sidecar, 2019; Universal Control, 2022) is polished — and hermetic: Apple-to-Apple, curated feature-by-feature, closed to third-party developers as a platform. Microsoft Phone Link and Samsung Flow mirror the pattern on the other duopoly. KDE Connect and LocalSend prove community appetite for open cross-device behavior (file transfer, input sharing) without a compute layer. None of these — vendor or community — offers the general capability: <em>a programming model in which the device set is one schedulable machine</em>.</p>
+<p>There is a name for that idea, and it is old. Distributed operating systems research (Sprite, LOCUS, Amoeba, MOSIX single-system-image work, Plan 9's resource-centric design) built exactly this for the machines of its era — pools and clusters. When computing went personal and mobile, the research line forked into mobile <em>code offloading</em> (Odyssey's application-aware adaptation; MAUI's energy-optimal method migration; CloneCloud's VM-based partitioning), which flourished 2008-2013 and then died. The field's honest post-mortems list the killers: device heterogeneity, security of remote execution, battery economics, and the killer of all of them — the arrival of cloud APIs that made offloading someone else's problem. Meanwhile the actual substrate of personal computing kept compounding: every device became multi-core with a heterogeneous accelerator, always-connected over encrypted mesh-capable networks, owned by one identity, and — the recent turn — running local AI workloads that are large, divisible, and placement-sensitive.</p>
+<p>This paper specifies the system that the substrate now permits: the intermittent compute fabric. §3 explains why the offloading literature died and why its death conditions expired; §4 surveys the modern landscape's gaps; §5-6 specify the fabric — scheduler, capability protocol, task semantics, state layer; §7 designs the evaluation; §8 confronts the objections; §9 argues the AI-era window.</p>
+<h2 id="s2"><span class="secno">2.</span>The problem: five islands owned by one person, mediated by a billing meter</h2>
+<p>Enumerate the ordinary cross-device operations people perform daily, and their costs:</p>
+<ul>
+<li><strong>Carry</strong> (move a file or state by hand: USB, chat-to-self, email-to-self, sync folder): seconds to minutes, error-prone, version-ambiguous.</li>
+<li><strong>Cloud round-trip</strong> (everything else): adds WAN latency, subscription cost, privacy exposure, and offline failure to operations between devices in the same room.</li>
+<li><strong>Vendor moment</strong> (AirDrop, Handoff, Phone Link): works — exactly and only — for the curated features, vendors, and directions the vendor blessed.</li>
+</ul>
+<p>What does not exist is the <em>primitive</em>: <code>run(task, constraints) → somewhere in my device set, subject to my placement policy</code>. Its absence shows up as:</p>
+<p><strong>Capability stranding.</strong> The desktop GPU idles while the phone struggles; the phone's sensors idle while the laptop's video call wants them; the NAS stores terabytes while the cloud bills for gigabytes. The capability graph is rich; the reachability graph is feudal.</p>
+<p><strong>Energy myopia.</strong> A compute job runs on the phone in the pocket at 15W from battery when the plugged-in laptop at 65W wall-power sits idle in the same bag. Offloading research showed order-of-magnitude energy savings from placement; consumer platforms expose none of it.</p>
+<p><strong>Offline fragility.</strong> Trains, planes, dead zones, roaming: the cloud-mediated fabric fails exactly when device-local resources are abundant. Partition tolerance is a <em>cloud</em> property in today's stack; it should be a <em>local</em> property.</p>
+<p><strong>Privacy deadweight.</strong> Data that never needs to leave the house takes the cloud round-trip anyway, because the local path is unprogrammable. The local-first movement (Ink &amp; Switch, CRDT sync engines) has rebuilt <em>state</em> local-first; <em>computation</em> remains cloud-feudal.</p>
+<p>The aggregate is a user who owns a distributed computer and uses it as five terminals on a metered bus.</p>
+<h2 id="s3"><span class="secno">3.</span>Why offloading died, and why the death expired</h2>
+<p>The mobile offloading literature (surveyed in Kumar &amp; Lu's energy analysis, and the Mach/Becvar line) was technically sound: MAUI (MobiCom 2010) minimized energy via method-level offloading over WiFi; CloneCloud (EuroSys 2011) partitioned computation via VM migration; Odyssey (SOSP 1997 / MobiCom 2002) introduced application-aware adaptation between local and remote execution; Satyanarayanan's cloudlet line pushed the execution substrate toward the edge. The failure conditions, as the field's own retrospectives tell it:</p>
+<ol>
+<li><strong>Reachability was unsolved.</strong> NATs, dynamic IPs, and absent device identity made "call my other machine" a network research problem per session. <em>Expired:</em> WireGuard-class tunnels (NDSS 2017), Tailscale-style mesh coordination (2019–), and mDNS make any device set addressable by stable identity over an encrypted mesh with zero configuration. This is the single largest substrate change: the fabric's network layer is now a weekend, not a thesis.</li>
+<li><strong>Trust and code mobility were open wounds.</strong> Executing foreign code on your laptop was an attack surface; carrying credentials between devices was unsolved. <em>Expired:</em> per-device identities with mutual TLS, signed task bundles, sandboxed runtimes (WASM, containers) — remote execution is now routine engineering (it is, literally, what CI clouds sell).</li>
+<li><strong>Heterogeneity made binaries fragile.</strong> <em>Expired by neutralization:</em> WASM and container images give portable execution units; and the fabric can place by capability-match rather than by architecture-match (the GPU job goes where a GPU is; it does not need to run <em>everywhere</em>).</li>
+<li><strong>Battery economics favored the cloud.</strong> Offloading saved battery only over WiFi; cellular made it a wash; and the cloud made someone else pay the joules. <em>Expired:</em> the AI workload inversion — the user <em>owns</em> the FLOPs locally (the desktop GPU was bought for this), and the question is placement among owned resources, not rent-versus-battery. The fabric is not renting compute; it is <em>scheduling owned compute</em>.</li>
+<li><strong>No workload demanded it.</strong> Document sync — the dominant cross-device need — never needed remote execution, only state replication. <em>Newly false:</em> local LLM inference is divisible (layer/pipeline partitioning — the Petals line demonstrated collaborative serving over consumer GPUs; the EdgeShard line formalized edge partitioning), placement-sensitive (NPU here, memory there), and privacy-shaped (do not send my context to a cloud). For the first time since 2012, there is a workload that <em>wants</em> the fabric.</li>
+</ol>
+<p>The honest summary: offloading died because the substrate and the workload were wrong, and both have now inverted. What has not expired is the graveyard's effect: the field stopped looking, and the vendor stack filled the space with closed moments.</p>
+<h2 id="s4"><span class="secno">4.</span>The modern landscape: every layer exists, no integration</h2>
+<ul>
+<li><strong>Network:</strong> Tailscale/WireGuard, Nebula, ZeroTier — personal meshes at production maturity; headscale for self-hosting.</li>
+<li><strong>Identity:</strong> per-device keys, mTLS, capability-token patterns; the missing piece is <em>user-scoped</em> federation (one identity binding <em>this person's</em> devices) — an engineering task, not research.</li>
+<li><strong>State:</strong> CRDT engines (Automerge, Yjs) and sync systems (Syncthing's partition-tolerant P2P file sync — a fabric-native primitive hiding in a file tool).</li>
+<li><strong>Execution:</strong> WASM runtimes, OCI containers, SSH, remote APIs; Planet-scale precedent for scheduling across owned clusters (k3s on homelab Raspberry Pis is a mass hobby).</li>
+<li><strong>Workload:</strong> local-first AI (llama.cpp-class runtimes, NPU runtimes on every phone), Petals-style distributed serving, split-computing surveys.</li>
+<li><strong>UX precedents:</strong> Universal Control (one input across devices), KDE Connect, AirDrop; the interaction grammar exists feature-by-feature.</li>
+<li><strong>Community demand:</strong> r/selfhosted, Home Assistant's growth (a <em>de facto</em> fabric for sensors, running on owned hardware, with hundreds of integrations), the homelab renaissance (CasaOS/Umbrel-class platforms packaging server-ness for consumers).</li>
+</ul>
+<p>What does not exist anywhere: the <em>scheduler + capability protocol + task semantics</em> that turn these layers into a programmable machine. Home Assistant automates the smart home; the mesh VPN moves packets; the CRDT syncs documents; nothing lets a program say "run this where the FLOPs are, borrow the camera where the camera is, keep state where I am, and survive the phone sleeping."</p>
+<h2 id="s5"><span class="secno">5.</span>The fabric: model and semantics</h2>
+<h3 id="s51">5.1 The fabric abstraction</h3>
+<p>A <strong>fabric</strong> F = (D, E, S): a finite set of devices D, a reachability/energy/capability envelope E, and a state layer S. To the programmer, F is a single machine with heterogeneous cores (the devices), a capability registry (what each device exposes — GPU/NPU classes, memory tiers, sensors, actuators, storages), and an unusual failure model: <em>cores sleep on their own schedule, join and leave unpredictably, and have energy budgets of their own</em>.</p>
+<h3 id="s52">5.2 Tasks and the task-spec DSL</h3>
+<p>A <strong>task</strong> is a signed, content-addressed bundle: code (WASM/container/script), a resource contract (in the P-004 sense: CPU/GPU/memory floors, energy preference, deadlines), input references (into S or the ledger of P-005 — the papers compose), and output semantics. Tasks are declared with three placement dimensions: <strong>affinity</strong> (must/should/prefer: data locality, capability match), <strong>mobility</strong> (static / migratable / resumable), and <strong>criticality</strong> (interactive latency class vs. background throughput). The DSL is deliberately boring YAML:</p>
+<p><pre class="code"><code>task: transcribe-meeting
+code: wasm://sha256:…(whisper-wasm)
+inputs: [state://recordings/2026-10-07]
+resource: {cpu: 2, memory: 2Gi, accelerator: npu|gpu, energy: wall-preferred}
+placement: {affinity: data-local, mobility: resumable, criticality: background}
+deadline: tonight</code></pre></p>
+<h3 id="s53">5.3 The failure model — the fabric's actual contribution</h3>
+<p>Every distributed system is defined by its failure model. The fabric's is unusual and must be first-class:</p>
+<ul>
+<li><strong>Device sleep = process migration.</strong> A phone locking is not an error; it is a <em>scheduled</em> unavailability. The scheduler's connectivity predictor (below) treats sleep as an input; resumable tasks checkpoint and migrate. Formally: preemption with guaranteed resumption on wake or relocation — semantics borrowed from process migration literature, hardened by CRDT checkpoints.</li>
+<li><strong>Partition = scheduling constraint.</strong> The fabric assumes partitions are the common case (devices leave WiFi range constantly). Placement under predicted connectivity: a task with a 2-hour deadline whose inputs sit on the desktop <em>may</em> be placed there only if the predicted reachability window covers the task duration; otherwise it is <em>degraded</em> to a smaller-device variant (P-004 contract) or deferred. The formal object: a Markov-style reachability model per device-pair, learned from observed join/leave patterns — the same prediction machinery attention scheduling uses for humans (P-006), applied to devices.</li>
+<li><strong>Revocation = preemption.</strong> Capabilities are tokens with expiry and revocation; a device leaving the fabric (its owner turned it off, revoked trust) preempts its tasks — with the same resumption guarantees.</li>
+</ul>
+<p>Three properties define correctness: (i) <strong>completion under partition</strong>: a task admitted with deadline d completes by d if at least one qualifying device remains reachable to its input state — completion is <em>partition-tolerant by construction</em> (CRDT state replicates with the task's durability class); (ii) <strong>bounded-energy placement</strong>: admitted placements are within factor (1+ε) of the optimal energy/capability assignment under the predicted model — placement is an online optimization with competitive-ratio discipline, not a heuristic; (iii) <strong>capability safety</strong>: code executing on a device holds exactly the capabilities its task-spec named, granted by tokens, revocable, auditable (a device's ledger records what ran and what it touched — P-005's ledger, federated).</p>
+<h3 id="s54">5.4 The scheduler</h3>
+<p>A per-device daemon, leaderless by default (each device schedules its <em>own</em> submissions against the shared envelope; a quorum-elected coordinator for global jobs). The placement solve is constrained optimization: minimize a weighted objective (energy, latency, privacy exposure, wear) subject to resource contracts, capability match, connectivity prediction, and user policy (the policy DSL: "nothing of mine runs on the work laptop; GPU jobs only on wall power; my data never leaves my devices"). The objective weights are the user's — the fabric is explicitly <em>policy-first</em>, because the fabric's owners are not operators of a datacenter; they are people with preferences. Inputs: device capability registry (static), energy state (battery %, charging, thermals — P-004's pressure signals, again shared), connectivity prediction (learned), load telemetry. Output: placement + migration schedule + checkpoint plan.</p>
+<h3 id="s55">5.5 The state layer</h3>
+<p>S is CRDT-based ambient state with per-key durability classes: ephemeral (queue-like), session (device-following — state migrates with the user's active device), durable (replicated to ≥k devices of the owner's choosing; optional cloud as just another device with bad privacy metadata). This is the local-first thesis extended from documents to <em>all fabric state</em>, and it is what makes tasks location-free: inputs are addressed by name, not by device; the state layer ensures the data is where the task lands (or the task goes to the data — affinity decides, energy prices the choice).</p>
+<h3 id="s56">5.6 Capability delegation</h3>
+<p>The fabric's most user-visible magic: device A executing code that borrows device B's capability (the laptop's video call borrowing the phone's camera and microphone — Universal Control's feel, as an API). Delegation is a scoped capability token: {capability, grantor-device, grantee-task, expiry, data-policy}; revocation is instant; audit lives in both devices' ledgers. The protocol handles the awkward middle: who composites the video, where the model runs, how the streams encrypt (SRTP-style end-to-end, keys never leaving the pair). This is the piece with no open precedent anywhere — the vendor continuity features are its closed ancestors, and opening it is the fabric's platform bet.</p>
+<h2 id="s6"><span class="secno">6.</span>Architecture</h2>
+<p>Userspace everywhere (no OS vendor dependency — the strategic requirement, §8): per-device fabric daemon (Go/Rust, single static binary); device identity = keypair, user federation = signed device-set membership (the "one person" binding, verified out-of-band once); mesh transport = existing WireGuard-class tunnels, discovered via Tailscale/self-hosted coordination or pure LAN mDNS; execution = WASM runtimes + OCI + ssh-compatible executors with a capability gate; state = embedded CRDT engine (Automerge-class) with storage on local disks; scheduler = the optimization above; policy = the user-facing DSL and console; ledgers = per-device, P-005-compatible. The fabric composes with the other series-II papers deliberately: resource contracts from P-004 govern task behavior under device pressure; P-005 ledgers audit what ran where on what data; P-006's attention broker is the <em>only</em> sanctioned channel for fabric-initiated human interruption (agents and schedulers submit attention requests, they never buzz the human raw). Three papers, one design language: contracts, ledgers, brokers.</p>
+<h2 id="s7"><span class="secno">7.</span>Evaluation design</h2>
+<p>Prototype on three real devices (Android phone, x86 laptop, GPU desktop) and a synthetic 8-device fleet in simulation. Measurements:</p>
+<ul>
+<li><strong>Completion under partition</strong>: replayed 72-hour reachability traces (real join/leave logs from three devices), injected partitions; completion rate and deadline violations by durability class; the baseline is "cloud path + offline = fail."</li>
+<li><strong>Latency and energy per job</strong>: representative tasks (document processing, local LLM inference — layer-partitioned across phone NPU + desktop GPU, media transcode) vs. cloud round-trip (latency, joules via device power meters, cost in currency).</li>
+<li><strong>Capability delegation</strong>: task-level benchmarks of the camera/GPU borrow protocol (setup latency, throughput, revocation propagation).</li>
+<li><strong>Overhead</strong>: daemon CPU/memory footprint on the <em>phone</em> (the binding constraint), mesh chatter under 8 devices.</li>
+<li><strong>Placement quality</strong>: regret vs. offline-optimal placement on synthetic workloads with known optima (competitive-ratio validation of §5.4).</li>
+</ul>
+<h2 id="s8"><span class="secno">8.</span>Objections, confronted</h2>
+<p><strong>"This died before; it will die again."</strong> §3 is the answer: enumerate the death conditions, verify each expired, and note the one that did <em>not</em> — no workload demanded it. The workload now exists (§9), and this time the joules are already bought.</p>
+<p><strong>"Vendors will never ship it open — and closed continuity wins by default."</strong> True that vendors will not ship it; false that it needs them. The fabric is userspace over substrate every OS already exposes (VPN, WASM, sensors, ledgers). The strategic claim is Linux-desktop-then-enthusiast-then-everywhere — the Home Assistant trajectory (a userspace fabric for sensors that reached millions without any vendor's blessing) is the existence proof that consumer device fabrics can grow from below. The concession: the phone duopoly will fight background execution and sensor access on their terms; the fabric's answer is partial presence (the phone joins when foregrounded/charging — which the connectivity model treats as normal, not broken).</p>
+<p><strong>"Why would apps target a mesh no one has?"</strong> They will not, at first — and the fabric does not need them to. Its first consumers are the <em>user's own</em> automations: scripts, agents, sync jobs, media pipelines (the same tasks people currently hand-carry). The app story arrives through delegation (§5.6): an app on any one device gains the whole fabric's capabilities <em>without targeting the fabric</em> — the laptop app "just" has a camera and a GPU, because the fabric mounts them. That is the same trick Universal Control plays on input; generalized, it is the platform.</p>
+<p><strong>"Security: remote code across personal devices is an attack surface."</strong> Capability tokens bound to signed task bundles, sandboxed executors, per-device ledgers, revocation — the machinery that makes cloud CI safe to run on other people's machines, pointed at your own. The honest concession: <em>any</em> multi-device system increases attack surface; the fabric's design goal is that it is strictly safer than the status quo it replaces (files carried by chat apps and emailed to self, with no audit trail at all).</p>
+<p><strong>"Who maintains it?"</strong> The graveyard's best objection. Answer: the maintenance burden must be <em>shaped</em> small — a static daemon, boring protocols, and maximal reuse of boring infrastructure (WireGuard, WASM, CRDTs) — and the sustainability model is the Home Assistant one: a core maintained by a foundation-class entity, integrations by communities. If the design's honest maintenance estimate exceeds that shape, it should not be built. That discipline (falsifiable complexity budget) is stated as a design constraint, not a hope.</p>
+<h2 id="s9"><span class="secno">9.</span>The window: local AI and the two-to-three-year gap</h2>
+<p>Distributed inference over owned devices is the fabric's killer workload and its deadline. The Petals line proved collaborative LLM serving works over the open internet with consumer GPUs; the edge-partitioning literature (EdgeShard and successors) formalized layer-wise placement on constrained devices; every phone vendor ships NPUs; every laptop ships NPUs; and the privacy argument for <em>not</em> sending context to clouds has never been stronger, or more widely understood. Three closed implementations are visibly converging on this space from above (vendor continuity + vendor AI stacks): when they land, the personal-device mesh as a <em>programming model</em> will be permanently annexed into walled gardens — the same annexation that happened to synchronization (iCloud/Dropbox replaced the open local-sync world) and is one feature-release away from happening to device-adjacent compute. The open fabric's chance is to exist, with real scheduling semantics and an open protocol, before the annexation — so that "your devices, one machine" is a spec anyone can implement, not a marketing phrase one vendor owns.</p>
+<h2 id="s10"><span class="secno">10.</span>Conclusion</h2>
+<p>The personal device set is the last great un-programmed computer: more compute than a startup, more sensors than a lab, one owner, one identity, and an architecture of five islands on a metered bus. The research line that dreamed of programming it died honorably in 2012 for reasons the substrate has since erased: reachability, identity, portability, and — now — workload. What remains is to specify the machine that the pieces compose into: a scheduler that treats sleep and partition as inputs rather than errors, a capability protocol that turns vendor moments into open APIs, a state layer that makes location an implementation detail, and a policy surface that keeps the owner — not the platform — as the placement authority. The fabric is buildable in userspace today, by the community that already builds Home Assistants and mesh VPNs and homelabs, for the workload that is already arriving. The islands are real, the sea between them is drained, and the bridges are unbuilt. This paper is the engineering survey for the first one.</p>
+<h2 id="disclosure">Disclosure</h2>
+<p>p-rick is an independent research program; no vendor has commissioned or reviewed this work; the author has no financial interest in cited systems. The fabric composes with P-004 (resource contracts) and P-005 (provenance ledgers); P-006 (attention scheduling) defines the fabric's human-interruption discipline. The cross-references are design-level, not commercial.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>Cuervo, E., et al. (2010). <em>MAUI: making smartphones last longer with code offload</em>. ACM MobiCom.</li>
+<li>Chun, B.-G., et al. (2011). <em>CloneCloud: elastic execution between mobile device and cloud</em>. ACM EuroSys.</li>
+<li>Flinn, J., &amp; Satyanarayanan, M. (2002). <em>Energy-aware adaptation for mobile applications</em>. ACM MobiCom (the Odyssey application-aware adaptation line; Noble &amp; Satyanarayanan, SOSP 1997, <em>Odyssey</em>, the founding design).</li>
+<li>Satyanarayanan, M., et al. (2009). <em>The case for VM-based cloudlets in mobile computing</em>. IEEE Pervasive Computing.</li>
+<li>Kumar, K., &amp; Lu, Y.-H. (2010). <em>Cloud computing for mobile users: can offloading computation save energy?</em> IEEE Computer. / Mach, P., &amp; Becvar, Z. (2015). <em>Mobile edge computing: a survey on architecture and computation offloading</em>. ACM Computing Surveys.</li>
+<li>Ousterhout, J., et al. (1988). <em>The Sprite network operating system</em>. IEEE Computer / Barak, A., &amp; La'adan, O. (1998). <em>The MOSIX single-system image</em>. IEEE Concurrency / Tanenbaum, A., et al. (1990). <em>Amoeba</em> line / Popek, G., et al. (1981). <em>LOCUS</em> line.</li>
+<li>Pike, R., Presotto, B., Thompson, K., et al. (1990–1991). <em>Plan 9 from Bell Systems</em> (the resource-as-file design); 9P filesystem protocol (Linux v9fs heritage).</li>
+<li>Donenfeld, J. A. (2017). <em>WireGuard: next generation kernel network tunnel</em>. NDSS. / Denton, A. (2019–). Tailscale engineering blog (mesh coordination over WireGuard). / Slack (2019). <em>Nebula</em>.</li>
+<li>Kleppmann, M., Wiggins, A., et al. (2019). <em>Local-first software: you can own your data, in spite of the cloud</em>. Ink &amp; Switch TR. / Shapiro, M., et al. (2011). <em>Conflict-free replicated data types</em>. SSS. / Kleppmann (2022–). <em>Automerge</em> / Wehmeyer, K. (2021–). <em>Yjs</em>.</li>
+<li>Syncthing project (2013–). <em>Syncthing — partition-tolerant peer-to-peer file synchronization</em> (the fabric-native primitive hiding in a file tool).</li>
+<li>Borzov, V., et al. (2023). <em>Petals: collaborative inference and fine-tuning of large models</em>. NeurIPS (distributed serving over consumer GPUs).</li>
+<li>EdgeShard line (2024–). <em>EdgeShard: LLM inference over edge devices via layer-wise partitioning</em> and successors (split-computing surveys: Matsubara et al., 2022).</li>
+<li>Apple documentation (2014–2022): Handoff/Continuity, Sidecar, Universal Control. / Microsoft <em>Phone Link</em> / Samsung <em>Flow</em> documentation and reviews (2022–2025).</li>
+<li>KDE Connect project; LocalSend project (open cross-device precedents, no compute layer).</li>
+<li>Home Assistant project (2013–) and smart-home self-hosting adoption line (the userspace-fabric existence proof).</li>
+<li>CasaOS / Umbrel / Start9 (2022–2025): the consumer self-hosting renaissance.</li>
+<li>Rekimoto, J. (1997). <em>Pick-and-drop: a direct manipulation technique for multiple computer systems</em>. ACM UIST (the founding cross-device interaction citation).</li>
+<li>k3s / homelab kubernetes-on-Raspberry-Pi practice (2020–2025) — community scheduling over owned clusters.</li>
+<li>Zhu, Y., et al. capability-based delegation literature: Dennis &amp; Van Horn (1966), <em>Programming semantics for multiprogrammed computations</em> (the capability model's origin) — the fabric's security ancestry.</li>
+<li>Mark, Weiser (1991) — <em>The computer for the 21st century</em> (ubiquitous computing vision; the fabric is an answer to it, 35 years late).</li>
+</ol>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p006.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The Attention Scheduler: Interruption Economics as an Operating System Problem</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p008.html"><span class="pn-k">next &rarr;</span><span class="pn-t">The Afterlife of Devices: An Architecture for Vendor-Death Resilience</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p007,
+  title       = {The Intermittent Compute Fabric: One Machine Across Many Devices},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-007},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p007.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

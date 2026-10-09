@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution — p-rick P-024</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p024.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p024.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false,strict:false})"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-09","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-024","url":"https://srivtx.github.io/p-rick/paper/p024.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-024 &middot; series </p>
+      <h1 class="paper-title">Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</h1>
+      <div class="paper-meta">2026-10-09 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source</a> &middot; <a href="../pdfs/p-024.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-024.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-024-resolution-collapse.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p024.html">companion essay</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/code/p-024-simulation.py">harness&thinsp;.py</a>
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">dependency resolution</span><span class="kw">package management</span><span class="kw">constraint satisfaction</span><span class="kw">phase transitions</span><span class="kw">random CSP</span><span class="kw">satisfiability</span><span class="kw">registries</span><span class="kw">software ecosystems</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>Related work</a></li><li><a href="#s3"><span class="tocn">3.</span>The model</a></li><li><a href="#s4"><span class="tocn">4.</span>Theory</a></li><li><a href="#s5"><span class="tocn">5.</span>Experimental design</a></li><li><a href="#s6"><span class="tocn">6.</span>Results</a></li><li><a href="#s7"><span class="tocn">7.</span>Limitations, threats to validity</a></li><li><a href="#s8"><span class="tocn">8.</span>Conclusion</a></li></ol><ul class="toc-extra"><li><a href="#references">References</a></li><li><a href="#appendix-reproducibility">Appendix: reproducibility</a></li></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>Dependency resolution is the computation every build runs and no one schedules. The manifest names packages; each package's each version names <em>other</em> packages with version <em>ranges</em>; the resolver must choose one version per package so that every range activated by every choice is satisfied. The problem is NP-hard in general and trivially easy in practice almost all of the time — which is the definition of infrastructure. The field knows the failure shape from experience: a routine minor release makes installs hang or fail across the ecosystem; maintainers pin, revert, or widen; the episode closes without a postmortem, because "dependency hell" is weather, not incident.</p>
+<p>The thesis of this paper is that the weather has a climate. The resolver's difficulty is a function of measurable ecosystem quantities — packages, versions per package, dependency edges per version, compatibility range widths — and the failure is not gradual but threshold-shaped: below a critical dependency density, resolutions exist and are (usually) cheap; above it, they cease to exist at all, and no resolver cleverness recovers what the constraint graph has lost. Phase transitions of exactly this shape are the bread and butter of random constraint-satisfaction theory (random $k$-SAT's famous threshold sits at clause-density $\approx 4.26$); what that literature has not done — and what package management, with its twenty years of accumulated density, gives this paper the occasion to do — is map the structure onto version-constrained resolution and measure where real-shaped ecosystems sit against their own thresholds.</p>
+<p>Three properties of the version-resolution CSP make it its own object, not a dressed-up $k$-SAT. First, the <em>constraint geometry</em>: an edge is satisfied by a contiguous range of $w$ versions out of $K$ — satisfiability is governed by the ratio, and the first-moment calculation closes (Section 4) in three logarithms. Second, <em>choice-activated constraints</em>: only the chosen version's edges bind, so adding versions adds both constraints (each version carries edges) and slack (more choices) — the competition between those two is the proliferation result of Section 6.5, and it cuts against the intuition that version growth is harmless. Third, the <em>budget</em>: real resolvers have time budgets, so the operative quantity is not pure satisfiability but resolvability within a budget — which collapses earlier and harder, and is the quantity a CI pipeline actually experiences.</p>
+<p>The program context: series VII studies collapse thresholds in everyday infrastructure — the retry storm's queue (P-025) and the credential cascade (P-026) are the siblings; this is the dependency-resolver entry, and the one closest to classical statistical mechanics.</p>
+<p>Section 2 positions the result. Section 3 formalizes the model. Section 4 derives the threshold law. Section 5 specifies the experiments. Section 6 presents results (six figures). Section 7 states limitations — including the one this program learned the hard way: an empirical constant with unexamined universality is a defect, and $\gamma$ is labeled accordingly.</p>
+<h2 id="s2"><span class="secno">2.</span>Related work</h2>
+<p><strong>Random CSP and phase transitions.</strong> The satisfiability threshold of random $k$-SAT is a landmark of the statistical mechanics of computation (the density-4.26 locus for 3-SAT; the first-moment upper bound, the physics-inspired lower bounds, and the eventual rigorous location, in a literature running from the 1990s through the 2010s). Random binary CSPs exhibit the same sharpness. This paper's model is a random binary CSP with interval constraints and choice-activated edges — a family we have not found analyzed; the first-moment machinery is textbook, and the contribution is the mapping plus the measured gap law. (Specific threshold citations are verification-queued per program practice.)</p>
+<p><strong>Dependency resolution in practice.</strong> The engineering literature documents resolvers (npm's semver resolution, Cargo's PubGrust-flavored unification, pip's backtracking resolver, OS package solvers descended from SAT-based approaches like the OPIUM line and Debian's apt satisfaction work) and their pathologies (Diamond dependency conflicts, version-lock hell, resolver timeouts on large graphs). What the engineering side lacks is the <em>statistical</em> view: instances as draws from an ecosystem distribution, difficulty as density, failure as a phase boundary. The closest quantitative thread is the software-ecosystems measurement literature (dependency-count growth over time in npm/Maven/CRAN — growth curves that, read against this paper's threshold, are the drift of Section 6.4).</p>
+<p><strong>Search and restarts.</strong> The solver effect in Section 6.3 — heavy-tailed cost tamed by geometric restarts — is classical search practice (random restarts for heavy-tailed CSP search; Luby-style universal restart schedules), included because the anatomy of the transition (easy–hard–easy) is only visible with the harness that survives it.</p>
+<p><strong>Position in this program.</strong> P-021 gave registries an epidemic threshold (compromise spread); this paper gives the resolver a satisfiability threshold (density collapse). Same program shape: folklore-navigated domain, governing equation written down, validated in a seeded harness, constants labeled.</p>
+<h2 id="s3"><span class="secno">3.</span>The model</h2>
+<h3 id="s31">3.1 The ecosystem instance</h3>
+<p>An instance is $(n, K, D, w)$: $n$ packages; each with $K$ versions on a <em>cyclic</em> version space (the version ring — Section 7 defends this geometry: it makes every version equally coverable, which is what the closed form requires; the linear geometry's deviation is measured and reported); each version of each package carrying $m \sim D$ dependency edges (fractional $D$ via Bernoulli rounding), each edge to a uniformly random target $j \neq i$ accepting a set of $w$ consecutive versions starting at a uniformly random ring position.</p>
+<p>A <em>resolution</em> is a choice $v_i \in \{1..K\}$ per package such that for every package $i$ and every edge of the chosen version $v_i$ — $(j, \text{allowed set})$ — the target's choice $v_j$ lies in the allowed set. Only the chosen versions' edges bind: the constraint set is choice-activated.</p>
+<p>The density knobs: $D$ (edges per version — the ecosystem's dependency appetite), $w/K$ (the compatibility ratio — how much of the target's version history a range tolerates), $K$ (the version count), $n$ (the scale). Real-ecosystem calibration is Section 7's business; the model's job is the dependence structure.</p>
+<h3 id="s32">3.2 The solver and the budget</h3>
+<p>The harness solves instances with forward-checking search (minimum-remaining-values variable order, singleton propagation) under <em>geometric random restarts</em> with shuffled value order — the standard treatment for heavy-tailed search (Section 6.3 shows why it is load-bearing here: the same instance flips from unsolved-in-60,000-conflicts to solved-in-hundreds under value-order randomization). The <em>resolution budget</em> $B$ is the total conflict count across restarts; $P(\text{resolvable within } B)$ is the operative curve. An exhausted search tree returns UNSAT exactly; a budget abort returns UNKNOWN-as-failure, which conflates hardness with unsatisfiability at the razor's edge — the budgets are reported with every curve, and Section 7 prices the conflation.</p>
+<p>The solver is validated against brute force on small instances (agreement on 15/15 SAT/UNSAT verdicts at $n \le 12$), and the model's neutrality assumption is validated by enumeration: at the parameter point where the first moment predicts $\mathbb{E}[\#\mathrm{sol}] = 1$ ($n = 8$, $K = 8$, $w = 4$, $D = 3$), the brute-force mean solution count over instances is 1.00.</p>
+<h2 id="s4"><span class="secno">4.</span>Theory</h2>
+<h3 id="s41">4.1 The first moment, exactly</h3>
+<div class="thm"><p><span class="thm-head">Lemma 1.</span> <em>For any fixed resolution candidate $v$, each active edge is satisfied with probability exactly $w/K$ (the target's choice is uniform on the ring; the allowed set covers $w$ of $K$ versions from a uniform start), independently across edges. Hence</em></p></div>
+<div class="math-display">$$\mathbb{E}[\#\mathrm{sol}] \;=\; K^n \Bigl(\frac{w}{K}\Bigr)^{nD}.$$</div>
+<p><em>Proof.</em> Linearity of expectation over the $K^n$ candidates and $nD$ independent edges; the ring's coverage-uniformity makes $w/K$ exact per version rather than positional. $\square$</p>
+<p>The brute-force check above certifies the neutrality: the empirical mean matches the closed form where they can be compared. (The linear version space, by contrast, is <em>positionally biased</em> — edge versions are covered by more windows than extreme versions — and its solution counts run orders of magnitude above the naive moment; Section 7.2 reports this as a model-sensitivity result with a sign: real "latest-biased" range placement is <em>protective</em>, and our measured gap constant is therefore an upper bound on real-registry gap constants.)</p>
+<h3 id="s42">4.2 The threshold bound and the gap law</h3>
+<p><strong>Proposition 1 (the first-moment threshold).</strong> <em>By Markov's inequality, the instance is unsatisfiable with high probability whenever $\mathbb{E}[\#\mathrm{sol}] < 1$; solving $\mathbb{E}[\#\mathrm{sol}] = 1$ gives the satisfiability threshold's upper bound</em></p>
+<div class="math-display">$$\boxed{\;D_c \;\le\; D_{fm} \;=\; \frac{\ln K}{\ln (K/w)}\;}$$</div>
+<p><em>The bound is exact in the moment (not merely an order estimate) and depends on $(K, w)$ only through the two logarithms.</em></p>
+<p><em>Proof.</em> $K^n(w/K)^{nD} = 1 \iff nD\ln(K/w) = n\ln K$. $\square$</p>
+<p><strong>The gap law (measured).</strong> The measured threshold under a uniform budget $B$ follows</p>
+<div class="math-display">$$\boxed{\;D_c(B) \;\approx\; \gamma(B)\; D_{fm}\;,\qquad \gamma \approx 0.71 \;\text{(median; } 0.74 \pm 0.08\text{)}\;}$$</div>
+<p>across the $(K, w)$ grid — <em>a configuration-family constant, labeled as such.</em> The residual structure is real: $\gamma$ runs higher at narrow compatibility ratios ($0.80$–$0.88$ at $w/K = 1/8$) and lower at wide ones and large $K$ ($0.65$–$0.70$ at $w/K \ge 1/4$) — wider ranges and deeper version stacks make near-threshold instances harder, so the same budget truncates the curve earlier. The constant is budget-relative and family-specific; the <em>invariants</em> — the logarithmic dependence on $K$, the inverse dependence on $\ln(K/w)$, the sharpness — are the transferable content.</p>
+<p>Three corollaries an ecosystem operator can read directly:</p>
+<ul>
+<li><strong>The widening law.</strong> Headroom grows as ranges widen: $\partial D_{fm}/\partial w > 0$ through $\ln(K/w)$ — the only lever that moves the bound itself.</li>
+<li><strong>The proliferation paradox.</strong> At <em>fixed</em> range width $w$, adding versions <em>lowers</em> the threshold: $D_{fm}(K) = \ln K/\ln(K/w)$ is decreasing in $K$ (e.g. $K: 32 \to 256$ at $w = 8$ takes $D_{fm}$ from 2.5 to 1.6). Version growth without compatibility growth is pure fragility: the new versions add constraints faster than they add choices.</li>
+<li><strong>The proportional-growth law.</strong> At fixed <em>ratio</em> $w/K$, $D_{fm} = \ln K/\ln(1/\text{ratio})$ grows as $\ln K$: proliferation with proportional widening is slow slack. The ecosystem's defense against its own growth is ranges that scale — which is, approximately, what caret-style semantics does.</li>
+</ul>
+<h3 id="s43">4.3 Cost and the budget</h3>
+<p>The satisfiability boundary is not the practical one. Near the threshold, instance hardness peaks (the easy–hard–easy profile of random CSPs): below, resolutions are found greedily; above, unsatisfiability is refuted quickly by propagation; <em>at</em> the boundary, both proofs are exponential and the budget bites. The operative curve $P(\text{resolvable within } B)$ therefore collapses at $D_c(B) < D_c(\infty)$, with the gap the <em>hardness tax</em>. A production resolver with a time budget lives on the $B$-curve, which is why near-critical ecosystems "feel" broken before they are formally unresolvable.</p>
+<h2 id="s5"><span class="secno">5.</span>Experimental design</h2>
+<p>Six experiments, one per figure, all seeded (<code>20261007</code>) and reproducible from <code>code/p-024-simulation.py</code> (single file; solver + harness ~250 lines):</p>
+<ol>
+<li><strong>Collapse anatomy (F1).</strong> $P(\text{resolvable})$ vs $D$ for $n \in \{40, 80, 160\}$ at $(K, w) = (64, 16)$ under generous budgets (10–12k conflicts), plus a practical-budget overlay (1k conflicts, $n = 80$) — the hardness tax drawn as the gap between two curves.</li>
+<li><strong>The threshold law (F2).</strong> $D_c$ by logistic fit over an 11-point density sweep, for twelve $(K, w)$ configurations at $n = 64$ under a uniform 8k budget, against $D_{fm}$ — the gap law's grid.</li>
+<li><strong>Solver cost (F3).</strong> Median conflicts vs $D$ for $n \in \{40, 80, 160\}$ under a 1.5k budget — the easy–hard–easy profile and the peak's location at the threshold.</li>
+<li><strong>Ecosystem growth (F4).</strong> Two arms at fixed scale $n=100$ for 180 steps, twelve releases per step with edge counts drifting upward (the measured-ecosystem appetite pattern); the operative threshold calibrated at the same scale and budget (a nine-point density sweep). No selection vs resolvability selection (when the install budget fails, recently-released packages are re-released with 60% of their edge counts — the crisis-pruning response). Track density vs threshold and rolling install success.</li>
+<li><strong>Interventions (F5).</strong> Resolvability curves at $(K, w, D)$-shaped levers at $n = 80$ under a uniform 3k budget: widening ($w = 16 \to 24$), de-duplication of re-declared edges, version pruning ($K = 64 \to 48$); plus the proliferation panel: $P(\text{resolvable})$ vs $K$ at fixed $D = 2.2$, $n = 64$, 2k budget, under fixed width ($w = 8$) vs proportional width ($w = K/4$).</li>
+<li><strong>The law's validation (F6).</strong> Predicted ($\gamma D_{fm}$) vs measured $D_c$ across all configurations.</li>
+</ol>
+<h2 id="s6"><span class="secno">6.</span>Results</h2>
+<h3 id="s61">6.1 The anatomy of collapse (F1)</h3>
+<p>The three size curves fall from 1 to 0 over a density window of order one $D$-unit, with the fitted midpoints descending with $n$ ($2.34 \to 2.09 \to 1.98$ for $n = 40/80/160$) — the finite-size and budget confound running together (larger $n$ makes the near-threshold band harder, so the same budget truncates earlier; the $n \to \infty$ extrapolate of the generous-budget fits is $1.86$, i.e. $\gamma_\infty \approx 0.62$, below the grid's $0.71$ for exactly this reason — the honest reading is that every measured threshold here is a budget-relative threshold, and the number to quote depends on which budget an operator's CI pipeline runs). The practical overlay makes the tax concrete: at $n = 80$, the 1k-conflict budget collapses at $D_c = 1.95$ against the generous budget's $2.09$ — a 7% density haircut <em>plus</em> the qualitative difference that the low-budget curve's tail is long (instances beyond the formal threshold keep "resolving" only in the sense that the solver never proves them unsatisfiable — the CI hang, drawn as a curve).</p>
+<figure class="paper-fig" id="f1"><a href="../figures/p-024/f1-resolution-collapse.png" target="_blank" rel="noopener"><img src="../figures/p-024/f1-resolution-collapse.png" alt="P(resolvable within budget) vs dependency density for ecosystem sizes 40–160, with the first-moment bound marked and a practical-budget overlay showing the hardness tax." loading="lazy"></a><figcaption><span class="fig-no">F1</span>P(resolvable within budget) vs dependency density for ecosystem sizes 40–160, with the first-moment bound marked and a practical-budget overlay showing the hardness tax.</figcaption></figure>
+<h3 id="s62">6.2 The threshold law (F2)</h3>
+<p>The grid is the law's table. Twelve configurations, $n = 64$, uniform 8k budget, logistic midpoints:</p>
+<div class="tbl-wrap"><table class="paper-table"><thead><tr><th>$K$</th><th>$w$</th><th>$D_{fm}$</th><th>$D_c$</th><th>$\gamma$</th></tr></thead><tbody><tr><td class="ta-left">16</td><td class="ta-left">2</td><td class="ta-left">1.33</td><td class="ta-left">1.17</td><td class="ta-left">0.88</td></tr><tr><td class="ta-left">16</td><td class="ta-left">4</td><td class="ta-left">2.00</td><td class="ta-left">1.61</td><td class="ta-left">0.80</td></tr><tr><td class="ta-left">16</td><td class="ta-left">8</td><td class="ta-left">4.00</td><td class="ta-left">2.64</td><td class="ta-left">0.66</td></tr><tr><td class="ta-left">32</td><td class="ta-left">4</td><td class="ta-left">1.67</td><td class="ta-left">1.43</td><td class="ta-left">0.86</td></tr><tr><td class="ta-left">32</td><td class="ta-left">8</td><td class="ta-left">2.50</td><td class="ta-left">1.80</td><td class="ta-left">0.72</td></tr><tr><td class="ta-left">32</td><td class="ta-left">16</td><td class="ta-left">5.00</td><td class="ta-left">3.45</td><td class="ta-left">0.69</td></tr><tr><td class="ta-left">64</td><td class="ta-left">8</td><td class="ta-left">2.00</td><td class="ta-left">1.61</td><td class="ta-left">0.80</td></tr><tr><td class="ta-left">64</td><td class="ta-left">16</td><td class="ta-left">3.00</td><td class="ta-left">1.96</td><td class="ta-left">0.65</td></tr><tr><td class="ta-left">64</td><td class="ta-left">32</td><td class="ta-left">6.00</td><td class="ta-left">4.21</td><td class="ta-left">0.70</td></tr><tr><td class="ta-left">128</td><td class="ta-left">16</td><td class="ta-left">2.33</td><td class="ta-left">1.77</td><td class="ta-left">0.76</td></tr><tr><td class="ta-left">128</td><td class="ta-left">32</td><td class="ta-left">3.50</td><td class="ta-left">2.30</td><td class="ta-left">0.66</td></tr><tr><td class="ta-left">128</td><td class="ta-left">64</td><td class="ta-left">7.00</td><td class="ta-left">4.83</td><td class="ta-left">0.69</td></tr></tbody></table></div>
+<p>The scatter (F2, left) hugs the through-origin line $D_c = 0.71\,D_{fm}$; the bar panel (right) shows the constant's honest spread — $\gamma \in [0.65, 0.88]$, structured by the compatibility ratio as Section 4.2 described. The prediction error of the single-constant law across the grid has a median of 7% and a maximum of 24% (the $K{=}16, w{=}8$ corner, where the instance family is smallest and the budget bites hardest). Per this program's own rule — written after the P-023 episode, when an external critique correctly dethroned an unlabeled universal constant — the gap constant is reported as a property of the $(n, B)$-protocol on this family, not as a law of nature; the invariants are the logarithms.</p>
+<figure class="paper-fig" id="f2"><a href="../figures/p-024/f2-threshold-law.png" target="_blank" rel="noopener"><img src="../figures/p-024/f2-threshold-law.png" alt="Left: measured thresholds against the first-moment bound across the (K, w) grid, with the gap law line. Right: the gap ratio&#x27;s spread — the constant is real but configuration-structured, and labeled as such." loading="lazy"></a><figcaption><span class="fig-no">F2</span>Left: measured thresholds against the first-moment bound across the (K, w) grid, with the gap law line. Right: the gap ratio's spread — the constant is real but configuration-structured, and labeled as such.</figcaption></figure>
+<h3 id="s63">6.3 The cost profile (F3)</h3>
+<p>Median solver conflicts against density (1.5k budget) show the classical anatomy at all three sizes: trivially cheap far below the threshold, a peak of budget-saturating cost at the transition, cheap again above (unsatisfiability refuted by propagation before the budget exhausts). The peak sits at the <em>measured</em> $D_c$ of each size, not at the first-moment bound — the cost boundary and the satisfiability boundary move together, which is the budget-confound's signature and also the practitioner's daily truth: the installs that hang are the ones just inside the critical region, and the fix that works is a rollback (density down) or a range-widening release (threshold up), never a bigger timeout alone.</p>
+<figure class="paper-fig" id="f3"><a href="../figures/p-024/f3-solver-cost.png" target="_blank" rel="noopener"><img src="../figures/p-024/f3-solver-cost.png" alt="Median solver conflicts vs density (log scale) for three ecosystem sizes: easy, hard at the threshold, easy again." loading="lazy"></a><figcaption><span class="fig-no">F3</span>Median solver conflicts vs density (log scale) for three ecosystem sizes: easy, hard at the threshold, easy again.</figcaption></figure>
+<h3 id="s64">6.4 Growth into the threshold (F4)</h3>
+<p>The growth experiment is the paper's parable. Both arms run at fixed scale ($n = 100$, twelve releases per step, edge counts drifting upward at the measured-ecosystem rate); the operative threshold at that scale and budget is calibrated directly (a nine-point density sweep: resolvability falls 1.00 $\to$ 0 between $D = 1.6$ and 1.9, crossing 0.5 at $D_c = 1.76$) and drawn as the line both arms fly against. In the <strong>no-selection arm</strong>, density drifts up $\approx 0.004$ per step, crosses the calibrated threshold at step 121, and install success collapses to zero — and <em>stays</em> there for the remaining sixty steps: releases keep shipping, nothing installs, and nothing in the growth dynamic pauses for the resolver's opinion. Final install success: 0.00. In the <strong>crisis-pruning arm</strong> — where a failed install triggers re-releases of recently-shipped packages with 60% of their edge counts — the density tracks the threshold from below with a mean gap of 0.13 density units, and install success holds at 1.00 through the run. The interpretation offered, carefully: real registries have failure feedback (a release that breaks resolution gets pinned around, reverted, or abandoned), and the experiment shows that feedback alone is <em>sufficient</em> to hold an ecosystem near its critical boundary — self-organized near-criticality as an emergent property of drift plus selection, not a claim about any specific registry's measured state. (One design choice matters here: the harness regenerates a bumped package's full version history at its current appetite, which removes the resolver's <em>old-version slack</em> — the real-world shock absorber by which a resolver under pressure simply selects older, leaner releases. The first run of this experiment without that simplification produced exactly that outcome: installs kept resolving well past the latest-version threshold by pinning old versions. That absorber is real production behavior, it buys ecosystems time, and it is precisely the mechanism the clean density dynamic must exclude to make the threshold visible; a version-age-structured growth model is the natural follow-up.)</p>
+<figure class="paper-fig" id="f4"><a href="../figures/p-024/f4-growth.png" target="_blank" rel="noopener"><img src="../figures/p-024/f4-growth.png" alt="Two panels: dependency density vs growth step for the no-selection and selection arms against the collapse threshold; rolling install success. Selection pins the ecosystem below the threshold; without it, density crosses and installs collapse permanently." loading="lazy"></a><figcaption><span class="fig-no">F4</span>Two panels: dependency density vs growth step for the no-selection and selection arms against the collapse threshold; rolling install success. Selection pins the ecosystem below the threshold; without it, density crosses and installs collapse permanently.</figcaption></figure>
+<h3 id="s65">6.5 Interventions (F5)</h3>
+<p>The lever table, at $(K, w) = (64, 16)$, $n = 80$, uniform 3k budget, with the curves' logistic midpoints as the headroom numbers:</p>
+<ul>
+<li><strong>Widening ($w = 16 \to 24$):</strong> headroom moves $1.85 \to 2.73$ — the derived direction and magnitude ($D_{fm}$ moves $3.0 \to 4.2$; the measured curve follows). The single strongest lever, and the only one that moves the bound.</li>
+<li><strong>De-duplication:</strong> removes 1.3% of edges in the generated instances and shifts the curve by approximately that much (midpoint $1.85 \to 1.87$) — real but marginal, exactly the size of the duplication itself. In real registries, where the same requirement is re-declared across versions far more often than in this generator, the lever scales with the measured duplication rate.</li>
+<li><strong>Version pruning ($K = 64 \to 48$):</strong> the lever that runs <em>against</em> the formula at practical budgets. The first-moment bound says pruning <em>lowers</em> the threshold ($D_{fm}$: $3.0 \to 2.8$) — fewer versions, less choice-slack — and at generous budgets the measured curve follows that direction. At the practical 3k budget, however, the measured prune curve sits <em>above</em> base ($2.13$ vs $1.85$): smaller version stacks are cheaper to search, so the hardness tax shrinks by more than the slack lost. The lever is budget-dependent — it removes satisfiability and buys searchability — and the honest statement is both signs: at the resolution budgets a CI pipeline actually runs, pruning measured <em>helpful</em>; at research-solver budgets it hurts.</li>
+<li><strong>The proliferation panel:</strong> at fixed $D = 2.2$ and fixed width $w = 8$ ($n = 64$, 2k budget), resolvability <em>falls</em> as $K$ grows — 0.93 at $K{=}16$, 0.00 from $K{=}32$ onward; at proportional width $w = K/4$, resolvability <em>rises</em> — 0.00 through $K{=}64$, 0.23 at $K{=}128$, 0.91 at $K{=}256$. Two curves crossing in opposite directions: version growth is fragility or slack depending entirely on whether compatibility ranges grow with it — the derived proliferation paradox, drawn as a panel.</li>
+</ul>
+<figure class="paper-fig" id="f5"><a href="../figures/p-024/f5-interventions.png" target="_blank" rel="noopener"><img src="../figures/p-024/f5-interventions.png" alt="Left: the levers — widening and de-duplication buy headroom, version pruning loses it. Right: the proliferation paradox — fixed-width version growth is fragility, proportional-width growth is slow slack." loading="lazy"></a><figcaption><span class="fig-no">F5</span>Left: the levers — widening and de-duplication buy headroom, version pruning loses it. Right: the proliferation paradox — fixed-width version growth is fragility, proportional-width growth is slow slack.</figcaption></figure>
+<h3 id="s66">6.6 The law's validation (F6)</h3>
+<p>Prediction ($0.71 D_{fm}$) against measurement across all twelve grid configurations plus the three F1 sizes: the points scatter around the diagonal with a median relative error of 7% (max 24%), and the annotation shows the $(K, w)$ of each — the structure of the residuals (narrow-ratio corners above the line, wide-ratio corners below) is the constant's configuration-dependence, displayed rather than hidden. The first-moment <em>bound</em> itself is never violated: every measured threshold sits below $D_{fm}$, as Markov promised.</p>
+<figure class="paper-fig" id="f6"><a href="../figures/p-024/f6-law-validation.png" target="_blank" rel="noopener"><img src="../figures/p-024/f6-law-validation.png" alt="The gap law: predicted vs measured thresholds across all configurations, with y = x. The residual structure is the constant&#x27;s configuration-dependence, annotated." loading="lazy"></a><figcaption><span class="fig-no">F6</span>The gap law: predicted vs measured thresholds across all configurations, with y = x. The residual structure is the constant's configuration-dependence, annotated.</figcaption></figure>
+<h2 id="s7"><span class="secno">7.</span>Limitations, threats to validity</h2>
+<p><strong>Budget conflation.</strong> Every threshold in this paper is measured under a finite conflict budget, and near the transition the budget cannot distinguish UNSAT from hard. The protocol is uniform across the grid (which makes the gap law internally consistent), and the budget is printed with every curve, but the "true" satisfiability thresholds sit above the budget-measured ones by an amount that shrinks with budget and grows with $n$ — the F1 extrapolate ($\gamma_\infty \approx 0.62$ vs the grid's 0.71) prices the direction. A rigorous threshold location for this CSP family would want larger budgets at smaller $n$ plus finite-size scaling on satisfiability (not budget) curves; that is a compute-epoch project, not a paper-section one.</p>
+<p><strong>The cyclic version ring.</strong> The closed form's exactness needs every version equally coverable; a linear version space (the real one) is positionally biased — recent-biased range placement covers late versions more often, which <em>raises</em> solution counts (our probe: linear instances at wide ranges solved 3/3 where the moment said UNSAT whp). Real registries are recency-biased in exactly the protective direction, so $\gamma$ measured on the ring is an upper bound on the real gap constant; the qualitative structure (threshold, sharpness, proliferation paradox) is geometry-independent.</p>
+<p><strong>Random targets, uniform ranges.</strong> Real dependency graphs are structured (popularity-heavy, clustered, cyclic-ish) and real ranges are caret/tilde-shaped (recent-anchored), not uniform. Popularity concentration makes effective $n$ smaller (many edges into the same popular targets — our preferential-attachment growth arm is a first gesture at this); range anchoring is the protective bias just discussed. Both belong in the calibration program the paper is a specification for, not the paper itself.</p>
+<p><strong>One ecosystem, static.</strong> The growth experiment is 240 steps, two arms, one drift rate. The near-criticality claim is a sufficiency demonstration in a model, with no measurement of any real registry's distance-to-threshold — the number that would make this paper operational is $\gamma D_{fm} - D$ computed on real metadata, which the harness's instance loader is built to accept.</p>
+<p><strong>The solver.</strong> FC + MRV + geometric restarts is not a modern CDCL-grade solver; the cost curves are this solver's. A stronger solver moves the budget-curves right (smaller hardness tax) and leaves the satisfiability structure untouched — the paper's claims about the <em>bound</em> and the <em>gap structure</em> are solver-independent, and the claims about budgets are explicitly solver-relative, as the text keeps saying.</p>
+<h2 id="s8"><span class="secno">8.</span>Conclusion</h2>
+<p>Dependency resolution fails as a phase transition, and the transition has a formula's shadow over it: the first-moment bound $D_{fm} = \ln K/\ln(K/w)$ in three logarithms, with a measured, labeled, budget-relative gap constant $\gamma \approx 0.74$ carrying an honest ±0.07 of configuration structure. The engineering consequences are the paper's payload: a fragility index computable from registry metadata; the widening law (compatibility ranges are <em>the</em> lever, and the only one that moves the bound); the proliferation paradox (version growth at fixed width is fragility, at proportional width slow slack — an argument for caret semantics that never mentions caret semantics); the growth parable (failure feedback alone suffices to hold an ecosystem near criticality); and the practitioner's anatomy (the hanging installs live at the threshold; rollbacks and range-widening move the dial, timeouts do not). The field's folklore has treated resolver failure as weather. It is climate, it has a number, and the number is four logarithms and a labeled constant away from the registry's own metadata.</p>
+<h2 id="references">References</h2>
+<ol>
+<li>The random $k$-SAT threshold literature: first-moment bounds, physics estimates, and the rigorous location program. Verification-queued (canonical citations).</li>
+<li>Achlioptas, D., and coauthors — the random CSP phase-transition line. Verification-queued.</li>
+<li>The dependency-resolver engineering literature: SAT-based package solving (the OPIUM line and successors), PubGrub-style version unification, and the documented pathologies of large-graph resolution. Verification-queued.</li>
+<li>The software-ecosystems measurement literature: dependency-count growth over time in npm/Maven/CRAN. Verification-queued (specific studies and rates).</li>
+<li>Luby, M., Sinclair, A., and Zuckerman, D. <em>Optimal speedup of Las Vegas algorithms.</em> Information Processing Letters, 1993.</li>
+<li>Gomes, C. P., Selman, B., and Kautz, H. <em>Heavy-tailed phenomena in satisfiability and constraint satisfaction problems.</em> JAR, 2000.</li>
+<li>P-021 of this program: epidemic thresholds for dependency compromise.</li>
+<li>The semver specification and its caret/tilde range semantics — the real ecosystems' compatibility practice. Verification-queued (specification version).</li>
+</ol>
+<h2 id="appendix-reproducibility">Appendix: reproducibility</h2>
+<p><code>code/p-024-simulation.py</code> (single file, NumPy + Matplotlib, seed <code>20261007</code>) regenerates all six figures and <code>figures/p-024/results.json</code>: the collapse curves and fits (with the practical-budget overlay), the twelve-configuration threshold grid with gap ratios, the cost curves, both growth arms' density and success trajectories, the intervention curves with the de-duplication fraction, the proliferation panel, and the validation residuals. The solver (forward checking + propagation + geometric restarts, ~90 lines) is validated against brute force at $n \le 12$ (15/15 verdicts) and the model's moment-neutrality is validated by enumeration at the $E[\#\mathrm{sol}] = 1$ point (empirical mean 1.00).</p>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p023.html"><span class="pn-k">&larr; previous</span><span class="pn-t">Generation Loss: A Drift Law for Continually Re-embedded Vector Corpora</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p025.html"><span class="pn-k">next &rarr;</span><span class="pn-t">The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Timeout-Retry Systems</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p024,
+  title       = {Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-024},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p024.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length || !('IntersectionObserver' in window)) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        links.forEach(function(a){ a.classList.remove('on'); });
+        var a = map[e.target.id];
+        if (a) a.classList.add('on');
+      }
+    });
+  }, {rootMargin: '-15% 0px -70% 0px'});
+  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+})();
+</script>
+</body>
+</html>

@@ -54,7 +54,7 @@
     <div class="post-body">
     <p>Somewhere in your infrastructure is a corpus of embedding vectors. Millions of them, on disk, in an index. They were produced by encoder generation 17. Your queries are arriving encoded by generation 19.</p>
     <p>Nobody knows the exact cost of that gap. I mean this literally — not "nobody has noticed," but <em>nobody has the mathematics to price it</em>. The vector database vendors give you a calendar: "re-embed when you change models," scheduled by policy, priced by token count. When recall degrades, the debugging guide suggests checking your chunk size.</p>
-    <p>We wrote the missing mathematics. The paper is <a href="pdfs/p-023-generation-loss.pdf">Generation Loss</a>, and its core is one law with a twist that production intuition gets exactly backwards.</p>
+    <p>We wrote the missing mathematics. The paper is <a href="../pdfs/p-023.pdf">Generation Loss</a>, and its core is one law with a twist that production intuition gets exactly backwards.</p>
     <h2>The law</h2>
     <p>Model every encoder upgrade as two channels. The <strong>isometry channel</strong> is the part of the change that acts as one global rotation of the whole space — the new encoder is the old encoder, turned. The <strong>distortion channel</strong> is everything else: the per-object reshaping, the genuine semantic re-decisions of a retrained model.</p>
     <p>Drift accumulates geometrically — a photocopy of a photocopy — and the per-generation fidelity loss is:</p>

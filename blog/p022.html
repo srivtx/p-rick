@@ -54,7 +54,7 @@
     <div class="post-body">
     <p>Every cache operator knows the feeling. You size the cache for your real traffic, and then the bots arrive. Scanners walking your URL space. Probes hitting unique user IDs. The cold tail of a catalog nobody revisits. Every one of those misses — if your cache admits it — evicts an object that <em>was</em> going to be asked for again.</p>
     <p>The industry's answer is admission control: TinyLFU doors, probation segments, probabilistic admission. Real mechanisms, deployed in production, tuned by... folklore. Sizing guides. Trial and error on a Tuesday. A threshold someone set by feel in 2019 that everyone's afraid to touch.</p>
-    <p>We asked the question nobody had written down: **given the workload, what is the <em>correct</em> threshold?** Not adaptive controllers that find it, not benchmarks that rank candidates — the closed form. It exists. The paper is <a href="pdfs/p-022-admission-law.pdf">The Admission Law</a>, and the formula is:</p>
+    <p>We asked the question nobody had written down: **given the workload, what is the <em>correct</em> threshold?** Not adaptive controllers that find it, not benchmarks that rank candidates — the closed form. It exists. The paper is <a href="../pdfs/p-022.pdf">The Admission Law</a>, and the formula is:</p>
     <p>*<em>τ\</em> = (1−f)·W / (H·B^α)**</p>
     <p>where f is your one-timer fraction, W your counting window, B your capacity, α your Zipf exponent, and H the Zipf normalizer. Four measurements you already have, one line of arithmetic, the door.</p>
     <h2>What the formula says (and why it's not what folklore says)</h2>

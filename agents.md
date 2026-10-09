@@ -351,3 +351,47 @@ mass-usefulness, validated honestly (including where it bends).
 - Site/blog/README: essay rewritten honestly (the retraction is in it, the trap is the new lead finding; the 81%/−36%/1.01μ claims replaced); papers.html P-025 card re-deked + "rev 1.1" tag; blog/p025.html + feed + sitemap regenerated via build_site.py; README P-025 row rewritten (also fixed the dead PDF link pdfs/p-025-collapse-law.pdf → pdfs/p-025.pdf).
 
 **Outcome.** P-025 v1.1 live: the critique proved right in form (nine of nine, plus two found independently) and answered in substance — the unified curve it suggested is now Proposition 3, with a derived bistability boundary, a quantified R-independence law, a measured unlimited-retry trap, and a derived cap loop-gain rule. Counts unchanged (26 papers / 26 essays / 26 PDFs); the program's bar holds its third application: single-seed constants are not laws, and withdrawn claims stay withdrawn in an appendix anyone can read.
+
+### Session 017 — 2026-10-09: reading editions for every paper, figure QA to zero, link repair
+
+**Round:** design + integrity. User verdict on the site: clicking a paper opened the raw
+markdown instead of a designed page; figures still had text-on-graph overlaps; parts of
+the site still looked template-generated.
+
+**Reading editions (paper/p001–p026.html).** New `tools/build_paper_pages.py` +
+`tools/pp_template.py` + `assets/paper.css`: every paper now opens as a full reading
+edition — kicker/meta/action row (typeset PDF · source .md · companion essay · harness),
+revision-note aside, ruled abstract block with keywords, sticky contents rail with
+scrollspy, sectioned body (numbered h2, theorem boxes for Lemma/Theorem/Proposition
+paragraphs, styled tables with symbol-column centering, figure cards with F-numbered
+captions), KaTeX math on the six derivation papers (p-021+, detected per-paper; prose
+papers skip it so currency `$` never reaches the renderer), prev/next paper navigation,
+BibTeX cite block, JSON-LD, print styles. papers.html titles now link here; the "source"
+links keep pointing at the .md on GitHub; index.html latest-paper cards and hero CTA
+followed; sitemap +37→85 URLs; README rows carry read · src · PDF.
+
+**Figure audit, 37/37 VLM-inspected (paced runner after a 429 storm).** One real defect
+survived the earlier rounds: P-023 F6 panel (b) — "starved panel (hot region)" over its
+own marker, "spiked corpus, random (matched)" on the law line (three matched markers sit
+at one point, so their labels collided). Fixed in `scripts/replay_p023_f6.py` (label fan
+with per-label alignment, data bit-identical from results.json); re-audited CLEAN.
+P-024/P-026 harnesses hardened: frameless in-plot legends moved to reserved space
+(fig.legend outside-top / per-panel above-axes with the old panel title as legend
+title); both regenerated from their seeded harnesses; p-024's full-run path had lost its
+`fits = {}` init — repaired. All 37 figures now CLEAN; p-023/p-026 PDFs rebuilt in the
+presentation-round house style (tectonic zero errors; figure pages VLM-verified).
+
+**Link repair.** Six essay pages carried broken relative links (long-form PDF names,
+bare `pdfs/...` paths, one `.md` masquerading as a PDF) — all fixed and verified
+resolving; every relative link in paper/ and blog/ now passes a file-existence check.
+
+**De-AI polish.** Method cards converted from boxed cards to the journal hairline grid;
+toc action links given real contrast and mono weight; paper-title links made
+inline-block (were un-clickable in their line-leading gaps — physical click test);
+hero CTA optical alignment; hero figure caption breathing room; nav current state in
+accent. Mobile: action chips flex-fill, abstract line-height relaxed, nav stacks.
+
+**Reproducibility note.** A display-layer fault in this workspace mangled heredoc
+script bodies (dropping `[`/characters) — all fixes above were re-done via script files
+in scripts/ and verified by execution; p-024's harness edit is one line and was
+verified by full re-run.
