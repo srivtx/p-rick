@@ -123,7 +123,7 @@ Organ donation at 99.98% versus 12% between neighboring countries; retirement sa
 2. Madrian, B. C., & Shea, D. F. (2001). "The Power of Suggestion: Inertia in 401(k) Participation and Savings Behavior." *Quarterly Journal of Economics*, 116(4). [Peer-reviewed; high confidence.]
 3. WhatsApp end-to-end encryption by default — April 2016, Signal Protocol, ~1B users at flip. [Company/platform record; high confidence.]
 4. Apple App Tracking Transparency (2021) and Meta's published estimate of ~$10B revenue impact for 2022. [Platform + earnings-call record; high confidence.]
-5. Google–Apple default-search payments, ~$20B for 2022, disclosed in *United States v. Google* exhibits. [Antitrust-trial record; high confidence on the order of magnitude; verification queued for the exact exhibit figure.]
+5. Google–Apple default-search payments, $20B for 2022, disclosed in unsealed *United States v. Google* exhibits. [Antitrust-trial record; verified 2026-10: the figure is exact (Bloomberg’s reporting of the unsealed exhibits; the DOJ UPXD exhibit line).]
 6. Thaler, R. H., & Sunstein, C. R. (2008). *Nudge* — choice architecture and default effects. [Book; high confidence.]
 7. Microsoft Windows Recall (2024) — announced default-on, postponed after public reaction, shipped off-by-default. [Press/platform record; high confidence on the sequence.]
 8. Group Policy / MDM / managed-preferences lineage — enterprise configuration governance. [Platform/standards records; high confidence.]

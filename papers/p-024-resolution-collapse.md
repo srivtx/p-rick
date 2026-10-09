@@ -173,7 +173,7 @@ Dependency resolution fails as a phase transition, and the transition has a form
 ## References
 
 1. The random $k$-SAT threshold literature: first-moment bounds, physics estimates, and the rigorous location program. Verification-queued (canonical citations).
-2. Achlioptas, D., and coauthors — the random CSP phase-transition line. Verification-queued.
+2. Achlioptas, D., and Moore, C. *Random k-SAT: Two Moments Suffice to Cross a Sharp Threshold*; Achlioptas, D. *Setting Two Variables at a Time Yields New Lower Bounds for Random 3-SAT* (STOC 2000). (verified 2026-10.)
 3. The dependency-resolver engineering literature: SAT-based package solving (the OPIUM line and successors), PubGrub-style version unification, and the documented pathologies of large-graph resolution. Verification-queued.
 4. The software-ecosystems measurement literature: dependency-count growth over time in npm/Maven/CRAN. Verification-queued (specific studies and rates).
 5. Luby, M., Sinclair, A., and Zuckerman, D. *Optimal speedup of Las Vegas algorithms.* Information Processing Letters, 1993.

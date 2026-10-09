@@ -130,7 +130,7 @@ Unix gave us one user per account because the terminal gave us one body per term
 ## 11. References
 
 1. AARP / National Alliance for Caregiving (2020). *Caregiving in the U.S. 2020* — 53 million unpaid family caregivers. [Survey record; high confidence.]
-2. AARP (2023). *The True Cost of Financial Exploitation* — elder financial abuse at roughly $28B annually in the U.S. [Report record; high confidence on the order of magnitude; verification queued for the exact figure and year.]
+2. AARP (2023). *The Scope of Elder Financial Exploitation: What It Costs Victims* — elder financial abuse at $28.3B annually in the U.S. [Report record; verified 2026-10: AARP’s own publication; the $28.3B figure is exact. Report title corrected from an earlier draft’s citation.]
 3. HIPAA Privacy Rule, 45 CFR §164.502(g) — personal representatives. [Regulatory record; high confidence.]
 4. UK third-party mandates — banking industry guidance on third-party access for carers. [Industry-guidance record; PARTIAL confidence on the current scheme names; verification queued.]
 5. Consumer webmail delegated access (Gmail delegation and peers) — feature-level operator access since the 2000s. [Platform record; high confidence.]

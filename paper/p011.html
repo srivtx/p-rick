@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
-<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -77,7 +77,7 @@
 <p>The class dying fastest right now is the behavior of AI models. The lifecycle of a deployed model has compressed to a software-biological extreme: announced, adopted, deprecated, gone — often within a year. OpenAI has deprecated entire model families (the GPT-3.5 and legacy GPT-4 lineages, and with them customer-trained fine-tunes); Anthropic and Google rotate model lines on similar cadences; the industry norm has become dated snapshots with sunset windows, after an episode in 2024 in which a provider announced deprecation timelines short enough that developers' production systems faced forced migration within months and pushed back publicly. Deprecation itself is not the sin — software retires software, always. The sin is that <em>nothing is kept</em>. When a model is retired, what vanishes is not a file. It is a behavioral identity: a distribution over responses that downstream products were tuned against, that research papers evaluated against, that court records and medical-triage pilots and hiring systems <em>acted</em> against. There is no archive, no registry, no fingerprint, no institution whose job it is to notice that a mind ceased to exist and record what it was.</p>
 <p>The pattern is not hypothetical; it is the current operating mode:</p>
 <ul>
-<li><strong>Same-name drift.</strong> In 2023, a wave of developer reports — followed by a Stanford/Berkeley-lineage study titled "Is GPT-4 Getting Worse? A Study on Drift" — documented measurable behavioral change in a model whose name had not changed. Providers eventually began exposing <code>system_fingerprint</code> fields on API responses, a de facto acknowledgment that the same model identifier denotes a moving behavioral target. (P-004 of this program treats drift-under-pressure as a degradation-contract problem; this paper treats <em>identity-over-versions</em> — the same distinction as behavior under load vs. behavior across releases, and the papers cross-reference rather than overlap.)</li>
+<li><strong>Same-name drift.</strong> In 2023, a wave of developer reports — followed by the Stanford/Berkeley-lineage study of Chen, Zaharia, and Zou — "How Is ChatGPT’s Behavior Changing over Time?" (2023), reported everywhere under the framing "Is GPT-4 getting worse?" — documented measurable behavioral change in a model whose name had not changed. Providers eventually began exposing <code>system_fingerprint</code> fields on API responses, a de facto acknowledgment that the same model identifier denotes a moving behavioral target. (P-004 of this program treats drift-under-pressure as a degradation-contract problem; this paper treats <em>identity-over-versions</em> — the same distinction as behavior under load vs. behavior across releases, and the papers cross-reference rather than overlap.)</li>
 <li><strong>Fine-tune orphaning.</strong> When base models retire, customer fine-tunes built on them are retired too. Organizations that invested in domain tuning discovered their model is a lease, not a possession, and the asset evaporates with the landlord's portfolio decision.</li>
 <li><strong>Unreproducible science.</strong> A benchmark paper evaluates <code>model@version</code>; the version sunsets; the result becomes permanently unreproducible — the entire field's replication crisis compressed from decades to months. The AI Act's logging requirements for high-risk systems point at operational records, not behavioral archival, and the research community's reproducibility checklists presume the artifact still exists.</li>
 <li><strong>Silent product breakage.</strong> Prompt pipelines, structured-output contracts, safety filters, and cost models are all fitted to a specific behavioral distribution. When the distribution moves, products degrade in ways their dashboards do not show (the errors are <em>correct-looking</em>), and the debugging folklore — "prompt rot," "my prompts stopped working" — is the sound of an entire profession discovering that their substrate is mortal and untracked.</li>
@@ -157,7 +157,7 @@
 <h2 id="s11"><span class="secno">11.</span>References</h2>
 <ol>
 <li>OpenAI deprecation notices and policy pages; dated-snapshot versioning practice (2023–2024); the <code>system_fingerprint</code> response field. [Provider records; high confidence; verification queued for specifics.]</li>
-<li>"Is GPT-4 Getting Worse? A Study on Drift" (2023). Stanford/UC Berkeley-affiliated working paper, widely reported (e.g., Fortune, Vox coverage of model drift). [Working paper + press record; author list omitted pending verification pass.]</li>
+<li>Chen, L., Zaharia, M., and Zou, J. (2023). "How is ChatGPT’s behavior changing over time?" arXiv:2307.09009 — the drift study widely reported under the press framing "Is GPT-4 getting worse?" (Fortune, Vox, and others). [Verified 2026-10: arXiv record; author affiliations UW–Madison / UC Berkeley / Stanford. Title and attribution corrected from an earlier draft’s citation.]</li>
 <li>Anthropic engineering post, "Adding Error Bars to Evals: A Statistical Approach to Language Model Evaluations" (2023). [Engineering-methodology record; high confidence on content.]</li>
 <li>LMSYS Chatbot Arena — preference-scale evaluation at population scale. [Platform record; high confidence.]</li>
 <li>Mitchell, M., et al. (2019). "Model Cards for Model Reporting." <em>ACM Conference on Fairness, Accountability, and Transparency (FAT</em>)*. [Peer-reviewed; high confidence.]</li>
@@ -218,19 +218,30 @@
 <script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>

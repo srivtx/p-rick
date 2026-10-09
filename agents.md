@@ -395,3 +395,75 @@ accent. Mobile: action chips flex-fill, abstract line-height relaxed, nav stacks
 script bodies (dropping `[`/characters) — all fixes above were re-done via script files
 in scripts/ and verified by execution; p-024's harness edit is one line and was
 verified by full re-run.
+
+### Session 018 — 2026-10-09: theme-state repair, scrollspy resurrection, citation-verification round
+
+**Theme bug (user-reported: "sometimes the paper opens in dark when the site is in light").**
+Root cause was exact: all 26 paper pages carried a no-flash bootstrap with one
+missing `}` (the `if(!t){` block closed into the `catch`), so the inline script
+never parsed, `data-theme="dark"` from the static HTML survived, and papers opened
+dark regardless of the saved preference. Main and essay pages had the correct
+script — hence "sometimes". Fixed at the generator (tools/pp_template.py), the
+bootstrap hardened everywhere (57 pages): read localStorage safely -> validate the
+value -> prefers-color-scheme -> light; the old catch-path that force-darkened
+storage-blocked browsers is gone. Verified in-browser: stored light + OS dark ->
+light; stored dark -> dark + browser-chrome color synced; storage blocked -> OS
+theme. theme.js now also syncs meta theme-color and follows live OS theme changes
+when no explicit preference is stored.
+
+**Dead TOC scrollspy (found during the pass).** The contents rail never marked the
+current section: the IntersectionObserver version only fired when a heading crossed
+a 15%-viewport band, and h3 subsections have no TOC links, so mid-section positions
+marked nothing (0 active entries at any scroll depth). Replaced with a
+scroll-position implementation (rAF-throttled): marks the last heading that has a
+TOC link and passed the 25% line; defaults to §1 at top; survives instant jumps.
+Verified at 0/6000/14000/19000 px: Introduction -> Theory -> Results -> Conclusion.
+
+**Sitemap + link-regression hardening.** Re-running build_site.py had silently
+reverted two hand-applied fixes: 26 paper URLs dropped from sitemap.xml (85 -> 59)
+and essay->paper links reverted to raw .md targets. Both are now generator-owned:
+build_sitemap() includes paper/pNNN.html; fix_rel_links() normalizes essay links
+(-> reading editions; stale long PDF names -> ../pdfs/p-NNN.pdf). Verified the
+rebuild diff is bootstrap-only.
+
+**Design round (VLM-reviewed, light theme).** Paper pages: action chips carry
+file-type glyphs (down-arrow on the typeset PDF, north-east arrow on external
+source links) with hover fill and focus rings; revision note de-alerted (accent
+rule, serif body, no boxed background); metadata line set as mono apparatus;
+contents-rail active state gets an accent bar; reading line-heights up. Site:
+method/volume cards reveal a 2px accent rule on hover; figure captions promoted
+from grey placeholder type; cta-quiet gets a real affordance; global focus-visible
+and selection styling; the 26 empty-class essay links on papers.html classed and
+styled. Post-change VLM review: chips/revision/meta read as designed; no new
+defects.
+
+**Citation-verification round (research fine-tune).** 21 load-bearing
+"verification queued" claims adjudicated via live web search (paced batch, 429-safe):
+- 16 verified as stated (AARP $28.3B 2023; Google-Apple $20B 2022 from unsealed
+  US v. Google exhibits; CrowdStrike 8.5M hosts = Microsoft estimate via CISA;
+  AWS Kinesis us-east-1 Dec 2021; DST Root CA X3 Sept 2021; Jones 2019 GWAS
+  697,828; Panko line; Gray & van Ingen MSR-TR-2005-166; Backblaze drive stats;
+  Revolv/FTC 162-3119; Chamberlain myQ 2023.12 removal; Sonos Recycle Mode; Wink
+  $4.99/mo + July 2020 outage; Insteon April 2023 + partial restoration; Let's
+  Encrypt six-day certs; Achlioptas random-CSP line).
+- 5 corrections applied: Rescorla USENIX 2003 retitled to "Security Holes … Who
+  Cares?" (no paper named "On the economics of certificate revocation" exists);
+  the 2023 drift study retitled to Chen/Zaharia/Zou arXiv:2307.09009 (in-text
+  too); Jones 2019 journal corrected Nature Communications -> Nature Genetics 51;
+  p-019's D-Lib "Emulation as a Digital Preservation Strategy" reattributed from
+  Rosenthal-2015-ish to Granger, D-Lib 6(10), October 2000; p-022's "Bronson et
+  al. Caffeine deployment notes" replaced with Einziger/Friedman/Manes TinyLFU +
+  the ben-manes/caffeine wiki (no Bronson paper exists). Docker 2023-24 date range
+  corrected to 2020 announcement + 2023-24 tightening; CrowdStrike figure
+  attribution made explicit; p-015 Panko rates adjusted to 84-94% with the 88%
+  aggregate labeled. All 22 edits carry "verified 2026-10" marks in the papers.
+
+**Pipeline defect found & fixed (PDF).** p-015 failed to compile on the current
+md2tex chain: currency dollars ("$1.2M" ... "$3B" in one prose line) were stashed
+as inline math, which shielded a raw % from escaping; the restored span opened a
+LaTeX comment that ate the closing dollar. md2tex5's stash now has a prose guard
+(straight quotes / em-dash / raw % never stash; dollars then escape as \$).
+Unit-tested on the false span and on real math; 11 affected PDFs rebuilt
+(p-008..p-024 set), page counts sane, pdftotext + VLM page QA clean.
+
+**Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.

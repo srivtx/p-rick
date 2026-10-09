@@ -5,10 +5,11 @@ SITE = 'https://srivtx.github.io/p-rick'
 GH = 'https://github.com/srivtx/p-rick'
 
 NO_FLASH = (
-    "<script>(function(){try{var t=localStorage.getItem('p-rick-theme');"
-    "if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';"
-    "document.documentElement.setAttribute('data-theme',t);}"
-    "catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>"
+    "<script>(function(){var t=null;"
+    "try{t=localStorage.getItem('p-rick-theme');}catch(e){}"
+    "if(t!=='light'&&t!=='dark'){"
+    "t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}"
+    "document.documentElement.setAttribute('data-theme',t);})();</script>"
 )
 
 KATEX = """<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
@@ -50,19 +51,30 @@ FOOTER = """<footer class="site-footer">
 SCROLLSPY = """<script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>"""
 

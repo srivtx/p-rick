@@ -66,10 +66,11 @@ BLOGS = [
 ]
 
 NO_FLASH = (
-    "<script>(function(){try{var t=localStorage.getItem('p-rick-theme');"
-    "if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}"
-    "document.documentElement.setAttribute('data-theme',t);}"
-    "catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>"
+    "<script>(function(){var t=null;"
+    "try{t=localStorage.getItem('p-rick-theme');}catch(e){}"
+    "if(t!=='light'&&t!=='dark'){"
+    "t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}"
+    "document.documentElement.setAttribute('data-theme',t);})();</script>"
 )
 
 TEMPLATE = """<!DOCTYPE html>
@@ -268,6 +269,21 @@ def build_feed(items):
     print('wrote feed.xml (%d items)' % len(items))
 
 
+def fix_rel_links(html):
+    """Normalize in-essay relative links to the real artifacts:
+    - essay -> paper source .md  => reading edition page
+    - essay -> pdfs/<slug>.pdf|.md (stale long names) => ../pdfs/p-NNN.pdf
+    Prevents regressions when essays are regenerated from the .md sources.
+    """
+    html = re.sub(r'href="\.\./papers/p-(\d+)-[^"]*\.md"',
+                  lambda m: 'href="../paper/p%03d.html"' % int(m.group(1)), html)
+    html = re.sub(r'href="pdfs/p-(\d+)(?:-[^"]*)?\.md"',
+                  lambda m: 'href="../paper/p%03d.html"' % int(m.group(1)), html)
+    html = re.sub(r'href="pdfs/p-(\d+)(?:-[^"]*)?\.pdf"',
+                  lambda m: 'href="../pdfs/p-%03d.pdf"' % int(m.group(1)), html)
+    return html
+
+
 def build_sitemap(paths):
     urls = ['    <loc>%s/%s</loc>' % (SITE_URL, p) for p in paths]
     body = '\n'.join('  <url>\n%s\n  </url>' % u for u in urls)
@@ -298,7 +314,7 @@ def main():
         # strip leading "# Title" dup (title is in the h1)
         body_md = re.sub(r'^#\s+.*\n+', '', body_md, count=1)
         desc = re.sub(r'[<>]', '', inline(body_md[:180]).replace('<p>', '').replace('</p>', '')) + '…'
-        body = md_to_html(body_md)
+        body = fix_rel_links(md_to_html(body_md))
         html_out = TEMPLATE.format(
             noflash=NO_FLASH, title=inline(title), desc=desc.strip()[:300],
             paper=paper, paper_full=paper_full, date=date, body=body, pdf=pdf,
@@ -318,9 +334,10 @@ def main():
                 d.zfill(2), months[int(m) - 1], y)})
     # feed: newest series first (reverse of file order)
     build_feed(list(reversed(feed_items)))
-    # sitemap: all pages + PDFs
+    # sitemap: all pages + reading editions + PDFs
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
              'og-image.png', 'feed.xml']
+    pages += ['paper/p%03d.html' % n for n in range(1, 27)]
     pages += ['blog/p%03d.html' % n for n in range(1, 27)]
     pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 27)]
     build_sitemap(pages)

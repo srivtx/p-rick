@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
-<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -147,7 +147,7 @@
 <li>Roenneberg, T., Wirz-Justice, A., &amp; Merrow, M. (2003). "Life between clocks: daily temporal patterns of human chronotypes." <em>Journal of Biological Rhythms</em>, 18(1), 80–90. (MCTQ.) [Peer-reviewed; high confidence.]</li>
 <li>Horne, J. A., &amp; Östberg, O. (1976). "A self-assessment questionnaire to determine morningness-eveningness in human circadian rhythms." <em>International Journal of Chronobiology</em>, 4, 97–110. [Peer-reviewed; high confidence.]</li>
 <li>Wittmann, M., Dinich, J., Merrow, M., &amp; Roenneberg, T. (2006). "Social jetlag: misalignment of biological and social time." <em>Chronobiology International</em>, 23(1–2), 497–509. [Peer-reviewed; high confidence.]</li>
-<li>Jones, S. E., et al. (2019). "Genome-wide association analyses of chronotype in 697,828 individuals provides insights into circadian rhythms." <em>Nature Communications</em>, 10, 343. (351 loci; effect sizes small individually.) [Peer-reviewed; high confidence on the headline, details queued for verification.]</li>
+<li>Jones, S. E., et al. (2019). "Genome-wide association analyses of chronotype in 697,828 individuals provides insights into circadian rhythms." <em>Nature Genetics</em>, 51, 1524–1535 (2019). (351 loci; effect sizes small individually.) [Journal corrected from an earlier draft’s citation; verified 2026-10 against PubMed and the Nature index.] [Peer-reviewed; high confidence on the headline, details queued for verification.]</li>
 <li>International Agency for Research on Cancer (2007, reaffirmed 2019). "Night shift work" classified as Group 2A, probably carcinogenic to humans. <em>IARC Monographs</em>. [Agency record; high confidence.]</li>
 <li>Dawson, D., &amp; Reid, K. (1997). "Fatigue, alcohol and performance impairment." <em>Nature</em>, 388, 235. [Peer-reviewed; high confidence.]</li>
 <li>Mark, G., Gudith, D., &amp; Klocke, U. (2008). "The cost of interrupted work: more speed and stress." <em>CHI 2008</em>. (~23 min resumption cost — interruption economics; shared with P-006.) [Peer-reviewed; high confidence.]</li>
@@ -202,19 +202,30 @@
 <script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>

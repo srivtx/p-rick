@@ -25,10 +25,12 @@
   max-width: 30ch;
 }
 .paper-meta {
-  font-family: var(--sans);
-  font-size: var(--step--1);
-  color: var(--muted);
-  margin: 0 0 1.4rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin: 0 0 1.5rem;
+  line-height: 1.9;
 }
 .paper-meta a { color: var(--muted); border-bottom: 1px solid var(--rule-strong); }
 .paper-meta a:hover { color: var(--accent); border-bottom-color: var(--accent); }
@@ -47,6 +49,7 @@
 .paper-actions .pa {
   display: inline-flex;
   align-items: center;
+  gap: 0.45rem;
   font-family: var(--mono);
   font-size: 0.78rem;
   line-height: 1;
@@ -57,9 +60,15 @@
   border-radius: 3px;
   padding: 0.5rem 0.9rem;
   white-space: nowrap;
-  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+  background: var(--bg);
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease, transform 140ms ease;
 }
-.paper-actions .pa:hover { border-color: var(--accent); color: var(--accent); }
+.paper-actions .pa::before { font-size: 0.9em; color: var(--faint); transition: color 140ms ease; }
+.paper-actions .pa[download]::before { content: "\2193"; }
+.paper-actions .pa[href^="https://github.com"]::before { content: "\2197"; }
+.paper-actions .pa:hover { border-color: var(--accent); color: var(--accent); background: var(--bg-soft); transform: translateY(-1px); }
+.paper-actions .pa:hover::before { color: var(--accent); }
+.paper-actions .pa:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .paper-actions .pa-lead {
   background: var(--ink);
   color: var(--bg);
@@ -70,11 +79,11 @@
 
 /* ── revision note ────────────────────────────────────── */
 .paper-revision {
-  margin: 1.6rem 0 0;
-  padding: 0.95rem 1.15rem;
-  border-left: 3px solid var(--accent);
-  background: var(--accent-soft);
-  border-radius: 0 4px 4px 0;
+  margin: 1.8rem 0 0;
+  padding: 0.95rem 1.4rem 0 0;
+  border-left: 2px solid var(--accent);
+  background: none;
+  border-radius: 0;
 }
 .paper-revision .rev-label {
   display: block;
@@ -85,7 +94,7 @@
   color: var(--accent);
   margin-bottom: 0.35rem;
 }
-.paper-revision p { margin: 0; font-size: var(--step--1); line-height: 1.6; color: var(--text); }
+.paper-revision p { margin: 0; font-family: var(--serif); font-size: 0.92rem; line-height: 1.66; color: var(--text); }
 
 /* ── abstract ─────────────────────────────────────────── */
 .paper-abstract {
@@ -150,18 +159,21 @@
   display: flex;
   gap: 0.5rem;
   align-items: baseline;
-  padding: 0.42rem 0.2rem 0.42rem 0;
+  padding: 0.42rem 0.2rem 0.42rem 0.55rem;
+  border-left: 2px solid transparent;
+  margin-left: -0.55rem;
   font-family: var(--sans);
   font-size: 0.8rem;
   line-height: 1.45;
   color: var(--muted);
   text-decoration: none;
-  transition: color 120ms ease;
+  transition: color 120ms ease, border-color 120ms ease;
 }
 .paper-toc a .tocn { font-family: var(--mono); font-size: 0.68rem; color: var(--faint); flex: none; min-width: 1.7em; }
 .paper-toc a:hover { color: var(--ink); }
-.paper-toc a.on { color: var(--accent); }
+.paper-toc a.on { color: var(--accent); border-left-color: var(--accent); font-weight: 500; }
 .paper-toc a.on .tocn { color: var(--accent); }
+.paper-toc ol li.toc-sub a { padding-left: 1.2rem; }
 .paper-toc .toc-extra { list-style: none; margin: 0.55rem 0 0; padding: 0; }
 .paper-toc .toc-extra a { border-bottom: none; padding: 0.25rem 0; font-size: 0.76rem; color: var(--faint); }
 
@@ -170,8 +182,8 @@
 .paper-body p {
   font-family: var(--serif);
   font-size: var(--step-0);
-  line-height: 1.7;
-  margin: 0 0 1.15rem;
+  line-height: 1.74;
+  margin: 0 0 1.2rem;
   color: var(--text);
 }
 .paper-body p:first-of-type::first-letter {
@@ -215,7 +227,7 @@
   color: var(--ink);
 }
 .paper-body ul, .paper-body ol { margin: 0 0 1.15rem; padding-left: 1.5rem; }
-.paper-body li { font-family: var(--serif); font-size: var(--step-0); line-height: 1.62; margin-bottom: 0.5rem; color: var(--text); }
+.paper-body li { font-family: var(--serif); font-size: var(--step-0); line-height: 1.68; margin-bottom: 0.5rem; color: var(--text); }
 .paper-body li::marker { color: var(--accent); font-family: var(--mono); font-size: 0.8em; }
 .paper-body blockquote {
   margin: 1.3rem 0;
@@ -421,3 +433,8 @@ table.paper-table {
   .paper-abstract, .paper-revision { background: none; border-color: #999; }
   .paper-fig { break-inside: avoid; }
 }
+
+/* ── selection & focus (app apparatus) ────────────────── */
+::selection { background: var(--accent-soft); color: var(--ink); }
+.paper-body a:focus-visible, .paper-toc a:focus-visible, .paper-fig a:focus-visible,
+.paper-cite a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }

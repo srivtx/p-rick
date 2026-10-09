@@ -218,10 +218,10 @@ Every consent interface on earth implies a guarantee that no system implements: 
 8. Apple Inc. *App Tracking Transparency documentation and App Store policy*. 2021.
 9. Meta Platforms. *Platform data deletion endpoint requirements, developer documentation*. *(verification queued)*
 10. Lindgren, D. et al. *Post-ATT measurement studies*. 2021–2023. *(verification queued)*
-11. Barnes, R., Hoffman-Andrews, J., McCarney, D. *Let's Encrypt approach to revocation and short-lived certificates*. ISRG engineering blog. *(verification queued)*
+11. ISRG / Let's Encrypt engineering blog line on revocation and short-lived certificates — "Announcing Six Day and IP Address Certificate Options in 2025" and the certificate-lifetime rationale posts (90→64-day default path). *(verified 2026-10; the earlier named-author attribution is withdrawn — these posts are institutional.)*
 12. de la Cuadra, F. *OCSP soft-fail behavior in major browsers*. *(verification queued)*
 13. United States Code. *17 U.S.C. §512 — DMCA notice-and-takedown*.
-14. Rescorla, E. *On the economics of certificate revocation*. USENIX Security. 2003. *(verification queued)*
+14. Rescorla, E. "Security Holes … Who Cares?" *12th USENIX Security Symposium*, 2003 — the observational study (post-OpenSSL July 2002) that argues revocation’s failure modes are economically structural. *(verified 2026-10; title corrected — there is no USENIX paper titled "On the economics of certificate revocation.")*
 15. Acquisti, A., Brandimarte, L., Loewenstein, G. "Privacy and human behavior in the age of information." *Science* 347. 2015.
 16. Delacroix, S. *Recursive consent* and downstream-data-flow scholarship. 2021. *(verification queued)*
 17. p-rick research program. *P-001 The Personal Event Bus*; *P-005 Provenance-Native Storage*; *P-011 Model Extinction*; *P-016 The Defaults Ledger*. 2026.

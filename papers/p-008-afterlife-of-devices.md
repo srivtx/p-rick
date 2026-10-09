@@ -189,10 +189,10 @@ The industry ships hardware with a decade of physical life into an ecosystem wit
 
 ## 13. References
 
-1. Insteon service shutdown and partial restoration (2023). Reporting: *The Verge*, April 2023 ("Insteon servers shut down, bricking hubs without warning") and follow-ups on the community-led restoration. [Event record; to be verified against live sources in the citation-verification pass.]
-2. Revolv hub shutdown by Google/Nest (2016). Reporting: *Ars Technica* / *The Verge*, May 2016, including the "Works with Nest" integration retirement. [Event record; verification queued.]
-3. Chamberlain myQ local-API access blocked for Home Assistant (2023). Reporting: *The Verge*, June 2023; Home Assistant announcement of integration removal. [Event record; verification queued.]
-4. Sonos legacy-product dispute and trade-in "recycle mode" (2020). Reporting: *The Verge*, January–February 2020. [Event record; verification queued.]
+1. Insteon service shutdown and partial restoration (2023). Reporting: *The Verge*, April 2023 ("Insteon servers shut down, bricking hubs without warning") and follow-ups on the community-led restoration. [Event record; verified 2026-10: Ars Technica reconstructs the April 2023 shutdown timeline; PCMag documents the June 2023 community acquisition and partial restoration.]
+2. Revolv hub shutdown by Google/Nest (2016). Reporting: *Ars Technica* / *The Verge*, May 2016, including the "Works with Nest" integration retirement. [Event record; verified 2026-10: FTC File 162-3119 (Nest Labs closing letter, full refunds issued); Ars Technica/The Verge, May 2016.]
+3. Chamberlain myQ local-API access blocked for Home Assistant (2023). Reporting: *The Verge*, June 2023; Home Assistant announcement of integration removal. [Event record; verified 2026-10: Chamberlain blocked third-party API access in September 2023; Home Assistant removed the MyQ integration in release 2023.12.]
+4. Sonos legacy-product dispute and trade-in "recycle mode" (2020). Reporting: *The Verge*, January–February 2020. [Event record; verified 2026-10: Recycle Mode introduced with the trade-up program, then retired after backlash — The Verge, 2020.]
 5. Connectivity Standards Alliance. *Matter Specification* (1.x, 2022–). Interoperability standard; no lifecycle/succession semantics. [Standards record.]
 6. Gabaix, X., & Laibson, D. (2006). "Shrouded Attributes, Consumer Myopia, and Information Suppression in Competitive Markets." *Quarterly Journal of Economics*, 121(2). [Peer-reviewed; high confidence.]
 7. Source-code escrow practice. Industry standard in enterprise software contracting since the 1980s; see e.g. Iron Mountain / NCC Group escrow service descriptions. [Industry record; verification queued.]
@@ -200,7 +200,7 @@ The industry ships hardware with a decade of physical life into an ecosystem wit
 9. U.S. FTC, "Nixing the Fix" report (2019) and 2021 policy statement against warranty-void-if-removed restrictions; state right-to-repair statutes (NY 2022, CA 2023, MA automotive 2020/2024). [Regulatory record; high confidence on FTC, details queued.]
 10. EU Ecodesign Directive implementation measures mandating spare-parts availability and software-update windows for energy-related products (2019–, evolving). [Regulatory record; details queued.]
 11. DMCA §1201 (17 U.S.C. §1201) anti-circumvention regime; Library of Congress triennial rulemaking exemptions for repair and security research (2018–2021 cycles). [Statutory record; high confidence.]
-12. Wink hub outages and transition to paid subscription (2020). Reporting: *The Verge*, May–July 2020. [Event record; verification queued.]
+12. Wink hub outages and transition to paid subscription (2020). Reporting: *The Verge*, May–July 2020. [Event record; verified 2026-10: $4.99/month subscription required from May 13, 2020; widespread outage July 2020 — The Verge.]
 13. "Works with Nest" program shutdown (2016), retiring Revolv and third-party integrations. [Event record; folded into reference 2.]
 14. Borbély two-process alertness model — not cited here; see P-009 for the human-time axis of continuity. [Cross-reference.]
 15. p-rick P-004, *Degradation Contracts* (this program, 2026): fidelity ladders, hysteresis, and floor invariants reused as the succession ladder's semantics. [Program cross-reference.]

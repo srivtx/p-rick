@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
-<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -194,10 +194,10 @@
 <li>Apple Inc. <em>App Tracking Transparency documentation and App Store policy</em>. 2021.</li>
 <li>Meta Platforms. <em>Platform data deletion endpoint requirements, developer documentation</em>. <em>(verification queued)</em></li>
 <li>Lindgren, D. et al. <em>Post-ATT measurement studies</em>. 2021–2023. <em>(verification queued)</em></li>
-<li>Barnes, R., Hoffman-Andrews, J., McCarney, D. <em>Let's Encrypt approach to revocation and short-lived certificates</em>. ISRG engineering blog. <em>(verification queued)</em></li>
+<li>ISRG / Let's Encrypt engineering blog line on revocation and short-lived certificates — "Announcing Six Day and IP Address Certificate Options in 2025" and the certificate-lifetime rationale posts (90→64-day default path). <em>(verified 2026-10; the earlier named-author attribution is withdrawn — these posts are institutional.)</em></li>
 <li>de la Cuadra, F. <em>OCSP soft-fail behavior in major browsers</em>. <em>(verification queued)</em></li>
 <li>United States Code. <em>17 U.S.C. §512 — DMCA notice-and-takedown</em>.</li>
-<li>Rescorla, E. <em>On the economics of certificate revocation</em>. USENIX Security. 2003. <em>(verification queued)</em></li>
+<li>Rescorla, E. "Security Holes … Who Cares?" <em>12th USENIX Security Symposium</em>, 2003 — the observational study (post-OpenSSL July 2002) that argues revocation’s failure modes are economically structural. <em>(verified 2026-10; title corrected — there is no USENIX paper titled "On the economics of certificate revocation.")</em></li>
 <li>Acquisti, A., Brandimarte, L., Loewenstein, G. "Privacy and human behavior in the age of information." <em>Science</em> 347. 2015.</li>
 <li>Delacroix, S. <em>Recursive consent</em> and downstream-data-flow scholarship. 2021. <em>(verification queued)</em></li>
 <li>p-rick research program. <em>P-001 The Personal Event Bus</em>; <em>P-005 Provenance-Native Storage</em>; <em>P-011 Model Extinction</em>; <em>P-016 The Defaults Ledger</em>. 2026.</li>
@@ -245,19 +245,30 @@
 <script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>

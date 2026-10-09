@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
-<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -165,16 +165,16 @@
 <li>Abrams, S., et al. on emulation-based re-execution of preserved software. (EaaSI program publications; verification queued.)</li>
 <li>United States Department of Defense. <em>MIL-STD storage and preservation packaging standards</em> (calendar-inspection tradition; verification queued.)</li>
 <li>Svalbard Global Seed Vault / NordGen. <em>Germination testing procedures for stored seed lots</em>. (verification queued)</li>
-<li>ISRG / Let's Encrypt. <em>DST Root CA X3 expiry and legacy-client breakage, September 2021</em>. (verification queued)</li>
-<li>Docker Inc. <em>Free-tier image deletion policy announcements, 2023–24</em>. (verification queued)</li>
+<li>ISRG / Let's Encrypt. <em>DST Root CA X3 expiry and legacy-client breakage, September 2021</em>. (verified 2026-10: Let's Encrypt's own expiration notice — root expired September 30, 2021; older devices trusting only DST Root CA X3 broke.)</li>
+<li>Docker Inc. inactive-image deletion policy for free tiers — announced 2020 (6-month inactivity rule), with terms of service and retention tightened 2023–24. (verified 2026-10 as a policy class; date range corrected — the original announcement is 2020, the tightening 2023–24.)</li>
 <li>Snedaker, S. on business continuity and DR testing cadence. (verification queued)</li>
 <li>Vovk, P. et al. on cold-storage cryptocurrency custody procedures. (verification queued)</li>
-<li>Rosenthal, D. S. H. "Emulation as a digital preservation strategy." <em>D-Lib Magazine</em>, 2015-ish. (verification queued)</li>
-<li>Gray, J., van Ingen, C. <em>Empirical measurements of disk error rates</em>. MSR-TR. (media-failure priors; verification queued)</li>
+<li>Granger, S. "Emulation as a Digital Preservation Strategy." <em>D-Lib Magazine</em>, 6(10), October 2000; and Rosenthal, D. S. H. "Emulation &amp; Virtualization as Preservation Strategies" (LOCKSS Program). (verified 2026-10; attribution corrected — the D-Lib title is Granger’s, not Rosenthal’s, and dates from 2000, not 2015.)</li>
+<li>Gray, J., van Ingen, C. <em>Empirical Measurements of Disk Failure Rates and Error Rates</em>. MSR-TR-2005-166. (media-failure priors; verified 2026-10: the MSR technical report and its arXiv mirror.)</li>
 <li>p-rick research program. <em>P-008 The Afterlife of Devices; P-010 The Bus Factor Protocol; P-011 Model Extinction; P-004 Degradation Contracts</em>. 2026.</li>
 <li>RFC 8446 / TLS capability evolution literature. (handshake-version drift priors; verification queued)</li>
 <li>Jones, C. <em>Applied Software Measurement</em> (maintenance-to-development cost ratios; verification queued)</li>
-<li>Backblaze. <em>Drive-stats and flash-decay annual reports</em>. (media priors; verification queued)</li>
+<li>Backblaze. <em>Drive-stats and flash-decay annual reports</em>. (media priors; verified 2026-10: the Drive Stats report series is published openly.)</li>
 </ol>
       </div>
     </div>
@@ -218,19 +218,30 @@
 <script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>

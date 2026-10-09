@@ -21,7 +21,7 @@
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
-<script>(function(){try{var t=localStorage.getItem('p-rick-theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();</script>
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -186,10 +186,10 @@
 <p>The industry ships hardware with a decade of physical life into an ecosystem with a few years of corporate attention, and the mismatch is treated as weather. It is a specification failure with a known shape: a lifecycle state machine that pretends vendors are immortal; a capability floor that exists only in marketing copy; signing authority with no succession plan; and a rescue culture that is admired, unpaid, and technically illegal. Every component needed to fix this — escrow contracts, dead-hand triggers, threshold key ceremonies, degradation ladders, hardware interlocks, longevity labels — exists today in an adjacent industry, proven at its own scale. This paper composes them into a specification for the one transition nobody designs: the death of the maker. The devices are ready. The protocol, now, is too.</p>
 <h2 id="s13"><span class="secno">13.</span>References</h2>
 <ol>
-<li>Insteon service shutdown and partial restoration (2023). Reporting: <em>The Verge</em>, April 2023 ("Insteon servers shut down, bricking hubs without warning") and follow-ups on the community-led restoration. [Event record; to be verified against live sources in the citation-verification pass.]</li>
-<li>Revolv hub shutdown by Google/Nest (2016). Reporting: <em>Ars Technica</em> / <em>The Verge</em>, May 2016, including the "Works with Nest" integration retirement. [Event record; verification queued.]</li>
-<li>Chamberlain myQ local-API access blocked for Home Assistant (2023). Reporting: <em>The Verge</em>, June 2023; Home Assistant announcement of integration removal. [Event record; verification queued.]</li>
-<li>Sonos legacy-product dispute and trade-in "recycle mode" (2020). Reporting: <em>The Verge</em>, January–February 2020. [Event record; verification queued.]</li>
+<li>Insteon service shutdown and partial restoration (2023). Reporting: <em>The Verge</em>, April 2023 ("Insteon servers shut down, bricking hubs without warning") and follow-ups on the community-led restoration. [Event record; verified 2026-10: Ars Technica reconstructs the April 2023 shutdown timeline; PCMag documents the June 2023 community acquisition and partial restoration.]</li>
+<li>Revolv hub shutdown by Google/Nest (2016). Reporting: <em>Ars Technica</em> / <em>The Verge</em>, May 2016, including the "Works with Nest" integration retirement. [Event record; verified 2026-10: FTC File 162-3119 (Nest Labs closing letter, full refunds issued); Ars Technica/The Verge, May 2016.]</li>
+<li>Chamberlain myQ local-API access blocked for Home Assistant (2023). Reporting: <em>The Verge</em>, June 2023; Home Assistant announcement of integration removal. [Event record; verified 2026-10: Chamberlain blocked third-party API access in September 2023; Home Assistant removed the MyQ integration in release 2023.12.]</li>
+<li>Sonos legacy-product dispute and trade-in "recycle mode" (2020). Reporting: <em>The Verge</em>, January–February 2020. [Event record; verified 2026-10: Recycle Mode introduced with the trade-up program, then retired after backlash — The Verge, 2020.]</li>
 <li>Connectivity Standards Alliance. <em>Matter Specification</em> (1.x, 2022–). Interoperability standard; no lifecycle/succession semantics. [Standards record.]</li>
 <li>Gabaix, X., &amp; Laibson, D. (2006). "Shrouded Attributes, Consumer Myopia, and Information Suppression in Competitive Markets." <em>Quarterly Journal of Economics</em>, 121(2). [Peer-reviewed; high confidence.]</li>
 <li>Source-code escrow practice. Industry standard in enterprise software contracting since the 1980s; see e.g. Iron Mountain / NCC Group escrow service descriptions. [Industry record; verification queued.]</li>
@@ -197,7 +197,7 @@
 <li>U.S. FTC, "Nixing the Fix" report (2019) and 2021 policy statement against warranty-void-if-removed restrictions; state right-to-repair statutes (NY 2022, CA 2023, MA automotive 2020/2024). [Regulatory record; high confidence on FTC, details queued.]</li>
 <li>EU Ecodesign Directive implementation measures mandating spare-parts availability and software-update windows for energy-related products (2019–, evolving). [Regulatory record; details queued.]</li>
 <li>DMCA §1201 (17 U.S.C. §1201) anti-circumvention regime; Library of Congress triennial rulemaking exemptions for repair and security research (2018–2021 cycles). [Statutory record; high confidence.]</li>
-<li>Wink hub outages and transition to paid subscription (2020). Reporting: <em>The Verge</em>, May–July 2020. [Event record; verification queued.]</li>
+<li>Wink hub outages and transition to paid subscription (2020). Reporting: <em>The Verge</em>, May–July 2020. [Event record; verified 2026-10: $4.99/month subscription required from May 13, 2020; widespread outage July 2020 — The Verge.]</li>
 <li>"Works with Nest" program shutdown (2016), retiring Revolv and third-party integrations. [Event record; folded into reference 2.]</li>
 <li>Borbély two-process alertness model — not cited here; see P-009 for the human-time axis of continuity. [Cross-reference.]</li>
 <li>p-rick P-004, <em>Degradation Contracts</em> (this program, 2026): fidelity ladders, hysteresis, and floor invariants reused as the succession ladder's semantics. [Program cross-reference.]</li>
@@ -246,19 +246,30 @@
 <script>
 (function(){
   var links = document.querySelectorAll('.paper-toc a[href^="#"]');
-  if (!links.length || !('IntersectionObserver' in window)) return;
+  if (!links.length) return;
   var map = {};
   links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
-  var obs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        links.forEach(function(a){ a.classList.remove('on'); });
-        var a = map[e.target.id];
-        if (a) a.classList.add('on');
-      }
-    });
-  }, {rootMargin: '-15% 0px -70% 0px'});
-  document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]').forEach(function(h){ obs.observe(h); });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
 })();
 </script>
 </body>

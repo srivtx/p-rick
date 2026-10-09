@@ -173,7 +173,7 @@ The caching field has spent a decade tuning admission filters that approximate a
 3. Einziger, G., Friedman, R., and Manes, B. *TinyLFU: a highly efficient cache admission policy.* ACM TOCS (also EuroSys discussion), 2017.
 4. Megiddo, N., and Modha, D. S. *ARC: a self-tuning, low overhead replacement cache.* FAST, 2003.
 5. Breslau, L., Cao, P., Fan, L., Phillips, G., and Shenker, S. *Web caching and Zipf-like distributions: evidence and implications.* INFOCOM, 1999.
-6. Bronson, N., et al. (Caffeine's W-TinyLFU deployment notes) — window sizing as a tuning parameter. Verification-queued.
+6. Einziger, G., Friedman, R., and Manes, B. *TinyLFU: A Highly Efficient Cache Admission Policy* (arXiv:1512.00727; ACM Trans. Computer Systems, 2017) — the W-TinyLFU policy; window sizing as a tuning parameter is documented in the Caffeine project's wiki ("Efficiency," ben-manes/caffeine). (verified 2026-10; the earlier Bronson et al. attribution is corrected — no such Caffeine deployment-notes paper exists.)
 7. The CDN trace-measurement literature on one-timers: one-time-object fractions in production proxy/CDN traces. Verification-queued.
 8. Clauset, A., Shalizi, C. R., and Newman, M. E. J. *Power-law distributions in empirical data.* SIAM Review, 2009.
 9. Chou, M. C., et al. / the database buffer-pool pollution literature — one-timer impact on buffer pools. Verification-queued.

@@ -153,8 +153,8 @@ SRE's sixty-year arc ran from "hope it works" through "measure it" to "design it
 
 1. Google SRE Team. *Site Reliability Engineering*; *The SRE Workbook* (failure domains, composite paths, blast radius, game days). O'Reilly, 2016/2018.
 2. Markowitz, H. "Portfolio Selection." *The Journal of Finance* 7(1), 1952.
-3. CrowdStrike. *Channel File 219: technical root-cause postmortem*, July 2024. (casualty figures: ~8.5M hosts, public estimates; verification queued)
-4. AWS. *Summary of the Kinesis event in the Northern Virginia (us-east-1) region*, December 2021. (verification queued)
+3. CrowdStrike. *Channel File 219 technical root-cause analysis and Post Incident Review*, July 2024. (casualty figure: 8.5M Windows hosts is Microsoft’s estimate, relayed by CISA; verified 2026-10.)
+4. AWS. *Summary of the AWS Service Event in the Northern Virginia (US-EAST-1) Region*, December 7, 2021. (verified 2026-10: AWS’s own post-incident summary; the incident originated in the Kinesis subsystem.)
 5. Apple/Google/Microsoft status-page incident archives, 2019–2026. (weather-report corpus)
 6. FBI IC3. *Public Service Announcements on SIM-swapping*. (verification queued)
 7. Basel, J. et al. on SIM-swap account-takeover case studies. *USENIX Security* track, 2020s. (verification queued)

@@ -243,13 +243,18 @@ html[data-theme="dark"] .icon-moon { display: none; }
 html[data-theme="light"] .cta-primary:hover { background: var(--accent); color: #fff; }
 html[data-theme="dark"] .cta-primary:hover { background: var(--accent); color: #191311; }
 .cta-quiet {
-  font-size: var(--step--1); font-weight: 500;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-size: var(--step--1); font-weight: 600;
   color: var(--muted);
   border-bottom: 1px solid var(--rule-strong);
   padding-bottom: 1px;
   transition: color 0.2s ease, border-color 0.2s ease;
 }
+.cta-quiet::after { content: "\2192"; font-family: var(--mono); font-size: 0.85em; color: var(--faint); transition: color 0.2s ease, transform 0.2s ease; }
 .cta-quiet:hover { color: var(--accent); border-bottom-color: var(--accent); }
+.cta-quiet:hover::after { color: var(--accent); transform: translateX(2px); }
 
 /* hero figure — a real law from the program */
 .hero-fig {
@@ -356,6 +361,11 @@ html[data-theme="dark"] .cta-primary:hover { background: var(--accent); color: #
 .toc-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
 .toc-links a.toc-pdf { color: var(--ink); }
 .toc-links a.toc-pdf:hover { color: var(--accent); }
+.toc-links a.toc-essay { color: var(--accent); }
+.toc-links a.toc-essay:hover { border-bottom-color: var(--accent); }
+.toc-links a.toc-data { color: var(--muted); }
+.toc-links a.toc-data:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
 .toc-tags {
   display: flex; gap: 0.5rem; margin-top: 0.5rem; flex-wrap: wrap;
 }
@@ -381,6 +391,17 @@ html[data-theme="dark"] .cta-primary:hover { background: var(--accent); color: #
   padding: 1.5rem 1.4rem 1.3rem;
   transition: background-color 0.25s ease;
 }
+.volume { position: relative; }
+.volume::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.volume:hover::after { opacity: 1; }
 .volume:hover { background: var(--bg-soft); }
 a.volume { text-decoration: none; }
 .volume-charter .vol-num { font-family: var(--serif); font-style: italic; }
@@ -422,9 +443,20 @@ a.volume { text-decoration: none; }
 .method-card {
   background: var(--bg);
   padding: 1.45rem 1.4rem 1.3rem;
+  position: relative;
   transition: background-color 0.25s ease;
 }
+.method-card::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  width: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
 .method-card:hover { background: var(--bg-soft); }
+.method-card:hover::after { opacity: 1; }
 .method-card .m-n {
   font-family: var(--mono); font-size: 0.68rem;
   color: var(--accent); letter-spacing: 0.12em;
@@ -729,10 +761,10 @@ html[data-theme="dark"] .chip.is-on { color: #15161a; }
 .fig-card img { display: block; width: 100%; height: auto; border-radius: 2px; }
 .fig-card-cap {
   display: block;
-  margin-top: 0.55rem;
-  font-family: var(--mono); font-size: 0.64rem;
-  letter-spacing: 0.05em;
-  color: var(--muted);
+  margin-top: 0.6rem;
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--text);
   line-height: 1.5;
 }
 .fig-card-cap .fig-no { color: var(--accent); }
@@ -802,3 +834,11 @@ html[data-theme="dark"] .chip.is-on { color: #15161a; }
 /* source links in paper rows — raw markdown on GitHub */
 .toc-links a.toc-src::after { content: " \2197"; font-size: 0.85em; color: var(--faint); }
 .toc-links a.toc-src { font-family: var(--mono); font-size: 0.95em; }
+
+/* ---------- focus & selection (app apparatus) ---------- */
+a:focus-visible, button:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+::selection { background: var(--accent-soft); color: var(--ink); }

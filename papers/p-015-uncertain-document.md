@@ -125,7 +125,7 @@ The laboratory solved this in the last century: no measurement without its uncer
 ## 11. References
 
 1. Herndon, T., Ash, M., Pollin, R. (2013). "Does High Public Debt Consistently Restrain Economic Growth? A Critique of Reinhart and Rogoff." *Political Economy Research Institute* — the austerity-spreadsheet correction; Reinhart & Rogoff (2010), "Growth in a Time of Debt," *Papers and Proceedings, AEA*. [Peer-reviewed working paper + journal; high confidence.]
-2. Panko, R. — spreadsheet-error research program; field audits with file-level error rates ~88–94% and cell error rates ~1–3%. [Research line; high confidence on magnitudes; verification queued for specific audits.]
+2. Panko, R. — spreadsheet-error research program; field audits finding errors in roughly 84–94% of operational spreadsheets, with cell error rates ~1–3% (e.g., 91% and 84% in the audits Panko tabulates; the ~88% figure is his aggregate). [Research line; verified 2026-10 against Panko’s "Spreadsheet Errors: What We Know. What We Think We Can Do." and his operational-audits page.]
 3. ISO/IEC Guide 98-3 (GUM) — *Guide to the Expression of Uncertainty in Measurement*; standard-lineage from the 1978 initiative to the 1993/2008 editions. [Standard; high confidence.]
 4. Moore, R. E. (1966). *Interval Analysis.* [Book; high confidence.]
 5. Gigerenzer, G. — natural-frequencies program for transparent risk communication, with clinical evaluation. [Research line; high confidence.]
