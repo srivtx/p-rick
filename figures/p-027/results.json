@@ -1,8 +1,10 @@
 {
+  "L1_explicit_overflow_depth": 171,
   "L1_violations": 0,
+  "L1_proxy_crossings": 0,
   "L1_ph_max_norm": 1.218503342542834,
   "L1_std_max_norm": 7.855728897651517e+43,
-  "L1_bound_ratio_median": 0.02152013402823514,
+  "L1_bound_ratio_median": 0.02162615448313788,
   "L2_transport_logdet_error": 4.4408920985006255e-14,
   "L2_error_by_h": {
     "0.5": 0.0028953186786164764,
@@ -19,29 +21,79 @@
   ],
   "L4_boundary_hj": 0.3122498999199199,
   "L4_cayley_modulus_minus_one": -0.04878048780487798,
+  "L5_readout_acc_ph": 0.9808333333333333,
+  "L5_readout_acc_std": 0.3829166666666666,
+  "L5_readout_acc_ph_seed_std": 0.007660323462854258,
+  "L5_readout_acc_std_seed_std": 0.033202869688560885,
+  "L5_readout_by_depth_ph": {
+    "10": [
+      0.9816666666666666,
+      0.009260879487872018
+    ],
+    "30": [
+      0.9816666666666668,
+      0.009147707666708409
+    ],
+    "60": [
+      0.9808333333333333,
+      0.008559432743405895
+    ],
+    "90": [
+      0.9816666666666668,
+      0.008312473893025012
+    ],
+    "120": [
+      0.9808333333333333,
+      0.007660323462854258
+    ]
+  },
+  "L5_readout_by_depth_std": {
+    "10": [
+      0.7729166666666667,
+      0.0772194743715743
+    ],
+    "30": [
+      0.5779166666666666,
+      0.018037384018261146
+    ],
+    "60": [
+      0.45875,
+      0.021433035249352788
+    ],
+    "90": [
+      0.3954166666666667,
+      0.05212498334665333
+    ],
+    "120": [
+      0.3829166666666666,
+      0.033202869688560885
+    ]
+  },
   "L5_ph_sv_range": [
-    0.002406545350587861,
-    5.182095849746154
+    0.0021029225443510145,
+    5.543687274098616
   ],
   "L5_std_sv_range": [
-    1.0072659161492021,
-    1.0316840517965564e+19
+    2.236605875538599,
+    1.2417434345816013e+19
   ],
-  "L5_terminal_pairwise_cosine_ph": 0.25507338028345444,
-  "L5_terminal_pairwise_cosine_std": 0.8714855488271164,
-  "L5_self_cosine_ph": 0.16212123472120124,
-  "L5_self_cosine_std": 0.11876147663705376,
-  "L5_readout_acc_ph": 0.9729166666666667,
-  "L5_readout_acc_std": 0.48125,
-  "L5_std_norm_growth": 2.1981046451821715e+17,
+  "L5_terminal_pairwise_cosine_ph": 0.26060479507845036,
+  "L5_terminal_pairwise_cosine_std": 0.8345156857375414,
+  "L5_self_cosine_ph": 0.12657173715317507,
+  "L5_self_cosine_std": 0.18074707993173666,
+  "L5_std_norm_growth": 1.9461415456445325e+17,
   "laws": [
     [
-      "L1 norm bound violations",
+      "L1 norm bound violations (exact check)",
       "0"
     ],
     [
+      "L1 explicit-Euler overflow depth",
+      "171"
+    ],
+    [
       "L1 bound tightness (median ratio)",
-      "0.0215"
+      "0.0216"
     ],
     [
       "L2 transport logdet error (volume-free)",
@@ -69,15 +121,15 @@
     ],
     [
       "L5 terminal pairwise cosine (PH / std)",
-      "0.255 / 0.871"
+      "0.261 / 0.835"
     ],
     [
-      "L5 rank-2 readout (PH / std)",
-      "0.973 / 0.481"
+      "L5 held-out readout at 120 (PH / std)",
+      "0.981 / 0.383"
     ],
     [
       "L5 std norm growth factor",
-      "2.2e+17"
+      "1.9e+17"
     ]
   ]
 }

@@ -704,3 +704,67 @@ code block), citing, ledger, status, license.
 **Ship:** single push, author srivtx, Co-authored-by: Claude trailer.
 - **status:** done · **next:** product directories per the charter; PDF re-render of
   the eight affected papers when the md2tex pipeline is in-workspace.
+
+### Session 022 — 2026-10-09: P-027 rev 1.1 — the audit round, part two (tests, E6 harness, Colab entry point)
+
+External verification audit of P-027 (draft 1.0): independently reproduced the
+transport algebra and the gradient experiment, then declined certification over
+four defects — three harness defects plus the central objection that random-stream
+scores are not training. This session ships the full response.
+
+**Paper (v1.1):**
+- Defect fixes carried in: damping-spectrum conditionality stated (h·λ_max ≤ 2
+  for nonnegative spectrum; enforced ≤ 1 by construction), input-bound check
+  now tests the theorem's exact ‖B·u‖ quantity, explicit-Euler reconstruction
+  round-trip-exact (was R/2 and dead code) and its stream-level result is now
+  Figure 1's headline (float64 overflow at depth 171 vs the Cayley stream in
+  budget at 300).
+- L5 capacity readout redesigned: held-out (centroids on train split only),
+  three seeds — the separation widens under honest evaluation (98.1% ± 0.8 vs
+  38.3% ± 3.3, replacing the in-sample 97.3/48.1 that flattered the control).
+- New `code/p-027-tests.py`: 13-assertion law suite (orthogonality,
+  volume-freeness, unconditional contraction, the nonnegativity boundary and
+  guarded builder, both Cayley round-trips, exact input bound + engineered
+  proxy failure, cubic meter error, gradient non-amplification, Cayley/Euler
+  first-order agreement). All pass.
+- E6 added (§5/§7/§8): end-to-end training of the saturating-port
+  instantiation against trained ResNet / ResNet+LN / Cayley baselines under
+  the audit's protocol (3600/1200/1200 split, validation-selected LR, early
+  stopping, 3 seeds, gradient + norm signatures on trained models).
+- Text hygiene found and fixed in this pass: abstract cosine 0.87 → 0.83;
+  malformed e-notation in the F5 caption ($2.1×10⁻³…$5.5, norm growth
+  1.95×10¹⁷); §9 "49-point gap" → 60-point held-out gap.
+
+**E6 infrastructure:**
+- `code/p-027b-training.py` (PyTorch harness): seed-frozen, resumable
+  (per-run incremental save), CPU-reproducible parameter init with
+  `--device=auto|cpu|cuda` compute placement; each run records its device.
+- `code/p-027-colab.ipynb`: one-click Open-in-Colab entry (GPU
+  pre-selected via notebook metadata) — fetches harness + committed partial
+  results from GitHub raw, micro-benchmarks CPU vs T4 on a depth-240 step
+  and picks the faster, runs the remaining sweep with live per-job output,
+  renders f7, prints a digest table and the full JSON between paste-back
+  markers, auto-downloads outputs.
+- Runs banked so far: 30+/96 (job 1 of the resumed 66 was in flight at
+  push). Colab completes the sweep; partials are committed so it resumes
+  rather than restarts.
+
+**Site (surgical sync, full regen after E6 lands):**
+- paper/p027.html: F5/F6 caption numbers brought to the held-out protocol.
+- blog/p027.html: honesty paragraph updated + "Update (rev 1.1)" note with
+  the Colab link.
+- index.html dek + papers.html card (98.1/38.3, "rev 1.1" tag) + README row
+  and Reproduce section (tests command, Colab one-click line).
+
+**Verification:**
+- 13/13 law checks pass (fresh run this session).
+- Harness device patch: py_compile + smoke run (test 0.974, device recorded).
+- Notebook: JSON valid, all code cells parse, 10 cells, GPU metadata set.
+- Patch script asserts per-replacement counts; all applied cleanly; no
+  97.3/48.1 remain outside intentional v1.0-vs-v1.1 contrasts.
+- Push + Pages verification (see worklog).
+
+**Ship:** this push. **Pending (next session):** E6 results from the Colab
+run → §6 numbers + Figure 7 + reading-edition regen (build_paper_pages) +
+pdf rebuild (p-027.pdf is text-stale since v1.1, like the 8 known-stale
+PDFs) + essay/card refresh + final push.
