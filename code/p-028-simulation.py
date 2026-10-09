@@ -307,13 +307,14 @@ ax.set_yticklabels(['0.1', '0.32', '1.0', '1.58'])
 hlin = np.logspace(-1, 0.2, 100)
 ax.plot([a_min_pred(hh) for hh in hlin], np.log10(hlin),
         color=G900, lw=2.2, ls='--',
-        label=r'exact law: $a^*(h)=\frac{N-L_{tol}}{N-\Gamma}$')
+        label=r'exact law: $a^*(h)$')
 ax.plot([max(0.0, 1.0 - 2.0 * L_TOL * (2.0 * ETA_MU - ETA_MU ** 2) / hh ** 2)
          for hh in hlin], np.log10(hlin), color=CB[0], lw=1.6, ls=':',
         label=r'asymptote: $1-\kappa/h^2$')
 ax.set_xlabel(r'anchor coverage $a$')
 ax.set_ylabel(r'agent entropy $h$ (log)')
-ax.legend(loc='upper right', bbox_to_anchor=(1.0, 1.0))
+ax.legend(loc='upper left', frameon=True, facecolor='white',
+           framealpha=0.93, edgecolor='#E5E7EB')
 ax.set_title('stable maintenance: floor < tolerance', fontsize=12,
              fontweight='bold', pad=10)
 save(fig, 'f3-boundary.png')
@@ -350,10 +351,10 @@ RESULTS['L3_asymptote_kappa'] = float(2 * L_TOL * (2 * ETA_MU - ETA_MU ** 2))
 # ----------------------------------------------------------------------
 print('L4/L5: trajectories and substitution')
 cases = [
-    ('a=0.2, h=0.5  (under-anchored)', 0.2, 0.5, CB[4]),
-    ('a=0.8, h=0.5  (stable)', 0.8, 0.5, CB[2]),
-    ('a=0.6, h=1.0  (high-entropy)', 0.6, 1.0, CB[3]),
-    ('a=0.98, h=1.0  (near-total anchors)', 0.98, 1.0, CB[0]),
+    ('$a$=0.2, $h$=0.5 (under)', 0.2, 0.5, CB[4]),
+    ('$a$=0.8, $h$=0.5 (stable)', 0.8, 0.5, CB[2]),
+    ('$a$=0.6, $h$=1.0 (high-ent.)', 0.6, 1.0, CB[3]),
+    ('$a$=0.98, $h$=1.0 (near-total)', 0.98, 1.0, CB[0]),
 ]
 fig, axes = plt.subplots(1, 2, figsize=(9.6, 4.0), constrained_layout=True)
 ax = axes[0]

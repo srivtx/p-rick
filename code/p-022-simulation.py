@@ -421,8 +421,10 @@ xs = [(i + 1) * 100_000 for i in range(len(roll_al))][1:]
 ax1.plot(xs, roll_lru[1:], color=G400, lw=1.8, label='LRU')
 ax1.plot(xs, roll_al[1:], color=CB[0], lw=2.0, label='admission law (adaptive)')
 ax1.axvline(1_200_000, color=G700, ls=':', lw=1.4)
-ax1.text(1_260_000, 0.9, 'workload shift:\n$\\alpha$ 0.9$\\to$0.7, $f$ 0.1$\\to$0.4',
-         fontsize=8.5, color=G700)
+ax1.text(1_260_000, 0.96, 'workload shift:\n$\\alpha$ 0.9$\\to$0.7, $f$ 0.1$\\to$0.4',
+         fontsize=8.5, color=G700, va='top',
+         bbox=dict(boxstyle='round,pad=0.32', facecolor='white',
+                   edgecolor='none', alpha=0.92))
 ax1.set_ylabel('rolling hit ratio')
 ax1.set_ylim(0, 1.0)
 ax1.set_title('The law re-converges after the workload breaks')

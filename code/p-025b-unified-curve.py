@@ -741,14 +741,11 @@ for R, x, y in zip([4, 6, 10], xs, ys):
                  fontsize=9, color=G700)
 axr.plot([0.0], [0.0], '*', ms=15, color=CB[4], zorder=5)
 axr.annotate('R=$\\infty$: queue GROWS at 5% load\n(49k deep; restart only)',
-             (0, 0), xytext=(10, 12), textcoords='offset points', fontsize=8.5,
-             color=CB[4])
+             (0.145, 0.052), fontsize=8.5, color=CB[4], va='center')
 axr.set_xlabel('sustaining boundary $\\mu/R$')
 axr.set_ylabel('measured recovery-within-dwell')
-axr.set_title('The give-up law')
 dt = ', '.join(f"{v:.0f}" if v else "n/a" for v in drain_times.values())
-axr.annotate(f"drain times at $\\lambda$=0.05/0.10: {dt} service-times",
-             (0.30, 0.72), xycoords='axes fraction', fontsize=8.5, color=G700)
+axr.set_title(f'The give-up law (drain at 0.05: {dt} $\\tau$)')
 axr.legend(loc='upper left', fontsize=8.6)
 clean_axis(axr)
 save(fig, 'f3-hysteresis.png')
@@ -1052,9 +1049,9 @@ axb.plot(Rgrid, 1.0 / Rgrid, '--', color=CB[4], lw=1.6,
 axb.set_xlabel('retry budget $R$')
 axb.set_ylabel('load (per unit $\\mu$)')
 axb.set_title('The $R$-sweep at $\\theta = 2$')
-axb.annotate('band between the lines\n= hysteresis', (4.6, 0.30),
-             fontsize=8.5, color=G700)
-axb.legend(loc='center right', fontsize=8.6)
+axb.annotate('band between the lines = hysteresis', (6.15, 0.045),
+             fontsize=8.5, color=G700, va='bottom')
+axb.legend(loc='upper right', fontsize=8.6)
 clean_axis(axb)
 save(fig, 'f7-unified-curve.png')
 

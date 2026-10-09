@@ -720,7 +720,7 @@ axb.set_xscale('log', base=2)
 axb.set_xticks(Ks)
 axb.set_xticklabels([str(k) for k in Ks])
 axb.set_xlabel('versions per package $K$ (log scale)')
-axb.set_ylabel(f'P(resolvable), $D$={Dfix}')
+axb.set_ylabel(f'P(resolvable), $D$={Dfix}', labelpad=10)
 axb.legend(loc='lower left', bbox_to_anchor=(0, 1.0), fontsize=8.4,
            title='Version proliferation: fragility or slack?',
            title_fontsize=8.8, frameon=False)

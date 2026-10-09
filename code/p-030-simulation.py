@@ -534,14 +534,14 @@ rows = [
 ]
 RESULTS['laws'] = [list(r) for r in rows]
 
-fig, ax = plt.subplots(figsize=(7.6, 3.8), constrained_layout=True)
+fig, ax = plt.subplots(figsize=(7.6, 4.6), constrained_layout=True)
 ax.axis('off')
 tbl = ax.table(cellText=[[a, b] for a, b in rows],
                colLabels=['law', 'measured'],
                cellLoc='left', colLoc='left', loc='center')
 tbl.auto_set_font_size(False)
 tbl.set_fontsize(9.5)
-tbl.scale(1.0, 1.5)
+tbl.scale(1.0, 0.95)
 for (r, c), cell in tbl.get_celld().items():
     if r == 0:
         cell.set_facecolor('#F3F4F6')

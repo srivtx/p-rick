@@ -408,8 +408,9 @@ def main():
     ax.set_ylabel('outbreak probability')
     ax.set_ylim(-0.03, 1.03)
     ax.set_xlim(0, 0.52)
-    ax.set_title('The threshold law: heavier-tailed registries burn easier')
-    ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left', fontsize=8.8)
+    ax.set_title('The threshold law: heavier-tailed registries burn easier',
+                 loc='left')
+    ax.legend(loc='upper left', fontsize=8.8)
     clean_axis(ax)
     save(fig, 'f2-phase-transition.png')
 
@@ -424,8 +425,8 @@ def main():
     g_dense = np.linspace(F3_GAMMAS[0], F3_GAMMAS[-1], 200)
     T_dense = np.interp(g_dense, F3_GAMMAS, 1.0 / np.array(f3_mean))
     ax.plot(T_dense, g_dense, color='#CC3311', lw=2.0, ls='--')
-    ax.text(0.345, 2.42, '$R_0^v = T\\,\\langle d\\rangle = 1$\n(branching law, conservative)',
-            fontsize=9, color='#CC3311', fontweight='bold')
+    ax.text(0.03, 3.02, '$R_0^v = T\\,\\langle d\\rangle = 1$\n(branching law, conservative)',
+            fontsize=9, color='#CC3311', fontweight='bold', va='top')
     ax.set_xlabel('per-edge transmissibility $T$')
     ax.set_ylabel('degree exponent $\\gamma_d$')
     ax.set_title('Outbreak regime: branching law vs simulation')
@@ -486,8 +487,8 @@ def main():
     if RESULTS['f6']['drag_theta']:
         th = RESULTS['f6']['drag_theta']
         ax.plot([0, 1], [0, th], color='#CC3311', ls=':', lw=1.6, zorder=2)
-        ax.text(0.62, th * 0.62 + 0.06, f'extinction drag\n$\\theta \\approx {th:.2f}$',
-                fontsize=8.5, color='#CC3311')
+        ax.text(0.55, 0.12, f'extinction drag\n$\\theta \\approx {th:.2f}$',
+                fontsize=8.5, color='#CC3111', va='bottom')
     ax.set_xlabel('Galton–Watson survival prediction')
     ax.set_ylabel('measured outbreak probability')
     ax.set_xlim(-0.02, 1.02)

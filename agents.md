@@ -552,3 +552,84 @@ essays, 16->61 figures — the badge counts had drifted before this session), 4 
 series-VIII bullet, closing line to "thirty papers ... ten validated law sets, 61 figures".
 
 **Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.
+
+### Session 020 — 2026-10-09: figure QA round two + site-wide polish + README rebuild
+
+**Round:** polish. User directive: another deeper pass on the website and graphs; some places
+not updated; some new graphs overlapping text; README like Bun and other professional
+projects.
+
+**Figure QA round two (all 61 figures, VLM-audited).** Full audit of every figure across
+P-021..P-030 (the previous "figure QA to zero" pass had missed several). Eleven real
+collisions found and fixed at the harness level, then regenerated — every results.json
+bit-identical to the committed one (seeded determinism verified by diff for all eight
+affected papers):
+
+- p-021 f2: legend outside right clipped the title at the image's left edge (constrained-layout
+  + bbox_to_anchor legend); legend moved inside upper-left, title left-aligned. Synced into
+  `code/p-021b-fig-fixes.py` (the f2 re-renderer) so future re-renders inherit the fix.
+- p-021 f3: the branching-law label sat on the red threshold curve; moved to the empty
+  top-left quadrant.
+- p-021 f6: the extinction-drag label kissed the red dotted line; moved below it.
+- p-022 f4: the workload-shift annotation floated over gridlines; white plate + top anchor.
+- p-023 f4: the title physically overlapped the above-axes legend (2 entries + titlepad 10);
+  legend moved inside the empty upper-right quadrant. Found during this round's audit, not the
+  previous one.
+- p-023 f5: the kappa formula sat on the d=16/d=64 curve starts; moved to the top-left void.
+- p-024 f5: right panel's ylabel touched its tick labels; labelpad 10. (Full harness rerun
+  exceeds the 550 s shell timeout mid-F2, so f5 was re-rendered surgically from results.json —
+  data verbatim, zero recompute.)
+- p-025 f3: the R=∞ annotation's leader arrow crossed the R=10 marker zone and the diagonal;
+  re-placed without an arrow in the empty below-diagonal pocket; drain-times note folded into
+  the panel title (it crossed the diagonal).
+- p-025 f7: the "band between the lines" label overlapped the recovery curve; re-placed
+  single-line below the 1/R line; legend moved center-right → upper-right (was covering the
+  R=6/8 markers).
+- p-027 f4: the boundary-curve legend label overlapped the upper branch of the boundary;
+  legend moved to the empty upper-right with a white frame.
+- p-028 f3: the exact-law legend (a tall \frac formula) sat on the boundary curves;
+  label shortened to `a*(h)`, legend framed and moved to the empty top-left quadrant.
+  f4/f5: case labels shortened so the 2-col legend stays inside its own panel.
+- p-030 f6: the 14-row validation table's header row touched the title (scale 1.5 overflow);
+  taller canvas + 0.95 scale.
+
+All regenerated figures re-verified by VLM as clean (crop-zoomed checks where the full-image
+pass was ambiguous — two false positives resolved that way).
+
+**Pipeline defect found & fixed (scrollspy, again).** The sticky-contents scrollspy in *every*
+reading edition (30 pages) and in `tools/pp_template.py` was dead: the selector string had
+been corrupted to `.paper-toc aref^="#"]` (invalid CSS → querySelectorAll throws → the whole
+IIFE dies) and the map guard read `mapeads[i].id]` — a template-mangling artifact that
+survived session 018's "scrollspy resurrection" because the pages were rebuilt afterward by
+the corrupted template. Fixed in all 30 pages + the template (byte-verified); the `.on`
+highlight CSS already existed, so the fix restores the intended behavior site-wide.
+
+**Stale-count sweep (the "not updated" places).** blog.html said "26 essays" and was missing
+the four series-VIII essay rows (p027–p030 existed as pages but were absent from the index —
+feed.xml and sitemap.xml were current, the index was not); papers.html meta + kicker said
+"twenty-six · 7 series"; method.html said "26-paper ledger" twice and its grade table stopped
+at P-026; all 30 reading editions' "all papers" nav said "26 working papers"; index.html's
+hero CTA pointed at P-026 as "latest". All corrected to 30 / eight series; four essay rows
+and four ledger rows added; CTA now P-030. The fixer script is idempotent-guarded and saved
+at scripts/polish_prick_site.py (one early run double-inserted the method.html ledger rows —
+caught and deduplicated; the guard now checks for the inserted block).
+
+**README rebuilt (Bun-style).** The series-VIII papers were sitting under the series-VII
+heading (no VIII section existed); layout-tree paths said p001–p026; BibTeX note said "twenty
+papers"; figure/code comments said series VI–VII. Rewritten: centered header + badge row +
+quick links, a new "headline laws" table (the five flagship results with formulas and
+validation numbers), papers sectioned VIII (current) → I with per-series intros, updated
+repository layout, build/regenerate with the bit-exact-figure claim, program status
+newest-first, thirty/eight/61 counts everywhere. 268 lines, 30 paper rows.
+
+**Not done, on purpose:** the eight affected PDFs still carry the pre-fix figure renderings —
+the md2tex7 + build_series8_pdfs.py pipeline is not in this workspace, numbers are unchanged
+(results.json bit-identical; the fixes are annotation placement only), and rebuilding PDFs
+through a mismatched pipeline version risks changing the typeset editions. The reading
+editions — the primary reading surface — carry the corrected figures.
+
+**Determinism note:** p-023's results.json is a superset (main harness + p-023b/c sections);
+after regenerating figures the full backup was restored byte-for-byte. p-021's f2 curves were
+re-extended into results.json by the patched p-021b (values identical).
+
+**Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.

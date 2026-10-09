@@ -349,7 +349,8 @@ ax.plot(bd, 1.0 + np.sqrt(np.maximum(0.0, 1.0 - bd ** 2)), color=G900,
         lw=2.0, ls='--')
 ax.set_xlabel(r'transport per step $h j$')
 ax.set_ylabel(r'damping per step $h r$')
-ax.legend(loc='upper left')
+ax.legend(loc='upper right', frameon=True, facecolor='white',
+           framealpha=0.93, edgecolor='#E5E7EB')
 fig.colorbar(im, ax=ax, label=r'$|1 + h(-r+ij)|^2 - 1$', shrink=0.9)
 ax.set_title('explicit Euler: growth map', fontsize=11.5, fontweight='bold',
              pad=8)

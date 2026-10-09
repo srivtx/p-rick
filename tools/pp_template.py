@@ -142,7 +142,7 @@ TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
     <nav class="paper-nav" aria-label="Paper navigation">
-{prev}<a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a>{next}
+{prev}<a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">30 working papers &rarr;</span></a>{next}
     </nav>
     <section class="paper-cite" aria-label="How to cite">
       <div class="cite-label">cite</div>

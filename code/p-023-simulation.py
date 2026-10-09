@@ -372,7 +372,7 @@ ax.set_xlabel('landmark count $L$')
 ax.set_ylabel('recall@10')
 ax.set_ylim(0, 1.05)
 ax.set_title('Landmark budget: error falls as $\\sqrt{d/L}$')
-ax.legend(bbox_to_anchor=(0.5, 1.02), loc='lower center', ncol=1)
+ax.legend(loc='upper right')
 clean_axis(ax)
 save(fig, 'f4-landmarks.png')
 
@@ -389,7 +389,8 @@ ax.set_xlabel('generation $g$')
 ax.set_ylabel('semantic drift $D(g)$')
 ax.set_title('Dimension mercy: rotations barely drift in high dimensions')
 ax.legend(bbox_to_anchor=(1.02, 1), loc='upper left')
-ax.text(0.4, 0.02, '$\\kappa_{rot} = 2(1-\\cos\\delta)/d$', fontsize=9, color=G700)
+ax.text(1.0, 0.92, '$\\kappa_{rot} = 2(1-\\cos\\delta)/d$', fontsize=9,
+        color=G700, va='top')
 clean_axis(ax)
 save(fig, 'f5-dimension.png')
 
