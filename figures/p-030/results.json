@@ -1,0 +1,120 @@
+{
+  "L1_profile_median_err": 0.008840911738362545,
+  "L2_dip_closed": 2771.458630527551,
+  "L2_dip_kernel_argmin": 2771.925733111158,
+  "L2_dip_measured": 2771.925733111158,
+  "L2_edge_recovery": 0.2626666666666667,
+  "L3_dstar_measured": [
+    1450.625071219864,
+    329.07208073058683,
+    156.73246584846606,
+    95.58819313361379,
+    74.64949866425205,
+    58.29744729074255
+  ],
+  "L3_dstar_law": [
+    690.9125925515295,
+    256.9884945581444,
+    200.69489392304698,
+    95.58819313361379,
+    74.64949866425205,
+    58.29744729074255
+  ],
+  "L3_median_rel_err": 0.0,
+  "L3_exact_points": [
+    "96/96",
+    "75/75",
+    "58/58"
+  ],
+  "L3_ladder_window": [
+    1857.515883608057,
+    884.7090404759538,
+    421.37463975787904,
+    200.69489392304698,
+    122.40005398622468,
+    45.52733000796982
+  ],
+  "L4_order_median_err": 0.0005899683604482786,
+  "L4_exp_collapse_at": 1364.3246215573881,
+  "L4_ladder_min": 0.986,
+  "L5_flat_floor": 1.0,
+  "L5_flat_order": 0.5018333333333334,
+  "L5_slope_floor": 1.0,
+  "L5_slope_order": 0.5958333333333334,
+  "L5_pareto": [
+    [
+      0.9942857142857143,
+      0.496
+    ],
+    [
+      0.0,
+      1.0
+    ],
+    [
+      1.0,
+      0.5128
+    ],
+    [
+      0.9985714285714286,
+      0.6396
+    ],
+    [
+      0.9985714285714286,
+      0.5848
+    ]
+  ],
+  "laws": [
+    [
+      "L1 profile law median |err| (valid range)",
+      "0.009"
+    ],
+    [
+      "L2 dip (closed form / kernel / measured)",
+      "2771 / 2772 / 2772"
+    ],
+    [
+      "L2 edge recovery above dip",
+      "0.263"
+    ],
+    [
+      "L3 exp window at C=8 / C=256 (meas)",
+      "1451 / 58"
+    ],
+    [
+      "L3 law median rel. err",
+      "0.00%"
+    ],
+    [
+      "L3 ladder window at C=256",
+      "46"
+    ],
+    [
+      "L4 order law median |err|",
+      "0.001"
+    ],
+    [
+      "L4 exp order collapse beyond",
+      "1364"
+    ],
+    [
+      "L4 ladder order floor",
+      "0.986"
+    ],
+    [
+      "L5 designed-flat (register) floor",
+      "1.000"
+    ],
+    [
+      "L5 designed-flat order (dead)",
+      "0.502"
+    ],
+    [
+      "L5 designed floor-90: floor / order (3 dec)",
+      "1.000 / 0.596"
+    ],
+    [
+      "L5 window-order law: O at 0.5 / 3 decades",
+      "0.496 / 0.585"
+    ]
+  ]
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth — p-rick P-027</title>
+<meta name="description" content=" …">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/paper/p027.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth">
+<meta property="og:description" content=" …">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/paper/p027.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<meta property="article:published_time" content="2026-10-09">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth">
+<meta name="twitter:description" content=" …">
+<meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/paper.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false,strict:false})"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth","author":{"@type":"Organization","name":"p-rick research program"},"datePublished":"2026-10-09","license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":"https://srivtx.github.io/p-rick","identifier":"P-027","url":"https://srivtx.github.io/p-rick/paper/p027.html"}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="../index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="../papers.html" aria-current="page">Papers</a>
+      <a href="../blog.html">Essays</a>
+      <a href="../method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+<main id="main" class="page">
+  <article class="paper">
+    <header class="paper-head">
+      <p class="paper-kicker">working paper P-027 &middot; series </p>
+      <h1 class="paper-title">The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth</h1>
+      <div class="paper-meta">2026-10-09 &middot; draft 1.0 &middot; p-rick research program &middot; <a href="https://github.com/srivtx/p-rick/blob/main/papers/p-027-dissipation-budget.md">source</a> &middot; <a href="../pdfs/p-027.pdf">pdf</a> &middot; cc by 4.0</div>
+      <div class="paper-actions">
+        <a class="pa pa-lead" href="../pdfs/p-027.pdf" download>typeset PDF</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/papers/p-027-dissipation-budget.md">source&thinsp;.md</a>
+        <a class="pa" href="../blog/p027.html">companion essay</a>
+        <a class="pa" href="https://github.com/srivtx/p-rick/blob/main/code/p-027-simulation.py">harness&thinsp;.py</a>
+      </div>
+    </header>
+
+    <section class="paper-abstract" aria-label="Abstract">
+      <div class="abs-label">abstract</div>
+      <p class="abs-text"></p>
+      <div class="abs-kw"><span class="kw-label">keywords</span><span class="kw">residual networks</span><span class="kw">port-Hamiltonian systems</span><span class="kw">Cayley transform</span><span class="kw">orthogonality constraints</span><span class="kw">gradient flow</span><span class="kw">normalization-free depth</span><span class="kw">volume contraction</span><span class="kw">expressivity</span></div>
+    </section>
+    <div class="paper-layout">
+      <nav class="paper-toc" aria-label="Contents">
+        <div class="ptoc-label">contents</div>
+        <ol><li><a href="#s1"><span class="tocn">1.</span>Introduction</a></li><li><a href="#s2"><span class="tocn">2.</span>Related work</a></li><li><a href="#s3"><span class="tocn">3.</span>The architecture</a></li><li><a href="#s4"><span class="tocn">4.</span>Theory</a></li><li><a href="#s5"><span class="tocn">5.</span>Experiments</a></li><li><a href="#s6"><span class="tocn">6.</span>Results</a></li><li><a href="#s7"><span class="tocn">7.</span>What this model cannot see</a></li><li><a href="#s8"><span class="tocn">8.</span>Conclusion</a></li></ol><ul class="toc-extra"></ul>
+      </nav>
+      <div class="paper-body">
+<h2 id="s1"><span class="secno">1.</span>Introduction</h2>
+<p>The residual stream is the substrate every modern architecture ships in: a vector that layers read from and write back to. Its defining equation, $x_{t+1} = x_t + f_t(x_t)$, is also its defining liability. The identity shortcut makes depth <em>additive</em>, which is why it trains at all — but additive composition of unconstrained maps compounds norms multiplicatively: a per-layer spectral radius of $1 + \epsilon$ across $L$ layers yields a gain of $(1+\epsilon)^L$, and at $L = 120$ an $\epsilon$ of $0.05$ is already a factor of $10^{2.6}$. The discipline that manages this — normalization layers, spectral initialization, warmup, gradient clipping — is a multibillion-dollar engineering practice built around a single fact: the standard stream has no conserved quantity. Nothing about $x + f(x)$ bounds $\|x\|$, preserves volume, or meters gradient flow; every guarantee is imposed from outside, statistically, after the stream has already misbehaved.</p>
+<p>This paper asks the question the practice never needed to: is there a residual update for which depth stability is structural rather than managed? The answer comes from a place deep learning rarely borrows from — port-Hamiltonian systems theory, the modeling language of energy-conserving physical machinery (electrical networks, electromechanical systems, robotic manipulators). A port-Hamiltonian system splits its dynamics into three channels with disjoint jobs: <strong>transport</strong> (a skew-symmetric flow that moves energy around the state space without creating or destroying it), <strong>dissipation</strong> (a positive-semidefinite channel that only removes energy), and <strong>ports</strong> (the only interfaces through which energy enters or leaves). Applied to the residual stream, the split becomes an architecture:</p>
+<div class="math-display">$$x_{t+1} \;=\; \Lambda_t\, C_t\, x_t \;+\; h\, B_t\, u_t$$</div>
+<p>with $C_t = (I + S/2)^{-1}(I - S/2)$, $S$ skew — the <strong>Cayley transport</strong>, exactly orthogonal for any $S$; $\Lambda_t = (I + hR/2)^{-1}(I - hR/2)$, $R \succeq 0$ — <strong>metered dissipation</strong>, symmetric with spectrum in $[0,1)$; and $B_t u_t$ the injection port, where the data (and, in a full architecture, each layer's read of the world) enters. The stream is linear in the state; nonlinearity lives where the theory wants it, in the ports and in the parameterization of $S$ and $R$ from learned features. The design decision that makes everything work is discretization: the Cayley forms of both the transport and the dissipation are <em>exact</em> rational parametrizations of the continuous Hamiltonian and dissipative semigroups — they conserve what the continuous system conserves, at any step size, with no integrator error to correct for.</p>
+<p>Three laws fall out, and they are the paper. The conservation law bounds activation norm by the port injections alone. The dissipation budget law makes representational volume a <em>metered purchase</em>: transport is exactly volume-free (the determinant of any Cayley product is $\pm 1$), all contraction is dissipation, and the total is readable from the damping spectrum before the network ever runs. The gradient transport law gives backward flow the same structure: transport preserves gradient norm exactly, dissipation decays it at a designed exponential rate, and nothing else touches it. The capacity experiment shows what the laws buy in practice: at depth 120 a standard random stream has numerically annihilated every direction but its top gain eigenvector — distinct inputs map to (nearly) the same vector — while the port-Hamiltonian stream's terminal geometry is still readable by a linear classifier.</p>
+<p>The reframing this paper contributes to the program's arc: series VII found the <em>laws existing systems obey at their failure points</em> (resolution collapse, retry-storm ceilings, credential cascades); series VIII opens with a law a <em>proposed</em> system obeys by construction. The gap-verification section still runs (Section 2): the landscape of depth-stable architectures is real and crowded at the edges — reversible networks, orthogonality-constrained RNNs, Hamiltonian dynamics learners — and the paper's claim is precisely delimited against each: none of them, as far as the search shows, makes the residual stream itself a port-Hamiltonian state system with metered dissipation, and the dissipation-budget identity (volume contraction = a readable function of the damping spectrum alone, independent of transport strength) appears to be unwritten.</p>
+<p>Section 3 formalizes the architecture. Section 4 derives the laws. Section 5 specifies the experiments. Section 6 presents results (six figures). Section 7 states what the model cannot see — including an honest account of what has not been trained. Section 8 concludes.</p>
+<h2 id="s2"><span class="secno">2.</span>Related work</h2>
+<p><strong>Normalization and depth stability.</strong> The managed-depth literature is the incumbent: batch normalization, layer normalization, and their descendants control activation statistics layer by layer; initialization theory (variance-preserving scalings) controls the depth-compounding at the random limit; gradient clipping and warmup manage the transient. All of these are <em>a posteriori</em> corrections of an update rule with no conservation structure. The port-Hamiltonian stream is orthogonal to this stack in the literal sense: it removes the need for the statistical corrections by making the compounding impossible, not by measuring and rescaling it.</p>
+<p><strong>Reversible and volume-preserving architectures.</strong> The closest incumbents. Reversible residual networks (Gomez et al., 2017; i-RevNet, Behrmann et al., 2019) construct exactly volume-preserving (invertible) streams — the $R = 0$ special case of this paper's transport channel — and i-RevNet's observation that such streams can train without normalization is, in this paper's language, the conservation law with the dissipation channel closed. The port-Hamiltonian stream generalizes it in the direction those architectures cannot go: pure reversibility forbids volume contraction, and contraction is what classification attractors are (Section 4.3). The dissipation channel is the missing half, and the budget law is its price tag. The cost comparison is also favorable: i-RevNet's invertibility machinery requires the full Jacobian of each block to be invertible on both passes; the Cayley transport is one matrix inverse per layer at $d \times d$, reused in forward and backward.</p>
+<p><strong>Orthogonal RNNs and constrained dynamics.</strong> Orthogonality-constrained recurrent networks (unitary RNNs, expRNN, and related) parametrize recurrent maps on the orthogonal group to stabilize long-horizon credit assignment — the transport law applied to recurrence. The Cayley parametrization itself has a long history in numerical integration and optimization (Cayley transforms of skew matrices in symplectic and Lie-group methods). What the constrained-RNN line does not carry is the port structure: no injection/dissipation split, no volume budget, and no claim about representational contraction.</p>
+<p><strong>Hamiltonian and port-Hamiltonian machine learning.</strong> Hamiltonian neural networks (Greydanus et al., 2019; symplectic variants) learn the Hamiltonian of <em>observed physical systems</em> — the machinery is the target, not the substrate. Port-Hamiltonian systems theory (van der Schaft and the control-theory lineage) supplies the splitting used here. To the extent of the program's search, the synthesis — port-Hamiltonian structure <em>as the residual stream</em>, with Cayley-exact discretization and a metered-dissipation capacity law — is unwritten (verification-queued per program practice; the search terms and exclusion criteria are in the harness repository).</p>
+<p><strong>Position in this program.</strong> Series VIII begins the program's second arc: from laws of existing systems to machinery proposed and validated. P-027 is the architecture entry; its siblings (P-028–P-030) are protocol and mechanism entries. The bar the series sets for itself is the bar of Section 2 of this paper: every mechanism must reduce to closed-form laws that a single-file harness validates to the precision the law claims.</p>
+<h2 id="s3"><span class="secno">3.</span>The architecture</h2>
+<h3 id="s31">3.1 The port-Hamiltonian stream</h3>
+<p>The state $x \in \mathbb{R}^d$ evolves over layers $t = 0, 1, \ldots, L$ by</p>
+<div class="math-display">$$\boxed{\;x_{t+1} \;=\; \Lambda_t\, C_t\, x_t \;+\; h\, B_t\, u_t\;}$$</div>
+<p>with the three channels:</p>
+<ul>
+<li><strong>Cayley transport</strong> $C_t = (I + S_t/2)^{-1}(I - S_t/2)$, where $S_t = A_t - A_t^{\top}$ is skew-symmetric ($A$ learned). $C_t$ is exactly orthogonal for any $S_t$: $C^{\top} C = I$ by direct computation. It is the $[2/2]$ Padé approximant of the matrix exponential $\exp(S)$ — the exact map of Hamiltonian transport discretized without error.</li>
+<li><strong>Metered dissipation</strong> $\Lambda_t = (I + h R_t/2)^{-1}(I - h R_t/2)$, with $R_t = L_t L_t^{\top} \succeq 0$ learned (e.g., $L$ a $d \times d$ factor). $\Lambda_t$ is symmetric positive definite with spectrum in $[0, 1)$ — the $[1/1]$ Padé of $\exp(-hR)$, a contraction whose per-eigenvalue decay is $\ln\lambda_i = \ln\frac{1 - h r_i/2}{1 + h r_i/2} \in (-\infty, 0)$.</li>
+<li><strong>Ports</strong> $B_t u_t$: the only state-independent injection. $u_t$ is the data (or a learned read of it); $B_t$ is learned. In the capacity experiments the port fires at layer 0 (the embedding) and the stream runs pure transport+dissipation thereafter; in a full architecture, ports fire per-layer and the injection law below still bounds the total.</li>
+</ul>
+<p>The parametrization is smooth in $(A, L, B)$, differentiable by autodiff through one linear solve per layer, and carries $3d^2$ parameters per layer — the same order as a standard residual block at equal width.</p>
+<h3 id="s32">3.2 What the update is not</h3>
+<p>The stream is linear in $x$ at fixed parameters. This is a modeling decision, not an omission: the laws of Section 4 are <em>exact</em> for this stream, at any depth, with no statistics and no small-step assumptions, and exactness is what makes them architecture law rather than architecture folklore. Nonlinearity enters in two sanctioned places — the port map $u \mapsto B u$ (a full nonlinear read of the input) and the parameter maps $S(x), R(x)$ if one wants state-dependent dynamics, at the price of exactness degrading to $O(h^2)$ per layer (the explicit-Euler analysis of Section 4.4 covers this regime). The paper's honest position: the exact laws are the contribution; the nonlinear generalization is priced, not hidden.</p>
+<h2 id="s4"><span class="secno">4.</span>Theory</h2>
+<h3 id="s41">4.1 The conservation law</h3>
+<div class="thm"><p><span class="thm-head">Proposition 1.</span> <em>For any stream of port-Hamiltonian layers, any depth $L$, any parameter values, and any step size $h$:</em></p></div>
+<div class="math-display">$$\|x_{t+1}\| \;\le\; \|\Lambda_t\|_2 \|C_t\|_2 \|x_t\| + h\|B_t u_t\| \;\le\; \|x_t\| + h\|B_t u_t\|$$</div>
+<p><em>and summing the telescoping bound,</em></p>
+<div class="math-display">$$\boxed{\;\|x_L\| \;\le\; \|x_0\| \;+\; \sum_{t=0}^{L-1} h\,\|B_t u_t\|\;}$$</div>
+<p><em>Activation norm enters the stream only through the ports. No normalizer is required at any depth for the bound to hold.</em></p>
+<p><em>Proof.</em> $C_t$ is orthogonal ($\|Cx\| = \|x\|$); $\Lambda_t$ has operator norm $\le 1$ (spectrum in $[0,1)$); the triangle inequality gives the first line; induction gives the telescoping bound. $\square$</p>
+<p>The bound is the <em>port budget</em>: the maximum possible norm at depth $L$ is the initial norm plus the cumulative injected port energy — a number the architecture knows before it runs. It is not necessarily tight (dissipation can leave the state far below the bound; the harness measures a median tightness ratio of 0.02 at the tested configuration, i.e., dissipation dominated) — but it is <em>unconditional</em>, which is the property the standard stream lacks.</p>
+<h3 id="s42">4.2 The dissipation budget law</h3>
+<div class="thm"><p><span class="thm-head">Proposition 2.</span> <em>For any stream of port-Hamiltonian layers, any depth, any step size:</em></p></div>
+<div class="math-display">$$\ln\bigl|\det(x \mapsto \Lambda C x \text{ composed over } L)\bigr| \;=\; \sum_{t=0}^{L-1} \ln\det\Lambda_t \;=\; \sum_{t} \sum_{i=1}^{d} \ln\frac{1 - h r_{t,i}/2}{1 + h r_{t,i}/2} \;=\; -\sum_t h\,\mathrm{tr}\,R_t \;-\; \frac{1}{12}\sum_t h^3 \mathrm{tr}(R_t^3) \;-\; \ldots$$</div>
+<p><em>Transport contributes determinant $\pm 1$ exactly — $\det C_t = \pm 1$ for any skew $S_t$ — and the total volume contraction of the stream is a function of the dissipation spectra alone, independent of the transport's strength, with the budget identity $-\sum h\,\mathrm{tr}\,R_t$ accurate to $O(h^3)$.</em></p>
+<p><em>Proof.</em> $\det C = \det(I - S/2)/\det(I + S/2)$; the numerator and denominator are transposes of each other's arguments ($I + S/2 = (I - S/2)^{\top}$ since $S = -S^{\top}$), so the determinants are equal and the ratio is $1$. $\det\Lambda = \prod_i \frac{1 - x_i/2}{1 + x_i/2}$ with $x_i = h r_i$; expanding $\ln\frac{1 - x/2}{1 + x/2} = -x - \frac{x^3}{12} - O(x^5)$ and summing gives the statement. $\square$</p>
+<p>The interpretation is architectural accounting. Volume contraction is what a classifier's final geometry is: to separate $k$ classes the stream must eventually squeeze the measure of the boundary regions, i.e., contract volume. Proposition 2 says this purchase is <em>metered</em>: the network's total representational contraction is readable off the $\Lambda$ spectra — before training, before inference, at design time. The transport channel, however strong, spends nothing. And the cubic error scaling means the meter is accurate: at the harness's step sizes, halving $h$ reduces the meter's error by the predicted factor approaching 8 (measured ratios $6.4 \to 8.7$; the excess at coarse $h$ is the higher-order Padé terms, priced in the expansion).</p>
+<h3 id="s43">4.3 The necessity of dissipation (why $R = 0$ is not enough)</h3>
+<div class="thm"><p><span class="thm-head">Proposition 3.</span> <em>A pure-transport stream ($R \equiv 0$) is volume-preserving at every layer (Liouville). It cannot map a set of positive measure onto a set of smaller measure; any readout geometry requiring contraction — attractor basins, decision margins denser than the input's — must be paid for in dissipation.</em></p></div>
+<p>The reversible-network line lives at $R = 0$ and obtains contraction through non-stream mechanisms (downsampling, boundary conditions, the readout head). The port-Hamiltonian stream instead buys it in-stream, and Proposition 2 prices it: a stream that must contract volume by a factor $\kappa$ needs $\sum_t h\,\mathrm{tr} R_t \ge \ln \kappa$ — a budget the designer sets, the meter reads, and the training dynamics can only spend. This is, as far as the program's search shows, the first architecture in which <em>expressivity is a budget line</em> (verification-queued against the constrained-RNN and normalizing-flow literatures, whose determinants are computed but not budgeted this way).</p>
+<h3 id="s44">4.4 The oscillation boundary: integrator choice is normalization choice</h3>
+<div class="thm"><p><span class="thm-head">Proposition 4.</span> <em>The explicit-Euler discretization $x_{t+1} = (I + h(J - R))\,x_t$ (per eigenpair $-r \pm ij$ of $J - R$) is unstable — $|1 + h(-r + ij)| > 1$ — iff</em></p></div>
+<div class="math-display">$$\boxed{\;(hj)^2 \;+\; (hr)^2 \;>\; 2\,hr\;}$$</div>
+<p><em>equivalently $(hr - 1)^2 + (hj)^2 > 1$: instability outside a disk of radius $1$ centered at $(hj, hr) = (0, 1)$ in the per-step (transport, damping) plane. The Cayley form has no boundary: its transport modulus is exactly $1$ and its damping modulus is $2 - O(hr)$, at any step size.</em></p>
+<p>The boundary is the arithmetic of <em>numerical</em> viscosity: an explicit step of pure transport ($r = 0$) grows as $|1 + ihj| = \sqrt{1 + h^2 j^2} > 1$ — the integrator itself creates the energy the architecture's continuous form conserves. Damping $r$ can refund it ($hj^2 \le 2r$), which is exactly what a normalizer's variance control does, re-derived. The Cayley form simply does not borrow: transport is a rotation by construction. The design rule the proposition encodes: <strong>if you discretize transport explicitly, you will re-invent normalization; if you discretize it by Cayley, you do not need it.</strong></p>
+<h3 id="s45">4.5 The gradient transport law</h3>
+<div class="thm"><p><span class="thm-head">Proposition 5.</span> <em>Backward gradients of the stream satisfy $g_t = C_t^{\top} \Lambda_t\, g_{t+1}$, hence</em></p></div>
+<div class="math-display">$$\|g_0\| \;\le\; \ldots \;\le\; \|g_t\| \;\le\; \|g_L\|$$</div>
+<p><em>Gradient norm is non-increasing from the loss backward through the stream, decaying only through the $\Lambda$'s — at the designed per-layer rate $\prod \lambda_i$ — and preserved exactly by transport. No vanishing, no explosion, no scheduling.</em></p>
+<p>The proof is two lines (transpose of the forward map; orthogonality and contraction), but the consequence is the architecture's training signature: credit assignment at depth is <em>metered</em>, not rescued. The harness measures the median $g_0/g_L$ over 240 layers at 0.55 and the maximum at 1.000 (the maximum is attained when all $\Lambda$ spectra sit near 1 — the designer's choice), against a standard stream whose fan spans 33 orders of magnitude. The R-annealing conjecture follows as a training recipe: begin with $\Lambda \approx I$ (pure transport, gradient-perfect, volume-neutral) and grow dissipation as the task demands contraction — a schedule the budget law makes auditable.</p>
+<h2 id="s5"><span class="secno">5.</span>Experiments</h2>
+<p>The harness (<code>code/p-027-simulation.py</code>, single file, NumPy + Matplotlib, seed <code>20261009</code>) validates each law on random parametrizations of the architecture — the correct test bed, since the laws are parametrization-unconditional. The capacity experiment (L5) contrasts depth-120 streams on a rank-2 task: four classes on a circle in a 2-plane of the input, chosen because resolving it requires <em>two</em> independent directions to survive the stream (a 1-direction task, the harness found, is too easy to discriminate — a methodological note recorded in the results). All figures and every number in the abstract regenerate from the seeded harness; <code>figures/p-027/results.json</code> carries the headline measurements.</p>
+<h2 id="s6"><span class="secno">6.</span>Results</h2>
+<figure class="paper-fig" id="f1"><a href="../figures/p-027/f1-conservation.png" target="_blank" rel="noopener"><img src="../figures/p-027/f1-conservation.png" alt="Left: stream norm against depth, log scale — the standard residual stream explodes (median reaching \(7.9\times10^{43}\) at depth 300) while the port-Hamiltonian stream stays inside the injection bound (zero violations across 7,200 runs). Right: bound tightness — the 95th percentile norm tracks but never crosses the port budget." loading="lazy"></a><figcaption><span class="fig-no">F1</span>Left: stream norm against depth, log scale — the standard residual stream explodes (median reaching \(7.9\times10^{43}\) at depth 300) while the port-Hamiltonian stream stays inside the injection bound (zero violations across 7,200 runs). Right: bound tightness — the 95th percentile norm tracks but never crosses the port budget.</figcaption></figure>
+<p><strong>Figure 1 — the conservation law.</strong> Zero violations in 7,200 stream runs; the standard control explodes to $7.9 \times 10^{43}$ by depth 300. The bound's median tightness is 0.02 at the tested dissipation (the stream sits far below its budget when damping is active) — the bound is a ceiling, not an equilibrium, and the gap is the dissipation spectrum's to spend.</p>
+<figure class="paper-fig" id="f2"><a href="../figures/p-027/f2-budget.png" target="_blank" rel="noopener"><img src="../figures/p-027/f2-budget.png" alt="Left: measured log-volume against the dissipation budget \(\sum h\,\mathrm{tr}\,R\) — the identity line; the transport&#x27;s own log-determinant error is \(4.4\times10^{-14}\) (exactly volume-free). Right: budget error against step size — cubic scaling, ratios 6.4 → 8.7 approaching the predicted 8." loading="lazy"></a><figcaption><span class="fig-no">F2</span>Left: measured log-volume against the dissipation budget \(\sum h\,\mathrm{tr}\,R\) — the identity line; the transport's own log-determinant error is \(4.4\times10^{-14}\) (exactly volume-free). Right: budget error against step size — cubic scaling, ratios 6.4 → 8.7 approaching the predicted 8.</figcaption></figure>
+<p><strong>Figure 2 — the dissipation budget law.</strong> The transport channel is volume-free to $4.4 \times 10^{-14}$ across $10^4$ layer-compositions — the determinant of every Cayley product is $\pm 1$ to machine precision, independent of the transport's magnitude. The budget identity (log-volume $= -\sum h\,\mathrm{tr}\,R$) holds with cubic error; the meter is exact at the Padé level, and the measured error ratios bracket the predicted factor of 8 as $h$ halves.</p>
+<figure class="paper-fig" id="f3"><a href="../figures/p-027/f3-gradient.png" target="_blank" rel="noopener"><img src="../figures/p-027/f3-gradient.png" alt="Left: gradient norm against depth traversed for the PH stream (median with 5–95 band) — metered decay, maximum 1.000 over 240 layers. Right: the standard stream&#x27;s gradient fan — 33 orders of magnitude between the 5th and 95th percentiles." loading="lazy"></a><figcaption><span class="fig-no">F3</span>Left: gradient norm against depth traversed for the PH stream (median with 5–95 band) — metered decay, maximum 1.000 over 240 layers. Right: the standard stream's gradient fan — 33 orders of magnitude between the 5th and 95th percentiles.</figcaption></figure>
+<p><strong>Figure 3 — the gradient transport law.</strong> The PH stream's backward gradients decay by design only: median 0.55, maximum 1.000 over 240 layers. The standard stream's fan spans $1.9 \times 10^{33}$ to $5.1 \times 10^{34}$ between percentiles — the vanishing/exploding dichotomy in one measurement.</p>
+<figure class="paper-fig" id="f4"><a href="../figures/p-027/f4-boundary.png" target="_blank" rel="noopener"><img src="../figures/p-027/f4-boundary.png" alt="Left: the explicit-Euler growth map in the (transport, damping) per-step plane, with the boundary \((hr-1)^2+(hj)^2=1\); stable inside the disk. Right: growth against transport strength at fixed damping 0.05 — explicit Euler crosses zero growth at the predicted \(hj\approx0.31\); the Cayley form never crosses." loading="lazy"></a><figcaption><span class="fig-no">F4</span>Left: the explicit-Euler growth map in the (transport, damping) per-step plane, with the boundary \((hr-1)^2+(hj)^2=1\); stable inside the disk. Right: growth against transport strength at fixed damping 0.05 — explicit Euler crosses zero growth at the predicted \(hj\approx0.31\); the Cayley form never crosses.</figcaption></figure>
+<p><strong>Figure 4 — the oscillation boundary.</strong> The explicit form's instability region matches the disk law exactly (the measured zero-crossing at $hj = 0.312$ against the predicted $\sqrt{2 \cdot 0.05 - 0.05^2} = 0.312$). The Cayley transport's modulus is $1 - O(hr)$ — never above one, at any step size, for any transport strength. Integrator choice is normalization choice.</p>
+<figure class="paper-fig" id="f5"><a href="../figures/p-027/f5-capacity.png" target="_blank" rel="noopener"><img src="../figures/p-027/f5-capacity.png" alt="Left: depth-120 Jacobian spectra — the standard stream spans 19 orders of magnitude (numerical rank collapse); the PH stream&#x27;s spectrum is bounded by its dissipation design. Right: rank-2 circle-task accuracy against stream depth — PH holds 97.3% while the renormalized standard stream degrades to 48.1% against a 25% chance floor." loading="lazy"></a><figcaption><span class="fig-no">F5</span>Left: depth-120 Jacobian spectra — the standard stream spans 19 orders of magnitude (numerical rank collapse); the PH stream's spectrum is bounded by its dissipation design. Right: rank-2 circle-task accuracy against stream depth — PH holds 97.3% while the renormalized standard stream degrades to 48.1% against a 25% chance floor.</figcaption></figure>
+<p><strong>Figure 5 — capacity at depth.</strong> The standard stream's Jacobian spectrum spans $10^{19}$ — every direction but the top gains is numerically annihilated, and the terminal states of distinct inputs have pairwise cosine 0.87 (they have become nearly the same vector). The PH stream: spectrum bounded by design ($2.4 \times 10^{-3}$ to $5.2$), pairwise cosine 0.26, and the rank-2 readout survives: 97.3% against the standard stream's 48.1% (both after per-sample renormalization; the standard stream's raw norms grew by $2.2 \times 10^{17}$). The honest caveat printed with the result: the standard stream was <em>manually renormalized</em> to make the comparison possible at all — without that rescue, its states overflow the representation outright.</p>
+<figure class="paper-fig" id="f6"><a href="../figures/p-027/f6-law-validation.png" target="_blank" rel="noopener"><img src="../figures/p-027/f6-law-validation.png" alt="The validation ledger: every law&#x27;s measured value against its claim, from the seeded harness." loading="lazy"></a><figcaption><span class="fig-no">F6</span>The validation ledger: every law's measured value against its claim, from the seeded harness.</figcaption></figure>
+<p><strong>Figure 6 — the law-validation ledger.</strong> All five laws measured in one run: conservation (0 violations), volume-freeness ($4.4 \times 10^{-14}$), budget cubic error (ratios 6.4/8.7), gradient metering (max 1.000), and the capacity split (97.3/48.1).</p>
+<h2 id="s7"><span class="secno">7.</span>What this model cannot see</h2>
+<p>The laws are exact for the linear-parametrization stream, and the harness validates them there. Four boundaries are load-bearing and stated rather than elided. <strong>First, no end-to-end training claim is made.</strong> The capacity experiment uses fixed random streams and linear readout; whether <em>learned</em> port-Hamiltonian streams compete with transformers on real data is exactly the kind of claim the program grades verification-queued, and the two experiments that would settle it are specified: (a) a PH stream at depth $\ge 10^3$ on a synthetic depth-recursion task (pathfinding, parity) against a normalized standard stream, prediction: stable training loss with no normalizer, from Propositions 1 and 5; (b) the R-annealing schedule of Section 4.5 against fixed dissipation, prediction: measurably faster contraction purchase per training compute, from Proposition 2. <strong>Second, the linear state is a real restriction.</strong> State-dependent dynamics $S(x), R(x)$ degrade every law from exact to $O(h^2)$ per layer; the degradation is priced by the Padé expansion but not validated in the harness, and the nonlinear-capacity question (whether ports alone supply enough nonlinearity, as the random-feature literature suggests but does not settle) is open. <strong>Third, the cost model is honest but incomplete:</strong> one $d \times d$ solve per layer is the architecture's per-layer tax, fine at $d \le 1024$ and unpriced above; blocked/Cayley-product parametrizations exist in the Lie-group literature and are untested here. <strong>Fourth, the comparison baseline is a random standard stream, not a well-initialized one.</strong> Variance-preserving initialization and normalization make the standard stream <em>work</em>; this paper's claim is not that they don't, but that they are compensating for an update rule with no conservation structure — a claim about the origin of the machinery, not its tuned performance.</p>
+<h2 id="s8"><span class="secno">8.</span>Conclusion</h2>
+<p>The standard residual stream treats depth as a managed hazard. The port-Hamiltonian stream treats it as a designed resource: transport is a rotation (free at any depth), dissipation is a meter (every bit of contraction purchased and read), injection is a port (the only way norm enters). The laws — conservation, budget, gradient transport — are theorems first and measurements second, and the harness confirms each at its claimed precision: zero bound violations at any tested depth, transport volume-freeness at $10^{-14}$, cubic meter error, gradient maximum exactly 1.000 through 240 layers, and a 49-point capacity gap at depth 120 that survives even when the control stream is rescued by manual renormalization. What the paper offers the field is not a trained model but a re-derivation of the problem: normalization exists because the update rule borrows energy from its own discretization; make the stream a physical system and the loan never occurs. The dissipation budget — expressivity as a line item the architect can read — is the piece the program believes is new, and it is the piece the series carries forward: the next papers apply the same doctrine (structure first, law second, harness third) to protocols and mechanisms rather than architectures. The experiments that would falsify the architecture at scale are written down; the invitation is open.</p>
+<hr>
+<p><em>Harness: <code>code/p-027-simulation.py</code> (seed 20261009) regenerates all six figures and <code>figures/p-027/results.json</code>. License: CC BY 4.0 (text), MIT (code).</em></p>
+      </div>
+    </div>
+    <nav class="paper-nav" aria-label="Paper navigation">
+<a class="pn pn-prev" href="p026.html"><span class="pn-k">&larr; previous</span><span class="pn-t">The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</span></a><a class="pn pn-all" href="../papers.html"><span class="pn-k">all papers</span><span class="pn-t">26 working papers &rarr;</span></a><a class="pn pn-next" href="p028.html"><span class="pn-k">next &rarr;</span><span class="pn-t">The Anchor Law: Ratchets, Floors, and the Minimum Coverage of Agentic Maintenance</span></a>
+    </nav>
+    <section class="paper-cite" aria-label="How to cite">
+      <div class="cite-label">cite</div>
+      <pre class="bibtex-block">@techreport{prick2026p027,
+  title       = {The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth},
+  author      = {p-rick research program},
+  institution = {p-rick},
+  type        = {Working paper},
+  number      = {P-027},
+  series      = {Series : },
+  year        = {2026},
+  month       = oct,
+  url         = {https://srivtx.github.io/p-rick/paper/p027.html},
+  note        = {srivtx.github.io/p-rick}
+}</pre>
+      <p class="cite-note">Working paper, self-published with open harnesses and multi-seed data; not peer-reviewed. Figures regenerate from seeded code in the repository. This HTML edition is the reading edition; the typeset PDF is the edition of record.</p>
+    </section>
+  </article>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="../index.html">Home</a><a href="../papers.html">Papers</a><a href="../blog.html">Essays</a><a href="../method.html">Method</a><a href="https://srivtx.github.io/p-rick/feed.xml">RSS</a><a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+<script src="../assets/theme.js"></script>
+<script>
+(function(){
+  var links = document.querySelectorAll('.paper-toc a[href^="#"]');
+  if (!links.length) return;
+  var map = {};
+  links.forEach(function(a){ map[a.getAttribute('href').slice(1)] = a; });
+  var heads = Array.prototype.slice.call(
+    document.querySelectorAll('.paper-body h2[id], .paper-body h3[id]'));
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var band = window.innerHeight * 0.25;
+    var current = null;
+    for (var i = 0; i < heads.length; i++) {
+      if (heads[i].getBoundingClientRect().top <= band) {
+        if (map[heads[i].id]) current = heads[i];
+      } else break;
+    }
+    links.forEach(function(a){ a.classList.remove('on'); });
+    if (current) { map[current.id].classList.add('on'); }
+    else if (links.length) { links[0].classList.add('on'); }
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
+</body>
+</html>

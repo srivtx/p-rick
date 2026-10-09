@@ -21,6 +21,7 @@ OUT_DIR = os.path.join(BASE, 'paper')
 SERIES_FULL = {
     'I': 'User-owned data', 'II': 'Systems', 'III': 'Continuity',
     'IV': 'Assumptions', 'V': 'Promises', 'VI': 'Laws', 'VII': 'Collapse',
+    'VIII': 'Machinery',
 }
 
 # ── math detection ────────────────────────────────────────────────────

@@ -1,0 +1,50 @@
+{
+  "L2_measured_at_1.4": 0.5698412848074728,
+  "L2_law_at_1.4": 0.5701699718487503,
+  "L2_rel_err_above_threshold": 0.0004518783634378275,
+  "L2_mixed_below": 0.030979799238541276,
+  "L3_tau_fit_slope": 2.210421759151658,
+  "L3_tau_law_slope": 4.429727271572808,
+  "L3_tau_rel_err": 3.457011929510726,
+  "L3_tau_vs_lnN_fit": [
+    3.6067376022224074,
+    101.89035952556323
+  ],
+  "L4_firewall_median_err": 0.019999999999999962,
+  "L4_truncation_speedup": 1.0590717299578059,
+  "L5_boundary_median_log_err": 0.3657048404257187,
+  "laws": [
+    [
+      "L2 m* at K/Kc=1.4 (measured/law)",
+      "0.570 / 0.570"
+    ],
+    [
+      "L2 m* rel. error above threshold (median)",
+      "0.05%"
+    ],
+    [
+      "L2 max coherence below K_c",
+      "0.031"
+    ],
+    [
+      "L3 tau prefactor (fit / deterministic law)",
+      "2.21 / 4.43"
+    ],
+    [
+      "L3 tau-vs-lnN slope (measured)",
+      "3.61"
+    ],
+    [
+      "L4 firewall median |err| in K_c",
+      "0.0200"
+    ],
+    [
+      "L4 top-p truncation effect (binary: ~1 = none)",
+      "1.06x"
+    ],
+    [
+      "L5 refresher boundary log10 err (median)",
+      "0.366"
+    ]
+  ]
+}

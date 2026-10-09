@@ -5,10 +5,10 @@
 **Software the world is missing — specified before anyone builds it.**
 
 [![Site](https://img.shields.io/website?down_message=offline&label=research%20site&up_color=%233ddc97&up_message=online&url=https%3A%2F%2Fsrivtx.github.io%2Fp-rick%2Findex.html&style=flat-square)](https://srivtx.github.io/p-rick/)
-[![Papers](https://img.shields.io/badge/papers-23%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Series](https://img.shields.io/badge/series-6%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Essays](https://img.shields.io/badge/essays-23-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
-[![Figures](https://img.shields.io/badge/figures-16%20validated-CC3311?style=flat-square&labelColor=162032)](figures/)
+[![Papers](https://img.shields.io/badge/papers-30%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Series](https://img.shields.io/badge/series-8%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
+[![Essays](https://img.shields.io/badge/essays-30-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
+[![Figures](https://img.shields.io/badge/figures-61%20validated-CC3311?style=flat-square&labelColor=162032)](figures/)
 [![Reproducible](https://img.shields.io/badge/simulations-seeded%20%2B%20reproducible-009988?style=flat-square&labelColor=162032)](code/)
 [![Papers license: CC BY 4.0](https://img.shields.io/badge/paper%20license-CC%20BY%204.0-3ddc97?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
 [![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-3ddc97?style=flat-square)](LICENSE)
@@ -31,7 +31,7 @@ PDF and a plain-language essay written the way technical leaders write.
 
 The program's operating rule is **research first; products later** — papers and
 specifications before code, in separate directories, only after the research freezes.
-Twenty-six working papers are published across seven series. Series I-V specify
+Thirty working papers are published across eight series. Series I-V specify
 missing systems — each stating its gap as a
 falsifiable claim with named incumbents and honest evidence grading. The bar, the
 exclusions, and the red-team discipline are codified on
@@ -55,6 +55,10 @@ simulation, and ships the harness. 18 figures, all regenerable from `code/`.
 | **P-024** | [Resolution Collapse](https://srivtx.github.io/p-rick/paper/p024.html) · [src](papers/p-024-resolution-collapse.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-024-resolution-collapse.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p024.html) · [figures](figures/p-024/) | Dependency resolution fails as a phase transition with the first-moment bound **D_c ≤ ln K / ln(K/w)** (exact on the cyclic version space, brute-force-verified) and a measured gap law **D_c ≈ 0.71·D_fm** under a uniform budget — the constant labeled configuration-specific per the program's post-P-023 rule. Version growth at fixed range width is fragility, at proportional width slow slack (the proliferation paradox); crisis-pruning feedback alone pins a growing ecosystem just below its collapse threshold (near-criticality as an emergent property); pruning old versions is the two-sided lever (removes satisfiability, buys searchability). |
 | **P-025** | [The Collapse Law](https://srivtx.github.io/p-rick/paper/p025.html) · [src](papers/p-025-collapse-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-025.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p025.html) · [figures](figures/p-025/) | The retry storm's two thresholds — **rev 1.1, audited**: the ceiling **λ_c = μθρ*²/(1+θρ*)** and the recovery threshold **λ_r = μ/R** are the maximum and endpoint of one fixed-point curve, λ = μρ(1−q)/(1−q^R). New: bistability exists only when **(R−1)θ > 2**, and with unlimited retries λ_r = 0 — a collapsed system at 5% load *grows* its queue (measured 17-fold) instead of draining; restart is the only exit. Multi-seed re-measurement with error bars: tipping-probability curves saturate at the ceiling; queue caps inside the horizon eliminate the crater (loop gain q_L·R < 1). v1.0's single-seed claims (−36% backoff resonance, 81% jitter margin) withdrawn in Appendix B — the paper documents its own external audit. |
 | **P-026** | [The Cascade Law of Credential Reuse](https://srivtx.github.io/p-rick/paper/p026.html) · [src](papers/p-026-credential-cascade.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-026-credential-cascade.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p026.html) · [figures](figures/p-026/) | The account-takeover cascade computed: exact blast-radius law **F_w = E[(k−j)1{j≥1}]/(s(1−b))** (validated 0.2%), exact decomposition **F = F_w + (1−λ)F_s**, and the concentration law with a separatrix at popularity exponent **β\* ≈ 1** — dilute cascades below (risk grows with the user base), backbone cascades above (risk set by the first breach, where real corpora sit). Defense asymmetry: lockouts are the only herd lever; adoption's herd threshold is 99.997%. |
+| **P-027** | [The Dissipation Budget Law](https://srivtx.github.io/p-rick/paper/p027.html) · [src](papers/p-027-dissipation-budget.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-027.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p027.html) · [figures](figures/p-027/) | The conservation architecture for depth: the residual stream as a port-Hamiltonian system — Cayley transport (exactly orthogonal, volume-free to 10⁻¹⁴ at any step size), metered dissipation (the only contraction channel: **ln|det| = −Σh·tr R + O(h³)**, expressivity as a budget line), ports as the only norm injection. Measured: **zero bound violations** in 7,200 runs while the control explodes to 10⁴³; gradient metering through 240 layers (max exactly 1.000); rank-2 readout at depth 120 at **97.3% vs 48.1%**. Integrator choice is normalization choice. |
+| **P-028** | [The Anchor Law](https://srivtx.github.io/p-rick/paper/p028.html) · [src](papers/p-028-anchor-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-028.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p028.html) · [figures](figures/p-028/) | Agentic maintenance, computed: the floor **E[L∞] = (1−a)h²/(2(2ημ−(ημ)²)) + as²/2** (exact, 1.7% median), the ratchet **ρ_R = k·E max(0, N(δ,h²))** (0.17%, invisible to behavior anchors — 0.8% leak), and the stability boundary **a\*(h) ≈ 1 − κ/h²** (0.041): required coverage falls quadratically as models improve. Tests are contraction, not verification; complexity budgets, not tests, stop the ratchet. |
+| **P-029** | [The Lock-In Law](https://srivtx.github.io/p-rick/paper/p029.html) · [src](papers/p-029-lock-in-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-029.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p029.html) · [figures](figures/p-029/) | Groupthink has a formula: the collective bifurcates at **K_c = T(1−λ)** — coupling and temperature exchange one-for-one, no useful middle (mixed-phase coherence never exceeds 0.031 across 420 replicas). Locked confidence is the fixed point **m(1−λ) = K tanh(m/T)** (validated to **0.045%**); locking time ∝ ln N·T/(K−K_c); the diversity firewall **K_c(f) = T(1−(1−f)λ)** (0.020); the reset interval is the locking time. Top-p truncication: a reported null (1.06×) on binary collectives. |
+| **P-030** | [The Green's Function of Context](https://srivtx.github.io/p-rick/paper/p030.html) · [src](papers/p-030-greens-function-context.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-030.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p030.html) · [figures](figures/p-030/) | Context rot has an object: the positional kernel's impulse response. The recall profile is the kernel smeared by noise (**0.037**); the lost-in-the-middle dip lands exactly on its closed form (**2771 = 2771**); windows collapse with load exactly as the extreme-value law computes (96/96, 75/75, 58/58); and the **monotonicity theorem** says uniform recall is impossible with timescales alone — it takes a **register**, which measures flat recall at floor 1.000 with order dead at the theoretical 0.500. The window-order law prices uniformity against order by the decade (0.92 → 0.60 vs law 0.95 → 0.61). |
 
 ### Series VI — laws: from specification to derivation
 
@@ -211,6 +215,7 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
   conservation (the complexity ledger), single-principal identity (delegated operation),
   sensory availability (modality failover), point-estimate numbers (the uncertain document),
   default neutrality (the defaults ledger). Zero overlap with Series I–III territory.
+- Series VIII complete (4 papers) — machinery: mechanisms invented, not just found. The conservation architecture for depth (P-027), the convergence law of agentic maintenance (P-028), the lock-in transition of agent collectives (P-029), and the Green's function of context (P-030). Four law sets, four seeded harnesses, 24 figures; the program's second arc opens.
 - Series VII complete (3 papers) — collapse: critical thresholds where everyday infrastructure fails
   abruptly. Dependency resolution's satisfiability threshold (P-024), the retry storm's capacity ceiling
   and recovery threshold (P-025), the credential cascade's concentration separatrix (P-026). Three
@@ -223,7 +228,7 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
   (epistemic half-life), dormant software that wakes (dormancy engineering), independence
   under failure (blast radius engineering). Zero overlap with Series I–IV territory; all
   four directions pass the bar with no incumbents in-gap.
-- **Twenty-six papers, twenty-six essays, twenty-six PDFs, seven series, zero incumbents in-gap — and six validated laws with 34 reproducible figures.**
+- **Thirty papers, thirty essays, thirty PDFs, eight series, zero incumbents in-gap — and ten validated law sets with 61 reproducible figures.**
 - **Next:** product directories (one per validated direction) — created only after the
   research is finished, per the program charter.
 

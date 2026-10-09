@@ -8,6 +8,34 @@
     <lastBuildDate>09 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://srivtx.github.io/p-rick/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>The Middle of Your Context Is Rotting (Design It Away)</title>
+      <link>https://srivtx.github.io/p-rick/blog/p030.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p030.html</guid>
+      <description>Lost in the middle is one of the most replicated findings of the long-context era: stuff at the beginning of your prompt gets recalled, stuff at the end gets recalled, and the midd…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Agreement Has a Temperature</title>
+      <link>https://srivtx.github.io/p-rick/blog/p029.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p029.html</guid>
+      <description>You&#x27;ve seen the transcript. Five agents, seeded with different takes on a question. Round one: real disagreement, three positions on the board. Round four: a majority has crystalli…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>The Agent Eats What You Don&#x27;t Pin</title>
+      <link>https://srivtx.github.io/p-rick/blog/p028.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p028.html</guid>
+      <description>You&#x27;re about to hand your repository to an agent. Maybe you already have. The question you&#x27;re actually asking, whether you&#x27;ve phrased it or not, is: *how many tests do I need first…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Depth Pays Rent</title>
+      <link>https://srivtx.github.io/p-rick/blog/p027.html</link>
+      <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p027.html</guid>
+      <description>Every layer of your network pays rent. Not in compute — in something the invoice never itemizes: activation norm. A standard residual stream is $x + f(x)$, stacked a hundred times,…</description>
+      <pubDate>09 Oct 2026 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Every Breach Is Every Breach</title>
       <link>https://srivtx.github.io/p-rick/blog/p026.html</link>
       <guid isPermaLink="true">https://srivtx.github.io/p-rick/blog/p026.html</guid>

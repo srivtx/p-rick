@@ -467,3 +467,88 @@ Unit-tested on the false span and on real math; 11 affected PDFs rebuilt
 (p-008..p-024 set), page counts sane, pdftotext + VLM page QA clean.
 
 **Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.
+
+### Session 019 — 2026-10-09: series VIII — the machinery round (four new-theory papers)
+
+**Round:** research. User directive: a new round of *bigger* findings — new theories, not toy
+theories; inventions the way transformers were an invention; hypotheses usable software-wise or
+product-wise; no copy-paste. Series VIII ("machinery") opens the program's second arc:
+mechanisms the program invents and validates, not laws of existing systems.
+
+**P-027 — The Dissipation Budget Law (port-Hamiltonian streams).** The residual stream
+rebuilt as a port-Hamiltonian state system: Cayley transport (exactly orthogonal at any step
+size), metered dissipation (spectrum in [0,1), the only volume-contracting channel), ports as
+the only norm injection. Three exact laws + an oscillation-boundary law + a capacity split,
+all validated in `code/p-027-simulation.py` (seed 20261009): L1 zero bound violations across
+7,200 runs while the standard control explodes to 7.9e43; L2 transport log-det error 4.4e-14
+(volume-free) and budget identity error cubic in h (measured ratios 6.4 -> 8.7 approaching the
+predicted 8); L3 gradients metered through 240 layers (median 0.55, max 1.000) against a
+33-order-of-magnitude control fan; L4 the explicit-Euler instability disk (hr-1)^2 + (hj)^2 = 1
+measured exactly (crossing 0.312 vs predicted 0.312) with the Cayley form never positive; L5
+rank-2 circle-task readout at depth 120: PH 97.3% vs standard 48.1% (after manual
+renormalization of the control), terminal pairwise cosine 0.87 vs 0.26 — the standard stream's
+representation collapse. Honest grading throughout: no end-to-end training claim (the
+falsification experiments are specified in Section 7); related work delimited against
+i-RevNet/reversible nets (the R=0 special case), orthogonal RNNs, HNNs (machinery-as-target,
+not substrate). Methodological note recorded: a 1-direction readout task was too easy to
+discriminate (the control won after renormalization) — the task was promoted to rank-2 and the
+null kept in the results.
+
+**P-028 — The Anchor Law (agentic maintenance).** Codebases as metric-space points; agent
+passes as noisy contraction operators with entropy h and an additive complexity ratchet;
+anchors pin a coverage fraction a. Four laws in `code/p-028-simulation.py` (seed 20261009):
+floor law exact (median 1.7%, max 6.7%: (1-a)h^2/(2(2eta*mu-(eta*mu)^2)) + a s^2/2 — linear
+trade, noise against frozen legacy); ratchet law 0.17% (rho_R = k E max(0, N(delta,h^2));
+behavior-anchor leak 0.8%; cap pin at exactly k*cap after the predicted 8 passes); boundary
+a*(h) = (N - L_tol)/(N - Gamma) measured to 0.041 of coverage with the quadratic asymptote
+1 - kappa/h^2 (a*(0.5)=0.76, a*(1.0)=0.96); substitution law = the design curve. Two honest
+repairs during development, both kept in the record: the first floor-theory formula dropped a
+factor of 1/2 (caught by harness residual 45%, fixed to 1.7%), and the originally claimed
+"window [a_min, a_max]" was shown structurally impossible (the floor is linear in a, so one
+boundary edge) — the paper states the single-edge truth plus the "anchors preserve, they do
+not repair" doctrine.
+
+**P-029 — The Lock-In Law (agent collectives).** N softmax-emitting agents on a shared board
+with memory lambda and coupling K: a supercritical pitchfork at K_c = T(1-lambda), validated in
+`code/p-029-simulation.py` (seed 20261009): order-parameter fixed point m(1-lambda) =
+K tanh(m/T) to 0.045% (0.570 measured vs 0.570 law at K/K_c = 1.4); mixed phase stable (max
+coherence 0.031 across 420 replicas); locking time scaling 1/(K-K_c) and ln N (fit 3.61 vs
+deterministic 4.03 — the prefactor gap is noise-assisted escape, quantified, not absorbed);
+diversity firewall K_c(f) = T(1-(1-f)lambda) to 0.020; refresher boundary tracks tau_lock(K)
+(0.37 in log10 Delta). The truncation folklore was tested and failed its binary test (1.06x)
+— reported as a null with the multi-option mechanism stated as a prediction. Locking criteria
+were made relative to the fixed point m*(K) after the absolute-threshold version produced
+impossible lock conditions at low K (the target sat above the fixed point) — repair recorded.
+
+**P-030 — The Green's Function of Context.** The positional channel named as an impulse
+response K(Delta) = a(p) G(Delta); retrieval as content edge + kernel + noise with the
+C-competitor extreme-value statistics integrated exactly. Five laws in
+`code/p-030-simulation.py` (seed 20261009): profile law 0.037 median (the recall profile is
+the kernel smeared); edge law — the lost-in-the-middle U with the dip's closed form landing
+exactly (2771 predicted = 2771 measured, recovery 0.26); breakpoint law — window collapse
+with load exact in the load-dominated regime (96/96, 75/75, 58/58; the low-C crossings are
+labeled floor-dominated after diagnosis: the R-curve's shoulder sits at its noise floor and
+the 50% crossing is ill-conditioned there); the monotonicity theorem (positive mixtures of
+decaying exponentials are strictly decreasing — uniform recall requires a non-decaying
+**register** channel) with the register kernel measured: recall floor 1.000 across three
+decades at C=64, order resolution dead at the theoretical 0.500; window-order law O =
+Phi(0.3B/(sigma sqrt2 D_w)) — measured frontier 0.92 -> 0.60 vs law 0.95 -> 0.61. Two
+structural repairs during development, both kept: the first profile-law form ignored the
+extreme-value max (median error 40%; replaced with the exact integral), and the
+exponential-only "flat" design was bounded by the monotonicity argument itself — the register
+channel is the fix and the theorem. Model parameters retuned once (E 0.5 -> 0.8) after the
+band condition was derived (edges must win while the middle loses).
+
+**Pipeline.** All four papers in the house format (abstract with bolded laws, propositions
+with boxed forms, honest Section 7s, harness lines); four companion essays; reading editions
+built by tools/build_paper_pages.py (SERIES_FULL + VIII); essays + feed (30 items) + sitemap
+(97 urls) by tools/build_site.py; PDFs by scripts/build_series8_pdfs.py on md2tex7 + tectonic
+(zero errors, 10-11 pages each; one LaTeX fix: ASCII `--` inside \text{} replaced after the
+converter escaped it). papers.html: series VIII section (fig-strip + 4 rows), VIII chip,
+counts 26->30, 4 BibTeX entries. index.html: hero figure replaced with the P-030 recall-profile
+figure (cliff / U / register, same SVG conventions), stats 30/8/30, series-VIII volume card,
+4 newest-paper cards, 4 essays. README: badges corrected (23->30 papers, 6->8 series, 23->30
+essays, 16->61 figures — the badge counts had drifted before this session), 4 table rows,
+series-VIII bullet, closing line to "thirty papers ... ten validated law sets, 61 figures".
+
+**Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.

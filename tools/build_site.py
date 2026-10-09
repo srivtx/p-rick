@@ -63,6 +63,14 @@ BLOGS = [
      'The Collapse Law', 'p-025'),
     ('2026-10-09-every-breach-is-every-breach.md', 'blog/p026.html', 'P-026',
      'The Cascade Law of Credential Reuse', 'p-026'),
+    ('2026-10-09-depth-pays-rent.md', 'blog/p027.html', 'P-027',
+     'The Dissipation Budget Law', 'p-027'),
+    ('2026-10-09-the-agent-eats-what-you-dont-pin.md', 'blog/p028.html', 'P-028',
+     'The Anchor Law', 'p-028'),
+    ('2026-10-09-agreement-has-a-temperature.md', 'blog/p029.html', 'P-029',
+     'The Lock-In Law', 'p-029'),
+    ('2026-10-09-the-middle-of-your-context-is-rotting.md', 'blog/p030.html', 'P-030',
+     'The Green Function of Context', 'p-030'),
 ]
 
 NO_FLASH = (
@@ -337,9 +345,9 @@ def main():
     # sitemap: all pages + reading editions + PDFs
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
              'og-image.png', 'feed.xml']
-    pages += ['paper/p%03d.html' % n for n in range(1, 27)]
-    pages += ['blog/p%03d.html' % n for n in range(1, 27)]
-    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 27)]
+    pages += ['paper/p%03d.html' % n for n in range(1, 31)]
+    pages += ['blog/p%03d.html' % n for n in range(1, 31)]
+    pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 31)]
     build_sitemap(pages)
 
 

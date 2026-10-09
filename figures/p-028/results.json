@@ -1,0 +1,57 @@
+{
+  "L2_rho_measured": 1.318401765485716,
+  "L2_rho_theory": 1.3206546458181836,
+  "L2_rho_rel_err": 0.0017058815032387111,
+  "L2_anchor_leak": -0.007978599542004253,
+  "L2_cap_pin": 12.0,
+  "L2_t_pin": 7.950602402564486,
+  "L2_rate_fit_max_rel_err": 0.011742612784994721,
+  "L1_floor_max_rel_err": 0.06671967510436833,
+  "L1_floor_median_rel_err": 0.01742438346901967,
+  "L3_boundary_median_err": 0.040792011716915266,
+  "L3_boundary_n_points": 4,
+  "L3_asymptote_kappa": 0.1224,
+  "L4_boundary_examples": [
+    0.7577197149643706,
+    0.955574912891986
+  ],
+  "L3_gamma": 0.08000000000000002,
+  "laws": [
+    [
+      "L2 ratchet rate measured / law",
+      "1.3184 / 1.3207"
+    ],
+    [
+      "L2 ratchet rate rel. error",
+      "0.17%"
+    ],
+    [
+      "L2 behavior-anchor leak (fraction of ratchet)",
+      "8.0e-03"
+    ],
+    [
+      "L2 cap pin level (cap = 2.0)",
+      "12.000"
+    ],
+    [
+      "L1 floor law median rel. err",
+      "1.74%"
+    ],
+    [
+      "L1 floor law max rel. err",
+      "6.67%"
+    ],
+    [
+      "L3 boundary median |err| in coverage",
+      "0.041"
+    ],
+    [
+      "L3 boundary points",
+      "4"
+    ],
+    [
+      "L4 boundary a*(0.5) / a*(1.0)",
+      "0.758 / 0.956"
+    ]
+  ]
+}

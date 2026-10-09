@@ -1,0 +1,83 @@
+{
+  "L1_violations": 0,
+  "L1_ph_max_norm": 1.218503342542834,
+  "L1_std_max_norm": 7.855728897651517e+43,
+  "L1_bound_ratio_median": 0.02152013402823514,
+  "L2_transport_logdet_error": 4.4408920985006255e-14,
+  "L2_error_by_h": {
+    "0.5": 0.0028953186786164764,
+    "0.25": 0.0004523895459245253,
+    "0.125": 5.1969088343373215e-05
+  },
+  "L2_error_ratio_half": 6.400056554577233,
+  "L2_error_ratio_quarter": 8.7049736746481,
+  "L3_ph_final_over_start": 0.5506381271192547,
+  "L3_ph_max": 1.0,
+  "L3_std_spread": [
+    1.8564216418933102e+33,
+    5.143431454298041e+34
+  ],
+  "L4_boundary_hj": 0.3122498999199199,
+  "L4_cayley_modulus_minus_one": -0.04878048780487798,
+  "L5_ph_sv_range": [
+    0.002406545350587861,
+    5.182095849746154
+  ],
+  "L5_std_sv_range": [
+    1.0072659161492021,
+    1.0316840517965564e+19
+  ],
+  "L5_terminal_pairwise_cosine_ph": 0.25507338028345444,
+  "L5_terminal_pairwise_cosine_std": 0.8714855488271164,
+  "L5_self_cosine_ph": 0.16212123472120124,
+  "L5_self_cosine_std": 0.11876147663705376,
+  "L5_readout_acc_ph": 0.9729166666666667,
+  "L5_readout_acc_std": 0.48125,
+  "L5_std_norm_growth": 2.1981046451821715e+17,
+  "laws": [
+    [
+      "L1 norm bound violations",
+      "0"
+    ],
+    [
+      "L1 bound tightness (median ratio)",
+      "0.0215"
+    ],
+    [
+      "L2 transport logdet error (volume-free)",
+      "4.4e-14"
+    ],
+    [
+      "L2 budget error ratio (h/2)",
+      "6.40"
+    ],
+    [
+      "L2 budget error ratio (h/4)",
+      "8.70"
+    ],
+    [
+      "L3 gradient final/start (median)",
+      "0.5506"
+    ],
+    [
+      "L3 gradient max (240 layers)",
+      "1.0000"
+    ],
+    [
+      "L4 Cayley modulus-1 (never positive)",
+      "-0.0488"
+    ],
+    [
+      "L5 terminal pairwise cosine (PH / std)",
+      "0.255 / 0.871"
+    ],
+    [
+      "L5 rank-2 readout (PH / std)",
+      "0.973 / 0.481"
+    ],
+    [
+      "L5 std norm growth factor",
+      "2.2e+17"
+    ]
+  ]
+}

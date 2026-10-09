@@ -4,19 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>p-rick — an independent research program on missing software</title>
-<meta name="description" content="p-rick hunts for genuine gaps in the software landscape — categories with no incumbents, problems with large audiences, theories nobody has written down — and specifies them: gap verification, formal models, validation harnesses. Twenty-six working papers across seven series.">
+<meta name="description" content="p-rick hunts for genuine gaps in the software landscape — categories with no incumbents, problems with large audiences, theories nobody has written down — and specifies them: gap verification, formal models, validation harnesses. Thirty working papers across eight series.">
 <meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
 <link rel="canonical" href="https://srivtx.github.io/p-rick/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="p-rick research program">
 <meta property="og:title" content="p-rick — working papers on the software the world is missing">
-<meta property="og:description" content="Twenty-six working papers across seven series: gap verification against everything that exists, formal models, validation harnesses, and honest confrontation with why each gap survived.">
+<meta property="og:description" content="Thirty working papers across eight series: gap verification against everything that exists, formal models, validation harnesses, and honest confrontation with why each gap survived.">
 <meta property="og:url" content="https://srivtx.github.io/p-rick/">
 <meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="p-rick — working papers on the software the world is missing">
-<meta name="twitter:description" content="Twenty-six working papers across seven series: gap verification, formal models, validation harnesses.">
+<meta name="twitter:description" content="Thirty working papers across eight series: gap verification, formal models, validation harnesses.">
 <meta name="twitter:image" content="https://srivtx.github.io/p-rick/og-image.png">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
@@ -50,7 +50,7 @@
   <!-- ======== hero ======== -->
   <section class="hero">
     <div>
-      <p class="hero-kicker">working papers · series I–VII · since 2026</p>
+      <p class="hero-kicker">working papers · series I–VIII · since 2026</p>
       <h1>Software the world is <em>missing</em>, specified before anyone builds it.</h1>
       <p class="hero-body">
         p-rick hunts for genuine gaps in the software landscape — categories with no
@@ -67,128 +67,143 @@
     </div>
 
     <figure class="hero-fig" aria-labelledby="hero-fig-cap">
-      <svg viewBox="0 0 460 300" role="img" aria-label="The concentration separatrix: cascade takeover fraction against password-popularity exponent for two ecosystem sizes, crossing at exponent one">
+      <svg viewBox="0 0 460 300" role="img" aria-label="Recall profiles against distance: the recency cliff, the lost-in-the-middle U-curve, and the designed register kernel's flat recall">
         <!-- axes -->
         <line x1="58" y1="258" x2="444" y2="258" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
         <line x1="58" y1="18" x2="58" y2="258" stroke="currentColor" stroke-opacity="0.35" stroke-width="1"/>
         <!-- y ticks -->
         <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.75">
           <text x="50" y="261" text-anchor="end">0</text>
-          <text x="50" y="171.2" text-anchor="end">.25</text>
-          <text x="50" y="81" text-anchor="end">.50</text>
+          <text x="50" y="171.2" text-anchor="end">.5</text>
+          <text x="50" y="81" text-anchor="end">1</text>
           <line x1="56" y1="170.7" x2="444" y2="170.7" stroke="currentColor" stroke-opacity="0.16" stroke-dasharray="2 4"/>
           <line x1="56" y1="83.5" x2="444" y2="83.5" stroke="currentColor" stroke-opacity="0.16" stroke-dasharray="2 4"/>
         </g>
         <!-- x ticks -->
         <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.75" text-anchor="middle">
-          <text x="58" y="272">0.5</text>
-          <text x="154.5" y="272">0.75</text>
-          <text x="251" y="272">1.0</text>
-          <text x="347.5" y="272">1.25</text>
-          <text x="444" y="272">1.5</text>
+          <text x="58" y="272">10</text>
+          <text x="120" y="272">30</text>
+          <text x="182" y="272">100</text>
+          <text x="251" y="272">1k</text>
+          <text x="347" y="272">10k</text>
+          <text x="424" y="272">&#8230;</text>
         </g>
-        <text x="251" y="288" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85">β — password-popularity exponent</text>
-        <text x="17" y="138" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85" transform="rotate(-90 17 138)" text-anchor="middle">F — takeover fraction</text>
+        <text x="251" y="288" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85">&#916; &#8212; distance behind the query (log)</text>
+        <text x="17" y="138" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.85" transform="rotate(-90 17 138)" text-anchor="middle">R &#8212; recall</text>
 
-        <!-- gap region: growth adds risk (left of separatrix) -->
-        <path d="M58.0,165.5 L67.7,164.7 L77.3,163.7 L86.9,162.6 L96.6,161.2 L106.2,159.6 L115.9,157.8 L125.6,155.7 L135.2,153.3 L144.8,150.6 L154.5,147.6 L164.2,144.3 L173.8,140.8 L183.4,137.0 L193.1,132.9 L202.8,128.6 L212.4,124.1 L222.1,119.5 L231.7,114.8 L241.3,110.1 L251.0,105.3 L251.0,41.2 L241.3,41.0 L231.7,40.8 L222.1,40.7 L212.4,40.5 L202.8,40.3 L193.1,40.2 L183.4,40.1 L173.8,40.1 L164.2,40.0 L154.5,39.9 L144.8,39.9 L135.2,39.9 L125.6,39.9 L115.9,39.9 L106.2,39.8 L96.6,39.8 L86.9,39.8 L77.3,39.8 L67.7,39.8 L58.0,39.8 Z" fill="var(--accent)" fill-opacity="0.10"/>
+        <!-- dip region marker -->
+        <line x1="285" y1="30" x2="285" y2="258" stroke="currentColor" stroke-opacity="0.12" stroke-dasharray="3 4"/>
+        <text x="289" y="44" font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.6">the middle</text>
 
-        <!-- separatrix -->
-        <line x1="251" y1="18" x2="251" y2="258" stroke="var(--accent)" stroke-width="1" stroke-dasharray="4 3" stroke-opacity="0.85"/>
-        <text x="255" y="31" font-family="IBM Plex Mono, monospace" font-size="11" fill="var(--accent)">β* ≈ 1</text>
+        <!-- exp cliff -->
+        <path d="M58.0,92.0 L80.0,96.5 L102.0,104.0 L124.0,116.5 L146.0,140.0 L168.0,180.0 L190.0,229.0 L212.0,252.0 L234.0,257.0 L256.0,258.0 L278.0,258.0 L300.0,258.0 L322.0,258.0 L344.0,258.0 L366.0,258.0 L388.0,258.0 L410.0,258.0 L432.0,258.0 L444.0,258.0" fill="none" stroke="currentColor" stroke-opacity="0.55" stroke-width="1.5"/>
 
-        <!-- regime labels -->
-        <g font-family="IBM Plex Mono, monospace" font-size="10" fill="currentColor" fill-opacity="0.65">
-          <text x="150" y="238" text-anchor="middle">dilute — cascade grows with U</text>
-          <text x="350" y="238" text-anchor="middle">saturating — backbone pinned</text>
-        </g>
+        <!-- two-timescale + sink: the U -->
+        <path d="M58.0,96.0 L80.0,112.0 L102.0,138.0 L124.0,168.0 L146.0,196.0 L168.0,218.0 L190.0,232.0 L212.0,239.0 L234.0,242.0 L256.0,241.5 L278.0,240.5 L300.0,238.0 L322.0,233.0 L344.0,224.0 L366.0,208.0 L388.0,182.0 L410.0,143.0 L432.0,103.0 L444.0,88.0" fill="none" stroke="var(--accent)" stroke-width="2.25"/>
 
-        <!-- curves -->
-        <path d="M58.0,165.5 L67.7,164.7 L77.3,163.7 L86.9,162.6 L96.6,161.2 L106.2,159.6 L115.9,157.8 L125.6,155.7 L135.2,153.3 L144.8,150.6 L154.5,147.6 L164.2,144.3 L173.8,140.8 L183.4,137.0 L193.1,132.9 L202.8,128.6 L212.4,124.1 L222.1,119.5 L231.7,114.8 L241.3,110.1 L251.0,105.3 L260.6,100.7 L270.3,96.1 L279.9,91.7 L289.6,87.4 L299.2,83.4 L308.9,79.6 L318.6,76.0 L328.2,72.7 L337.9,69.7 L347.5,66.9 L357.1,64.3 L366.8,62.0 L376.4,59.9 L386.1,58.0 L395.8,56.3 L405.4,54.8 L415.1,53.4 L424.7,52.2 L434.4,51.1 L444.0,50.1" fill="none" stroke="currentColor" stroke-opacity="0.75" stroke-width="1.5"/>
-        <path d="M58.0,39.8 L67.7,39.8 L77.3,39.8 L86.9,39.8 L96.6,39.8 L106.2,39.8 L115.9,39.9 L125.6,39.9 L135.2,39.9 L144.8,39.9 L154.5,39.9 L164.2,40.0 L173.8,40.1 L183.4,40.1 L193.1,40.2 L202.8,40.3 L212.4,40.5 L222.1,40.7 L231.7,40.8 L241.3,41.0 L251.0,41.2 L260.6,41.4 L270.3,41.6 L279.9,41.8 L289.6,41.9 L299.2,42.0 L308.9,42.0 L318.6,42.0 L328.2,42.0 L337.9,41.9 L347.5,41.8 L357.1,41.7 L366.8,41.5 L376.4,41.4 L386.1,41.3 L395.8,41.1 L405.4,41.0 L415.1,40.9 L424.7,40.8 L434.4,40.7 L444.0,40.6" fill="none" stroke="var(--accent)" stroke-width="2.25"/>
+        <!-- register: flat -->
+        <path d="M58.0,90.5 L120.0,90.5 L182.0,90.5 L251.0,90.5 L322.0,90.5 L388.0,90.5 L444.0,90.5" fill="none" stroke="#009988" stroke-width="2.25" stroke-dasharray="6 3"/>
 
         <!-- curve labels -->
         <g font-family="IBM Plex Mono, monospace" font-size="10.5">
-          <text x="62" y="34" fill="var(--accent)">U = 10⁶</text>
-          <text x="62" y="180" fill="currentColor" fill-opacity="0.8">U = 10³</text>
+          <text x="62" y="82" fill="var(--accent)">two-timescale + sink</text>
+          <text x="62" y="126" fill="currentColor" fill-opacity="0.8">exp cliff</text>
+          <text x="300" y="76" fill="#009988">designed register</text>
         </g>
       </svg>
       <figcaption class="fig-caption" id="hero-fig-cap">
-        <span class="fig-no">fig. 1</span> — the concentration separatrix, β*&thinsp;≈&thinsp;1. Left of the boundary the takeover
-        cascade grows with ecosystem size; right of it, risk is pinned by the popular-string backbone — set by the
-        first breach, independent of further growth. From the concentration law of P-026 (ρ&thinsp;=&thinsp;0.5,
-        s&thinsp;=&thinsp;8, b&thinsp;=&thinsp;0.4, M&thinsp;=&thinsp;10⁵).
+        <span class="fig-no">fig. 1</span> &#8212; the recall profile is the Green&rsquo;s function of the positional kernel, smeared by
+        noise. The single-timescale kernel gives the recency cliff; the canonical fast+slow kernel with an attention
+        sink gives the U-curve whose dip has a closed form (&#916;<sub>dip</sub>, predicted 2771, measured 2771); and
+        the designed register kernel &#8212; a non-decaying channel, which the monotonicity theorem says is the only way
+        to flat recall &#8212; holds uniform recall across the window. From the Green&rsquo;s-function law of P-030
+        (C&#8201;=&#8201;64, E&#8201;=&#8201;0.8, &#963;&#8201;=&#8201;0.1, &#946;&#8201;=&#8201;5).
       </figcaption>
     </figure>
   </section>
 
   <!-- ======== stats ======== -->
   <section class="stats reveal" aria-label="Program status">
-    <div class="stat"><div class="n">26</div><div class="l">working papers, each with a typeset PDF</div></div>
-    <div class="stat"><div class="n">7</div><div class="l">research series, one program arc</div></div>
-    <div class="stat"><div class="n">26</div><div class="l">companion essays, plain language</div></div>
-    <div class="stat"><div class="n">0</div><div class="l">incumbents found in-gap, across all 26</div></div>
+    <div class="stat"><div class="n">30</div><div class="l">working papers, each with a typeset PDF</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">research series, one program arc</div></div>
+    <div class="stat"><div class="n">30</div><div class="l">companion essays, plain language</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">incumbents found in-gap, across all 30</div></div>
   </section>
 
   <!-- ======== latest papers ======== -->
   <section class="section" id="papers">
     <div class="section-head reveal">
       <h2>Newest papers</h2>
-      <span class="count">series VII · collapse</span>
-      <a class="more" href="papers.html">All 26 papers →</a>
+      <span class="count">series VIII · machinery</span>
+      <a class="more" href="papers.html">All 30 papers →</a>
     </div>
     <p class="lede reveal">
-      Series VII studies collapse — the critical thresholds where everyday infrastructure fails
-      abruptly: dependency resolution as a satisfiability phase transition, the retry storm&rsquo;s
-      capacity ceiling and recovery threshold, and the credential cascade&rsquo;s concentration
-      separatrix. Three collapse phenomena, three derived laws, three harnesses.
+      Series VIII is the program’s second arc: machinery invented, not just found — a
+      conservation architecture that makes depth stability a theorem, a convergence theory for
+      agentic maintenance, the phase transition that governs agent collectives, and the Green’s
+      function that turns context rot into an inverse design problem. Four mechanisms, four law
+      sets, four harnesses.
     </p>
     <div class="toc reveal">
 
       <div class="toc-series-label">
-        <span>series VII · collapse — critical thresholds where everyday infrastructure fails</span>
-        <span class="ser-range">P-024 – P-026</span>
+        <span>series VIII &middot; machinery &mdash; new mechanisms invented and validated: architectures, protocols, and design laws for the computing that comes next</span>
+        <span class="ser-range">P-027 &ndash; P-030</span>
       </div>
 
       <div class="toc-row">
-        <span class="toc-id">P-026</span>
+        <span class="toc-id">P-030</span>
         <div class="toc-main">
-          <h3 class="toc-title"><a href="paper/p026.html">The Cascade Law of Credential Reuse: Channels, Concentration, and the Limits of Herd Protection</a></h3>
-          <p class="toc-dek">The account-takeover cascade, computed: an exact blast-radius law for the reuse channel, an exact two-channel decomposition, and a concentration separatrix at password-popularity exponent 1 that splits dilute cascades from backbone cascades. The doctrine: lockouts defend everyone, managers defend their users — and no realistic adoption rate defends the herd.</p>
-          <div class="toc-tags"><span class="toc-tag">security</span><span class="toc-tag">cascades</span><span class="toc-tag">percolation</span></div>
+          <h3 class="toc-title"><a href="paper/p030.html">The Green&rsquo;s Function of Context: Positional Recall as an Inverse Design Problem</a></h3>
+          <p class="toc-dek">Context rot has an object: the impulse response of the positional channel. The recall profile is the kernel smeared by noise (0.037); the lost-in-the-middle dip lands exactly on its closed form (2771 = 2771); windows collapse with load exactly as the extreme-value law computes; and the monotonicity theorem says uniform recall is impossible with timescales alone &mdash; it takes a register. The register-plus-slope design prices the trade between uniform recall and order resolution by the decade.</p>
+          <div class="toc-tags"><span class="toc-tag">long context</span><span class="toc-tag">Green&rsquo;s function</span><span class="toc-tag">inverse design</span></div>
         </div>
         <div class="toc-links">
-          <a href="pdfs/p-026.pdf">PDF</a>
-          <a href="paper/p026.html">paper</a>
-          <a href="blog/p026.html">essay</a>
-        </div>
-      </div>
-
-      <div class="toc-row">
-        <span class="toc-id">P-025</span>
-        <div class="toc-main">
-          <h3 class="toc-title"><a href="paper/p025.html">The Collapse Law: Ceilings, Hysteresis, and the Recovery Threshold for Retry Storms</a></h3>
-          <p class="toc-dek">The retry storm&rsquo;s arithmetic: a closed-form capacity ceiling computable from the timeout alone — policy-independent — and a recovery threshold λ<sub>r</sub> ≈ μ/R where the give-up budget feeds the very storm it fights. Hysteresis as the runbook made arithmetic: shed 69% or restart; the queue will not drain itself on your schedule.</p>
-          <div class="toc-tags"><span class="toc-tag">queueing</span><span class="toc-tag">SRE</span><span class="toc-tag">closed-form</span></div>
-        </div>
-        <div class="toc-links">
-          <a href="pdfs/p-025.pdf">PDF</a>
-          <a href="paper/p025.html">paper</a>
-          <a href="blog/p025.html">essay</a>
+          <a href="pdfs/p-030.pdf">PDF</a>
+          <a href="paper/p030.html">paper</a>
+          <a href="blog/p030.html">essay</a>
         </div>
       </div>
 
       <div class="toc-row">
-        <span class="toc-id">P-024</span>
+        <span class="toc-id">P-029</span>
         <div class="toc-main">
-          <h3 class="toc-title"><a href="paper/p024.html">Resolution Collapse: The Satisfiability Threshold of Version-Constrained Dependency Resolution</a></h3>
-          <p class="toc-dek">Dependency resolution fails as a phase transition, and the threshold has a formula&rsquo;s shadow over it: the first-moment bound ln&thinsp;K&thinsp;/&thinsp;ln(K/w) with a measured, labeled gap constant. The proliferation paradox, the hardness tax, and a growth experiment where failure feedback alone holds the ecosystem at its critical boundary.</p>
-          <div class="toc-tags"><span class="toc-tag">package management</span><span class="toc-tag">CSP</span><span class="toc-tag">phase transition</span></div>
+          <h3 class="toc-title"><a href="paper/p029.html">The Lock-In Law: The Phase Transition in Agent Collectives and Its Design Temperature</a></h3>
+          <p class="toc-dek">Groupthink has a formula: the collective bifurcates at K_c = T(1&minus;&lambda;), coupling and temperature exchange one-for-one, and there is no useful middle. The locked confidence is a computable fixed point (0.045%), the locking time scales with ln N, the diversity firewall raises the threshold linearly, and the reset interval that preserves exploration is the locking time. Agreement is a phase you designed.</p>
+          <div class="toc-tags"><span class="toc-tag">multi-agent</span><span class="toc-tag">phase transition</span><span class="toc-tag">design rules</span></div>
         </div>
         <div class="toc-links">
-          <a href="pdfs/p-024.pdf">PDF</a>
-          <a href="paper/p024.html">paper</a>
-          <a href="blog/p024.html">essay</a>
+          <a href="pdfs/p-029.pdf">PDF</a>
+          <a href="paper/p029.html">paper</a>
+          <a href="blog/p029.html">essay</a>
+        </div>
+      </div>
+
+      <div class="toc-row">
+        <span class="toc-id">P-028</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="paper/p028.html">The Anchor Law: Ratchets, Floors, and the Minimum Coverage of Agentic Maintenance</a></h3>
+          <p class="toc-dek">The arithmetic for &ldquo;how many tests before the agent is safe&rdquo;: a maintenance floor that is an exact linear trade between un-anchored noise and frozen legacy error, a complexity ratchet invisible to behavior anchors, and a stability boundary that moves quadratically in agent entropy &mdash; the contract an organization can sign with its fleet. Tests are contraction, not verification; budgets, not tests, stop the ratchet.</p>
+          <div class="toc-tags"><span class="toc-tag">agentic maintenance</span><span class="toc-tag">process theory</span><span class="toc-tag">design law</span></div>
+        </div>
+        <div class="toc-links">
+          <a href="pdfs/p-028.pdf">PDF</a>
+          <a href="paper/p028.html">paper</a>
+          <a href="blog/p028.html">essay</a>
+        </div>
+      </div>
+
+      <div class="toc-row">
+        <span class="toc-id">P-027</span>
+        <div class="toc-main">
+          <h3 class="toc-title"><a href="paper/p027.html">The Dissipation Budget Law: Port-Hamiltonian Streams and the Conservation Architecture for Depth</a></h3>
+          <p class="toc-dek">Depth is rented, never owned. The port-Hamiltonian stream replaces the residual update with Cayley transport (exactly orthogonal &mdash; volume-free to 10^-14), metered dissipation (the only contraction channel: expressivity becomes a budget line), and ports as the only norm injection. Zero bound violations in 7,200 runs while the control explodes to 10^43; gradients metered through 240 layers; a rank-2 readout at depth 120 at 97.3% against the rescued control&rsquo;s 48.1%.</p>
+          <div class="toc-tags"><span class="toc-tag">architecture</span><span class="toc-tag">port-Hamiltonian</span><span class="toc-tag">exact laws</span></div>
+        </div>
+        <div class="toc-links">
+          <a href="pdfs/p-027.pdf">PDF</a>
+          <a href="paper/p027.html">paper</a>
+          <a href="blog/p027.html">essay</a>
         </div>
       </div>
 
@@ -199,10 +214,16 @@
   <section class="section">
     <hr class="section-rule">
     <div class="section-head reveal" style="margin-top:2.6rem">
-      <h2>Seven series, one program</h2>
-      <span class="count">26 papers</span>
+      <h2>Eight series, one program</h2>
+      <span class="count">30 papers</span>
     </div>
     <div class="volumes reveal">
+      <div class="volume">
+        <div class="vol-num">VIII</div>
+        <div class="vol-name">Machinery</div>
+        <div class="vol-range">P-027 &ndash; P-030 &middot; 2026</div>
+        <p class="vol-desc">The second arc &mdash; mechanisms invented, not just found: a conservation architecture for depth, the convergence law of agentic maintenance, the lock-in transition of agent collectives, and the Green&rsquo;s function of context. Lawed, harnessed, priced.</p>
+      </div>
       <div class="volume">
         <div class="vol-num">VII</div>
         <div class="vol-name">Collapse</div>
@@ -291,103 +312,40 @@
     <hr class="section-rule">
     <div class="section-head reveal" style="margin-top:2.6rem">
       <h2>From the essays</h2>
-      <span class="count">26 published</span>
+      <span class="count">30 published</span>
       <a class="more" href="blog.html">All essays →</a>
     </div>
     <div class="reveal">
       <div class="essay-row">
         <span class="essay-date">2026-10-09</span>
         <div>
-          <h3 class="essay-title"><a href="blog/p026.html">Every Breach Is Every Breach</a></h3>
-          <p class="essay-dek">The credential cascade: two channels, one concentration separatrix, and the doctrine that splits lockouts (defend everyone) from password managers (defend their users) — with the herd threshold that adoption can never reach.</p>
+          <h3 class="essay-title"><a href="blog/p030.html">The Middle of Your Context Is Rotting (Design It Away)</a></h3>
+          <p class="essay-dek">Lost in the middle is the Green&rsquo;s function of a kernel nobody designed. The dip has an address, uniform recall needs a register (it&rsquo;s a theorem), and the cure is an inverse problem that takes minutes of compute.</p>
         </div>
-        <span class="essay-arrow" aria-hidden="true">→</span>
+        <span class="essay-arrow" aria-hidden="true">&rarr;</span>
       </div>
       <div class="essay-row">
         <span class="essay-date">2026-10-09</span>
         <div>
-          <h3 class="essay-title"><a href="blog/p025.html">The Queue That Wouldn&rsquo;t Come Back</a></h3>
-          <p class="essay-dek">The collapse law: the capacity ceiling no retry policy moves, the recovery threshold your retry budget feeds, and the two formulas that turn &ldquo;shed load and restart&rdquo; from folklore into arithmetic.</p>
+          <h3 class="essay-title"><a href="blog/p029.html">Agreement Has a Temperature</a></h3>
+          <p class="essay-dek">Groupthink in agent collectives is a phase transition at K/T = 1: one dial, one cliff, no useful middle. Four numbers you can compute before the first round &mdash; and the null result on the truncation folklore we actually tested.</p>
         </div>
-        <span class="essay-arrow" aria-hidden="true">→</span>
+        <span class="essay-arrow" aria-hidden="true">&rarr;</span>
       </div>
       <div class="essay-row">
         <span class="essay-date">2026-10-09</span>
         <div>
-          <h3 class="essay-title"><a href="blog/p024.html">Your Build Breaks All at Once, Not Gradually</a></h3>
-          <p class="essay-dek">Resolution collapse: dependency hell is a phase transition with a computable threshold, version growth is fragility or slack depending on range policy, and failure feedback alone holds an ecosystem at its critical boundary.</p>
+          <h3 class="essay-title"><a href="blog/p028.html">The Agent Eats What You Don&rsquo;t Pin</a></h3>
+          <p class="essay-dek">The arithmetic for &ldquo;how many tests before the agent is safe&rdquo;: a quadratic boundary, a ratchet your test suite can&rsquo;t see, and the contract you can sign with your agent fleet. Tests are contraction, not verification.</p>
         </div>
-        <span class="essay-arrow" aria-hidden="true">→</span>
+        <span class="essay-arrow" aria-hidden="true">&rarr;</span>
       </div>
-    </div>
-  </section>
-
-  <!-- ======== about ======== -->
-  <section class="section" id="about">
-    <hr class="section-rule">
-    <div class="section-head reveal" style="margin-top:2.6rem">
-      <h2>About the program</h2>
-    </div>
-    <div class="about-grid reveal">
-      <div class="prose">
-        <p>
-          p-rick is an independent research program on missing software. It publishes working
-          papers the way a lab does: gap verification first, formal models second, evaluation
-          designs third — and only then, if ever, products. The program&rsquo;s unit of work is
-          the paper; each one states its gap as a falsifiable claim with named incumbents and
-          honest evidence grading, and each ships with a companion essay written for the
-          practitioner the paper is aimed at.
-        </p>
-        <p>
-          The program arc runs from specification (series I–V: the missing systems and their
-          quiet premises) to derivation (series VI–VII: laws with validation harnesses, figures
-          that regenerate from code in the repository). The bar every paper must clear — and
-          the exclusions the program will never ship — are on <a href="method.html">the method
-          page</a>.
-        </p>
+      <div class="essay-row">
+        <span class="essay-date">2026-10-09</span>
+        <div>
+          <h3 class="essay-title"><a href="blog/p027.html">Depth Pays Rent</a></h3>
+          <p class="essay-dek">Every residual layer pays norm rent a normalizer refunds after the fact. Make transport a rotation, dissipation a meter, injection a port &mdash; and depth stability becomes a theorem with a budget line. The lease-termination notice.</p>
+        </div>
+        <span class="essay-arrow" aria-hidden="true">&rarr;</span>
       </div>
-      <div class="prose">
-        <p>
-          Everything is open: papers as markdown, PDFs typeset from them, simulation harnesses
-          and figure code in the repository, and a work ledger (<a href="https://github.com/srivtx/p-rick/blob/main/agents.md">agents.md</a>)
-          that records every research session. Papers are licensed CC&nbsp;BY&nbsp;4.0; code is MIT.
-          Cite from the <a href="papers.html#cite">BibTeX block</a>, subscribe to the
-          <a href="feed.xml">RSS feed</a> for essays, and read the work at
-          <a href="https://github.com/srivtx/p-rick">github.com/srivtx/p-rick</a>.
-        </p>
-        <p>
-          The program&rsquo;s name is a private joke about friction; the work is serious.
-          Research first; products later — if a gap survives its paper, building it is
-          someone else&rsquo;s very good business.
-        </p>
-      </div>
-    </div>
-  </section>
 
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div>
-      <div class="f-brand">p-rick</div>
-      <div class="f-note">An independent research program on missing software — working papers, typeset PDFs, companion essays, open harnesses.</div>
-      <div class="f-colophon">
-        set in fraunces, inter &amp; ibm plex mono · papers cc by 4.0 · code mit<br>
-        figures regenerate from code in the repository · srivtx.github.io/p-rick
-      </div>
-    </div>
-    <nav class="footer-links" aria-label="Footer">
-      <a href="index.html">Home</a>
-      <a href="papers.html">Papers</a>
-      <a href="blog.html">Essays</a>
-      <a href="method.html">Method</a>
-      <a href="feed.xml">RSS</a>
-      <a href="https://github.com/srivtx/p-rick">GitHub</a>
-    </nav>
-  </div>
-</footer>
-
-<script src="assets/theme.js"></script>
-<script src="assets/reveal.js"></script>
-</body>
-</html>
