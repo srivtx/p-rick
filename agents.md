@@ -633,3 +633,74 @@ after regenerating figures the full backup was restored byte-for-byte. p-021's f
 re-extended into results.json by the patched p-021b (values identical).
 
 **Ship:** commit + push as srivtx (Co-Authored-By: Claude), Pages deploy verified.
+
+### Session 021 — 2026-10-09: homepage truncation repair + site features + README professional pass
+
+- **agent:** main orchestrator (Super Z / GLM)
+- **scope:** diagnose + fix the reported homepage bugs (content below hero invisible, theme toggle dead); deeper site pass; README rewrite in professional OSS style
+
+**Root cause of both homepage bugs — one file, one truncation.** `index.html` had been
+pushed truncated: the file ended mid-document inside the essays section — no closing
+tags, no `</main>`, no footer, and crucially no `<script>` tags at the bottom. So
+`assets/reveal.js` never loaded (every element with class `.reveal` below the hero
+stayed at CSS `opacity: 0` — the stats strip, papers TOC, volumes, method grid, essays:
+all invisible; the hero has no `.reveal` class, hence "apart from hero"), and
+`assets/theme.js` never loaded either (the toggle button existed but had no event
+listener — dead). All other pages were intact (verified by tail-scanning every page
+type); the truncation was isolated to index.html. Fixed by completing the document:
+closed the essays section, added a new "Where to start" reader's guide (three doors:
+charter / origin / frontier), the standard site footer, and both script tags.
+
+**Reveal hardening (the deeper version of the same bug).** The stock
+IntersectionObserver pattern stays invisible for elements *jumped past* — anchor
+links, browser scroll restoration, instant programmatic jumps never "intersect" the
+skipped elements, so they remain at opacity 0. Added a rAF-throttled sweep on
+scroll/resize that reveals any element at or above the viewport bottom, plus a
+no-IntersectionObserver fallback. Verified in headless Chromium: instant jump to
+bottom now yields 12/12 revealed, all opacities 1.
+
+**New site features (all pages, injected — no per-page markup):**
+- **Mobile nav** — the masthead nav was simply `display: none` under 560px with no
+  alternative (the CSS even referenced a `.nav-toggle` that no page contained). Now a
+  hamburger is auto-injected by reveal.js where a masthead exists, opening a dropdown
+  panel (Escape closes, nav-link click closes, aria-expanded tracked).
+- **Back-to-top button** — auto-injected, appears after 1.2 viewport heights, smooth
+  scroll (respecting prefers-reduced-motion), print-hidden.
+- **Paper search** — papers.html gains a live search box filtering all 30 papers by
+  number / title / claim / tag, composable with the series chips (chips + text =
+  intersection), live count ("1 of 30 shown"), `/` focuses search from anywhere, Esc
+  clears; figure strips hide while searching.
+- **Theme toggle a11y** — `aria-pressed` state now reflects and follows the theme
+  (click, cross-tab storage sync, OS-scheme change).
+- **SEO** — WebSite JSON-LD on the homepage (reading editions already carry
+  ScholarlyArticle).
+- **Footer colophon** — keyboard hint (`t` toggles theme) + regeneration date.
+- **Paper reading editions** now load reveal.js (30 pages patched via script), so they
+  get the mobile nav and back-to-top too.
+
+**README — professional-project pass (Bun-style header).** Centered monogram logo
+(assets/favicon.svg), name + one-line tagline, tightened badge row (site / papers /
+law sets / figures / licenses / stars / last-commit), bold quick-links line, a "What
+this is" section with a highlights table (30 papers · 10 law sets · 61 figures · 0
+incumbents · 8 series), headline-laws table, the papers catalog VIII→I (unchanged
+content, two **broken PDF links fixed**: p-024 and p-026 pointed at long-name PDFs
+that don't exist in pdfs/ — the actual files are `p-024.pdf` / `p-026.pdf`), method,
+repository layout, a new "Reproduce" section (clone + regenerate commands, Bun-style
+code block), citing, ledger, status, license.
+
+**Verification this round (nothing ships untested):**
+- Full-repo link crawl (scripted): all 214 unique internal targets resolve; the two
+  broken README PDF links found and fixed.
+- Headless-browser regression on the rebuilt homepage: no console errors; theme
+  toggle light→dark→light with persistence + aria-pressed; instant-jump reveal sweep
+  12/12; full-page screenshots in both themes pixel-audited for blank bands (only the
+  17px post-footer padding); VLM visual review of the dark screenshot confirms all
+  sections present and professional.
+- Mobile viewport (390px): hamburger visible, opens dropdown (display flex), nav link
+  click closes.
+- papers.html search: "lock-in" → 1 of 30 shown.
+- node --check on both JS files; JSON-LD parses; tag balance asserted.
+
+**Ship:** single push, author srivtx, Co-authored-by: Claude trailer.
+- **status:** done · **next:** product directories per the charter; PDF re-render of
+  the eight affected papers when the md2tex pipeline is in-workspace.

@@ -1,53 +1,63 @@
 <div align="center">
 
+<img src="assets/favicon.svg" width="96" alt="the p-rick monogram"/>
+
 # p-rick
 
 **Software the world is missing — specified before anyone builds it.**
 
-An independent research program: gap verification against everything that exists,
-formal models, seeded validation harnesses, typeset PDFs, companion essays.
+An independent research program. It hunts for genuine gaps in the software
+landscape — categories with no incumbents, problems with large audiences,
+theories nobody has written down — and does the research to close them:
+gap verification against everything that exists, formal models, seeded
+validation harnesses, typeset PDFs, and plain-language essays.
 
-[![Site](https://img.shields.io/website?down_message=offline&label=research%20site&up_color=%233ddc97&up_message=online&url=https%3A%2F%2Fsrivtx.github.io%2Fp-rick%2Findex.html&style=flat-square)](https://srivtx.github.io/p-rick/)
-[![Papers](https://img.shields.io/badge/papers-30%20working-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Series](https://img.shields.io/badge/series-8%20arcs-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/papers.html)
-[![Essays](https://img.shields.io/badge/essays-30-8B7E5A?style=flat-square&labelColor=162032)](https://srivtx.github.io/p-rick/blog.html)
-[![Figures](https://img.shields.io/badge/figures-61%20validated-CC3311?style=flat-square&labelColor=162032)](figures/)
-[![Reproducible](https://img.shields.io/badge/simulations-seeded%20%2B%20reproducible-009988?style=flat-square&labelColor=162032)](code/)
-[![Papers license: CC BY 4.0](https://img.shields.io/badge/paper%20license-CC%20BY%204.0-3ddc97?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
-[![Code license: MIT](https://img.shields.io/badge/code%20license-MIT-3ddc97?style=flat-square)](LICENSE)
-[![RSS](https://img.shields.io/badge/RSS-feed-F26522?style=flat-square)](https://srivtx.github.io/p-rick/feed.xml)
-[![GitHub stars](https://img.shields.io/github/stars/srivtx/p-rick?style=flat-square&color=8B7E5A&label=stars)](https://github.com/srivtx/p-rick/stargazers)
-[![Last commit](https://img.shields.io/github/last-commit/srivtx/p-rick?style=flat-square&color=162032)](https://github.com/srivtx/p-rick/commits/main)
+[![site](https://img.shields.io/website?down_message=offline&label=site&up_color=%233ddc97&up_message=online&url=https%3A%2F%2Fsrivtx.github.io%2Fp-rick%2Findex.html&style=flat-square)](https://srivtx.github.io/p-rick/)
+[![papers](https://img.shields.io/badge/papers-30%20working-3b6ea5?style=flat-square)](https://srivtx.github.io/p-rick/papers.html)
+[![law sets](https://img.shields.io/badge/law%20sets-10%20validated-8B7E5A?style=flat-square)](https://srivtx.github.io/p-rick/papers.html)
+[![figures](https://img.shields.io/badge/figures-61%20reproducible-CC3311?style=flat-square)](figures/)
+[![code license](https://img.shields.io/badge/code-MIT-3ddc97?style=flat-square)](LICENSE)
+[![paper license](https://img.shields.io/badge/papers-CC%20BY%204.0-3ddc97?style=flat-square)](https://creativecommons.org/licenses/by/4.0/)
+[![stars](https://img.shields.io/github/stars/srivtx/p-rick?style=flat-square&color=8B7E5A)](https://github.com/srivtx/p-rick/stargazers)
+[![last commit](https://img.shields.io/github/last-commit/srivtx/p-rick?style=flat-square&color=3b6ea5)](https://github.com/srivtx/p-rick/commits/main)
 
-[Research site](https://srivtx.github.io/p-rick/) · [Papers](https://srivtx.github.io/p-rick/papers.html) · [Essays](https://srivtx.github.io/p-rick/blog.html) · [The method](https://srivtx.github.io/p-rick/method.html) · [RSS](https://srivtx.github.io/p-rick/feed.xml)
+**[Read the papers](https://srivtx.github.io/p-rick/papers.html)** ·
+**[The newest law](https://srivtx.github.io/p-rick/paper/p030.html)** ·
+[Essays](https://srivtx.github.io/p-rick/blog.html) ·
+[The method](https://srivtx.github.io/p-rick/method.html) ·
+[RSS](https://srivtx.github.io/p-rick/feed.xml)
 
 </div>
 
 ---
 
-**p-rick** hunts for genuine gaps in the software landscape — categories with no
-incumbents, problems with large audiences, theories nobody has written down — and does
-the research to close them: landscape verification against everything that exists,
-formal models, reference architectures, evaluation designs, and honest confrontation
-with the reasons each gap survived. Every paper ships with a typeset PDF, a designed
-reading edition, and a plain-language essay written the way technical leaders write.
+## What this is
 
-The program's operating rule is **research first; products later** — papers and
-specifications before code, in separate directories, only after the research freezes.
-Thirty working papers are published across eight series. Series I–V specify missing
-systems, each stating its gap as a falsifiable claim with named incumbents and honest
-evidence grading. Series VI–VIII are the quantitative turn: derived laws, seeded
-harnesses, reproducible figures. The bar, the exclusions, and the red-team discipline
-are codified on [the method page](https://srivtx.github.io/p-rick/method.html).
+Every paper follows one discipline: state the gap as a **falsifiable claim with
+named incumbents**, specify the missing system or derive the missing law, run a
+seeded validation harness, and grade its own evidence honestly. Series I–V
+specify missing systems. Series VI–VIII are the quantitative turn — derived
+laws with reproducible figures. The operating rule is **research first;
+products later**: papers and specifications before code, and product
+directories only after the research freezes.
 
-> The exclusions are hard rules: no toy projects, no deterministic wrappers, no test
-> suites, no verification gadgets whose only user is their own construction, nothing
-> AI-obsolete, no CRUD, no chatbot shells. The program specifies missing *systems* —
-> software that has never been built because nobody wrote down what it would be.
+| | |
+|---|---|
+| **30 working papers** | each with a typeset PDF, a designed reading edition, and a companion essay |
+| **10 validated law sets** | derived laws with closed forms, measured to named error bars |
+| **61 reproducible figures** | every figure regenerates bit-exact from its seeded harness in `code/` |
+| **0 incumbents found in-gap** | across all thirty gap verifications |
+| **8 series, one arc** | from user-owned data to invented machinery |
+
+The exclusions are hard rules: no toy projects, no deterministic wrappers, no
+test suites, no verification gadgets whose only user is their own construction,
+nothing AI-obsolete, no CRUD, no chatbot shells. The program specifies missing
+*systems* — software that has never been built because nobody wrote down what
+it would be.
 
 ## The headline laws
 
-Ten validated law sets so far. The five flagship results:
+The five flagship results of the quantitative turn:
 
 | Law | Statement | Validated |
 |-----|-----------|-----------|
@@ -67,7 +77,7 @@ harness. Four papers, four law sets, 24 figures, all regenerable from `code/`.
 
 | ID | Paper | The invented mechanism |
 |----|-------|------------------------|
-| **P-027** | [The Dissipation Budget Law](https://srivtx.github.io/p-rick/paper/p027.html) · [src](papers/p-027-dissipation-budget.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-027.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p027.html) · [figures](figures/p-027/) | The conservation architecture for depth: the residual stream as a port-Hamiltonian system — Cayley transport (exactly orthogonal, volume-free to 10⁻¹⁴ at any step size), metered dissipation (the only contraction channel: **ln|det| = −Σh·tr R + O(h³)**, expressivity as a budget line), ports as the only norm injection. Measured: **zero bound violations** in 7,200 runs while the control explodes to 10⁴³; gradient metering through 240 layers (max exactly 1.000); rank-2 readout at depth 120 at **97.3% vs 48.1%**. Integrator choice is normalization choice. |
+| **P-027** | [The Dissipation Budget Law](https://srivtx.github.io/p-rick/paper/p027.html) · [src](papers/p-027-dissipation-budget.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-027.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p027.html) · [figures](figures/p-027/) | The conservation architecture for depth: the residual stream as a port-Hamiltonian system — Cayley transport (exactly orthogonal, volume-free to 10⁻¹⁴ at any step size), metered dissipation (the only contraction channel: **ln\|det\| = −Σh·tr R + O(h³)**, expressivity as a budget line), ports as the only norm injection. Measured: **zero bound violations** in 7,200 runs while the control explodes to 10⁴³; gradient metering through 240 layers (max exactly 1.000); rank-2 readout at depth 120 at **97.3% vs 48.1%**. Integrator choice is normalization choice. |
 | **P-028** | [The Anchor Law](https://srivtx.github.io/p-rick/paper/p028.html) · [src](papers/p-028-anchor-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-028.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p028.html) · [figures](figures/p-028/) | Agentic maintenance, computed: the floor **E[L∞] = (1−a)h²/(2(2ημ−(ημ)²)) + as²/2** (exact, 1.7% median), the ratchet **ρ_R = k·E max(0, N(δ,h²))** (0.17%, invisible to behavior anchors — 0.8% leak), and the stability boundary **a*(h) ≈ 1 − κ/h²** (0.041): required coverage falls quadratically as models improve. Tests are contraction, not verification; complexity budgets, not tests, stop the ratchet. |
 | **P-029** | [The Lock-In Law](https://srivtx.github.io/p-rick/paper/p029.html) · [src](papers/p-029-lock-in-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-029.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p029.html) · [figures](figures/p-029/) | Groupthink has a formula: the collective bifurcates at **K_c = T(1−λ)** — coupling and temperature exchange one-for-one, no useful middle (mixed-phase coherence never exceeds 0.031 across 420 replicas). Locked confidence is the fixed point **m(1−λ) = K tanh(m/T)** (validated to **0.045%**); locking time ∝ ln N·T/(K−K_c); the diversity firewall **K_c(f) = T(1−(1−f)λ)** (0.020); the reset interval is the locking time. Top-p truncation: a reported null (1.06×) on binary collectives. |
 | **P-030** | [The Green's Function of Context](https://srivtx.github.io/p-rick/paper/p030.html) · [src](papers/p-030-greens-function-context.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-030.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p030.html) · [figures](figures/p-030/) | Context rot has an object: the positional kernel's impulse response. The recall profile is the kernel smeared by noise (**0.037**); the lost-in-the-middle dip lands exactly on its closed form (**2771 = 2771**); windows collapse with load exactly as the extreme-value law computes (96/96, 75/75, 58/58); and the **monotonicity theorem** says uniform recall is impossible with timescales alone — it takes a **register**, which measures flat recall at floor 1.000 with order dead at the theoretical 0.500. The window-order law prices uniformity against order by the decade (0.92 → 0.60 vs law 0.95 → 0.61). |
@@ -80,9 +90,9 @@ the harness. 18 figures, all regenerable from `code/`.
 
 | ID | Paper | The derived law |
 |----|-------|-----------------|
-| **P-024** | [Resolution Collapse](https://srivtx.github.io/p-rick/paper/p024.html) · [src](papers/p-024-resolution-collapse.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-024-resolution-collapse.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p024.html) · [figures](figures/p-024/) | Dependency resolution fails as a phase transition with the first-moment bound **D_c ≤ ln K / ln(K/w)** (exact on the cyclic version space, brute-force-verified) and a measured gap law **D_c ≈ 0.71·D_fm** under a uniform budget — the constant labeled configuration-specific per the program's post-P-023 rule. Version growth at fixed range width is fragility, at proportional width slow slack (the proliferation paradox); crisis-pruning feedback alone pins a growing ecosystem just below its collapse threshold (near-criticality as an emergent property); pruning old versions is the two-sided lever (removes satisfiability, buys searchability). |
+| **P-024** | [Resolution Collapse](https://srivtx.github.io/p-rick/paper/p024.html) · [src](papers/p-024-resolution-collapse.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-024.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p024.html) · [figures](figures/p-024/) | Dependency resolution fails as a phase transition with the first-moment bound **D_c ≤ ln K / ln(K/w)** (exact on the cyclic version space, brute-force-verified) and a measured gap law **D_c ≈ 0.71·D_fm** under a uniform budget — the constant labeled configuration-specific per the program's post-P-023 rule. Version growth at fixed range width is fragility, at proportional width slow slack (the proliferation paradox); crisis-pruning feedback alone pins a growing ecosystem just below its collapse threshold (near-criticality as an emergent property); pruning old versions is the two-sided lever (removes satisfiability, buys searchability). |
 | **P-025** | [The Collapse Law](https://srivtx.github.io/p-rick/paper/p025.html) · [src](papers/p-025-collapse-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-025.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p025.html) · [figures](figures/p-025/) | The retry storm's two thresholds — **rev 1.1, audited**: the ceiling **λ_c = μθρ*²/(1+θρ*)** and the recovery threshold **λ_r = μ/R** are the maximum and endpoint of one fixed-point curve, λ = μρ(1−q)/(1−q^R). New: bistability exists only when **(R−1)θ > 2**, and with unlimited retries λ_r = 0 — a collapsed system at 5% load *grows* its queue (measured 17-fold) instead of draining; restart is the only exit. Multi-seed re-measurement with error bars: tipping-probability curves saturate at the ceiling; queue caps inside the horizon eliminate the crater (loop gain q_L·R < 1). v1.0's single-seed claims (−36% backoff resonance, 81% jitter margin) withdrawn in Appendix B — the paper documents its own external audit. |
-| **P-026** | [The Cascade Law of Credential Reuse](https://srivtx.github.io/p-rick/paper/p026.html) · [src](papers/p-026-credential-cascade.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-026-credential-cascade.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p026.html) · [figures](figures/p-026/) | The account-takeover cascade computed: exact blast-radius law **F_w = E[(k−j)1{j≥1}]/(s(1−b))** (validated 0.2%), exact decomposition **F = F_w + (1−λ)F_s**, and the concentration law with a separatrix at popularity exponent **β\* ≈ 1** — dilute cascades below (risk grows with the user base), backbone cascades above (risk set by the first breach, where real corpora sit). Defense asymmetry: lockouts are the only herd lever; adoption's herd threshold is 99.997%. |
+| **P-026** | [The Cascade Law of Credential Reuse](https://srivtx.github.io/p-rick/paper/p026.html) · [src](papers/p-026-credential-cascade.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-026.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p026.html) · [figures](figures/p-026/) | The account-takeover cascade computed: exact blast-radius law **F_w = E[(k−j)1{j≥1}]/(s(1−b))** (validated 0.2%), exact decomposition **F = F_w + (1−λ)F_s**, and the concentration law with a separatrix at popularity exponent **β\* ≈ 1** — dilute cascades below (risk grows with the user base), backbone cascades above (risk set by the first breach, where real corpora sit). Defense asymmetry: lockouts are the only herd lever; adoption's herd threshold is 99.997%. |
 
 ### Series VI — laws: from specification to derivation
 
@@ -94,7 +104,7 @@ simulation, and ships the harness. 16 figures, all regenerable from `code/`.
 |----|-------|-----------------|
 | **P-021** | [The Reproduction Number of Code](https://srivtx.github.io/p-rick/paper/p021.html) · [src](papers/p-021-reproduction-number-of-code.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-021.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p021.html) · [figures](figures/p-021/) | Epidemic thresholds for dependency-borne compromise: the spectral threshold on a registry DAG is exactly zero (nilpotence), the true threshold is the branching law **R₀ᵛ = T·⟨d⟩**, the thresholdless regime sits below degree exponent 2 — where real registries live — cascade-aware pinning buys herd immunity at one-eighth the random budget, and the registry yank has a two-step half-life. Validated across 28 configurations with a measured extinction drag θ ≈ 0.4–0.6. |
 | **P-022** | [The Admission Law](https://srivtx.github.io/p-rick/paper/p022.html) · [src](papers/p-022-admission-law.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-022.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p022.html) · [figures](figures/p-022/) | The closed-form cache admission threshold under Zipf demand with transients: **τ\* = (1−f)W / (H·B^α)** — the threshold tracks stable evidence (not pollution, which any τ ≥ 2 excludes structurally), doors tighten with demand flatness, and the door legally disables itself when capacity covers the head. Dual: the capacity tax prices the unfiltered cache at f/(1−f) of its memory. Argmax matches the closed form within 1% where the choice matters; gains to 137%. |
-| **P-023** | [Generation Loss](https://srivtx.github.io/p-rick/paper/p023.html) · [src](papers/p-023-generation-loss.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-023.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p023.html) · [figures](figures/p-023/) | The drift law for continually re-embedded vector corpora: **D(g) = 1−λ^g** with λ the product of an isometry channel (dimension-mercied: 2(1−c)/d, removable exactly by Procrustes anchoring) and a distortion channel (dimension-free, un-alignable — the entire real cost of encoder churn). Validated to three decimals; anchored stale vectors hold ~2× recall at a rounding error of cost. **Rev 1.1:** the draft's "L≈8d" landmark constant is withdrawn and replaced by a derived estimation theorem — the panel budget is a four-factor law (accumulated distortion √g·ν, panel–corpus coverage mismatch, estimator class, tolerance) validated by knee-migration experiments (F6/F7, 6/7 predictions within 11%); an undersized panel is proven actively harmful (worse than no anchoring); new harness `code/p-023b-landmark-budget.py`. |
+| **P-023** | [Generation Loss](https://srivtx.github.io/p-rick/paper/p023.html) · [src](papers/p-023-generation-loss.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-023.pdf) · [essay](https://srivtx.github.io/p-rick/blog/p023.html) · [figures](figures/p-023/) | The drift law for continually re-embedded vector corpora: **D(g) = 1−λ^g** with λ the product of an isometry channel (dimension-merced: 2(1−c)/d, removable exactly by Procrustes anchoring) and a distortion channel (dimension-free, un-alignable — the entire real cost of encoder churn). Validated to three decimals; anchored stale vectors hold ~2× recall at a rounding error of cost. **Rev 1.1:** the draft's "L≈8d" landmark constant is withdrawn and replaced by a derived estimation theorem — the panel budget is a four-factor law (accumulated distortion √g·ν, panel–corpus coverage mismatch, estimator class, tolerance) validated by knee-migration experiments (F6/F7, 6/7 predictions within 11%); an undersized panel is proven actively harmful (worse than no anchoring); new harness `code/p-023b-landmark-budget.py`. |
 
 ### Series V — promises: the guarantees software implies and never has to honor
 
@@ -141,15 +151,9 @@ simulation, and ships the harness. 16 figures, all regenerable from `code/`.
 | **P-002** | [Consumer Entitlements as Dead Capital](https://srivtx.github.io/p-rick/paper/p002.html) · [src](papers/p-002-consumer-rights-dead-capital.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-002.pdf) | The personal entitlement engine: consumer rights as machine-readable objects with detection, valuation, and execution. |
 | **P-003** | [The n=1 Cost-of-Living Index](https://srivtx.github.io/p-rick/paper/p003.html) · [src](papers/p-003-n1-cost-of-living-index.md) · [PDF](https://srivtx.github.io/p-rick/pdfs/p-003.pdf) | A statistically defensible personal price index — the methodology layer no consumer software has. |
 
-Each paper follows the same discipline: state the gap as a **falsifiable claim**, grade the
-evidence (STRONG / PARTIAL / WEAK), survey the adjacent systems that solve one slice, design
-the system that closes the gap, and confront the strongest objections — including the ones
-that might kill the thesis. Papers are working drafts; the ledger of revisions is
-[`agents.md`](agents.md).
-
 ## The method
 
-The full statement lives on the site: [the method page](https://srivtx.github.io/p-rick/method.html). Summary:
+The full statement lives on the site: [the method page](https://srivtx.github.io/p-rick/method.html). The short version:
 
 1. **The bar — four tests, all mandatory.** Real recurring problem; large audience; empty
    category (verified, falsifiable, incumbents named); specifiable (formal model, protocol,
@@ -183,7 +187,7 @@ p-rick/
 ├── paper/p001–p030.html  # designed reading editions of every paper (generated)
 ├── blog/p001–p030.html   # essay pages (generated)
 ├── feed.xml, sitemap.xml, robots.txt, og-image.png
-├── assets/               # style.css (dual theme) + paper.css + theme.js + favicon.svg
+├── assets/               # style.css (dual theme) + paper.css + theme.js + reveal.js + favicon.svg
 ├── papers/               # paper sources (markdown)
 ├── pdfs/                 # typeset papers (PDF)
 ├── figures/              # series VI–VIII simulation figures + results.json (per paper)
@@ -195,27 +199,31 @@ p-rick/
 
 The site deploys from the repo root on push to `main` (GitHub Pages, static, `.nojekyll`).
 
-### Build / regenerate
-
-```bash
-# regenerate blog pages, RSS feed, and sitemap after editing blogs/*.md
-python3 tools/build_site.py
-
-# regenerate the reading editions (paper/p001–p030.html) after editing papers/*.md
-python3 tools/build_paper_pages.py
-
-# regenerate any paper's figures + results.json (seeded, deterministic)
-python3 code/p-027-simulation.py
-```
+## Reproduce
 
 Every paper opens as a full reading edition on the site — abstract, sticky contents with
 scrollspy, numbered figures with captions, KaTeX-typeset math, theorem boxes, prev/next
 navigation, and a BibTeX block. The typeset PDF stays the edition of record; the
-markdown source is one click away on every page. Every figure regenerates bit-exact
-from its seeded harness: rerun any `code/p-NNN-simulation.py` and diff.
+markdown source is one click away on every page.
 
-PDFs are typeset from `papers/*.md` via LaTeX (Tectonic) with composed covers; sources of the
-conversion pipeline are kept by the research program workspace and documented in `agents.md`.
+```bash
+git clone https://github.com/srivtx/p-rick.git
+cd p-rick
+
+# regenerate any paper's figures + results.json (seeded, deterministic)
+python3 code/p-027-simulation.py     # then diff against figures/p-027/
+
+# regenerate the reading editions (paper/p001–p030.html) after editing papers/*.md
+python3 tools/build_paper_pages.py
+
+# regenerate blog pages, RSS feed, and sitemap after editing blogs/*.md
+python3 tools/build_site.py
+```
+
+Every figure regenerates bit-exact from its seeded harness: rerun any
+`code/p-NNN-simulation.py` and diff. PDFs are typeset from `papers/*.md` via LaTeX
+(Tectonic) with composed covers; sources of the conversion pipeline are kept by the
+research program workspace and documented in `agents.md`.
 
 ## Citing
 
@@ -239,25 +247,13 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
 - Series VII complete (3 papers) — collapse: critical thresholds where everyday infrastructure
   fails abruptly. Dependency resolution's satisfiability threshold (P-024), the retry storm's
   capacity ceiling and recovery threshold (P-025), the credential cascade's concentration
-  separatrix (P-026). Three derived laws, three seeded harnesses, 18 figures; constants
-  derived or labeled, per the round-7 bar.
-- Series VI complete (3 papers) — laws: from specification to derivation. The reproduction
-  number of dependency-borne compromise, the cache admission law, and generation loss for
-  embedding corpora (P-023 rev 1.1: the L≈8d constant withdrawn and replaced by the Landmark
-  Estimation Law).
-- Series V complete (4 papers) — promises: withdrawal that propagates (the revocation
-  protocol), facts that stay true (epistemic half-life), dormant software that wakes
-  (dormancy engineering), independence under failure (blast radius engineering).
-- Series IV complete (5 papers) — assumptions: the quiet premises software runs on. Complexity
-  conservation (the complexity ledger), single-principal identity (delegated operation),
-  sensory availability (modality failover), point-estimate numbers (the uncertain document),
-  default neutrality (the defaults ledger).
-- Series III complete (4 papers) — continuity: what systems lose over time. Vendor death
-  (devices), biological time (circadian orchestration), maintainer mortality (bus factor
-  protocol), behavioral extinction (model conservation).
-- Series II complete (4 papers) — systems gaps: degradation, provenance, attention, fabric.
-- Series I complete (3 papers) — user-owned data: originated in `srivtx/pocketveto`, moved to
-  this repository when the program outgrew its host.
+  separatrix (P-026).
+- Series VI complete (3 papers) — laws: from specification to derivation (P-023 rev 1.1:
+  the L≈8d constant withdrawn and replaced by the Landmark Estimation Law).
+- Series V complete (4 papers) — promises. Series IV complete (5 papers) — assumptions.
+  Series III complete (4 papers) — continuity. Series II complete (4 papers) — systems.
+  Series I complete (3 papers) — user-owned data: originated in `srivtx/pocketveto`, moved
+  to this repository when the program outgrew its host.
 - **Thirty papers, thirty essays, thirty PDFs, eight series, zero incumbents in-gap — and
   ten validated law sets with 61 reproducible figures.**
 - **Next:** product directories (one per validated direction) — created only after the
@@ -266,3 +262,4 @@ effort, output, and lineage — so nobody has to know how long we have worked; t
 ## License
 
 MIT for code — see [LICENSE](LICENSE). Papers and essays: CC BY 4.0 for the text; cite the paper ID.
+

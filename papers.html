@@ -49,6 +49,10 @@
     <div class="chip-row" role="group" aria-label="Filter by series">
       <button class="chip is-on" data-filter="" aria-pressed="true">all</button><button class="chip" data-filter="VIII" aria-pressed="false">VIII</button><button class="chip" data-filter="VII" aria-pressed="false">VII</button><button class="chip" data-filter="VI" aria-pressed="false">VI</button><button class="chip" data-filter="V" aria-pressed="false">V</button><button class="chip" data-filter="IV" aria-pressed="false">IV</button><button class="chip" data-filter="III" aria-pressed="false">III</button><button class="chip" data-filter="II" aria-pressed="false">II</button><button class="chip" data-filter="I" aria-pressed="false">I</button>
     </div>
+    <div class="paper-search">
+      <input id="paper-q" type="search" placeholder="search the 30 papers &mdash; number, title, claim, tag&#8230;" aria-label="Search papers by number, title, claim, or tag" autocomplete="off" spellcheck="false">
+      <span class="q-count" id="q-count" aria-live="polite"></span>
+    </div>
   </section>
 
   <section class="section" data-series="VIII">
@@ -806,27 +810,76 @@
 <script>
 (function () {
   var chips = document.querySelectorAll('.chip');
-  function apply(f) {
-    document.querySelectorAll('.section[data-series], .toc-row[data-series], .toc-series-label[data-series]').forEach(function (el) {
-      el.style.display = (!f || el.getAttribute('data-series') === f) ? '' : 'none';
+  var qbox = document.getElementById('paper-q');
+  var qcount = document.getElementById('q-count');
+  var series = '';
+  var query = '';
+
+  function apply() {
+    var shown = 0;
+    var rows = document.querySelectorAll('.toc-row');
+    rows.forEach(function (r) {
+      var okS = !series || r.getAttribute('data-series') === series;
+      var okQ = !query || (r.textContent || '').toLowerCase().indexOf(query) !== -1;
+      var ok = okS && okQ;
+      r.style.display = ok ? '' : 'none';
+      if (ok) shown++;
     });
-    var strip = document.querySelector('.fig-strip');
-    if (strip) strip.style.display = (!f || f === 'VI' || f === 'VII') ? '' : 'none';
+    // series section shells + labels + figure strips
+    document.querySelectorAll('.section[data-series]').forEach(function (s) {
+      var any = Array.prototype.some.call(s.querySelectorAll('.toc-row'), function (r) {
+        return r.style.display !== 'none';
+      });
+      s.style.display = any ? '' : 'none';
+    });
+    document.querySelectorAll('.toc-series-label[data-series]').forEach(function (el) {
+      el.style.display = query ? 'none' : ((!series || el.getAttribute('data-series') === series) ? '' : 'none');
+    });
+    document.querySelectorAll('.fig-strip').forEach(function (strip) {
+      var inScope = !series || series === 'VI' || series === 'VII';
+      strip.style.display = (query || !inScope) ? 'none' : '';
+    });
+    if (qcount) {
+      qcount.textContent = (query || series) ? shown + ' of ' + rows.length + ' shown' : '';
+    }
     chips.forEach(function (c) {
-      var on = c.getAttribute('data-filter') === f;
+      var on = c.getAttribute('data-filter') === series;
       c.classList.toggle('is-on', on);
       c.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
+
   chips.forEach(function (c) {
     c.addEventListener('click', function () {
-      var f = c.getAttribute('data-filter');
-      apply(f);
-      try { history.replaceState(null, '', f ? '?series=' + f : location.pathname); } catch (e) {}
+      series = c.getAttribute('data-filter');
+      apply();
+      try { history.replaceState(null, '', series ? '?series=' + series : location.pathname); } catch (e) {}
     });
   });
+
+  if (qbox) {
+    var t = null;
+    qbox.addEventListener('input', function () {
+      clearTimeout(t);
+      t = setTimeout(function () {
+        query = qbox.value.trim().toLowerCase();
+        apply();
+      }, 90);
+    });
+    qbox.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { qbox.value = ''; query = ''; apply(); }
+    });
+    // "/" anywhere (outside a field) jumps to search
+    document.addEventListener('keydown', function (e) {
+      var tag = (e.target && e.target.tagName) || '';
+      if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || e.metaKey || e.ctrlKey || e.altKey) return;
+      if (e.key === '/') { e.preventDefault(); qbox.focus(); }
+    });
+  }
+
   var m = /series=([VIX]+)/.exec(location.search);
-  if (m && document.querySelector('.chip[data-filter="' + m[1] + '"]')) apply(m[1]);
+  if (m && document.querySelector('.chip[data-filter="' + m[1] + '"]')) series = m[1];
+  apply();
 })();
 </script>
 </body>

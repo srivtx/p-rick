@@ -842,3 +842,125 @@ a:focus-visible, button:focus-visible, summary:focus-visible {
   border-radius: 2px;
 }
 ::selection { background: var(--accent-soft); color: var(--ink); }
+
+/* ---------- mobile nav toggle (injected by reveal.js) ---------- */
+.masthead { position: relative; }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  width: 2rem; height: 2rem;
+  border-radius: 999px;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  flex: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  touch-action: manipulation;
+}
+.nav-toggle:hover { color: var(--ink); border-color: var(--rule-strong); }
+.nav-toggle svg { width: 15px; height: 15px; }
+@media (max-width: 560px) {
+  .masthead .nav-toggle { display: inline-flex; }
+  .masthead nav {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: var(--bg);
+    border-bottom: var(--rule-w) solid var(--rule);
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    gap: 0;
+    margin-left: 0;
+    padding: 0.35rem var(--gutter) 0.9rem;
+    z-index: 90;
+  }
+  .masthead nav.open { display: flex; }
+  .masthead nav a {
+    padding: 0.72rem 0;
+    border-bottom: var(--rule-w) solid var(--rule);
+    font-size: 0.95rem;
+  }
+  .masthead nav a:last-child { border-bottom: none; }
+}
+
+/* ---------- back to top (injected by reveal.js) ---------- */
+.top-btn {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  width: 2.4rem; height: 2.4rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--bg-raise);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  z-index: 80;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  box-shadow: var(--shadow);
+  transition: opacity 0.25s ease, transform 0.25s ease,
+              color 0.2s ease, border-color 0.2s ease;
+  touch-action: manipulation;
+}
+.top-btn.show { opacity: 1; transform: none; pointer-events: auto; }
+.top-btn:hover { color: var(--accent); border-color: var(--accent); }
+.top-btn svg { width: 14px; height: 14px; }
+@media (prefers-reduced-motion: reduce) { .top-btn { transition: none; } }
+
+/* ---------- paper search (papers.html) ---------- */
+.paper-search {
+  display: flex; align-items: center; gap: 0.9rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.4rem;
+}
+.paper-search input {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  background: var(--bg-raise);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.5rem 0.9rem;
+  width: min(430px, 100%);
+  transition: border-color 0.2s ease;
+}
+.paper-search input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+  border-color: var(--accent);
+}
+.paper-search input::placeholder { color: var(--faint); }
+.paper-search input::-webkit-search-cancel-button { -webkit-appearance: none; }
+.q-count {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
+}
+.q-empty {
+  font-family: var(--mono); font-size: 0.78rem;
+  color: var(--muted);
+  padding: 1.4rem 0 0.4rem;
+  display: none;
+}
+.q-empty.on { display: block; }
+
+/* ---------- keyboard hint in footer ---------- */
+.f-colophon kbd {
+  font-family: var(--mono);
+  font-size: 0.92em;
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0 0.3em;
+  color: var(--text);
+}
+
+@media print {
+  .top-btn, .nav-toggle { display: none !important; }
+  .paper-search, .chip-row { display: none; }
+}
