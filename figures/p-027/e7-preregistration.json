@@ -1,0 +1,48 @@
+{
+  "preregistration": "E7 real-data evaluation of P-027",
+  "registered_at": "2026-10-10",
+  "registered_before_any_e7_run": true,
+  "status_at_registration": "no E6b (resnet-tln) run and no E7 (CIFAR) run has been executed; training-results.json holds 96/96 E6 runs, all device=cpu, models = ph, resnet, resnet-ln, cayley",
+  "harness": "code/p-027c-cifar.py (E7), code/p-027b-training.py --models=resnet-tln (E6b)",
+  "colab_entry": "code/p-027-cifar-colab.ipynb",
+
+  "question": "Does the port-Hamiltonian stream's operator-bound architecture offer better stability or trainability at depth on real data, without unacceptable losses in predictive performance, training speed, or memory?",
+
+  "protocol": {
+    "datasets": ["CIFAR-10 (E7a)", "CIFAR-100 (E8, gated on E7a analysis)"],
+    "architectures": ["ph", "resnet", "resnet-ln", "resnet-tln", "cayley"],
+    "mechanism_preserving_adaptation": "shared linear stem to 8x8xd; stream blocks differ only in the trunk update; all non-PH families share the identical branch Conv1x1(tanh(Conv3x3(z))); PH places Conv3x3 inside the port input u=tanh(Conv3x3(z)) with B a 1x1 port, so Cayley transport C and contraction Lambda act on channels only and the port budget holds per position exactly",
+    "depths": [12, 48, 96],
+    "seeds": [0, 1, 2],
+    "learning_rates": [0.0003, 0.001],
+    "optimizer": "Adam, cosine decay to lr*1e-3, batch 256, weight decay 0, no gradient clipping (instability must be observable), 30 epochs, early stopping on validation accuracy (patience 8) with best-checkpoint restore",
+    "splits": "CIFAR train 45000 / validation 5000 / test 10000; split rng seeded 1000+seed; standard per-channel normalization; RandomCrop(32,4)+HorizontalFlip on train only; test set never used for model selection or hyperparameter tuning; learning rate selected per (model, depth, seed) on validation, identical grid for every architecture",
+    "capacity_note": "params per block: ph 12d^2, cayley 11d^2, resnet/resnet-ln/resnet-tln 10d^2 (+2d for LN variants); d=64 for all families; counts recorded per run and reported",
+    "device_policy": "CUDA GPU required (hard exit if unavailable); fp32; cudnn.benchmark on (documented non-determinism); device, GPU name, torch/cudnn versions recorded per run"
+  },
+
+  "predictions_registered_before_running": {
+    "E6b resnet-tln (synthetic, completing the ablation)": {
+      "forward_growth": "O(1), predicted in [0.5, 2.0] at every depth — the trunk is re-scaled every layer by construction",
+      "accuracy": "parity with resnet-ln on circles-4 (>= 0.95 at depth 240)",
+      "operator_bound": "none — LN is a per-sample statistic; no input-independent bound exists for this variant, which is the point of the comparison",
+      "gradient_max_ratio": "unbounded in principle; empirically expected <= 2 at depth <= 240"
+    },
+    "E7a ph (CIFAR-10)": {
+      "test_accuracy": "non-inferior to the best baseline within 1.0 pt at every depth (margin pre-set); absolute accuracy expected 0.82-0.90 at d=64 (mechanism comparison, not a tuned SOTA configuration, no normalizer in the PH stream and no hyperparameter search beyond the shared LR grid)",
+      "forward_growth": "lowest of the five families at L>=48, and strictly inside the measured port budget (violations = 0)",
+      "resnet_ln_and_tln": "branch-LN does not control trunk growth (E6 prediction replicated on real data: growth within 2x of plain resnet); trunk-LN pins growth near O(1)",
+      "stability": "zero PH divergent/NaN runs; if any baseline diverges at L=96 while PH does not, that is support for the stability claim",
+      "efficiency": "PH per-epoch wall-clock within 1.5x of the fastest baseline at matched depth (two extra d x d solves and one eigendecomposition per block); peak memory within 1.5x; params within 1.25x of the mean baseline"
+    }
+  },
+
+  "decision_rules": {
+    "evidence_for_practical_advantage": "ALL of: (1) PH test accuracy >= best_baseline - 1.0 pt at every depth (mean over seeds); (2) PH median forward growth < resnet and resnet-ln at L>=48; (3) PH port-budget violations = 0; (4) zero PH failed runs while at least one baseline failure exists at any depth, or a strictly lower instability-event count; (5) efficiency guard holds",
+    "evidence_against": "ANY of: accuracy deficit > 1.5 pt at any depth; any PH divergent/NaN run; per-epoch time or peak memory > 1.5x fastest baseline; forward growth ratio vs resnet >= 0.8x (no norm-signature difference)",
+    "neutral_outcome": "accuracy parity + norm signature present + no instability events for ANY architecture: conservation holds, practical advantage undemonstrated at this scale — reported as such, no spin",
+    "reporting": "means and std over seeds, all failed runs listed, test set touched once per run at the final selected checkpoint; if PH performs worse it is reported and analyzed, not buried"
+  },
+
+  "separate_math_verification": "code/p-027-tests.py (13-assertion law suite) runs before any training in the Colab entry point; additionally every trained PH run self-checks the port budget numerically on real batches (violation count must be 0, recorded per run)"
+}

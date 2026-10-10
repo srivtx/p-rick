@@ -363,15 +363,29 @@ def main():
     if device == 'auto':
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
     if device.startswith('cuda') and not torch.cuda.is_available():
-        print('cuda requested but unavailable; falling back to cpu')
-        device = 'cpu'
+        sys.exit('\n*** CUDA requested but not available — refusing to fall '
+                 'back to CPU silently. ***\nE6 must record GPU runs for the '
+                 'wall-clock columns.\nColab: Runtime -> Change runtime type '
+                 '-> T4 GPU -> Save, then rerun.\n(All 96 original E6 runs '
+                 'ran on CPU and stay on file as-is; this exit exists so '
+                 'the E6b resnet-tln completion and any re-run land on GPU.)\n')
+    if device.startswith('cuda'):
+        torch.backends.cudnn.benchmark = True
+        print('gpu: %s (%.1f GB)  torch %s  cudnn %s'
+              % (torch.cuda.get_device_name(0),
+                 torch.cuda.get_device_properties(0).total_memory / 2**30,
+                 torch.__version__, torch.backends.cudnn.version()),
+              flush=True)
     print('device: %s' % device, flush=True)
     t_start = time.time()
     runs = []
     if os.path.exists(RES_PATH):
         with open(RES_PATH) as f:
             runs = json.load(f).get('runs', [])
-        print('resuming: %d completed runs on file' % len(runs))
+        print('resuming: %d completed runs on file' % len(runs), flush=True)
+    # record the union: the on-file grid plus whatever this invocation adds
+    models_record = tuple(sorted(set(r['model'] for r in runs)
+                                 | set(models)))
     jobs = []
     for task, depths in TASKS.items():
         for dp in depths:
@@ -395,14 +409,14 @@ def main():
               (i + 1, len(jobs), m, dp, sd, lr), flush=True)
         r = train_run(m, task, dp, sd, lr, device=device)
         runs.append(r)
-        save(runs, models=models)
+        save(runs, models=models_record)
         print('    test %.3f  val %.3f  grad_max %.2f  fwd x%.2f  %.1fs' %
               (r['test_acc'], r['val_acc'], r['grad_max_ratio'],
                r['fwd_growth'], r['wall_s']), flush=True)
     if smoke:
         print('smoke run complete')
         return
-    save(runs, True, models=models)
+    save(runs, True, models=models_record)
     make_figure(runs)
     print('wrote f7-training.png and training-results.json (complete)')
 

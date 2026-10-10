@@ -105,3 +105,144 @@
     catch (e) { window.scrollTo(0, 0); }
   });
 })();
+
+/* p-rick image lightbox — auto-injected, no per-page markup required.
+   Any anchor that wraps an <img> and points at an image opens the image
+   in an in-page overlay (Esc / backdrop click / x button closes, arrow
+   keys move between the page's figures) instead of navigating away to a
+   raw image tab. Middle-click, "open in new tab", and no-JS keep the
+   original anchor behavior. Caption comes from the enclosing figure's
+   <figcaption> (falling back to the image's alt text). */
+(function () {
+  var IMG_RE = /\.(png|jpe?g|gif|webp|svg)([?#]|$)/i;
+  if (!document.addEventListener) return;
+
+  function collect() {
+    var links = document.querySelectorAll('a[href]'), out = [], i;
+    for (i = 0; i < links.length; i++) {
+      var a = links[i];
+      if (IMG_RE.test(a.getAttribute('href')) && a.querySelector('img')) {
+        out.push(a);
+      }
+    }
+    return out;
+  }
+
+  var box = null, cap = null, capNo = null, img = null,
+      prev = null, next = null, closeBtn = null,
+      items = [], idx = 0, lastFocus = null;
+
+  function build() {
+    box = document.createElement('div');
+    box.className = 'lb-overlay';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', 'Figure viewer — press Escape to close');
+    closeBtn = document.createElement('button');
+    closeBtn.className = 'lb-close';
+    closeBtn.setAttribute('aria-label', 'Close figure viewer');
+    closeBtn.textContent = '\u00d7';
+    prev = document.createElement('button');
+    prev.className = 'lb-prev';
+    prev.setAttribute('aria-label', 'Previous figure');
+    prev.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>';
+    next = document.createElement('button');
+    next.className = 'lb-next';
+    next.setAttribute('aria-label', 'Next figure');
+    next.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>';
+    var fig = document.createElement('figure');
+    fig.className = 'lb-fig';
+    img = document.createElement('img');
+    img.setAttribute('alt', '');
+    cap = document.createElement('figcaption');
+    cap.className = 'lb-cap';
+    capNo = document.createElement('span');
+    capNo.className = 'lb-no';
+    var capText = document.createElement('span');
+    capText.className = 'lb-text';
+    cap.appendChild(capNo);
+    cap.appendChild(capText);
+    fig.appendChild(img);
+    fig.appendChild(cap);
+    box.appendChild(closeBtn);
+    box.appendChild(prev);
+    box.appendChild(fig);
+    box.appendChild(next);
+    document.body.appendChild(box);
+
+    box.addEventListener('click', function (ev) {
+      if (ev.target === box) hide();
+    });
+    closeBtn.addEventListener('click', hide);
+    prev.addEventListener('click', function () { show(idx - 1); });
+    next.addEventListener('click', function () { show(idx + 1); });
+    document.addEventListener('keydown', function (ev) {
+      if (!box.classList.contains('open')) return;
+      if (ev.key === 'Escape') { ev.preventDefault(); hide(); }
+      else if (ev.key === 'ArrowLeft') { ev.preventDefault(); show(idx - 1); }
+      else if (ev.key === 'ArrowRight') { ev.preventDefault(); show(idx + 1); }
+    });
+  }
+
+  function captionFor(a) {
+    var fig = a.closest ? a.closest('figure') : null;
+    var fc = fig ? fig.querySelector('figcaption') : null;
+    var im = a.querySelector('img');
+    var no = fc ? (fc.querySelector('.fig-no') || fc.querySelector('.fig-no-solo')) : null;
+    var text = (fc ? fc.textContent : (im ? im.getAttribute('alt') : '')) || '';
+    if (no) { text = text.replace(no.textContent, ''); }
+    text = text.replace(/\s+/g, ' ').trim();
+    return { no: no ? no.textContent.trim() : '', text: text };
+  }
+
+  function show(i) {
+    if (!items.length) return;
+    idx = (i + items.length) % items.length;
+    var a = items[idx];
+    img.setAttribute('src', a.getAttribute('href'));
+    img.setAttribute('alt', captionFor(a).text || 'figure');
+    var c = captionFor(a);
+    capNo.textContent = c.no ? c.no + '  \u00b7  ' + (idx + 1) + ' / ' + items.length
+                             : (idx + 1) + ' / ' + items.length;
+    box.querySelector('.lb-text').textContent = c.text;
+    var many = items.length > 1;
+    prev.hidden = !many;
+    next.hidden = !many;
+    /* preload neighbours for snappy arrow navigation */
+    if (many) {
+      [items[(idx + 1) % items.length], items[(idx - 1 + items.length) % items.length]]
+        .forEach(function (n) {
+          var pre = new Image();
+          pre.src = n.getAttribute('href');
+        });
+    }
+  }
+
+  function openAt(i) {
+    if (!box) build();
+    items = collect();
+    lastFocus = document.activeElement;
+    show(i);
+    box.classList.add('open');
+    document.documentElement.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function hide() {
+    if (!box) return;
+    box.classList.remove('open');
+    document.documentElement.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('click', function (ev) {
+    var a = ev.target.closest ? ev.target.closest('a[href]') : null;
+    if (!a) return;
+    if (!IMG_RE.test(a.getAttribute('href')) || !a.querySelector('img')) return;
+    if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+    ev.preventDefault();
+    var list = collect();
+    var i = list.indexOf(a);
+    openAt(i < 0 ? 0 : i);
+  }, false);
+})();

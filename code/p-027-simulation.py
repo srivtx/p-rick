@@ -610,21 +610,22 @@ rows = [
 ]
 RESULTS['laws'] = [list(r) for r in rows]
 
-fig, ax = plt.subplots(figsize=(7.6, 3.4), constrained_layout=True)
+fig, ax = plt.subplots(figsize=(7.6, 3.6), constrained_layout=True)
 ax.axis('off')
 tbl = ax.table(cellText=[[a, b] for a, b in rows],
                colLabels=['law', 'measured'],
-               cellLoc='left', colLoc='left', loc='center')
-tbl.auto_set_font_size(False)
-tbl.set_fontsize(9.5)
-tbl.scale(1.0, 1.5)
+               cellLoc='left', colLoc='left',
+               bbox=[0.0, 0.0, 1.0, 1.0])  # bbox mode: rows cannot leave
+tbl.auto_set_font_size(False)               # the axes box -> no title
+tbl.set_fontsize(9.5)                       # collision (2026-10-10 QA fix)
 for (r, c), cell in tbl.get_celld().items():
     if r == 0:
         cell.set_facecolor('#F3F4F6')
         cell.set_text_props(fontweight='bold')
     cell.set_edgecolor('#E5E7EB')
+    cell.PAD = 0.03
 ax.set_title('law validation — all laws measured in this harness',
-             fontsize=12, fontweight='bold', pad=14)
+             fontsize=12, fontweight='bold', pad=8)
 save(fig, 'f6-law-validation.png')
 
 with open(os.path.join(OUT, 'results.json'), 'w') as f:

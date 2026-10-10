@@ -896,3 +896,92 @@ spot-checks 8/8; 3-page VLM QA PASS (title page, §4.6 page, §8 page).
 
 **Ship:** single commit; live verification of the explainer page, the
 reading edition, the PDF, and the sitemap after Pages builds.
+
+### Session 025 — 2026-10-10: E7 registered (real-data evaluation designed, not run) + production site pass
+
+**Experiment (the ask: evaluate P-027 on real data, honestly, reproducibly):**
+- Inspection first: E6 state = 96/96 runs complete, models {ph, resnet,
+  resnet-ln, cayley} — **all device=cpu** (the notebook's micro-benchmark
+  honestly preferred CPU for tiny d=32 nets; every wall-clock column was a
+  CPU number). resnet-tln exists flag-gated, never run. This box has no
+  GPU and no torch, so the compute goes to Colab T4 — same path E6 took.
+- Pre-registration BEFORE any run: figures/p-027/e7-preregistration.json —
+  question, protocol, per-model predictions (tln growth O(1); PH
+  non-inferior within 1.0 pt; zero port-budget violations; zero PH
+  divergences), and mechanical decision rules (evidence-for = ALL of
+  non-inferiority + lowest growth + zero violations + zero failures +
+  efficiency guard ≤1.5×; evidence-against = deficit >1.5 pt or any PH
+  NaN; clean tie reported as tie). The harness refuses to start without
+  this file on disk.
+- E7 design (mechanism-preserving): shared linear stem → d×8×8 state;
+  families differ ONLY in the trunk update; all non-PH branches share
+  Conv1×1(tanh(Conv3×3(z))) (capacity matched: 12d²/11d²/10d² per block);
+  PH keeps ΛC on channels + Conv3×3 inside the port, so the port budget
+  holds per position EXACTLY — every trained PH run self-checks it on
+  real batches and records the violation count. Depths {12,48,96},
+  seeds {0,1,2}, LR grid {3e-4,1e-3} selected on validation, Adam+cosine,
+  batch 256, wd 0, NO grad clipping (instability must be observable),
+  30 epochs, patience 8, 45k/5k/10k split, test touched once.
+- code/p-027c-cifar.py: the E7 harness — CUDA REQUIRED by default (hard
+  exit with instructions, no silent CPU fallback; CPU only via explicit
+  --device=cpu --smoke). Full metric ledger per run: loss/acc histories,
+  test loss+acc, per-layer activation-norm profiles (the theorem's own
+  per-position channel norm), per-layer gradient-norm profiles in depth
+  order referenced to the readout-side gradient, NaN/divergence ledger
+  (failed runs kept on file), params, wall-clock, s/epoch, img/s, peak
+  CUDA memory, device/GPU/torch/cudnn. Resumable, budget-capped.
+- code/p-027d-cifar-figures.py: torch-free f8 (acc vs depth with
+  divergence marks, growth, grad envelope, s/epoch + params).
+- code/p-027-cifar-colab.ipynb (built by tools/build_e7_notebook.py,
+  validated by tools/validate_notebook.py): GPU hard gate → law suite
+  FIRST (math separate from benchmarks, as the audit asked) → E6b
+  (resnet-tln, 24 runs, GPU) → benchmark + time projection (no results
+  written) → E7a sweep (90 runs, resumable) → digest that applies the
+  pre-registered rules mechanically → JSON handback between markers +
+  auto-download. E8 (CIFAR-100) gated behind RUN_E8=False.
+- p-027b-training.py: CUDA fallback now hard-exits (E6 lesson); E6
+  notebook's bench cell replaced with a GPU assert; models-record union
+  fix so E6b doesn't overwrite the on-file grid record.
+- Paper: rev 1.3 — §5 gains the E7 specification (protocol, adaptation,
+  metrics, decision rules, "not yet run" in bold), §8's fifth boundary
+  points at the new Colab entry, footer harness list updated. No E6b/E7
+  number is claimed anywhere; the paper says a negative verdict will be
+  reported as one. Reading edition rebuilt via build_paper_pages.py.
+
+**Site (the ask: production pass on layernorm.html, no AI slop):**
+- Figure QA round: VLM full-res pass over all 7 p-027 figures — f1/f2/f3/
+  f5 PASS; f4/f7 flags were false positives at crop resolution; f6 REAL
+  defect (table header "measured" colliding with the title — ax.table
+  loc='center' + scale(1.0,1.5) lets rows escape the axes bbox). Fixed
+  with bbox=[0,0,1,1] + title pad; replayed torch-free from results.json
+  (code/p-027-f6-replay.py, p-023c precedent) + same fix patched into
+  p-027-simulation.py. VLM re-verify: CLEAN.
+- layernorm.html redesigned to the Anthropic-grade bar (external design
+  review: B+ → A−, all five defect classes FIXED): numbered chapter
+  system with hairline rules, "The short version" summary card, honest
+  run-ledger status card (E6 done 96/96; E6b registered; E7 registered;
+  E8 gated — with the prereg + notebook links), demos rebuilt as
+  instrument plates (header strip, custom slider thumbs/tracks, in/out
+  color-coded mono readouts), data tables with right-aligned tabular
+  numerals + best-in-column marks + tln "specified, run staged" row,
+  display-math breathing room, page meta line. Both plates functionally
+  re-tested (100× scale invariance live; budget arithmetic recomputed);
+  VLM CLEAN in dark and light.
+- Site-wide lightbox (the ask: figures must open in a modal, not a new
+  tab): assets/reveal.js gains an auto-injected module — any anchor
+  wrapping an img with an image href opens an in-page overlay (Esc/
+  backdrop/× closes, ←/→ navigates the page's figures, caption from the
+  figcaption, F-number + counter chip, focus management, scroll lock,
+  reduced-motion respected; middle-click/new-tab/no-JS unchanged).
+  paper.css adds zoom cursor + hover expand glyph on paper figures.
+  Browser-tested on paper/p027.html: 7 targets, open/nav/close verified,
+  VLM design review clean.
+- style.css: explainer component section rewritten (chapters, short-
+  version, status-card, instrument plates, data tables, lightbox, page
+  meta) with responsive + reduced-motion blocks; method.html's ledger
+  inherits the shared table upgrades.
+
+**Ship:** single commit (rev 1.3 + site pass); worklog appended; live
+verification after Pages builds. E7 results land next session from the
+Colab handback — the paper text is already structured to receive them,
+positive or negative.

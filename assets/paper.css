@@ -283,7 +283,8 @@
   background: var(--fig-bg);
   overflow: hidden;
 }
-.paper-fig img { display: block; width: 100%; height: auto; }
+.paper-fig img { display: block; width: 100%; height: auto;
+  transition: filter 0.18s ease; }
 .paper-fig figcaption {
   display: flex;
   gap: 0.6rem;
@@ -302,7 +303,25 @@
   color: var(--accent);
   flex: none;
 }
-.paper-fig a { border-bottom: none; }
+.paper-fig a { border-bottom: none; cursor: zoom-in; display: block;
+  position: relative; }
+/* lightbox affordance: figures open in the page overlay, not a new tab */
+.paper-fig a::after {
+  content: '\2295';           /* circled plus, reads as "expand" */
+  position: absolute; right: 0.6rem; bottom: 0.6rem;
+  width: 30px; height: 30px; border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 1rem; line-height: 1;
+  color: #fff; background: rgba(0, 0, 0, 0.45);
+  opacity: 0; transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+.paper-fig a:hover::after, .paper-fig a:focus-visible::after { opacity: 1; }
+.paper-fig:hover img { filter: brightness(0.985); }
+@media (prefers-reduced-motion: reduce) {
+  .paper-fig img { transition: none; }
+  .paper-fig a::after { transition: none; }
+}
 
 /* tables */
 .tbl-wrap { overflow-x: auto; margin: 1.6rem 0; }
