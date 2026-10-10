@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why P-027 Doesn&rsquo;t Use LayerNorm — p-rick explainer</title>
+<meta name="description" content="A first-principles explainer: what LayerNorm actually guarantees, what the port-Hamiltonian stream of P-027 guarantees instead, and what the 96-run training experiment measured when the two ideas were made to compete.">
+<meta name="theme-color" content="#15161a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://srivtx.github.io/p-rick/layernorm.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="p-rick research program">
+<meta property="og:title" content="Why P-027 Doesn&rsquo;t Use LayerNorm">
+<meta property="og:description" content="LayerNorm guarantees a per-sample layer statistic. The P-027 stream guarantees an input-independent operator bound. Two interactive demos, one measured competition, honest caveats.">
+<meta property="og:url" content="https://srivtx.github.io/p-rick/layernorm.html">
+<meta property="og:image" content="https://srivtx.github.io/p-rick/og-image.png">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="p-rick essays" href="https://srivtx.github.io/p-rick/feed.xml">
+<script>(function(){var t=null;try{t=localStorage.getItem('p-rick-theme');}catch(e){}if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:ital,wght@0,400..700;1,400..600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}],throwOnError:false,strict:false})"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="masthead">
+    <a class="brand" href="index.html"><span class="brand-mark">p-rick</span><span class="brand-sub">research program</span></a>
+    <nav aria-label="Primary">
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Essays</a>
+      <a href="method.html">Method</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle dark or light theme" title="Theme (t)">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main" class="page">
+
+  <section class="page-head">
+    <p class="hero-kicker">explainer &middot; working paper <a href="paper/p027.html">P-027</a> &middot; rev 1.2</p>
+    <h1>Why P-027 doesn&rsquo;t use LayerNorm</h1>
+    <p class="lede">
+      LayerNorm is one of the most successful ideas in deep learning, and our newest paper builds a
+      240-layer network that refuses to use it &mdash; on purpose. This page walks the argument from
+      first principles: what LayerNorm actually does, what our architecture does instead, and what
+      the experiments say when the two ideas are made to compete.
+    </p>
+  </section>
+
+  <section class="section">
+    <div class="prose">
+      <h2>The problem LayerNorm solves</h2>
+      <p>
+        Picture a network with 240 layers. Each layer takes a vector of numbers, transforms it, and
+        hands it to the next layer. Suppose one layer produces
+        $x = [2,\ 4,\ 6,\ 8]$. Nothing in the mathematics of a standard residual layer stops a later
+        layer from producing $[200,\ 400,\ 600,\ 800]$ &mdash; the same pattern, one hundred times
+        the magnitude. The <em>shape</em> of the information survived; its <em>scale</em> quietly
+        drifted. Scale drift is not a cosmetic problem. Very large activations can saturate the
+        arithmetic they live in, and the gradients that flow backward through the same layers can
+        starve or explode as the drift compounds.
+      </p>
+      <p>
+        And it does compound. In our measurement harness, a randomly-initialized standard residual
+        stream at depth&nbsp;120 multiplied its state norms by $1.95 \times 10^{17}$ &mdash; and
+        that is the stream we <em>manually rescaled</em> so the numbers would fit in the float
+        format at all. Left alone, the control stream reaches $10^{43}$ by depth&nbsp;300. Depth is
+        rented, never owned: every layer pays rent in activation norm, and the standard
+        architecture has no ledger, no budget, and no ceiling &mdash; only a corrective patch
+        applied after the fact.
+      </p>
+
+      <h2>What LayerNorm does, exactly</h2>
+      <p>
+        LayerNorm is the patch, and a genuinely clever one. It takes each sample&rsquo;s vector,
+        subtracts its mean, and divides by its standard deviation &mdash; re-centering and
+        re-scaling every layer&rsquo;s output to a standard size before the next layer sees it. On
+        our running example, with $x = [2, 4, 6, 8]$:
+      </p>
+      <ol class="steps">
+        <li>Mean: $\mu = 5$. Subtract it: $x - \mu = [-3,\ -1,\ 1,\ 3]$ &mdash; centered on zero.</li>
+        <li>Standard deviation: $\sigma \approx 2.236$. Divide by it:
+          $\approx [-1.34,\ -0.45,\ 0.45,\ 1.34]$ &mdash; controlled scale.</li>
+      </ol>
+      <p>
+        In symbols, $\mathrm{LN}(x) = \gamma \odot \dfrac{x - \mu(x)}{\sqrt{\sigma^2(x) + \epsilon}} + \beta$,
+        where $\gamma$ and $\beta$ are learned, and $\epsilon$ is a tiny guard against division by
+        zero. The property that matters most is <strong>scale invariance</strong>: for any positive
+        factor $c$, $\mathrm{LN}(cx) = \mathrm{LN}(x)$. Multiply the input by a hundred and the
+        output does not move. You can check the arithmetic yourself:
+      </p>
+
+      <div class="demo" id="demo-ln">
+        <div class="demo-head">Try it &mdash; scale invariance</div>
+        <div class="demo-row">
+          <label for="ln-c">input scale&nbsp;<span class="mono">c</span></label>
+          <input type="range" id="ln-c" min="0" max="2" step="0.01" value="0" aria-label="scale factor (log slider, 1x to 100x)">
+          <output class="mono" id="ln-c-val" for="ln-c">1&times;</output>
+        </div>
+        <div class="demo-grid">
+          <div class="demo-cell">
+            <div class="demo-label">input&nbsp;<span class="mono">c&thinsp;&middot;&thinsp;x</span></div>
+            <div class="mono demo-val" id="ln-in">[2, 4, 6, 8]</div>
+            <div class="demo-sub mono" id="ln-norm">norm 10.0</div>
+          </div>
+          <div class="demo-cell">
+            <div class="demo-label">output&nbsp;<span class="mono">LN(c&thinsp;&middot;&thinsp;x)</span></div>
+            <div class="mono demo-val" id="ln-out">[-1.34, -0.45, 0.45, 1.34]</div>
+            <div class="demo-sub mono" id="ln-onorm">norm 2.0</div>
+          </div>
+        </div>
+        <p class="demo-note">Computed with $\gamma = 1$, $\beta = 0$, $\epsilon = 10^{-5}$. The slider is
+        logarithmic from 1&times; to 100&times;. The input norm grows with $c$; the output does not.</p>
+      </div>
+
+      <h2>The catch: it normalizes layers, not streams</h2>
+      <p>
+        Here is the distinction the whole paper turns on. LayerNorm&rsquo;s guarantee is a
+        <strong>statistic of each layer&rsquo;s activations, per sample, after the fact</strong>.
+        It is a real guarantee &mdash; but it is not a bound on the network. The next learned map
+        after a LayerNorm has whatever spectral norm training gives it, the learned
+        $(\gamma, \beta)$ can restore any scale and shift the normalization removed, and nothing in
+        the construction prevents a trained network from growing its representation layer over
+        layer, because scale is exactly the degree of freedom $\gamma$ holds. LayerNorm was never
+        asked to bound the composed operator across 240 layers. Nothing else in the architecture
+        was either.
+      </p>
+      <p>
+        Our training experiment (E6: 96 runs, four architectures, identical protocol) makes this
+        concrete. The LayerNorm baseline &mdash; normalization placed on the branch&rsquo;s
+        pre-activations, the standard ResNet-with-LN configuration, with the residual trunk itself
+        normalized nowhere &mdash; trains beautifully: 97.4% held-out at depth 240, parity with
+        everything. And its measured <em>trunk</em> growth is $51.0\times \pm 7.4$ at that depth:
+        statistically indistinguishable from the plain ResNet&rsquo;s $48.2\times \pm 4.1$, and the
+        highest of the four architectures. The normalizer did not reduce the trunk&rsquo;s forward
+        growth, because nothing in that architecture speaks to that quantity. LayerNorm manages
+        weather; it does not issue a budget.
+      </p>
+
+      <h2>What P-027 does instead</h2>
+      <p>
+        The port-Hamiltonian stream replaces the residual update
+        $x \to x + f(x)$ with a state update whose three channels never mix jobs:
+        $$x_{t+1} \;=\; \Lambda_t\, C_t\, x_t \;+\; h\, B_t\, u_t.$$
+        <strong>Transport</strong> $C_t$ is a Cayley rotation &mdash; exactly orthogonal at any
+        step size, so it moves information around the state without ever changing its norm:
+        $\|C_t x\| = \|x\|$, by construction, for every $x$.
+        <strong>Dissipation</strong> $\Lambda_t$ is a symmetric contraction with spectrum in
+        $(-1, 1)$ at <em>any</em> learned parameters &mdash; the network can choose to dissipate
+        less, but it cannot choose to amplify the state channel. The ceiling is not a training
+        outcome; it is the parameterization.
+        <strong>Ports</strong> $B_t u_t$ are the only door norm can enter through.
+      </p>
+      <p>
+        Summing the per-step inequality over depth gives the <strong>port budget</strong>, and this
+        is the theorem LayerNorm has no counterpart of:
+        $$\|x_L\| \;\le\; \|x_0\| \;+\; \sum_{t=0}^{L-1} h\,\|B_t u_t\|.$$
+        The bound is input-independent &mdash; it holds for every input simultaneously, including
+        adversarial ones, because it is a property of the operator, not a statistic of the data.
+        And it binds the backward pass identically: the gradients flow through the same
+        $\Lambda_t C_t$ factors, transposed, so forward contraction and backward decay are one
+        law. You can feel the difference in arithmetic:
+      </p>
+
+      <div class="demo" id="demo-budget">
+        <div class="demo-head">Try it &mdash; the port budget vs. compound drift</div>
+        <div class="demo-row">
+          <label for="b-L">depth&nbsp;<span class="mono">L</span></label>
+          <input type="range" id="b-L" min="10" max="240" step="10" value="240" aria-label="depth">
+          <output class="mono" id="b-L-val" for="b-L">240</output>
+        </div>
+        <div class="demo-row">
+          <label for="b-s">injection / layer&nbsp;<span class="mono">s</span></label>
+          <input type="range" id="b-s" min="0.02" max="1" step="0.02" value="0.26" aria-label="per-layer port injection magnitude">
+          <output class="mono" id="b-s-val" for="b-s">0.26</output>
+        </div>
+        <div class="demo-row">
+          <label for="b-q">dissipation&nbsp;<span class="mono">1&minus;q</span></label>
+          <input type="range" id="b-q" min="0" max="10" step="0.5" value="2" aria-label="per-layer dissipation, percent">
+          <output class="mono" id="b-q-val" for="b-q">2.0%</output>
+        </div>
+        <div class="bars">
+          <div class="bar-row">
+            <span class="bar-name">PH ceiling</span>
+            <div class="bar-track"><div class="bar-fill bar-ph" id="bar-ph"></div></div>
+            <span class="bar-val mono" id="val-ph">12.9</span>
+          </div>
+          <div class="bar-row">
+            <span class="bar-name">unmanaged</span>
+            <div class="bar-track"><div class="bar-fill bar-un" id="bar-un"></div></div>
+            <span class="bar-val mono" id="val-un">13.7</span>
+          </div>
+        </div>
+        <p class="demo-note">Illustrative arithmetic, worst case ($h = 1$): the PH ceiling is
+        $q^L + s\,\frac{1-q^L}{1-q}$ &mdash; a theorem (Proposition&nbsp;1 of the paper). The
+        unmanaged stream is compound drift at 1% per layer, $(1 + s)\,(1.01)^L$ &mdash; the
+        standard residual stream&rsquo;s default. Bars are log-scaled to the larger value.
+        Measured results live in <a href="paper/p027.html#fig-7">Figure&nbsp;7</a>.</p>
+      </div>
+
+      <h2>The two guarantees, side by side</h2>
+      <table class="ledger">
+        <thead>
+          <tr><th></th><th>LayerNorm</th><th>port-Hamiltonian stream</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>what it controls</td><td>per-layer, per-sample statistics (zero mean, unit variance)</td><td>per-step operator norm (&le;1), input-independent</td></tr>
+          <tr><td>scale property</td><td>$\mathrm{LN}(cx) = \mathrm{LN}(x)$ for $c &gt; 0$ &mdash; per layer, per sample</td><td>$\|\Lambda C x\| \le \|x\|$ for every $x$ &mdash; and the telescoped port budget across depth</td></tr>
+          <tr><td>can training undo it?</td><td>yes &mdash; $\gamma, \beta$ are learned scale and shift</td><td>no &mdash; the ceiling holds at any weights; dissipation can approach zero but never invert</td></tr>
+          <tr><td>backward pass</td><td>empirical benefits; no operator statement</td><td>the same factors, transposed &mdash; a theorem (Proposition&nbsp;5)</td></tr>
+          <tr><td>what it costs</td><td>a per-sample statistic each layer; placement and $\epsilon$ are hyperparameters</td><td>one $d \times d$ linear solve per layer</td></tr>
+          <tr><td>growth at depth 240</td><td>$51.0\times \pm 7.4$ (measured, trained)</td><td>$31.8\times \pm 2.0$ (measured, trained &mdash; and bounded by construction)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What the experiments say</h2>
+      <p>
+        E6 trained four architectures under one protocol &mdash; held-out splits,
+        validation-selected learning rates, early stopping, three seeds, gradient and norm
+        signatures measured on the trained models. At depth 240 on circles-4:
+      </p>
+      <table class="ledger">
+        <thead>
+          <tr><th>model</th><th>held-out accuracy</th><th>forward norm growth</th><th>normalizer in stream?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>PH net (ours)</td><td>97.3% &plusmn; 0.3</td><td>31.8&times; &plusmn; 2.0</td><td>none</td></tr>
+          <tr><td>ResNet</td><td>97.0% &plusmn; 0.3</td><td>48.2&times; &plusmn; 4.1</td><td>none</td></tr>
+          <tr><td>ResNet + LayerNorm</td><td>97.4% &plusmn; 0.1</td><td>51.0&times; &plusmn; 7.4</td><td>branch (trunk: no)</td></tr>
+          <tr><td>Cayley net</td><td>97.3% &plusmn; 0.3</td><td>41.2&times; &plusmn; 1.7</td><td>none</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Read honestly, the table says three things. First: <strong>the architecture trains</strong>
+        &mdash; accuracy at parity with every baseline at depth 240, with no normalizer anywhere
+        in the stream, which is the claim the external audit demanded we test. Second:
+        <strong>accuracy parity is the claim, not victory</strong> &mdash; 97.3 against 97.4 is a
+        tie, and we report it as one. Third: <strong>the signatures differ where the theory says
+        they must</strong> &mdash; the PH net&rsquo;s growth is the lowest of the four at every
+        tested depth, and unlike the baselines&rsquo; growth it is bounded by a quantity you can
+        read off the parameters before training starts. On the harder spirals-2 task, no
+        architecture solves the problem under this protocol (PH 57.6%, everyone else 55&ndash;67%,
+        chance 50%) &mdash; we report that as found, because that is what it is.
+      </p>
+
+      <h2>Where this could be wrong</h2>
+      <p>
+        The paper keeps a running list of its own soft spots (Section&nbsp;8), and the explainer
+        should be at least as honest. Three objections carry real weight. <strong>Scale:</strong>
+        everything above was measured at width 32 on two synthetic tasks; nothing here competes
+        with tuned architectures on real data, and the paper does not claim it does.
+        <strong>Placement:</strong> the LayerNorm baseline uses the standard in-branch placement
+        with an un-normalized trunk; the trunk-normalized (post-LN) variant &mdash; the placement
+        that <em>would</em> pin trunk scale &mdash; is specified as the follow-up ablation and
+        ships flag-gated in the training harness, with the prediction registered before the run.
+        <strong>Substitution:</strong> LayerNorm buys things at scale that an operator bound does
+        not address &mdash; optimization conditioning, tolerance to initialization and width
+        changes &mdash; and whether the budget substitutes for those at real scale is precisely
+        the open research question. The question was never &ldquo;is LayerNorm bad?&rdquo; It is:
+        <em>how much of what we buy from normalization can be bought from architectural
+        guarantees instead?</em>
+      </p>
+
+      <div class="x-links">
+        <p class="x-links-head">Go deeper</p>
+        <p>
+          <a class="cta-primary" href="paper/p027.html">Read the paper</a>
+          <a class="cta-quiet" href="pdfs/p-027.pdf">Typeset PDF</a>
+          <a class="cta-quiet" href="https://colab.research.google.com/github/srivtx/p-rick/blob/main/code/p-027-colab.ipynb">Train it yourself in Colab</a>
+          <a class="cta-quiet" href="blog/p027.html">The companion essay</a>
+          <a class="cta-quiet" href="https://github.com/srivtx/p-rick/blob/main/code/p-027b-training.py">The training harness</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="f-brand">p-rick</div>
+      <div class="f-note">An independent research program on missing software &mdash; working papers, typeset PDFs, companion essays, open harnesses.</div>
+      <div class="f-colophon">
+        set in fraunces, inter &amp; ibm plex mono &middot; papers cc by 4.0 &middot; code mit<br>
+        figures regenerate from code in the repository &middot; srivtx.github.io/p-rick
+      </div>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="papers.html">Papers</a>
+      <a href="blog.html">Essays</a>
+      <a href="method.html">Method</a>
+      <a href="feed.xml">RSS</a>
+      <a href="https://github.com/srivtx/p-rick">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/theme.js"></script>
+<script src="assets/reveal.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  // ---- demo 1: LayerNorm scale invariance ----
+  var X = [2, 4, 6, 8];
+  var cIn = document.getElementById('ln-c');
+  var cVal = document.getElementById('ln-c-val');
+  var lnIn = document.getElementById('ln-in');
+  var lnOut = document.getElementById('ln-out');
+  var lnNorm = document.getElementById('ln-norm');
+  var lnONorm = document.getElementById('ln-onorm');
+
+  function fmt(v) { return (v >= 0 ? '+' : '\u2212') + Math.abs(v).toFixed(2); }
+  function fmtPlain(v) { return v.toFixed(Math.abs(v) < 100 ? 1 : 0); }
+
+  function ln(v) {
+    var n = v.length, mu = 0, i;
+    for (i = 0; i < n; i++) mu += v[i];
+    mu /= n;
+    var va = 0;
+    for (i = 0; i < n; i++) va += (v[i] - mu) * (v[i] - mu);
+    va /= n;
+    var sd = Math.sqrt(va + 1e-5);
+    return v.map(function (t) { return (t - mu) / sd; });
+  }
+  function norm(v) {
+    return Math.sqrt(v.reduce(function (a, t) { return a + t * t; }, 0));
+  }
+
+  function renderLN() {
+    var c = Math.pow(10, parseFloat(cIn.value));      // log slider: 1x .. 100x
+    var cx = X.map(function (t) { return t * c; });
+    var out = ln(cx);
+    cVal.textContent = (c >= 9.95 ? Math.round(c) : c.toFixed(1)) + '\u00d7';
+    lnIn.textContent = '[' + cx.map(function (t) { return fmtPlain(t); }).join(', ') + ']';
+    lnOut.textContent = '[' + out.map(fmt).join(', ') + ']';
+    lnNorm.textContent = 'norm ' + norm(cx).toFixed(1);
+    lnONorm.textContent = 'norm ' + norm(out).toFixed(3);
+  }
+  cIn.addEventListener('input', renderLN);
+  renderLN();
+
+  // ---- demo 2: the port budget vs compound drift ----
+  var bL = document.getElementById('b-L'), bS = document.getElementById('b-s'),
+      bQ = document.getElementById('b-q');
+  var bLv = document.getElementById('b-L-val'), bSv = document.getElementById('b-s-val'),
+      bQv = document.getElementById('b-q-val');
+  var barPH = document.getElementById('bar-ph'), barUN = document.getElementById('bar-un');
+  var valPH = document.getElementById('val-ph'), valUN = document.getElementById('val-un');
+  var N0 = 1.0, DRIFT = 0.01;  // 1% per layer for the unmanaged counterfactual
+
+  function renderBudget() {
+    var L = parseInt(bL.value, 10);
+    var s = parseFloat(bS.value);
+    var rho = parseFloat(bQ.value) / 100;   // dissipation per layer
+    var q = 1 - rho;
+
+    var ph;                                  // port budget, worst case h=1
+    if (rho === 0) { ph = N0 + L * s; }
+    else { ph = Math.pow(q, L) * N0 + s * (1 - Math.pow(q, L)) / (1 - q); }
+    var un = (N0 + s) * Math.pow(1 + DRIFT, L);
+
+    bLv.textContent = String(L);
+    bSv.textContent = s.toFixed(2);
+    bQv.textContent = (rho * 100).toFixed(1) + '%';
+    valPH.textContent = ph >= 100 ? ph.toFixed(0) : ph.toFixed(1);
+    valUN.textContent = un >= 100 ? un.toFixed(0) : un.toFixed(1);
+
+    var mx = Math.max(ph, un);
+    var floor = 0.1;                         // log floor for bar widths
+    function w(v) {
+      var t = Math.log10(Math.max(v, floor) / floor) / Math.log10(mx / floor);
+      return Math.max(2, Math.min(100, t * 100));
+    }
+    barPH.style.width = w(ph) + '%';
+    barUN.style.width = w(un) + '%';
+  }
+  bL.addEventListener('input', renderBudget);
+  bS.addEventListener('input', renderBudget);
+  bQ.addEventListener('input', renderBudget);
+  renderBudget();
+})();
+</script>
+</body>
+</html>

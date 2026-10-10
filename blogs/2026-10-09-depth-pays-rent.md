@@ -35,4 +35,4 @@ The falsification route is written down: depth-1000 training runs without normal
 
 Depth doesn't have to be rented. The paper is the lease-termination notice.
 
-*Read the paper: [The Dissipation Budget Law](pdfs/p-027.pdf) · [reading edition](../paper/p027.html) · [harness](https://github.com/srivtx/p-rick/blob/main/code/p-027-simulation.py) · [Colab: train it yourself](https://colab.research.google.com/github/srivtx/p-rick/blob/main/code/p-027-colab.ipynb)*
+*Read the paper: [The Dissipation Budget Law](pdfs/p-027.pdf) · [reading edition](../paper/p027.html) · [harness](https://github.com/srivtx/p-rick/blob/main/code/p-027-simulation.py) · [Colab: train it yourself](https://colab.research.google.com/github/srivtx/p-rick/blob/main/code/p-027-colab.ipynb) · [explainer: why no LayerNorm](../layernorm.html)*

@@ -344,7 +344,7 @@ def main():
     build_feed(list(reversed(feed_items)))
     # sitemap: all pages + reading editions + PDFs
     pages = ['', 'papers.html', 'blog.html', 'method.html', '404.html',
-             'og-image.png', 'feed.xml']
+             'og-image.png', 'feed.xml', 'layernorm.html']
     pages += ['paper/p%03d.html' % n for n in range(1, 31)]
     pages += ['blog/p%03d.html' % n for n in range(1, 31)]
     pages += ['pdfs/p-%03d.pdf' % n for n in range(1, 31)]

@@ -38,6 +38,14 @@ spirals-2 (harder, depth 120). Adam + cosine decay, batch 256.
 Outputs: figures/p-027/training-results.json (incremental, resumable)
          figures/p-027/f7-training.png
 Run:     python3 code/p-027b-training.py [--smoke] [--device=auto|cpu|cuda]
+         [--models=ph,resnet,resnet-ln,resnet-tln,cayley]
+
+Models:  the default grid is the paper's four (ph, resnet, resnet-ln,
+         cayley) and is run when the flag is absent -- the landed 96-run
+         results stay byte-identical. resnet-tln is the rev-1.2 follow-up
+         ablation (paper Sections 4.6/8): a TRUNK-normalized (post-LN)
+         ResNet, the placement that pins trunk scale per layer, at the
+         price of making that scale a per-sample statistic.
 
 Device note: parameters are initialized on CPU (seed-reproducible) and the
 model is then moved to the requested device, so the ONLY device-dependent
@@ -66,6 +74,7 @@ H = 1.0
 SEEDS = [0, 1, 2]
 LRS = [1e-3, 3e-3]
 TASKS = {'circles4': [30, 120, 240], 'spirals2': [120]}
+GRID_MODELS = ('ph', 'resnet', 'resnet-ln', 'cayley')  # the paper's default
 EPOCHS = 50
 PATIENCE = 10
 BATCH = 256
@@ -151,6 +160,24 @@ class ResBlock(nn.Module):
         return z + self.lin2(torch.tanh(self.norm(self.lin1(z))))
 
 
+class TrunkLNBlock(nn.Module):
+    """Trunk-normalized residual block (post-LN placement) -- the rev-1.2
+    follow-up ablation of Sections 4.6/8: z' = LN(z + W2 tanh(W1 z)).
+    Unlike ResBlock(ln=True), which normalizes the BRANCH's pre-activation
+    (the standard ResNet-with-LN placement, trunk un-normalized), this pins
+    the TRUNK's scale every layer -- a per-sample statistic of the layer's
+    data, so no port budget and no input-independent operator bound.
+    Off the paper's default grid; enable with --models."""
+    def __init__(self, d):
+        super().__init__()
+        self.lin1 = nn.Linear(d, d)
+        self.lin2 = nn.Linear(d, d)
+        self.norm = nn.LayerNorm(d)
+
+    def forward(self, z):
+        return self.norm(z + self.lin2(torch.tanh(self.lin1(z))))
+
+
 class CayleyBlock(nn.Module):
     """Orthogonal transport + free residual block (control)."""
     def __init__(self, d):
@@ -173,6 +200,8 @@ class StreamNet(nn.Module):
             layers = [ResBlock(d) for _ in range(depth)]
         elif model_name == 'resnet-ln':
             layers = [ResBlock(d, ln=True) for _ in range(depth)]
+        elif model_name == 'resnet-tln':
+            layers = [TrunkLNBlock(d) for _ in range(depth)]
         elif model_name == 'cayley':
             layers = [CayleyBlock(d) for _ in range(depth)]
         else:
@@ -278,13 +307,13 @@ def train_run(model_name, task, depth, seed, lr, device='cpu', quiet=True):
     return run
 
 
-def save(runs, done=False):
+def save(runs, done=False, models=GRID_MODELS):
     summary = {}
     for task, depths in TASKS.items():
         summary[task] = {}
         for dp in depths:
             summary[task][str(dp)] = {}
-            for m in ('ph', 'resnet', 'resnet-ln', 'cayley'):
+            for m in models:
                 cand = [r for r in runs if r['task'] == task
                         and r['depth'] == dp and r['model'] == m
                         and r['seed'] in SEEDS]
@@ -306,7 +335,8 @@ def save(runs, done=False):
                                  float(np.std([r['val_acc'] for r in pick]))],
                         seeds=len(pick))
     doc = dict(config=dict(d=D, h=H, seeds=SEEDS, lrs=LRS, epochs=EPOCHS,
-                           batch=BATCH, split=list(SPLIT), tasks=TASKS),
+                           batch=BATCH, split=list(SPLIT), tasks=TASKS,
+                           models=list(models)),
                runs=runs, summary=summary, complete=done)
     with open(RES_PATH, 'w') as f:
         json.dump(doc, f, indent=1)
@@ -316,11 +346,20 @@ def main():
     smoke = '--smoke' in sys.argv
     budget = None
     device = 'auto'
+    models = GRID_MODELS
     for a in sys.argv:
         if a.startswith('--budget='):
             budget = float(a.split('=', 1)[1])
         if a.startswith('--device='):
             device = a.split('=', 1)[1].strip().lower()
+        if a.startswith('--models='):
+            models = tuple(m.strip() for m in a.split('=', 1)[1].split(',')
+                           if m.strip())
+    known = ('ph', 'resnet', 'resnet-ln', 'resnet-tln', 'cayley')
+    bad = [m for m in models if m not in known]
+    if bad:
+        sys.exit('unknown --models entry: %s (known: %s)'
+                 % (', '.join(bad), ', '.join(known)))
     if device == 'auto':
         device = 'cuda' if torch.cuda.is_available() else 'cpu'
     if device.startswith('cuda') and not torch.cuda.is_available():
@@ -336,7 +375,7 @@ def main():
     jobs = []
     for task, depths in TASKS.items():
         for dp in depths:
-            for m in ('ph', 'resnet', 'resnet-ln', 'cayley'):
+            for m in models:
                 for sd in SEEDS:
                     for lr in LRS:
                         if any(r['task'] == task and r['depth'] == dp
@@ -356,14 +395,14 @@ def main():
               (i + 1, len(jobs), m, dp, sd, lr), flush=True)
         r = train_run(m, task, dp, sd, lr, device=device)
         runs.append(r)
-        save(runs)
+        save(runs, models=models)
         print('    test %.3f  val %.3f  grad_max %.2f  fwd x%.2f  %.1fs' %
               (r['test_acc'], r['val_acc'], r['grad_max_ratio'],
                r['fwd_growth'], r['wall_s']), flush=True)
     if smoke:
         print('smoke run complete')
         return
-    save(runs, True)
+    save(runs, True, models=models)
     make_figure(runs)
     print('wrote f7-training.png and training-results.json (complete)')
 

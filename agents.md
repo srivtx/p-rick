@@ -825,3 +825,74 @@ the paper and ships the final revision.
 and VLM-clean; PDF text spot-checks (12/12 strings) + 3-page VLM QA;
 reading-edition regen diff scoped to p027 only after the template fix;
 git push + live-site checks in the worklog.
+
+### Session 024 — 2026-10-10: P-027 rev 1.2 — the normalization comparison made precise (+ site explainer)
+
+The user returned with a first-principles LayerNorm walkthrough and the
+directive: make the LayerNorm argument solid, counter the realistic
+objections, improve the site, make the paper real. Rev 1.2 does the paper
+side; a new explainer page does the site side. All E6 numbers unchanged
+(the 96-run results are landed and byte-identical).
+
+**Paper (rev 1.2):**
+- New §4.6 "What normalization guarantees — and what it does not": LayerNorm's
+  two exact properties (per-sample positive-scale invariance; centering) and
+  what it does *not* provide (any statement about the operator norm of a
+  composition — the next learned map re-enters unbounded; gamma/beta hold the
+  scale freedom). The type contrast: a statistic of each layer's activations
+  vs an input-independent operator inequality with the port budget as its
+  telescoped form and Proposition 5 as its transpose. The trained-model
+  reading: LN trunk growth 51.0x ± 7.4 vs plain ResNet 48.2x ± 4.1 vs PH
+  31.8x ± 2.0 at depth 240 — normalization did not reduce trunk growth
+  because nothing in that placement bounds it. Scope discipline with Xiong
+  et al. 2020 cited inline.
+- §8 gains a fifth boundary (the LayerNorm comparison is precise but not
+  exhaustive): Pre-LN orderings, tuned epsilon, and the trunk-normalized
+  placement are not run; the completing ablation is specified with a
+  registered prediction — trunk-LN pins trunk scale statistically (no port
+  budget, no backward law), post-LN depth stability is the open half, and
+  either outcome sharpens the comparison.
+- §6 E6 paragraph gains the LN-specific sentence; §2 points forward to §4.6;
+  the banner carries the rev-1.2 note; §9 one clause.
+
+**Harness:**
+- code/p-027b-training.py: TrunkLNBlock (the post-LN trunk-normalized
+  ablation) + --models flag. Default grid = the paper's four architectures,
+  byte-identical; the results config now records the models run. py_compile
+  clean (no local torch — the flag is exercised on the next Colab run).
+- code/p-027-figures.py: STYLES entry for resnet-tln, and a real bug fixed —
+  models with no landed runs plotted phantom empty handles that leaked into
+  legends; guarded, and f7 regenerated pixel-identical to the landed render
+  (verified by image diff before/after).
+- code/p-027-colab.ipynb: rev-1.2 note in the sweep cell (default run
+  unchanged; --models documented for the fifth architecture).
+
+**Site:**
+- NEW layernorm.html — the first-principles explainer: the problem LayerNorm
+  solves, the worked [2,4,6,8] arithmetic, two working interactive demos
+  (scale-invariance slider; port-budget vs compound-drift calculator), the
+  guarantee table, the E6 table with the honest caveats (spirals-2 negative
+  included), and a where-this-could-be-wrong section. Wired into the
+  papers.html card, the index row, the essay footer, and the sitemap
+  (build_site list); new demo/bar CSS in style.css. Browser-tested in both
+  themes: slider arithmetic verified (100x input → norm 1095.4, LN output
+  norm 2.000; budget values recomputed by hand), VLM PASS both themes.
+- tools/build_paper_pages.py: META_RE relaxed (banners need not end in a
+  parenthetical) + latest "rev X.Y" extraction. This fixes a latent
+  site-wide bug: 26 reading editions carried empty series kickers
+  ("series ·") and empty BibTeX series fields, and p027 showed stale
+  "draft 1.0" in its meta line. p027 now reads "draft 1.1 → rev 1.2".
+- blogs essay footer: explainer link added (the suspected "arness" broken
+  link was a terminal-display artifact; the bytes were intact).
+- md2tex5.py: SUBTITLE/TITLE replacement order fixed — TITLE's replacement
+  was splitting the SUBTITLE placeholder, rendering "SUB" + title on every
+  md2tex5-built title page and losing the subtitle text entirely.
+
+**PDF:** rebuilt on the md2tex5 pipeline: 18 pages (1 cover + 17 body; §4.6
+on page 10, the fifth boundary on page 17); tectonic zero errors (one
+pre-existing overfull hbox in the §4.2 display equation, unchanged from
+v1.1-final); title block now "v1.2" with the subtitle restored; pdftotext
+spot-checks 8/8; 3-page VLM QA PASS (title page, §4.6 page, §8 page).
+
+**Ship:** single commit; live verification of the explainer page, the
+reading edition, the PDF, and the sitemap after Pages builds.

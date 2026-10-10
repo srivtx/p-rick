@@ -242,7 +242,7 @@ def convert(body_md, stash):
 
 META_RE = re.compile(
     r'\*\*p-rick working paper (P-\d{3})\s*[·\s]+series ([IV]+)\s*\(([^)]+)\)'
-    r'\s*[·\s]+draft ([\d.]+)([^(]*)\(([^)]*)\)\*\*')
+    r'\s*[·\s]+draft ([\d.]+)([^*]*)\*\*')
 
 def paper_meta(text, fname):
     """Extract id, series, series-name, draft, revision note, title."""
@@ -259,13 +259,18 @@ def paper_meta(text, fname):
         t = re.match(r'^#\s+(.+)$', body, re.M)
         title = t.group(1).strip() if t else fname
     meta = {'pid': None, 'series': None, 'series_name': None,
-            'draft': '1.0', 'rev_note': ''}
+            'draft': '1.0', 'rev': '', 'rev_note': ''}
     mm = META_RE.search(body)
     if mm:
         meta['pid'] = mm.group(1)
         meta['series'] = mm.group(2)
         meta['series_name'] = mm.group(3).strip()
         meta['draft'] = mm.group(4).strip()
+        banner = mm.group(0)
+        # latest explicit revision marker in the banner (e.g. 'rev 1.2')
+        rvs = re.findall(r'\brev\s+([\d.]+)', banner)
+        if rvs:
+            meta['rev'] = rvs[-1].strip()
         # revision parenthetical if the trailing text carries one
         tail = body[mm.end():body.find('\n', mm.end())] if '\n' in body[mm.end():] else body[mm.end():]
         rpm = re.search(r'\(([^)]+)\)', tail)
@@ -347,9 +352,11 @@ def build():
         ser = p['meta']['series']
         series_label = '%s &middot; %s' % (ser, html_mod.escape(p['meta']['series_name'])) if p['meta']['series_name'] else ser
         draft = p['meta']['draft']
+        rev = p['meta'].get('rev', '')
+        ver = ('%s &rarr; rev %s' % (draft, rev)) if rev else draft
         meta_line = ('%s &middot; draft %s &middot; p-rick research program &middot; '
                      '<a href="%s/blob/main/papers/%s">source</a> &middot; <a href="../pdfs/p-%03d.pdf">pdf</a> &middot; cc by 4.0'
-                     % (date_iso, draft, GH, p['fname'], n))
+                     % (date_iso, ver, GH, p['fname'], n))
         if p['meta']['rev_note']:
             meta_line += ' &middot; <span class="rev-flag">revised</span>'
         kw_html = ''.join('<span class="kw">%s</span>' % html_mod.escape(k) for k in p['keywords']) \

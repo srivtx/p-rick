@@ -29,6 +29,7 @@ RES_PATH = os.path.join(OUT, 'training-results.json')
 STYLES = {'ph': ('#0077BB', 'o', 'PH-Net (ours)'),
           'resnet': ('#CC3311', 's', 'ResNet'),
           'resnet-ln': ('#009988', 'D', 'ResNet + LN'),
+          'resnet-tln': ('#AA3377', 'v', 'ResNet trunk-LN'),
           'cayley': ('#EE7733', '^', 'Cayley-Net')}
 
 
@@ -78,8 +79,9 @@ def make_figure(runs, out=OUT):
                 dps.append(dp)
                 accs = [r['test_acc'] for r in pick]
                 mu.append(np.mean(accs)); sd.append(np.std(accs))
-        ax.errorbar(dps, mu, yerr=sd, color=c, marker=mk, lw=2, capsize=3,
-                    label=lab)
+        if dps:  # skip models with no landed runs (empty legend entries)
+            ax.errorbar(dps, mu, yerr=sd, color=c, marker=mk, lw=2, capsize=3,
+                        label=lab)
     ax.axhline(0.25, color=G400, lw=1.0, ls=':')
     ax.set_xlabel('depth L')
     ax.set_ylabel('held-out test accuracy')
@@ -117,9 +119,10 @@ def make_figure(runs, out=OUT):
                 dps.append(dp)
                 mn.append(np.mean([r['grad_min_ratio'] for r in pick]))
                 mx.append(np.mean([r['grad_max_ratio'] for r in pick]))
-        ax.fill_between(dps, mn, mx, color=c, alpha=0.16, lw=0)
-        ax.plot(dps, mx, marker=mk, color=c, lw=2, label=lab)
-        ax.plot(dps, mn, marker=mk, color=c, lw=1.3, ls='--', alpha=0.9)
+        if dps:  # skip models with no landed runs (empty legend entries)
+            ax.fill_between(dps, mn, mx, color=c, alpha=0.16, lw=0)
+            ax.plot(dps, mx, marker=mk, color=c, lw=2, label=lab)
+            ax.plot(dps, mn, marker=mk, color=c, lw=1.3, ls='--', alpha=0.9)
     ax.axhline(1.0, color=G900, lw=1.0, ls='--')
     ax.set_yscale('log')
     ax.set_xlabel('depth L')
@@ -138,7 +141,8 @@ def make_figure(runs, out=OUT):
             if pick:
                 dps.append(dp)
                 mu.append(np.mean([r['fwd_growth'] for r in pick]))
-        ax.plot(dps, mu, marker=mk, color=c, lw=2, label=lab)
+        if dps:  # skip models with no landed runs (empty legend entries)
+            ax.plot(dps, mu, marker=mk, color=c, lw=2, label=lab)
     ax.axhline(1.0, color=G900, lw=1.0, ls='--')
     ax.set_yscale('log')
     ax.set_xlabel('depth L')
