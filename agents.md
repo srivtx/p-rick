@@ -768,3 +768,60 @@ scores are not training. This session ships the full response.
 run → §6 numbers + Figure 7 + reading-edition regen (build_paper_pages) +
 pdf rebuild (p-027.pdf is text-stale since v1.1, like the 8 known-stale
 PDFs) + essay/card refresh + final push.
+
+### Session 023 — 2026-10-10: P-027 v1.1-final — E6 results landed (the Colab round)
+
+The user ran the 96-run E6 sweep through the repo's one-click Colab harness
+(commit 45c060c saved the executed notebook back to the repo) and returned
+training-results.json + f7-training.png. This session writes the results into
+the paper and ships the final revision.
+
+**Data:**
+- All 96/96 grid points present (4 architectures x 2 tasks x 3 seeds x 2 LRs;
+  the harness never flipped its complete flag post-loop — fixed; device
+  backfilled 'cpu' on the 30 pre-device-field runs; complete=true set with
+  grid verified).
+
+**Headline results (best-by-validation per seed, held-out test):**
+- circles-4: ALL architectures ~97% at depths 30/120/240 — the PH net trains
+  to parity at depth 240 with no normalizer anywhere (97.3% ± 0.3 vs ResNet
+  97.0 ± 0.3, ResNet+LN 97.4 ± 0.1, Cayley 97.3 ± 0.3). The audit's central
+  objection is answered at toy scale: valid + correct + trainable.
+- forward norm growth: PH lowest of the four at every circles-4 depth
+  (14.5/25.4/31.8 vs ResNet 16.8/40.9/48.2, LN 16.4/34.6/51.0) and bounded
+  by the design-readable port budget.
+- backward gradients: no architecture amplifies on trained weights (max =
+  the trivial 1.000 at the readout; minima 0.015–0.086) — stated honestly:
+  trained-model gradient stats do NOT separate architectures; the law's
+  separation is structural, not exhibited.
+- spirals-2 (honest negative): nobody solves it (PH 57.6 ± 0.4, ResNet
+  57.7 ± 2.3, LN 55.2 ± 0.8; Cayley 67.0 ± 8.0 the partial exception).
+
+**Ship:**
+- New code/p-027-figures.py: torch-free f7 regeneration from
+  training-results.json (repo reproducibility bar); panel (c) upgraded from
+  the flat all-1.0 max curve to the min–max trained-gradient envelope; the
+  clipped y-label VLM-flagged on the Colab render fixed; harness make_figure
+  now delegates here; harness complete-flag bug fixed.
+- Paper: E6 results block + Figure 7 + caption in §6; abstract banner and
+  closing sentence updated with the result; §7 defect-4 closes the loop;
+  §8 interim "sweep executing" replaced with the final result; §9 and the
+  (a)-prediction annotated (E6 = the depth-240 instance, held; 10^3 open).
+- PDF rebuilt on the md2tex5 pipeline (graphicspath → live repo): tectonic
+  zero errors, 16 body pages, 7 figures; cover extracted from the live v1.0
+  PDF and merged (17 pp); page-level VLM QA CLEAN (figure pages, proof page
+  with the QED mark, same as v1.0 precedent).
+- Site: reading edition regenerated via build_paper_pages (E6 section + F7,
+  7 figures); reveal.js restored UPSTREAM in tools/pp_template.py (the regen
+  had reverted Session 021's post-hoc injection — template now carries it,
+  so only paper/p027.html differs from before); essay source
+  blogs/2026-10-09-depth-pays-rent.md updated (held-out numbers, rev-1.1
+  update block, falsification route annotated, broken footer link fixed,
+  Colab link added) and blog/p027.html + feed regenerated; blog.html dek,
+  papers.html card (E6 complete), README row (96/96 + results), index.html
+  dek, method.html ledger row (5 experiments + E6) all synced.
+
+**Verification:** results grid asserted complete; figure regenerated locally
+and VLM-clean; PDF text spot-checks (12/12 strings) + 3-page VLM QA;
+reading-edition regen diff scoped to p027 only after the template fix;
+git push + live-site checks in the worklog.

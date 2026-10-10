@@ -153,6 +153,7 @@ TEMPLATE = """<!DOCTYPE html>
 </main>
 {footer}
 <script src="../assets/theme.js"></script>
+<script src="../assets/reveal.js"></script>
 {scrollspy}
 </body>
 </html>
